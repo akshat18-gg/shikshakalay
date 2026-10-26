@@ -29,3 +29,5 @@ Status: open | fixed in #<PR> (test: <file>)
   rebuilt from empty with one command.
 - Short-lived audio clips live in Postgres (`media`, 60-minute expiry) instead of object storage: they are small
   and deleted by the sweep.
+- Until P2-T3 (logins), `smoke:live` skips the login step when `/api/auth/login` answers 404 (mock mode treats
+  everyone as teacher_demo). **Remove that skip in P2-T3.**
