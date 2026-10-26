@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 0 — Setup (S0.1–S0.4 merged; waiting on H0.1 transfer + H0.3 GitHub settings for G0)
-- **Next task:** Phase 1 — P2-T2 practice room (mock)
+- **Next task:** Phase 1 — S1.4 smoke:live (then P1-T4 Render once H0.1/H1.1 are done)
 - **Live URL:** — (Render not set up yet)
 - **Render mode:** — (`USE_MOCKS=1` until gate G2)
 - **Last gate passed:** —
@@ -34,7 +34,7 @@
 
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
-**Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [ ] P2-T2 practice room (mock) · [ ] P1-T4 Render + UptimeRobot · [ ] S1.4 smoke:live
+**Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [ ] P1-T4 Render + UptimeRobot · [ ] S1.4 smoke:live
 **Phase 2** — [ ] P1-T1 Neon + readyz · [ ] P1-T2 bugs · [ ] P1-T3 mind-state + speakers · [ ] P2-T3 logins · [ ] P1-T5 askJson + S2.1 · [ ] P3-T8 teacher lines · [ ] P1-T6 + P3-T2 lesson file · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
@@ -57,6 +57,9 @@
 - 27 Oct — Screen language = `sk_lang` cookie (set by `POST /api/auth/lang`, works before login) → user's saved lang → English. P2-T3 adds the user re-sign to that route.
 - 27 Oct — Colour `teal-strong` #2E7479 for white-on-teal (plain deck teal is 3.8:1, below AA). Buttons/inputs raised to 44 px.
 - 27 Oct — `scripts/screenshots.ts` (Playwright, 360×640 + 1280×800, en + hi) → `private/screens/` (git-ignored).
+- 27 Oct — Practice and card pages load the lesson on the server (engine + owner check), so reloads work with no loading flash; the browser still only fetches through `src/lib/api.ts`. Someone else's lesson shows 404 (we don't confirm it exists).
+- 27 Oct — A first `/card/[id]` page landed with P2-T2 so End never leads to a 404 on the live link; P2-T7 completes it.
+- 27 Oct — "{name} looks down and stays quiet" also shows for whole-class questions, so the shy child is visible from sample 1.
 - 27 Oct — CI actions bumped to `checkout@v5` / `setup-node@v5` (v4 runs on deprecated Node 20).
 
 ## Numbers

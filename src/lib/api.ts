@@ -3,7 +3,16 @@
  * becomes an ApiClientError with the server's code and request id (shown on error screens as a reference).
  */
 import { type ZodType, z } from "zod";
-import { ApiError, type ApiErrorCode, Lang } from "@/lib/contracts";
+import {
+  ApiError,
+  type ApiErrorCode,
+  CoachCard,
+  Lang,
+  SessionView,
+  type StartLessonBody,
+  StartLessonResult,
+  TurnResult,
+} from "@/lib/contracts";
 
 const TIMEOUT_MS = 30_000;
 
@@ -46,4 +55,32 @@ function postJson<T>(path: string, body: unknown, schema: ZodType<T>): Promise<T
 
 export function setLang(lang: Lang): Promise<{ lang: Lang }> {
   return postJson("/api/auth/lang", { lang }, z.object({ lang: Lang }));
+}
+
+export function startLesson(body: StartLessonBody): Promise<StartLessonResult> {
+  return postJson("/api/sessions", body, StartLessonResult);
+}
+
+export function getSession(sessionId: string): Promise<SessionView> {
+  return call(`/api/sessions/${encodeURIComponent(sessionId)}`, { method: "GET" }, SessionView);
+}
+
+/** A typed or recorded turn. Retrying with the same idempotencyKey returns the same result (no double turn). */
+export function sendTurn(
+  sessionId: string,
+  turn: { text?: string; audio?: Blob; idempotencyKey: string },
+): Promise<TurnResult> {
+  const form = new FormData();
+  if (turn.text) form.append("text", turn.text);
+  if (turn.audio) form.append("audio", turn.audio);
+  form.append("idempotencyKey", turn.idempotencyKey);
+  return call(`/api/sessions/${encodeURIComponent(sessionId)}/turns`, { method: "POST", body: form }, TurnResult);
+}
+
+export function endLesson(sessionId: string): Promise<CoachCard> {
+  return call(`/api/sessions/${encodeURIComponent(sessionId)}/end`, { method: "POST" }, CoachCard);
+}
+
+export function getCard(sessionId: string): Promise<CoachCard> {
+  return call(`/api/sessions/${encodeURIComponent(sessionId)}/card`, { method: "GET" }, CoachCard);
 }

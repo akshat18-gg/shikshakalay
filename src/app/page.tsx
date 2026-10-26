@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { StartButton } from "@/components/StartButton";
 import { getUser } from "@/lib/auth";
 import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
 
-/** Teacher home: greeting, today's skill and the big Start button (wired to a lesson in P2-T2). */
+/** Teacher home: greeting, today's skill and the big Start button. */
 export default async function Home() {
   const user = await getUser();
   const lang = await currentLang(user);
@@ -20,9 +20,7 @@ export default async function Home() {
           {t("home.skillTitle", lang)}
         </h2>
         <p className="mt-2 text-muted-foreground">{t("home.skillHint", lang)}</p>
-        <Button size="lg" className="mt-4 w-full sm:w-auto">
-          {t("home.start", lang)}
-        </Button>
+        <StartButton />
       </section>
 
       <section aria-labelledby="last-card">

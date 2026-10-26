@@ -123,5 +123,17 @@
   "wa.rejoinTip": "Tip: this test number forgets you after 3 days. To keep practising, send \"{joinCode}\" to +1 415 523 8886.",
   "wa.tooLong": "That voice note was longer than 30 seconds. Please send a shorter one.",
   "wa.notUnderstood": "Sorry, I didn't understand. {hint}",
-  "wa.busy": "One moment — the children are still answering your last message."
+  "wa.busy": "One moment — the children are still answering your last message.",
+
+  "child.ravi": "Ravi",
+  "child.arjun": "Arjun",
+  "child.meena": "Meena",
+  "child.sana": "Sana",
+  "common.retry": "Try again",
+  "common.loading": "Loading…",
+  "practice.title": "Practice",
+  "errors.network": "No internet connection. Please check it and try again.",
+  "errors.reference": "Reference: {id}",
+  "card.aiNote": "Written by AI from your lesson — check what matters to you.",
+  "card.backHome": "Back to home"
 }
