@@ -21,6 +21,8 @@
   "nav.history": "पिछले पाठ",
   "nav.try": "नमूना देखें",
   "nav.logout": "लॉग आउट",
+  "lang.en": "English",
+  "lang.hi": "हिन्दी",
 
   "home.greeting": "नमस्ते, {code}",
   "home.skillTitle": "बंडल और तीलियों से दो अंकों का घटाव",

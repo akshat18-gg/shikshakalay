@@ -19,6 +19,8 @@
   "nav.history": "History",
   "nav.try": "Try a sample",
   "nav.logout": "Log out",
+  "lang.en": "English",
+  "lang.hi": "हिन्दी",
 
   "home.greeting": "Hello, {code}",
   "home.skillTitle": "2-digit subtraction with bundles and sticks",
