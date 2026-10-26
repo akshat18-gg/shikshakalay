@@ -8,6 +8,6 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["tests/unit/**/*.test.ts"],
-    env: { USE_MOCKS: "1" }, // unit tests never call paid APIs
+    env: { USE_MOCKS: "1", LOG_SILENT: "1" }, // unit tests never call paid APIs; logs stay quiet
   },
 });

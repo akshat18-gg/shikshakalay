@@ -22,6 +22,7 @@ import type {
   CoachCard,
   DirectorOutput,
   EndLesson,
+  GetCard,
   GetSession,
   Lang,
   Move,
@@ -31,7 +32,9 @@ import type {
 } from "@/lib/contracts";
 
 type MockSession = { turn: number; lang: Lang; userId: string; startedAt: string; turns: TurnResult[]; ended: boolean };
-const sessions = new Map<string, MockSession>();
+// Kept on globalThis: Next.js may load this module once per route, and every route must see the same lessons.
+const store = globalThis as unknown as { shkMockSessions?: Map<string, MockSession> };
+const sessions = (store.shkMockSessions ??= new Map<string, MockSession>());
 
 const START: ChildState[] = [
   { id: "ravi", bug: "smallerFromLarger", state: "STUCK", revealed: false, engagement: 3, workedSum: null },
@@ -276,3 +279,5 @@ export const mockEndLesson: EndLesson = async (sessionId) => {
   if (s) s.ended = true;
   return mockCard;
 };
+
+export const mockGetCard: GetCard = async (sessionId) => (sessions.get(sessionId)?.ended ? mockCard : null);

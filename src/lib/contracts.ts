@@ -272,6 +272,9 @@ export type EndLesson = (sessionId: string) => Promise<CoachCard>;
 /** P1 — src/lib/engine/orchestrator.ts. null if the lesson doesn't exist. (Owner checks happen in the route.) */
 export type GetSession = (sessionId: string) => Promise<(SessionView & { userId: string }) | null>;
 
+/** P1 — src/lib/engine/orchestrator.ts. The lesson's coaching card, or null until the lesson has one. */
+export type GetCard = (sessionId: string) => Promise<CoachCard | null>;
+
 /** P3 — src/lib/voice/stt.ts (Sarvam Saaras v4, codemix). Max 30 s of audio. */
 export type Transcribe = (audio: Audio, lang: Lang, keyterms?: string[]) => Promise<string>;
 
