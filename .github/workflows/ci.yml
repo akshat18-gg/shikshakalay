@@ -18,7 +18,7 @@ jobs:
       SESSION_SECRET: ci-only-not-a-secret-ci-only-not-a-secret
       DEMO_PIN: "1234"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       # The team does not want Claude (or any AI) listed as a contributor or co-author.
@@ -34,7 +34,7 @@ jobs:
             echo "::error::Remove the AI co-author / 'Generated with Claude Code' lines (commit messages or PR description)."
             exit 1
           fi
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -56,8 +56,8 @@ jobs:
       SESSION_SECRET: ci-only-not-a-secret-ci-only-not-a-secret
       DEMO_PIN: "1234"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm

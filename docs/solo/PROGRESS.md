@@ -5,8 +5,8 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 0 — Setup (not started)
-- **Next task:** S0.1 tool checks
+- **Phase:** 0 — Setup (S0.1–S0.4 merged; waiting on H0.1 transfer + H0.3 GitHub settings for G0)
+- **Next task:** Phase 1 — P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version
 - **Live URL:** — (Render not set up yet)
 - **Render mode:** — (`USE_MOCKS=1` until gate G2)
 - **Last gate passed:** —
@@ -14,7 +14,11 @@
 ## Waiting on the operator
 | # | What | 🛑/🟡 | Asked (IST) | Status |
 |---|---|---|---|---|
-| | | | | |
+| H0.1 | Transfer `sourin-git/shikshakalay` to the operator (needed for main protection + Render) | 🛑 | Tue 27 Oct 03:58 | open |
+| H0.3 | GitHub settings: ruleset on `main`, squash only, auto-delete branches (needs admin → after H0.1) | 🛑 | Tue 27 Oct 04:05 | open |
+| H0.4 | Licence MIT, three names | 🟡 | Tue 27 Oct 03:58 | used default |
+| H1.1 | Render web service (after H0.1) | 🛑 | Tue 27 Oct 03:58 | open |
+| H1.2 | UptimeRobot on `/api/healthz` (after H1.1) | 🛑 | Tue 27 Oct 03:58 | open |
 
 ## Gates
 | Gate | Status | Proof (what was run and seen) | When |
@@ -29,7 +33,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 0** — [ ] S0.1 tools · [ ] S0.2 repo · [ ] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) · [ ] S0.4 first PR + CI
+**Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
 **Phase 1** — [ ] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version · [ ] P2-T1 shell + i18n · [ ] P2-T2 practice room (mock) · [ ] P1-T4 Render + UptimeRobot · [ ] S1.4 smoke:live
 **Phase 2** — [ ] P1-T1 Neon + readyz · [ ] P1-T2 bugs · [ ] P1-T3 mind-state + speakers · [ ] P2-T3 logins · [ ] P1-T5 askJson + S2.1 · [ ] P3-T8 teacher lines · [ ] P1-T6 + P3-T2 lesson file · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
@@ -42,6 +46,11 @@
 - 26 Oct — Solo build mode: one coding agent builds everything; the operator pre-approved squash-merging green PRs.
 - 26 Oct — No AI listed as contributor: attribution off in `.claude/settings.json`, CI blocks co-author lines.
 - 26 Oct — Neon dev branch for local work, main branch for Render; prod scripts need the operator's OK.
+- 27 Oct — Local Node is 26 (plan says 22); `engines >=22` accepts it. `.node-version` pins 22 for Render; CI uses 22.
+- 27 Oct — shadcn init worked on **Radix** (style `radix-nova`), so `asChild` stays. It adds runtime deps `radix-ui`, `cn` (shadcn's own clsx + tailwind-merge replacement), `lucide-react`, `next-themes`, `recharts`, `sonner`, `tw-animate-css`, `shadcn` (its Tailwind CSS import).
+- 27 Oct — CODEOWNERS is one line `* @akshat18-gg` (solo mode).
+- 27 Oct — First push went to `sourin-git/shikshakalay` (write access) before the transfer; a transfer keeps history.
+- 27 Oct — CI actions bumped to `checkout@v5` / `setup-node@v5` (v4 runs on deprecated Node 20).
 
 ## Numbers
 - Reply time p50 / p90: —
