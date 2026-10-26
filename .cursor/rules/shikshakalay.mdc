@@ -1,0 +1,14 @@
+---
+description: Shikshakalay shared project rules (always on)
+alwaysApply: true
+---
+Before writing any code, read and follow `AGENTS.md` in the repo root. It is the single source of truth:
+the product, the hackathon rules, the stack, folder owners (P1/P2/P3), the engine rules, the API list and the
+"do not" list. The shared types in `src/lib/contracts.ts` win over everything else.
+
+- Stay inside the folders your person owns (AGENTS.md section 6). Ask before touching anyone else's files.
+- Never change `src/lib/contracts.ts` without a PR all three people approve.
+- The engine decides every child's answer in TypeScript; Claude only writes the words.
+- No keys, phone numbers, real names or real recordings in git or logs. Mock mode (`USE_MOCKS=1`) must keep working.
+- Before saying a task is done: `npm run lint && npm run typecheck && npm test`.
+- Next.js here is v16 and newer than your training data: check `node_modules/next/dist/docs/` when unsure.

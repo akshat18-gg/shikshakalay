@@ -1,0 +1,98 @@
+# Skill 1 — 2-digit subtraction with bundles and sticks (owner: P3; P1's engine loads and checks it).
+# STARTER: English is ready. Hindi is a first draft — P3 must have a native Hindi speaker check every line
+# (and the education mentor check the mistakes) before Wed 28. Bump `version` on every change.
+#
+# Rules for this file:
+# - Every number a child says comes from the engine (src/lib/engine/bugs.ts), never from this file or Claude.
+#   Backup lines use {answer}, which the engine fills in.
+# - All sums: two 2-digit numbers, first bigger, and the ones digit of the first is smaller (needs borrowing).
+# - Both languages must be complete, or the engine refuses to start.
+
+id: sub_2digit
+version: 1
+title:
+  en: "2-digit subtraction with bundles and sticks"
+  hi: "बंडल और तीलियों से दो अंकों का घटाव"
+grade: 2
+languages: [en, hi]
+
+# The first sum starts the lesson. The rest are for evals and suggestions.
+sums: ["52-27", "43-18", "61-24", "70-35", "84-59", "92-46"]
+
+# Up to 50 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, bundle, bundles, sticks, borrow, tens, ones, minus, "take away",
+   रवि, अर्जुन, मीना, सना, बंडल, तीली, तीलियाँ, दहाई, इकाई, उधार, घटाओ, माइनस]
+
+children:
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: smallerFromLarger
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "In each column I take the small number from the big number."
+    sampleLines:
+      en: ["35, Teacher! I did it first!", "Easy! 8 minus 3 is 5."]
+      hi: ["35, टीचर जी! मैंने सबसे पहले किया!", "आसान है! 8 में से 3 गए तो 5।"]
+
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: borrowNoDecrement
+    start: { state: STUCK, engagement: 2 }
+    persona: "Copies Ravi and likes to say 'Me also!'. Knows he must borrow, but forgets the tens get one less."
+    explainsAs: "I borrow a ten for the ones, but I forget to take it away from the tens."
+    sampleLines:
+      en: ["Me also 35!", "I borrowed, Teacher. 12 minus 7 is 5."]
+      hi: ["मेरा भी 35!", "मैंने उधार लिया, टीचर जी। 12 में से 7 गए तो 5।"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: countBackOffByOne
+    start: { state: STUCK, engagement: 2 }
+    persona: "Careful and slow. Counts back on her fingers. Speaks softly but is sure of her counting."
+    explainsAs: "I count back on my fingers, and I count the starting number too."
+    sampleLines:
+      en: ["Wait… I'm counting on my fingers… 26.", "52, 51, 50… I got 26, Teacher."]
+      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I open one bundle, so I have enough sticks."
+    sampleLines:
+      en: ["Umm… 25, Teacher?", "I opened one bundle…"]
+      hi: ["उम्म… 25, टीचर जी?", "मैंने एक बंडल खोला…"]
+
+# What each move does in this skill (the engine's rules use these groups).
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! I opened a bundle."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! मैंने एक बंडल खोला।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"

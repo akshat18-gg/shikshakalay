@@ -1,0 +1,14 @@
+# Prettier formats code only (src, tests, scripts, evals/*.ts). Docs, content and generated files are left alone.
+*.md
+*.yaml
+*.yml
+*.json
+content/
+docs/
+public/
+evals/lessons/
+evals/results/
+drizzle/
+.next/
+node_modules/
+next-env.d.ts
