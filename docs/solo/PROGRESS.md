@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — P2-T7 card + history, P2-T6 replies (no keys needed); voice tasks wait on H3.1–H3.3
+- **Next task:** Phase 3 — P2-T8 + P3-T5 languages (key parity test, hindi-review.md); voice tasks wait on H3.1–H3.3
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G2 (Tue 27 Oct 19:15)
@@ -39,7 +39,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
+**Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
@@ -76,6 +76,7 @@
 - 27 Oct — Prompt caching confirmed: from turn 2 the Director reads 3,265 and the Children 2,195 cached tokens; a turn after the first costs ≈ $0.00017.
 - 27 Oct — Coach (coach@2, Sonnet 5.5, default thinking, 4000 max tokens): call → one retry if the call fails → else plain card. Quote check (NFKC, lower case, no \p{P}, ≥ 90% window match) → one rewrite call with her real words → bad scores dropped, strength/fix quotes replaced by her first ≤ 12 words. `quotesVerified` = no bad quote after Claude's attempts; `droppedPoints` = what code had to repair. Over the daily budget → plain card, no Claude.
 - 27 Oct — coach@2: Hindi cards must not assume the teacher's gender (coach@1 wrote "मैं बताऊँगी").
+- 27 Oct — History: last 50 lessons, newest first, IST dates, the card's "try instead". Home: last card + the check-in when the last finished lesson ended 12+ h ago and has no answer (`POST /api/checkins`, one per lesson). Top bar wraps to two rows on phones (History, Log out on row 2).
 - 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.

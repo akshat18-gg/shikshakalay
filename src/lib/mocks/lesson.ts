@@ -281,3 +281,18 @@ export const mockEndLesson: EndLesson = async (sessionId) => {
 };
 
 export const mockGetCard: GetCard = async (sessionId) => (sessions.get(sessionId)?.ended ? mockCard : null);
+
+/** A teacher's past mock lessons, newest first (history page and home in mock mode). */
+export function mockHistory(userId: string) {
+  return [...sessions.entries()]
+    .filter(([, s]) => s.userId === userId)
+    .map(([sessionId, s]) => ({
+      sessionId,
+      startedAt: new Date(s.startedAt),
+      endedAt: s.ended ? new Date(s.startedAt) : null,
+      turnCount: s.turns.length - 1,
+      card: s.ended ? mockCard : null,
+      hasCheckin: false,
+    }))
+    .reverse();
+}

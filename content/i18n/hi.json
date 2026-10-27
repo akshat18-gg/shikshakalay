@@ -149,5 +149,11 @@
   "card.simple.fixWhat.scold": "डाँटने पर बच्चा अक्सर जवाब देना बंद कर देता है।",
   "card.simple.fixWhat.none": "कुछ बच्चों की गलती अभी बाकी है — उन्हें खुद देखने का तरीका चाहिए।",
   "card.simple.tryInstead": "एक बच्चे से पूछिए कि उसने जवाब कैसे निकाला, फिर उसे बंडल और तीलियों से दिखाने दीजिए।",
-  "card.simple.sayTomorrow": "तुम दोनों के जवाब अलग हैं। दोनों बताओ, तुमने कैसे निकाला?"
+  "card.simple.sayTomorrow": "तुम दोनों के जवाब अलग हैं। दोनों बताओ, तुमने कैसे निकाला?",
+
+  "history.turns": "{n} बारी",
+  "history.tryLine": "आज़माने की एक बात:",
+  "history.openCard": "कार्ड खोलें",
+  "history.notFinished": "अधूरा",
+  "home.seeCard": "पूरा कार्ड देखें"
 }

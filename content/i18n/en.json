@@ -147,5 +147,11 @@
   "card.simple.fixWhat.scold": "A child who is scolded often stops answering.",
   "card.simple.fixWhat.none": "Some children still have their mistake — they need a way to see it themselves.",
   "card.simple.tryInstead": "Ask one child how they got their answer, then let them show it with bundles and sticks.",
-  "card.simple.sayTomorrow": "Two of you got different answers. Tell me how you each got yours."
+  "card.simple.sayTomorrow": "Two of you got different answers. Tell me how you each got yours.",
+
+  "history.turns": "{n} turns",
+  "history.tryLine": "One thing to try:",
+  "history.openCard": "Open card",
+  "history.notFinished": "Not finished",
+  "home.seeCard": "See the full card"
 }
