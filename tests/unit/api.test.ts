@@ -1,9 +1,10 @@
 /**
  * The API routes in mock mode, called directly as functions (no server needed).
  */
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { ApiError, CoachCard, SessionView, StartLessonResult, TurnResult } from "@/lib/contracts";
 import { mockStartLesson } from "@/lib/mocks/lesson";
+import { POST as login } from "@/app/api/auth/login/route";
 import { GET as healthz } from "@/app/api/healthz/route";
 import { GET as version } from "@/app/api/version/route";
 import { GET as scenarios } from "@/app/api/scenarios/route";
@@ -16,18 +17,40 @@ import { GET as card } from "@/app/api/sessions/[id]/card/route";
 const BASE = "http://test.local";
 const ctx = (id: string) => ({ params: Promise.resolve({ id }) });
 
+/** The login cookie every request below carries (set in beforeAll; swapped for the admin test). */
+let cookie = "";
+
+async function cookieFor(code: string): Promise<string> {
+  const res = await login(
+    new Request(BASE + "/api/auth/login", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ code, pin: "1234" }),
+    }),
+    undefined,
+  );
+  expect(res.status).toBe(200);
+  return (res.headers.get("set-cookie") ?? "").split(";")[0];
+}
+
+beforeAll(async () => {
+  cookie = await cookieFor("teacher_demo");
+});
+
+function req(path = "", init: RequestInit = {}) {
+  const headers = new Headers(init.headers);
+  if (cookie) headers.set("cookie", cookie);
+  return new Request(BASE + path, { ...init, headers });
+}
+
 function postJson(path: string, body: unknown) {
-  return new Request(BASE + path, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(body),
-  });
+  return req(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
 }
 
 function postForm(path: string, fields: Record<string, string | Blob>) {
   const form = new FormData();
   for (const [k, v] of Object.entries(fields)) form.append(k, v);
-  return new Request(BASE + path, { method: "POST", body: form });
+  return req(path, { method: "POST", body: form });
 }
 
 async function errorCode(res: Response) {
@@ -63,7 +86,7 @@ describe("health and version", () => {
 
 describe("lesson routes (mock mode)", () => {
   it("lists the scenarios", async () => {
-    const res = await scenarios(new Request(BASE + "/api/scenarios"), undefined);
+    const res = await scenarios(req("/api/scenarios"), undefined);
     const list = (await res.json()) as { id: string }[];
     expect(list.map((s) => s.id)).toEqual(["sub_2digit"]);
   });
@@ -77,7 +100,7 @@ describe("lesson routes (mock mode)", () => {
   it("rejects unknown keys, bad JSON and unknown scenarios", async () => {
     const extra = await start(postJson("/api/sessions", { scenarioId: "sub_2digit", lang: "en", role: "admin" }), 0);
     expect(extra.status).toBe(400);
-    const bad = await start(new Request(BASE + "/api/sessions", { method: "POST", body: "{nope" }), 0);
+    const bad = await start(req("/api/sessions", { method: "POST", body: "{nope" }), 0);
     expect(await errorCode(bad)).toBe("bad_request");
     const missing = await start(postJson("/api/sessions", { scenarioId: "nope", lang: "en" }), 0);
     expect(missing.status).toBe(404);
@@ -91,17 +114,17 @@ describe("lesson routes (mock mode)", () => {
     const t1 = TurnResult.parse(await res.json());
     expect(t1.lines.find((l) => l.child === "ravi")?.text).toContain("35");
 
-    const viewRes = await getSession(new Request(BASE), ctx(sessionId));
+    const viewRes = await getSession(req(), ctx(sessionId));
     const raw = (await viewRes.json()) as Record<string, unknown>;
     expect(raw).not.toHaveProperty("userId");
     expect(SessionView.parse(raw).turns).toHaveLength(2);
 
-    expect((await card(new Request(BASE), ctx(sessionId))).status).toBe(404);
+    expect((await card(req(), ctx(sessionId))).status).toBe(404);
 
-    const ended = await end(new Request(BASE, { method: "POST" }), ctx(sessionId));
+    const ended = await end(req("", { method: "POST" }), ctx(sessionId));
     expect(CoachCard.parse(await ended.json()).fix.turn).toBe(2);
-    expect((await card(new Request(BASE), ctx(sessionId))).status).toBe(200);
-    expect((await end(new Request(BASE, { method: "POST" }), ctx(sessionId))).status).toBe(200); // idempotent
+    expect((await card(req(), ctx(sessionId))).status).toBe(200);
+    expect((await end(req("", { method: "POST" }), ctx(sessionId))).status).toBe(200); // idempotent
 
     const late = await sendTurn(sessionId, "One more?");
     expect(late.status).toBe(409);
@@ -109,15 +132,40 @@ describe("lesson routes (mock mode)", () => {
   });
 
   it("answers 404 for a missing lesson and 403 for someone else's", async () => {
-    expect((await getSession(new Request(BASE), ctx("does-not-exist"))).status).toBe(404);
-    expect((await getSession(new Request(BASE), ctx("../../etc"))).status).toBe(404);
+    expect((await getSession(req(), ctx("does-not-exist"))).status).toBe(404);
+    expect((await getSession(req(), ctx("../../etc"))).status).toBe(404);
 
     const other = await mockStartLesson("another-teacher", { scenarioId: "sub_2digit", lang: "en" }, "web");
-    const res = await getSession(new Request(BASE), ctx(other.sessionId));
+    const res = await getSession(req(), ctx(other.sessionId));
     expect(res.status).toBe(403);
     expect(await errorCode(res)).toBe("forbidden");
     expect((await sendTurn(other.sessionId, "hello")).status).toBe(403);
-    expect((await end(new Request(BASE, { method: "POST" }), ctx(other.sessionId))).status).toBe(403);
+    expect((await end(req("", { method: "POST" }), ctx(other.sessionId))).status).toBe(403);
+
+    // An admin may read any lesson (AI trace) but not play or end it.
+    const teacherCookie = cookie;
+    cookie = await cookieFor("ADMIN_demo"); // IDs are case-insensitive
+    try {
+      expect((await getSession(req(), ctx(other.sessionId))).status).toBe(200);
+      expect((await sendTurn(other.sessionId, "hello")).status).toBe(403);
+    } finally {
+      cookie = teacherCookie;
+    }
+  });
+
+  it("answers 401 without a login cookie, and 403 when a trainer tries to start a lesson", async () => {
+    const teacherCookie = cookie;
+    try {
+      cookie = "";
+      expect((await scenarios(req("/api/scenarios"), 0)).status).toBe(401);
+      cookie = "sk_session=forged.token.value";
+      expect((await scenarios(req("/api/scenarios"), 0)).status).toBe(401);
+      cookie = await cookieFor("trainer_demo");
+      const res = await start(postJson("/api/sessions", { scenarioId: "sub_2digit", lang: "en" }), 0);
+      expect(res.status).toBe(403);
+    } finally {
+      cookie = teacherCookie;
+    }
   });
 });
 
