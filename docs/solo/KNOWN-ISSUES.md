@@ -27,5 +27,8 @@ Status: open | fixed in #<PR> (test: <file>)
   session list. Fine for a demo with test logins.
 - Schema changes use `drizzle-kit push` from the schema files in git (no migration files). The schema can be
   rebuilt from empty with one command.
+- TTS is Sarvam Bulbul (no Azure key): it has no child-pitched boy voice, so Ravi and Arjun sound older than
+  Meena and Sana; and it can't make ogg/opus, so WhatsApp gets the children's audio as an MP3 file (not a voice
+  note) or text only — decide in Phase 5. Audio is 128 kbps (≈ 16 KB/s); 8 kHz (64 kbps) is the data-saver option.
 - Short-lived audio clips live in Postgres (`media`, 60-minute expiry) instead of object storage: they are small
   and deleted by the sweep.

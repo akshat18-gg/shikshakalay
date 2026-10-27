@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — P2-T8 + P3-T5 languages (key parity test, hindi-review.md); voice tasks wait on H3.1–H3.3
+- **Next task:** Phase 3 — P3-T4 media store + P1-T10 voice into the turn
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G2 (Tue 27 Oct 19:15)
@@ -21,8 +21,9 @@
 | H1.2 | UptimeRobot on `/api/healthz` | 🛑 | Tue 27 Oct 03:58 | done |
 | H-render | Render deploys from `akshat18-gg/shikshakalay` (auto-deploy on commit) | 🛑 | Tue 27 Oct 17:45 | done (live 23ac4ac) |
 | S2.2 | OK for db:push:prod + db:seed:prod; Render USE_MOCKS=0 | 🛑 | Tue 27 Oct 19:00 | done |
-| H3.1 | Sarvam API key → .env.local + Render `SARVAM_API_KEY` | 🛑 | Tue 27 Oct 17:00 | open |
-| H3.2 | Azure Speech Free F0 key → .env.local + Render `AZURE_SPEECH_KEY` | 🛑 | Tue 27 Oct 17:00 | open |
+| H3.1 | Sarvam API key → .env.local + Render `SARVAM_API_KEY` | 🛑 | Tue 27 Oct 17:00 | done in .env.local (Render: please confirm) |
+| H3.2 | Azure Speech key | 🛑 | Tue 27 Oct 17:00 | replaced: Sarvam Bulbul for all voices (operator, 27 Oct) |
+| H3.4 | Voice picks — listen to `private/voice-samples/*.wav`, reply with changes | 🟡 | Tue 27 Oct 20:40 | default = voices.ts picks |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🛑 | Tue 27 Oct 17:00 | open |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -39,7 +40,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
+**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
@@ -77,6 +78,7 @@
 - 27 Oct — Coach (coach@2, Sonnet 5.5, default thinking, 4000 max tokens): call → one retry if the call fails → else plain card. Quote check (NFKC, lower case, no \p{P}, ≥ 90% window match) → one rewrite call with her real words → bad scores dropped, strength/fix quotes replaced by her first ≤ 12 words. `quotesVerified` = no bad quote after Claude's attempts; `droppedPoints` = what code had to repair. Over the daily budget → plain card, no Claude.
 - 27 Oct — coach@2: Hindi cards must not assume the teacher's gender (coach@1 wrote "मैं बताऊँगी").
 - 27 Oct — History: last 50 lessons, newest first, IST dates, the card's "try instead". Home: last card + the check-in when the last finished lesson ended 12+ h ago and has no answer (`POST /api/checkins`, one per lesson). Top bar wraps to two rows on phones (History, Log out on row 2).
+- 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.
