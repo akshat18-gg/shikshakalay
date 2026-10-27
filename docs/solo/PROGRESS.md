@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
-- **Next task:** Phase 2 — P1-T8 part b: orchestrator + real routes (core.ts step merged)
+- **Next task:** Phase 2 — S2.2 prod DB + real mode on Render (waiting on the operator's OK) → gate G2
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=1` (until gate G2)
 - **Last gate passed:** —
@@ -37,7 +37,7 @@
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
 **Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [x] P1-T4 Render + UptimeRobot (operator, 0 agent minutes) · [x] S1.4 smoke:live (30 → 10)
-**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [x] P2-T3 logins (90 → 45) · [x] P1-T5 askJson + S2.1 (60 → 30) · [x] P3-T8 teacher lines (20 → 10) · [x] P1-T6 + P3-T2 lesson file (45 → 20) · [x] P1-T7 Director/Children/guardrails (120 → 50) · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
+**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [x] P2-T3 logins (90 → 45) · [x] P1-T5 askJson + S2.1 (60 → 30) · [x] P3-T8 teacher lines (20 → 10) · [x] P1-T6 + P3-T2 lesson file (45 → 20) · [x] P1-T7 Director/Children/guardrails (120 → 50) · [x] P1-T8 step + orchestrator (120 → 70) · [x] P2-T5 real API (30 → 5, no UI change needed) · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
@@ -67,6 +67,12 @@
 - 27 Oct — director@2: newTask only for a whole 2-digit sum to solve (director@1 put steps like "13-8" there: 24/30 → 30/30).
 - 27 Oct — Children: Claude call failure → backup lines at once (no retry), so a slow call never doubles the wait; only line-check failures get the one retry. `passed` = first generated line passed.
 - 27 Oct — Line check: when the right answer equals the sum's second number (70 − 35 = 35), one 35 is allowed if the line also names 70.
+- 27 Oct — contracts.ts (additive): ApiErrorCode `busy` (409) — two different turns of one lesson at once; the loser gets `busy` (a same-key retry gets the stored turn). i18n `errors.busy`.
+- 27 Oct — Until the Coach exists (P1-T9), `endLesson` stores the plain card built from her own words (`simpleCard`, i18n EN/HI); the Coach will run first and fall back to it.
+- 27 Oct — Hello `audioUrl` stays null until the fixed clips exist (P3-T6). A recording without text → 502 `stt_failed` until voice lands (P1-T10).
+- 27 Oct — `logError` never prints a failed query's parameters (DrizzleQueryError repeats them — teacher words, PIN hashes); only the DB reason and code.
+- 27 Oct — `scripts/seed.ts` = the three demo users for now (idempotent); dev seeded. `smoke:live -- --lesson` runs the G2 sequence + a same-key retry.
+- 27 Oct — Prompt caching confirmed: from turn 2 the Director reads 3,265 and the Children 2,195 cached tokens; a turn after the first costs ≈ $0.00017.
 - 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.
@@ -81,7 +87,7 @@
 - 27 Oct — CI actions bumped to `checkout@v5` / `setup-node@v5` (v4 runs on deprecated Node 20).
 
 ## Numbers
-- Reply time p50 / p90: —
+- Reply time p50 / p90: — (first real turns from the Mac: ~4–5 s server time; Director then Children in sequence; P1-T11)
 - App AI spend so far (from `ai_calls`): ~$0.01 (dev: smoke + 2 Director checks + 1 Children check, 27 Oct)
 - Coding spend (operator reads `/usage` at each gate): $14 (Tue 27 Oct 18:00, G1)
 - Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)

@@ -135,5 +135,17 @@
   "errors.network": "No internet connection. Please check it and try again.",
   "errors.reference": "Reference: {id}",
   "card.aiNote": "Written by AI from your lesson — check what matters to you.",
-  "card.backHome": "Back to home"
+  "card.backHome": "Back to home",
+
+  "errors.busy": "The children are still answering. Please wait a moment.",
+  "card.simple.strengthWhy.reveal": "You asked a child to explain their thinking — that is how you find the real mistake.",
+  "card.simple.strengthWhy.fix": "You used bundles, sticks or a sharp question to work on the mistake.",
+  "card.simple.strengthWhy.engage": "You brought a quiet child into the lesson or praised something specific.",
+  "card.simple.strengthWhy.other": "You kept the lesson going and gave the children sums to try.",
+  "card.simple.fixWhat.tell": "The children repeated the answer, but their mistake stayed for the next sum.",
+  "card.simple.fixWhat.repeat": "Saying it the same way again did not change how they think.",
+  "card.simple.fixWhat.scold": "A child who is scolded often stops answering.",
+  "card.simple.fixWhat.none": "Some children still have their mistake — they need a way to see it themselves.",
+  "card.simple.tryInstead": "Ask one child how they got their answer, then let them show it with bundles and sticks.",
+  "card.simple.sayTomorrow": "Two of you got different answers. Tell me how you each got yours."
 }

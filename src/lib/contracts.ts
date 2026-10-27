@@ -177,6 +177,7 @@ export const ApiErrorCode = z.enum([
   "forbidden", // 403 — wrong role, or not your lesson
   "not_found", // 404
   "lesson_over", // 409 — turn sent after the lesson ended
+  "busy", // 409 — another turn of this lesson is being answered right now (client waits and retries)
   "audio_too_long", // 413 — over 30 seconds
   "rate_limited", // 429 — over TURNS_PER_HOUR_LIMIT
   "stt_failed", // 502 — speech-to-text failed; UI offers the text box
