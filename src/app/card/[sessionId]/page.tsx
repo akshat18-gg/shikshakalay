@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CardAudioButton } from "@/components/CardAudioButton";
 import { getCard } from "@/lib/engine";
 import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
 import { pageSession } from "@/lib/pageAccess";
+import { ttsAvailable } from "@/lib/voice/tts";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: t("card.title", await currentLang()) };
 }
 
-/** The private coaching card. A first version — P2-T7 adds the "say tomorrow" audio and history. */
+/** The private coaching card: what worked, one thing to try, and a line to say tomorrow (with the coach's voice). */
 export default async function CardPage({ params }: PageProps<"/card/[sessionId]">) {
   const { sessionId } = await params;
   const { user } = await pageSession(sessionId, { adminCanRead: true });
@@ -53,6 +55,7 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
           {t("card.sayTomorrow", lang)}
         </h2>
         <p className="mt-2 text-lg">“{card.sayTomorrow}”</p>
+        {process.env.USE_MOCKS !== "1" && ttsAvailable() && <CardAudioButton sessionId={sessionId} />}
       </section>
 
       <p className="text-sm text-muted-foreground">{t("card.aiNote", lang)}</p>

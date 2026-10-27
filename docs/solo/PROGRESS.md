@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — P2-T8 + P3-T5 languages + card play button, then E1 (ask first)
+- **Next task:** Phase 3 — E1 eval generator (submit after the operator's OK), then gate G3 (operator's phone test)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G2 (Tue 27 Oct 19:15)
@@ -24,6 +24,7 @@
 | H3.1 | Sarvam API key → .env.local + Render `SARVAM_API_KEY` | 🛑 | Tue 27 Oct 17:00 | done (both, confirmed 28 Oct) |
 | H3.2 | Azure Speech key | 🛑 | Tue 27 Oct 17:00 | replaced: Sarvam Bulbul for all voices (operator, 27 Oct) |
 | H3.4 | Voice picks | 🟡 | Tue 27 Oct 20:40 | done — keep defaults (operator, 28 Oct) |
+| H4.2 | Hindi check: read `docs/solo/hindi-review.md` (232 lines; screen text, lesson lines, 20 child lines, a coach card), mark what sounds wrong | 🟡 | Wed 28 Oct 01:20 | open (Phase 4) |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -40,7 +41,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [ ] E1 eval batch
+**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [x] P2-T8 + P3-T5 languages (45 → 25; key-parity test, hindi-review.md, card play button) · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
