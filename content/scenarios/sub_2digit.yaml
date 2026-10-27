@@ -9,7 +9,7 @@
 # - Both languages must be complete, or the engine refuses to start.
 
 id: sub_2digit
-version: 2
+version: 3
 title:
   en: "2-digit subtraction with bundles and sticks"
   hi: "बंडल और तीलियों से दो अंकों का घटाव"
@@ -88,6 +88,8 @@ backupLines:
     repeat: "Teacher, can you say it again?"
     hello: "Good morning, Teacher!"
     puzzled: "Teacher, what is that?"
+    cannot: "Teacher, how can we take a big number from a small one?"
+    notToday: "Teacher, today we are doing take-away sums!"
   hi:
     STUCK: "{answer}, टीचर जी!"
     WOBBLY: "{answer} है क्या? मुझे लगता है…"
@@ -96,3 +98,5 @@ backupLines:
     repeat: "टीचर जी, फिर से बोलिए ना?"
     hello: "नमस्ते टीचर जी!"
     puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, छोटे में से बड़ा कैसे घटाएँ?"
+    notToday: "टीचर जी, आज तो हम घटाना सीख रहे हैं ना?"

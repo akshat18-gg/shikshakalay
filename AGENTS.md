@@ -392,8 +392,16 @@ e.g. Ravi on 43−18 → `["8 - 3 = 5", "4 - 1 = 3", "so 35"]`; Arjun on 52−27
 Claude turns these steps into a child's words, so explanations are always consistent with the mistake.
 A correct child (`GOT_IT` or Sana) explains correct steps (`["13 - 8 = 5", "3 - 1 = 2", "so 25"]`).
 
-Sums are always two 2-digit numbers, `a > b`, and need borrowing (`a % 10 < b % 10`).
-Parse `newTask` with `/^(\d{2})\s*[-−]\s*(\d{2})$/`; ignore it if invalid.
+The lesson file's own sums are two 2-digit numbers that need borrowing (`a % 10 < b % 10`).
+**Sums the teacher asks (changed 28 Oct after a live test, operator's decision):** `bugs.parseTask(newTask, currentSum)`:
+- any `a − b` with `0 ≤ b ≤ a ≤ 99` → it becomes the current sum and every mistake runs on it (10 − 5 → Ravi 15,
+  Arjun 15, Meena 6, Sana 5);
+- `b > a` ("take 2 from 1") → **impossible**: nothing changes, one child is puzzled (`cannot`), no number;
+- addition, ×, ÷, 3-digit numbers → **unsupported**: nothing changes, one child says "today we are doing take-away"
+  (`not_today`), no number;
+- both numbers made from the current sum's digits (on 43 − 18: 3, 8, 13, 4, 1) → a **step** of it, not a new task;
+- a single number or unconverted words → no task (a Director slip never triggers `not_today`).
+A child never says a number that doesn't belong to the question just asked (line check, 7.10).
 
 ### 7.3 The 12 teaching moves (+2 tags) — from the World Bank **Teach** observation tool
 
@@ -422,7 +430,8 @@ how this child thinks?), `engagement` (0 = silent … 3 = eager), `workedSum` (t
 Per turn, in this order:
 
 1. If `director.confidence === "low"`, treat the move as `other`.
-2. If `newTask` is a valid sum, it becomes the **current sum** (clear all parrots).
+2. If `newTask` is a sum the engine can play, it becomes the **current sum** (clear all parrots) — so "10 minus 5 is 5"
+   sets 10 − 5 before the parrot. An impossible or unsupported task changes nothing at all (steps 3–4 are skipped).
 3. Targets = children named in `addressedTo`; if it contains `"whole_class"` or is empty → all children.
 4. Apply the move to each target:
    - **Reveal** → `revealed = true`. State does not change.
@@ -449,7 +458,7 @@ checking only half-works (WOBBLY). Shouting the right answer is like handing a s
 
 - **Hello (turn 0):** every child with engagement ≥ 1 says the `hello` backup line. No Claude call.
   Audio = the fixed clip `public/audio/hello-<lang>.mp3` (or `.ogg` for WhatsApp).
-- **Empty or very short transcript** (fewer than 2 letters): the most eager child says the `repeat` line.
+- **Empty or very short transcript** (fewer than 2 letters or digits — "10 + 7" counts): the most eager child says the `repeat` line.
   No Director call. `director = null`. Does not count toward the 12 turns.
 - **End command** — the whole message is `end`, `end lesson`, `खत्म` or `समाप्त` (any case) → lesson over,
   no Claude call.
@@ -461,9 +470,11 @@ checking only half-works (WOBBLY). Shouting the right answer is like handing a s
 
 | Situation | mode | mustSay |
 |---|---|---|
+| Impossible task (b > a) — one child: the named one if engaged, else the most eager | `cannot` | `null` |
+| Unsupported task (+, ×, ÷, 3 digits) — one child, as above | `not_today` | `null` |
 | Reveal move, child named | `explain` (uses `explainSteps` of its *belief*) | `beliefAnswer` |
+| `other` (a plain reaction never repeats a told answer) | `react` | `null` |
 | Child has a parrot for this sum | `parrot` | the parrot answer |
-| `other` | `react` | `null` |
 | Everything else | `answer` | `spokenAnswer` |
 
 ### 7.6 Worked example — Ravi across 7 turns (this is a unit test)
@@ -523,7 +534,7 @@ in the `system` block so it is **cached**; the short, changing part goes in the 
 
 | What could go wrong | Check in code | If it fails |
 |---|---|---|
-| A child drifts to the right answer | **Line check**: normalise Devanagari digits (०–९ → 0–9); the line must contain `mustSay` as a whole number; if the child is not GOT_IT and `mustSay ≠ a − b`, the line must **not** contain `a − b`; over 30 words fails | Retry once (only the failing children, stricter prompt), then the backup line `backupLines[lang][state]` with `{answer}` |
+| A child drifts to the right answer | **Line check**: normalise Devanagari digits (०–९ → 0–9); the line must contain `mustSay` as a whole number; if the child is not GOT_IT and `mustSay ≠ a − b`, the line must **not** contain `a − b`; a line with no number to say may only repeat numbers from her words or the current sum, a parrot only the told answer and the sum; over 30 words fails | Retry once (only the failing children, stricter prompt), then the backup line `backupLines[lang][state]` with `{answer}` |
 | Director invents a move | The Zod enum allows only our 14 tags | Can't happen |
 | Director unsure | `confidence: "low"` → `other` | Logged; no state change |
 | Coach quotes words she never said | **Quote check**: normalise (NFKC, lower-case, strip punctuation, collapse spaces); the quote must be inside her words in that turn (or ≥ 90% similar to a same-length window) | One rewrite call listing the bad quotes, then drop that point. Strength/fix can't be dropped: use the first ≤ 12 words she really said in that turn |

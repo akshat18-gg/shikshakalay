@@ -25,6 +25,8 @@ const BackupLines = z
     repeat: noAnswer,
     hello: noAnswer,
     puzzled: noAnswer,
+    cannot: noAnswer,
+    notToday: noAnswer,
   })
   .strict();
 

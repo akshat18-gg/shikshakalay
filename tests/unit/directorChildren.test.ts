@@ -80,6 +80,9 @@ describe("tagMove", () => {
     };
     expect(cleanDirector(d, ["ravi", "sana"])).toMatchObject({ addressedTo: ["ravi"], newTask: "43-18" });
     expect(cleanDirector({ ...d, addressedTo: [] }, ["ravi"]).addressedTo).toEqual(["whole_class"]);
+    expect(cleanDirector({ ...d, newTask: "13-8" }, ["ravi"], [43, 18]).newTask).toBe("");
+    expect(cleanDirector({ ...d, newTask: "43" }, ["ravi"]).newTask).toBe("");
+    expect(cleanDirector({ ...d, newTask: "10 + 5" }, ["ravi"], [52, 27]).newTask).toBe("10+5");
   });
 });
 

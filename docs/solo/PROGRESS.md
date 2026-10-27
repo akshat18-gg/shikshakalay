@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — E1 eval generator (submit after the operator's OK), then gate G3 (operator's phone test)
+- **Next task:** Phase 3 — gate G3 (operator's phone test, after KI-001 is live); collect E1 when the batch ends
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G2 (Tue 27 Oct 19:15)
@@ -41,7 +41,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [x] P2-T8 + P3-T5 languages (45 → 25; key-parity test, hindi-review.md, card play button) · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [~] E1 eval batch (generator merged; 2-lesson sample good, $0.034; batch ≈ $1 — waiting on the operator's OK)
+**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [x] P2-T8 + P3-T5 languages (45 → 25; key-parity test, hindi-review.md, card play button) · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [~] E1 eval batch (submitted 28 Oct 02:50, msgbatch_01XRNLGyJ7APUaehcr5fFojz; collect when ended)
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
@@ -82,6 +82,7 @@
 - 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 28 Oct — Voice is Sarvam only (operator): Azure keys are "optional" in env:check, AGENTS §2/§4/§8/§15 + README say Sarvam Bulbul; `tts.ts` stays swappable.
 - 28 Oct — Sarvam cost per voice lesson ≈ ₹2 (STT ₹0.49/min × ~1.2 min + Bulbul v4-flash ₹1/1K chars × ~1.3K); up to ₹7 if each request bills a full minute. Top up ₹500 before the pilot.
+- 28 Oct — KI-001 (operator's live test): any a − b ≤ 99 plays through the mistakes; b > a → one child `cannot`; +/×/÷/3-digit → one child `not_today`; both numbers from the current sum's digits = a step, not a task (engine decides — protects sample 4); a react never parrots; line check: no-number lines only her numbers + the sum, parrots only the told answer; digits count for "too short"; director@3 (36/36 sums, 36/36 children, 35/36 moves on the 36 lines); children@3; lesson file v3 (`cannot`, `notToday` backups). AGENTS §7.2/7.4/7.5/7.10 updated.
 - 28 Oct — E1 generator: Opus 5.5, structured output, 100 specs (50 weak / 50 strong, half Hindi/Hinglish, 10 teacher styles, focus child rotates ravi/arjun/meena, a fresh borrowing final sum each), each lesson checked (weak = only weak moves; strong = reveal → ≥ 2 fixes on the focus child; valid sums). Sample cost says the batch is ≈ $1, not $5.
 - 28 Oct — Recorder: hold to talk (release sends, slide off cancels) or tap/tap (also keyboard); 30 s ring + auto-stop; webm/opus → mp4 → ogg at 24 kbps; one idempotency key per turn, retried twice on network errors (1 s, 3 s); audio unlocked on the first tap (silent WAV), replies auto-play, ▶ Play button if the phone blocks it and on every turn. Tested with Chrome's fake mic (a Bulbul-spoken WAV) against real mode: transcript → children → voices.
 - 28 Oct — Speed: children@2 (answer ≤ 12 words, parrot ≤ 8, explain ≤ 25 with only its own steps; mean 7.8 words, was ~20) and text first — web turns return as soon as the lines exist; `audioUrl` = `/api/sessions/[id]/turns/[n]/audio`, made by Bulbul on first request (deduped, cached 1 h).

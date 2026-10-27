@@ -19,7 +19,15 @@ Status: open | fixed in #<PR> (test: <file>)
 - (none yet)
 
 ## Fixed
-- (none yet)
+### KI-001 · Sums outside the lesson were ignored · major · found 28 Oct, Phase 3 (operator's phone test, live)
+Expected: "Arjun subtract 5 from 10", "10 minus 5 is 5", "subtract 2 from 1", "add 10 plus 5" get sensible replies.
+Actual: newTask was only accepted as a 2-digit borrowing sum, so the lesson stayed on 52 − 27 and Arjun kept saying
+25 (a parrot), even "Ten plus five… 25?"; the Director carried "arjun" into turns that named nobody; "10 + 7" was
+treated as too short ("say it again").
+Fix: `parseTask` (any a − b ≤ 99 plays; b > a → `cannot`; +, ×, ÷, 3 digits → `not_today`; steps of the current sum
+are not tasks), a react never parrots, number rule in the line check, digits count as words, director@3 (this
+turn's names only; newTask for any sum she asks or answers; romanised Hindi numbers).
+Status: fixed in #22 (tests: `tests/unit/anySum.test.ts`, fixture lines t31–t36; real replay of the phone sequence).
 
 ## Shortcuts we took on purpose
 - Login lockout counter (5 wrong PINs → 15 minutes) lives in memory: fine on one server, resets on restart.

@@ -7,7 +7,7 @@ import { ClaudeCallError, askJson } from "@/lib/ai/claude";
 import { type SpeakerBrief, childrenSystem, childrenUser, version } from "@/lib/ai/prompts/children";
 import { type ChildId, type ChildLine, ChildLines } from "@/lib/contracts";
 import { namesFor } from "./director";
-import { checkLine, fillBackup, strictReminder } from "./guardrails";
+import { checkLine, fillBackup, numbersIn, strictReminder } from "./guardrails";
 import type { AiTurnContext, Speaker } from "./types";
 
 /** One row of child_lines: what was said and how the check went. */
@@ -62,8 +62,12 @@ export async function writeLines(
     return out; // lines for anyone not asked to speak are dropped
   }
 
+  // Which numbers a line may contain besides its own (see checkLine). Answers and explanations keep their own rules.
+  const teacherNumbers = numbersIn(ctx.teacher);
+  const allowedFor = (sp: Speaker): number[] | undefined =>
+    sp.mustSay === null ? [...teacherNumbers, sum[0], sum[1]] : sp.mode === "parrot" ? [sum[0], sum[1]] : undefined;
   const passes = (sp: Speaker, text: string | undefined) =>
-    text !== undefined && checkLine(text, sp.mustSay, sum, childOf(sp.child)).ok;
+    text !== undefined && checkLine(text, sp.mustSay, sum, childOf(sp.child), allowedFor(sp)).ok;
 
   const final = new Map<ChildId, LineRecord>();
   let first = new Map<ChildId, string>();

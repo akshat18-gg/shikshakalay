@@ -22,15 +22,29 @@ export function numbersIn(text: string): number[] {
 }
 
 export type LineVerdict =
-  { ok: true } | { ok: false; reason: "missing_number" | "says_correct" | "too_long" | "empty" };
+  { ok: true } | { ok: false; reason: "missing_number" | "says_correct" | "foreign_number" | "too_long" | "empty" };
 
-export function checkLine(text: string, mustSay: number | null, [a, b]: Sum, child: ChildState): LineVerdict {
+/**
+ * `allowedNumbers` (optional): the only numbers the line may contain besides `mustSay`. A line with no number to say
+ * may only repeat numbers from the teacher's words or the current sum; a parrot only the told answer and the sum —
+ * so a child never says a number that doesn't belong to the question just asked.
+ */
+export function checkLine(
+  text: string,
+  mustSay: number | null,
+  [a, b]: Sum,
+  child: ChildState,
+  allowedNumbers?: number[],
+): LineVerdict {
   const correct = a - b;
   const words = text.trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return { ok: false, reason: "empty" };
   if (words.length > MAX_WORDS) return { ok: false, reason: "too_long" };
   const nums = numbersIn(text);
   if (mustSay !== null && !nums.includes(mustSay)) return { ok: false, reason: "missing_number" };
+  if (allowedNumbers && nums.some((n) => n !== mustSay && !allowedNumbers.includes(n))) {
+    return { ok: false, reason: "foreign_number" };
+  }
   // A child who doesn't understand yet must not "accidentally" say the right answer — unless told to repeat it.
   // When the answer equals the sum's second number (70 − 35 = 35), one 35 is fine if the line restates the sum.
   const allowed = correct === b && nums.includes(a) ? 1 : 0;
@@ -41,7 +55,13 @@ export function checkLine(text: string, mustSay: number | null, [a, b]: Sum, chi
 
 /** The fixed line for a speaker whose generated line failed twice. Always passes the check. */
 export function fillBackup(s: Scenario, lang: Lang, speaker: Speaker, child: ChildState): string {
-  const key: BackupKey = speaker.mode === "react" ? "react" : speaker.mode === "puzzled" ? "puzzled" : child.state;
+  const byMode: Partial<Record<Speaker["mode"], BackupKey>> = {
+    react: "react",
+    puzzled: "puzzled",
+    cannot: "cannot",
+    not_today: "notToday",
+  };
+  const key: BackupKey = byMode[speaker.mode] ?? child.state;
   return backupLine(s, lang, key, speaker.mustSay ?? undefined);
 }
 

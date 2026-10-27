@@ -43,7 +43,8 @@ export type StepResult = {
   lessonOver: boolean;
 };
 
-const letters = (s: string) => (s.match(/\p{L}/gu) ?? []).length;
+/** Letters or digits — "10 + 7" is a real question, "…" is not. */
+const letters = (s: string) => (s.match(/[\p{L}\p{N}]/gu) ?? []).length;
 
 export function isEndCommand(text: string): boolean {
   return END_COMMANDS.has(

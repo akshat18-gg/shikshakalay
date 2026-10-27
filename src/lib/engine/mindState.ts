@@ -5,7 +5,7 @@
  * but the mistake stays.
  */
 import type { ChildId, ChildState, DirectorOutput, Move } from "@/lib/contracts";
-import { answerWith, parseLessonSum } from "./bugs";
+import { answerWith, parseTask } from "./bugs";
 import { DEFAULT_MOVE_EFFECTS, type EngineState, type MoveEffects, type Parrot, type Sum } from "./types";
 
 const sameSum = (x: Sum | null, y: Sum) => x !== null && x[0] === y[0] && x[1] === y[1];
@@ -62,9 +62,12 @@ export function applyMove(
   let currentSum = state.currentSum;
   let parrots = state.parrots;
 
-  const newSum = parseLessonSum(director.newTask);
-  if (newSum) {
-    currentSum = newSum;
+  // A task the engine can't play (bigger from smaller, addition, ×, 3 digits) changes nothing at all:
+  // one child answers without a number (speakers.ts) and the lesson stays on its sum.
+  const task = parseTask(director.newTask, state.currentSum);
+  if (task.kind === "impossible" || task.kind === "unsupported") return state;
+  if (task.kind === "sum") {
+    currentSum = task.sum;
     parrots = {};
   }
 

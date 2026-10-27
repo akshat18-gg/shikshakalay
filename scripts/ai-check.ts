@@ -15,7 +15,15 @@ import { pickSpeakers } from "../src/lib/engine/speakers";
 import type { AiTurnContext } from "../src/lib/engine/types";
 import { checkEnv } from "../src/lib/env";
 
-type FixtureLine = { id: string; lang: string; teacher: string; label: string; addressedTo: string[]; newTask: string };
+type FixtureLine = {
+  id: string;
+  lang: string;
+  teacher: string;
+  label: string;
+  addressedTo: string[];
+  newTask: string;
+  currentSum?: string;
+};
 
 const env = checkEnv({ ...process.env, USE_MOCKS: "0" });
 const scenario = loadScenario("sub_2digit")!;
@@ -29,8 +37,10 @@ const ai = {
   },
 };
 
-function ctxFor(lang: "en" | "hi", teacher: string): AiTurnContext {
-  return { scenario, state: startState(scenario, lang, new Date().toISOString()), recent: [], teacher, models, ai };
+function ctxFor(lang: "en" | "hi", teacher: string, currentSum?: string): AiTurnContext {
+  const state = startState(scenario, lang, new Date().toISOString());
+  if (currentSum) state.currentSum = currentSum.split("-").map(Number) as [number, number];
+  return { scenario, state, recent: [], teacher, models, ai };
 }
 
 async function checkDirector() {
@@ -39,7 +49,7 @@ async function checkDirector() {
   let to = 0;
   let task = 0;
   for (const l of lines) {
-    const { director: d, ok } = await tagMove(ctxFor(l.lang === "hi" ? "hi" : "en", l.teacher));
+    const { director: d, ok } = await tagMove(ctxFor(l.lang === "hi" ? "hi" : "en", l.teacher, l.currentSum));
     const moveOk = d.move === l.label;
     const toOk = [...d.addressedTo].sort().join() === [...l.addressedTo].sort().join();
     const taskOk = d.newTask === l.newTask;
@@ -52,7 +62,9 @@ async function checkDirector() {
       );
     }
   }
-  console.log(`Director: move ${move}/30 · addressedTo ${to}/30 · newTask ${task}/30`);
+  console.log(
+    `Director: move ${move}/${lines.length} · addressedTo ${to}/${lines.length} · newTask ${task}/${lines.length}`,
+  );
 }
 
 type Moment = { lang: "en" | "hi"; steps: [string, DirectorOutput][] };
