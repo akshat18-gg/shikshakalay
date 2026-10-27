@@ -26,8 +26,11 @@ async function main() {
     fast: true,
   });
   console.log("✓ DirectorOutput:", JSON.stringify(r.data));
-  console.log(`  ${r.ms} ms · tokens in ${r.usage.inputTokens} out ${r.usage.outputTokens} · $${r.costUsd?.toFixed(6)}`);
-  const [row] = await sql`select purpose, model, prompt_version, ok, cost_usd from ai_calls order by created_at desc limit 1`;
+  console.log(
+    `  ${r.ms} ms · tokens in ${r.usage.inputTokens} out ${r.usage.outputTokens} · $${r.costUsd?.toFixed(6)}`,
+  );
+  const [row] =
+    await sql`select purpose, model, prompt_version, ok, cost_usd from ai_calls order by created_at desc limit 1`;
   console.log("✓ latest ai_calls row:", JSON.stringify(row));
   await sql.end();
 }
