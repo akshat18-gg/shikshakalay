@@ -49,7 +49,7 @@ export async function writeLines(
           teacher: ctx.teacher,
           strict,
         }),
-        maxTokens: 600,
+        maxTokens: 400,
         fast: true,
         sessionId: ctx.sessionId,
         turn: ctx.turn,
