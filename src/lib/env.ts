@@ -4,6 +4,7 @@
  *
  * Mock mode (USE_MOCKS=1) needs only SESSION_SECRET and DEMO_PIN. Real mode also needs the Claude key and the
  * database. Voice and WhatsApp keys are optional: without them those features switch off (text-only, no WhatsApp).
+ * Voice is Sarvam (Saaras listens, Bulbul speaks); Azure is only an optional alternative for speaking.
  * A missing required key throws ONE message that lists every missing name — and never a value.
  */
 import { z } from "zod";
@@ -67,7 +68,7 @@ export function features(env: ServerEnv) {
   return {
     mode: env.USE_MOCKS === "1" ? "mock" : "real",
     voiceIn: Boolean(env.SARVAM_API_KEY),
-    voiceOut: Boolean(env.AZURE_SPEECH_KEY && env.AZURE_SPEECH_REGION),
+    voiceOut: Boolean(env.SARVAM_API_KEY || (env.AZURE_SPEECH_KEY && env.AZURE_SPEECH_REGION)),
     whatsapp: Boolean(env.TWILIO_ACCOUNT_SID && env.TWILIO_AUTH_TOKEN),
   };
 }

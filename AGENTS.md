@@ -136,7 +136,7 @@ Tamil (Tamil → roadmap), Twilio sandbox instead of Glific (Glific → roadmap)
 |---|---|---|
 | **P1** | AI & backend | Makes the lesson "think": engine, Director, Children, Coach, guardrails, database, lesson API, eval runner, Render deploy. |
 | **P2** | Frontend | Makes it usable: every screen, recorder, logins, charts, offline mode, Playwright, repo + CI setup. |
-| **P3** | Content, voice & pilot | Makes it real: lesson files (EN + HI), voices (Sarvam STT, Azure TTS), the WhatsApp door, jobs, eval lessons, real teachers. |
+| **P3** | Content, voice & pilot | Makes it real: lesson files (EN + HI), voices (Sarvam Saaras STT, Sarvam Bulbul TTS), the WhatsApp door, jobs, eval lessons, real teachers. |
 
 **What each person hands to the others**
 
@@ -172,7 +172,7 @@ docs** when unsure (Next.js 16 changed several APIs).
 | Database | **Neon Postgres** (free) + **Drizzle ORM** + `postgres` (postgres.js) driver | P1 |
 | Background work | Postgres `jobs` table + Next.js `after()` + a sweep route called every 5 min by UptimeRobot | P3 |
 | Speech → text | **Sarvam Saaras v4**, `codemix` mode, keyterms, 30-second cap (REST) | P3 |
-| Text → speech | **Azure Neural TTS** free tier (hi-IN, en-IN). One SSML request speaks all children, each with its own voice and pitch. Backup: Sarvam Bulbul v4-flash | P3 |
+| Text → speech | **Sarvam Bulbul v4-flash** (solo mode, 27 Oct: no Azure). One request per child line, each child its own voice; joined MP3. Azure Neural TTS stays a drop-in backend in `tts.ts` if a key ever arrives. | P3 |
 | WhatsApp | **Twilio WhatsApp sandbox** (trial) + `twilio` npm package | P3 |
 | Hosting | **Render free** web service (Singapore) + **UptimeRobot** free (keeps it awake) | P1 |
 | Tests | **Vitest** (unit) · **Playwright** (end-to-end) · eval script over 100 lessons | P1 · P2 · P3 + P1 |
@@ -211,13 +211,13 @@ Supabase, Firebase, ffmpeg (unless the team agrees), any paid service.
  ┌──────────────────────────┬────────────────────────────────┬──────────────────────────────┐
  │ Pages people see (P2)    │ Lesson brain (P1)              │ Voice + WhatsApp gate (P3)   │
  │ login · practice room    │ Director  (Claude Haiku 5.5)   │ transcribe()  Sarvam Saaras  │
- │ card · history · try     │ Mind-state engine (plain TS)   │ speakLines()  Azure TTS      │
+ │ card · history · try     │ Mind-state engine (plain TS)   │ speakLines()  Bulbul TTS     │
  │ trainer · AI trace ·     │ Children  (Claude Haiku 5.5)   │ /api/whatsapp/webhook        │
  │ evals                    │ Guardrails (line + quote check)│ jobs table + after() + sweep │
  │                          │ Coach     (Claude Sonnet 5.5)  │ /api/media/[token]           │
  │                          │ /api/sessions/* · DB (Neon)    │ lesson files (EN + HI)       │
  └──────────────────────────┴────────────────────────────────┴──────────────────────────────┘
- Outside: Anthropic · Sarvam · Azure Speech · Twilio · Neon · UptimeRobot (GET /api/cron/sweep every 5 min)
+ Outside: Anthropic · Sarvam (Saaras + Bulbul) · Twilio · Neon · UptimeRobot (GET /api/cron/sweep every 5 min)
 ```
 
 ### 5.2 One turn, step by step
@@ -565,7 +565,7 @@ small backend interface; Azure (below) slots in as a second backend if a key arr
 - Voices (`src/lib/voice/voices.ts`, picked by measured pitch): Ravi `shubh_hi_stories_dramatic`, Arjun
   `kunal_hi_kids`, Meena `chhavi_hi_kids`, Sana `ritu_hi_kids`, coach `ishita_hi_edtech` — each works for hi-IN and en-IN.
 
-**Text → speech — Azure Neural TTS (if a key arrives)**
+**Text → speech — Azure Neural TTS (NOT USED; kept for reference in case a key arrives)**
 - `POST https://<AZURE_SPEECH_REGION>.tts.speech.microsoft.com/cognitiveservices/v1`
   headers `Ocp-Apim-Subscription-Key`, `Content-Type: application/ssml+xml`, `X-Microsoft-OutputFormat`, `User-Agent`.
 - **One SSML document with one `<voice>` per line**, each with `<prosody pitch="+20%" rate="+5%">` and a
@@ -768,7 +768,7 @@ The mock engine already plays all five (see `tests/unit/mocks.test.ts`).
 | `SESSION_SECRET` | P2 | long random string |
 | `DEMO_PIN` | P2 | 4 digits, shared in the README |
 | `SARVAM_API_KEY` | P3 | |
-| `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | P3 | e.g. `centralindia` |
+| `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | P3 | **not used** (Sarvam Bulbul speaks); only if `tts.ts` is switched to Azure |
 | `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` | P3 | |
 | `TWILIO_WHATSAPP_FROM` | P3 | `whatsapp:+14155238886` (sandbox) |
 | `TWILIO_SANDBOX_JOIN_CODE` | P3 | e.g. `join silver-tiger` (for messages) |

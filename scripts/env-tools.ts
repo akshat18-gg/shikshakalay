@@ -28,14 +28,19 @@ const SHOW_VALUE = new Set([
   "TWILIO_WHATSAPP_FROM",
 ]);
 
+/** Keys nothing needs today (shown as "optional", not counted as missing). Azure: only if a key ever arrives. */
+const OPTIONAL: Record<string, string> = {
+  AZURE_SPEECH_KEY: "only if we switch voices to Azure (Sarvam Bulbul is used)",
+  AZURE_SPEECH_REGION: "only with AZURE_SPEECH_KEY",
+};
+
 /** What each key is needed for (shown when it is missing). */
 const NEEDED_FOR: Record<string, string> = {
   ANTHROPIC_API_KEY: "real engine (USE_MOCKS=0)",
   DATABASE_URL: "real engine — Neon DEV branch, pooled URL",
   DATABASE_URL_PROD: "db:push:prod / db:seed:prod — Neon MAIN branch, pooled URL (local only)",
   SESSION_SECRET: "logins (run npm run env:init)",
-  SARVAM_API_KEY: "voice: speech-to-text",
-  AZURE_SPEECH_KEY: "voice: children's voices",
+  SARVAM_API_KEY: "voice: speech-to-text (Saaras) and every voice (Bulbul)",
   TWILIO_ACCOUNT_SID: "WhatsApp",
   TWILIO_AUTH_TOKEN: "WhatsApp",
   TWILIO_SANDBOX_JOIN_CODE: "WhatsApp messages",
@@ -127,7 +132,9 @@ function check() {
     if (!key) continue;
     const value = local.get(key) ?? "";
     let status: string;
-    if (value === "" || looksLikePlaceholder(key, value)) {
+    if ((value === "" || looksLikePlaceholder(key, value)) && OPTIONAL[key]) {
+      status = `optional  ${OPTIONAL[key]}`;
+    } else if (value === "" || looksLikePlaceholder(key, value)) {
       status = `MISSING   needed for: ${NEEDED_FOR[key] ?? "—"}`;
       missing++;
     } else if (SHOW_VALUE.has(key)) {
