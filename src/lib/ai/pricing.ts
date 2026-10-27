@@ -34,3 +34,18 @@ export function costUsd(model: string, u: Usage, opts: { batch?: boolean } = {})
     1_000_000;
   return opts.batch ? usd * BATCH_DISCOUNT : usd;
 }
+
+/**
+ * Sarvam prices (INR, https://www.sarvam.ai/api-pricing, 28 Oct 2026): Saaras ₹0.49 per minute of audio,
+ * Bulbul v4-flash ₹1 per 1,000 characters. Recorded in ai_calls as an approximate USD cost.
+ */
+export const SARVAM_INR = { sttPerMinute: 0.49, ttsPer1kChars: 1 };
+export const INR_PER_USD = 88; // approximate, for the cost columns only
+
+export function sttCostUsd(seconds: number): number {
+  return ((seconds / 60) * SARVAM_INR.sttPerMinute) / INR_PER_USD;
+}
+
+export function ttsCostUsd(chars: number): number {
+  return ((chars / 1000) * SARVAM_INR.ttsPer1kChars) / INR_PER_USD;
+}
