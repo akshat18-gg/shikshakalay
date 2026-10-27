@@ -9,7 +9,7 @@
 # - Both languages must be complete, or the engine refuses to start.
 
 id: sub_2digit
-version: 1
+version: 2
 title:
   en: "2-digit subtraction with bundles and sticks"
   hi: "बंडल और तीलियों से दो अंकों का घटाव"
@@ -33,8 +33,8 @@ children:
     persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
     explainsAs: "In each column I take the small number from the big number."
     sampleLines:
-      en: ["35, Teacher! I did it first!", "Easy! 8 minus 3 is 5."]
-      hi: ["35, टीचर जी! मैंने सबसे पहले किया!", "आसान है! 8 में से 3 गए तो 5।"]
+      en: ["35, Teacher! I did it first!", "Easy! 8 minus 3 is 5.", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
+      hi: ["35, टीचर जी! मैंने सबसे पहले किया!", "आसान है! 8 में से 3 गए तो 5।", "मैं पहले, टीचर जी! मैं पहले!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
 
   - id: arjun
     name: { en: Arjun, hi: अर्जुन }
@@ -44,8 +44,8 @@ children:
     persona: "Copies Ravi and likes to say 'Me also!'. Knows he must borrow, but forgets the tens get one less."
     explainsAs: "I borrow a ten for the ones, but I forget to take it away from the tens."
     sampleLines:
-      en: ["Me also 35!", "I borrowed, Teacher. 12 minus 7 is 5."]
-      hi: ["मेरा भी 35!", "मैंने उधार लिया, टीचर जी। 12 में से 7 गए तो 5।"]
+      en: ["Me also 35!", "I borrowed, Teacher. 12 minus 7 is 5.", "Me also, Teacher!", "Ravi said it, so it's right.", "Teacher, I did it like Ravi."]
+      hi: ["मेरा भी 35!", "मैंने उधार लिया, टीचर जी। 12 में से 7 गए तो 5।", "मेरा भी, टीचर जी!", "रवि ने बोला, तो सही है।", "टीचर जी, मैंने भी रवि जैसे किया।"]
 
   - id: meena
     name: { en: Meena, hi: मीना }
@@ -55,8 +55,8 @@ children:
     persona: "Careful and slow. Counts back on her fingers. Speaks softly but is sure of her counting."
     explainsAs: "I count back on my fingers, and I count the starting number too."
     sampleLines:
-      en: ["Wait… I'm counting on my fingers… 26.", "52, 51, 50… I got 26, Teacher."]
-      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।"]
+      en: ["Wait… I'm counting on my fingers… 26.", "52, 51, 50… I got 26, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
+      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "मैं धीरे-धीरे फिर से गिनती हूँ।", "मुझे लगता है मैंने सही गिना।"]
 
   - id: sana
     name: { en: Sana, hi: सना }
@@ -66,8 +66,8 @@ children:
     persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
     explainsAs: "I open one bundle, so I have enough sticks."
     sampleLines:
-      en: ["Umm… 25, Teacher?", "I opened one bundle…"]
-      hi: ["उम्म… 25, टीचर जी?", "मैंने एक बंडल खोला…"]
+      en: ["Umm… 25, Teacher?", "I opened one bundle…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["उम्म… 25, टीचर जी?", "मैंने एक बंडल खोला…", "मैं, टीचर जी?", "उम्म… मुझे लगता है…", "थैंक यू, टीचर जी।"]
 
 # What each move does in this skill (the engine's rules use these groups).
 moves:
