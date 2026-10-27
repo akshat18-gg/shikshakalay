@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
-- **Next task:** Phase 2 — P1-T8 step + orchestrator + real routes
+- **Next task:** Phase 2 — P1-T8 part b: orchestrator + real routes (core.ts step merged)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=1` (until gate G2)
 - **Last gate passed:** —
