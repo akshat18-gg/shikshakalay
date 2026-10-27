@@ -7,6 +7,10 @@ Team Blue Screen (SRMIST Kattankulathur) · AI for Foundational Learning Hackath
 
 **Live demo:** https://shikshakalay.onrender.com · **Code:** https://github.com/akshat18-gg/shikshakalay
 
+**Voice:** Sarvam Saaras turns the teacher's speech into text; Sarvam Bulbul gives each child (and the coach) a voice.
+Claude (Haiku 5.5 for the children and the move classifier, Sonnet 5.5 for the coach) only writes words — a plain
+TypeScript engine decides what each child believes and the exact number they say.
+
 > Work in progress. The full README (live link, demo logins, how it works, setup, evals) lands in Phase 6.
 
 ## Run it locally (mock mode, no keys)
