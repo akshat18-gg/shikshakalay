@@ -52,3 +52,15 @@ export type Speaker = {
   /** Only in explain mode: the steps behind the child's belief, e.g. ["8 - 3 = 5", "4 - 1 = 3", "so 35"]. */
   steps?: string[];
 };
+
+/** What the Director and Children calls need for one turn. `ai` lets tests pass a fake Claude client. */
+export type AiTurnContext = {
+  scenario: import("./scenario").Scenario;
+  state: EngineState;
+  recent: import("@/lib/ai/prompts/shared").RecentTurn[];
+  teacher: string;
+  models: { director: string; child: string };
+  sessionId?: string;
+  turn?: number;
+  ai?: import("@/lib/ai/claude").AskJsonDeps;
+};

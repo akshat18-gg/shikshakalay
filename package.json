@@ -23,7 +23,8 @@
     "gen:lessons": "tsx --env-file-if-exists=.env.local evals/generate.ts",
     "smoke:live": "tsx --env-file-if-exists=.env.local scripts/smoke-live.ts",
     "db:ping": "tsx --env-file-if-exists=.env.local scripts/db-ping.ts",
-    "claude:smoke": "tsx --env-file-if-exists=.env.local scripts/claude-smoke.ts"
+    "claude:smoke": "tsx --env-file-if-exists=.env.local scripts/claude-smoke.ts",
+    "ai:check": "LOG_SILENT=1 tsx --env-file-if-exists=.env.local scripts/ai-check.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",
