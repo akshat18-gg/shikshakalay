@@ -153,5 +153,11 @@
   "history.tryLine": "One thing to try:",
   "history.openCard": "Open card",
   "history.notFinished": "Not finished",
-  "home.seeCard": "See the full card"
+  "home.seeCard": "See the full card",
+
+  "practice.tapToSend": "Recording… tap to send",
+  "practice.voiceNote": "🎤 Voice note…",
+  "practice.recordLabel": "Record what you say to the class",
+  "practice.playReply": "Play the children's reply",
+  "practice.stopRecording": "Stop and send"
 }
