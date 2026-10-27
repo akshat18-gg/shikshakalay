@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
-- **Next task:** Phase 2 — P1-T7 Director, Children, guardrails
+- **Next task:** Phase 2 — P1-T8 step + orchestrator + real routes
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=1` (until gate G2)
 - **Last gate passed:** —
@@ -19,14 +19,14 @@
 | H0.4 | Licence MIT, three names | 🟡 | Tue 27 Oct 03:58 | used default |
 | H1.1 | Render web service | 🛑 | Tue 27 Oct 03:58 | done — https://shikshakalay.onrender.com |
 | H1.2 | UptimeRobot on `/api/healthz` | 🛑 | Tue 27 Oct 03:58 | done |
-| H-render | Render deploys from `akshat18-gg/shikshakalay` (auto-deploy on commit); live is stuck on 7d3d315 | 🛑 | Tue 27 Oct 17:45 | open |
-| G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | open |
+| H-render | Render deploys from `akshat18-gg/shikshakalay` (auto-deploy on commit) | 🛑 | Tue 27 Oct 17:45 | done (live 23ac4ac) |
+| G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
 ## Gates
 | Gate | Status | Proof (what was run and seen) | When |
 |---|---|---|---|
 | G0 Setup | ✅ | verify + build green locally; CI `check` green on PRs (#1–#5 old repo, #1 new repo); ruleset `main` active, squash only, auto-delete (gh api); env:check = MOCK mode | Tue 27 Oct 17:05 |
-| G1 Live skeleton | 🟨 | `npm run smoke:live -- --url https://shikshakalay.onrender.com --full` all green (commit 7d3d315: healthz ok, Ravi 35 / Arjun 35 / Meena 26, card) · UptimeRobot on · waiting: operator phone check | Tue 27 Oct 16:55 |
+| G1 Live skeleton | ✅ | `smoke:live --full` green on https://shikshakalay.onrender.com at 23ac4ac (login, Ravi 35 / Arjun 35 / Meena 26, card); readyz 200; UptimeRobot on; operator phone check ok | Tue 27 Oct 18:08 |
 | G2 Real engine (typed) | ⬜ | | |
 | G3 Voice + card | ⬜ | | |
 | G4 MVP | ⬜ | | |
@@ -37,7 +37,7 @@
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
 **Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [x] P1-T4 Render + UptimeRobot (operator, 0 agent minutes) · [x] S1.4 smoke:live (30 → 10)
-**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [x] P2-T3 logins (90 → 45) · [x] P1-T5 askJson + S2.1 (60 → 30) · [x] P3-T8 teacher lines (20 → 10) · [x] P1-T6 + P3-T2 lesson file (45 → 20) · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
+**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [x] P2-T3 logins (90 → 45) · [x] P1-T5 askJson + S2.1 (60 → 30) · [x] P3-T8 teacher lines (20 → 10) · [x] P1-T6 + P3-T2 lesson file (45 → 20) · [x] P1-T7 Director/Children/guardrails (120 → 50) · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
@@ -64,6 +64,9 @@
 - 27 Oct — `askJson`: refusal / max_tokens / no JSON / API error → `ClaudeCallError(reason)` after an `ok=false` ai_calls row; recording failures are logged, never break a turn. Daily budget resets at midnight IST.
 - 27 Oct — Not adding server-side refusal `fallbacks` for the Coach yet: it needs the beta namespace, and the Coach already falls back to a card built from her own words (P1-T9). Revisit if refusals show up in ai_calls.
 - 27 Oct — sub_2digit.yaml v2: 3 more sample lines per child per language (number-free style lines). New Hindi lines go on the H4.2 review list. Loader: strict Zod schema, clear `file: path: problem` errors, in-memory cache, `startState()` + `backupLine()` helpers.
+- 27 Oct — director@2: newTask only for a whole 2-digit sum to solve (director@1 put steps like "13-8" there: 24/30 → 30/30).
+- 27 Oct — Children: Claude call failure → backup lines at once (no retry), so a slow call never doubles the wait; only line-check failures get the one retry. `passed` = first generated line passed.
+- 27 Oct — Line check: when the right answer equals the sum's second number (70 − 35 = 35), one 35 is allowed if the line also names 70.
 - 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.
@@ -79,9 +82,9 @@
 
 ## Numbers
 - Reply time p50 / p90: —
-- App AI spend so far (from `ai_calls`): $0.0001 (1 smoke call, dev, 27 Oct)
-- Coding spend (operator reads `/usage` at each gate): $5.21 (Tue 27 Oct, after Phase 1 code)
-- Eval results: —
+- App AI spend so far (from `ai_calls`): ~$0.01 (dev: smoke + 2 Director checks + 1 Children check, 27 Oct)
+- Coding spend (operator reads `/usage` at each gate): $14 (Tue 27 Oct 18:00, G1)
+- Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
 ## Later (ideas nobody asked for — not in scope)
 -
