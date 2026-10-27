@@ -4,6 +4,7 @@
  *   npm run smoke:live                                   → PUBLIC_BASE_URL from .env.local
  *   npm run smoke:live -- --url https://<app>.onrender.com
  *   npm run smoke:live -- --full                         → also ends the lesson and checks the card
+ *   npm run smoke:live -- --lesson                       → also "Say 25" (they parrot) → "43 − 18?" (35 again) + a retry
  *
  * Steps: healthz → version → log in as teacher_demo → start a lesson → "What is 52 minus 27?" →
  * Ravi 35, Arjun 35, Meena 26. Prints no secrets (the PIN and cookie never reach the output).
@@ -20,6 +21,7 @@ function arg(name: string): string | undefined {
 
 const base = (arg("url") ?? process.env.PUBLIC_BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const full = process.argv.includes("--full");
+const lesson = process.argv.includes("--lesson");
 const pin = process.env.DEMO_PIN ?? "1234";
 let cookie = "";
 
@@ -83,7 +85,7 @@ async function main() {
     cookie = set.split(";")[0];
   });
 
-  const lesson = await step("start a lesson", async () =>
+  const started = await step("start a lesson", async () =>
     StartLessonResult.parse(
       await expectOk(
         await request("/api/sessions", {
@@ -95,28 +97,50 @@ async function main() {
     ),
   );
 
-  await step('"What is 52 minus 27?" → Ravi 35, Arjun 35, Meena 26', async () => {
+  const sendTurn = async (text: string, key = crypto.randomUUID()) => {
     const form = new FormData();
-    form.append("text", "What is 52 minus 27?");
-    form.append("idempotencyKey", crypto.randomUUID());
-    const turn = TurnResult.parse(
-      await expectOk(await request(`/api/sessions/${lesson.sessionId}/turns`, { method: "POST", body: form })),
+    form.append("text", text);
+    form.append("idempotencyKey", key);
+    return TurnResult.parse(
+      await expectOk(await request(`/api/sessions/${started.sessionId}/turns`, { method: "POST", body: form })),
     );
+  };
+
+  await step('"What is 52 minus 27?" → Ravi 35, Arjun 35, Meena 26', async () => {
+    const turn = await sendTurn("What is 52 minus 27?");
     expectSays(turn, "ravi", "35");
     expectSays(turn, "arjun", "35");
     expectSays(turn, "meena", "26");
     console.log(`  reply took ${turn.ms} ms on the server`);
   });
 
+  if (lesson) {
+    await step('"No, it is 25. Everyone say 25." → they say 25', async () => {
+      const turn = await sendTurn("No, it is 25. Everyone say 25.");
+      for (const child of ["ravi", "arjun", "meena"]) expectSays(turn, child, "25");
+    });
+    await step('"Now 43 minus 18?" → Ravi and Arjun say 35 again', async () => {
+      const key = crypto.randomUUID();
+      const turn = await sendTurn("Now 43 minus 18?", key);
+      expectSays(turn, "ravi", "35");
+      expectSays(turn, "arjun", "35");
+      const again = await sendTurn("Now 43 minus 18?", key);
+      if (again.turn !== turn.turn || JSON.stringify(again.lines) !== JSON.stringify(turn.lines)) {
+        throw new Error("a retry with the same key gave a different answer");
+      }
+      console.log("  (a retry with the same key returned the same turn)");
+    });
+  }
+
   if (full) {
     await step("end the lesson → coaching card", async () => {
       const card = CoachCard.parse(
-        await expectOk(await request(`/api/sessions/${lesson.sessionId}/end`, { method: "POST" }, 60_000)),
+        await expectOk(await request(`/api/sessions/${started.sessionId}/end`, { method: "POST" }, 60_000)),
       );
       if (!card.sayTomorrow) throw new Error("the card has no 'say tomorrow' line");
     });
     await step("card can be read again", async () => {
-      CoachCard.parse(await expectOk(await request(`/api/sessions/${lesson.sessionId}/card`)));
+      CoachCard.parse(await expectOk(await request(`/api/sessions/${started.sessionId}/card`)));
     });
   }
 

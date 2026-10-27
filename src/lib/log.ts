@@ -19,10 +19,22 @@ export function log(evt: string, fields: LogFields = {}): void {
   console.log(JSON.stringify({ ts: new Date().toISOString(), level: "info", evt, ...fields }));
 }
 
+/**
+ * A failed database query's message repeats its parameters (a teacher's words, a PIN hash). Keep only the
+ * database's own reason and code.
+ */
+function errorDetail(err: unknown): LogFields {
+  if (!(err instanceof Error)) return { error: String(err) };
+  if ("params" in err && "query" in err) {
+    const cause = err.cause as { message?: string; code?: string } | undefined;
+    return { error: `database query failed: ${cause?.message ?? "unknown"}`, errorName: err.name, dbCode: cause?.code };
+  }
+  return { error: err.message, errorName: err.name, stack: err.stack };
+}
+
 /** Errors keep their message and stack in the log — never in an HTTP response. */
 export function logError(evt: string, err: unknown, fields: LogFields = {}): void {
   if (silent()) return;
-  const detail =
-    err instanceof Error ? { error: err.message, errorName: err.name, stack: err.stack } : { error: String(err) };
+  const detail = errorDetail(err);
   console.error(JSON.stringify({ ts: new Date().toISOString(), level: "error", evt, ...fields, ...detail }));
 }

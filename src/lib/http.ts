@@ -15,6 +15,7 @@ const STATUS: Record<ApiErrorCode, number> = {
   forbidden: 403,
   not_found: 404,
   lesson_over: 409,
+  busy: 409,
   audio_too_long: 413,
   rate_limited: 429,
   stt_failed: 502,
