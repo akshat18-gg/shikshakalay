@@ -2,7 +2,7 @@
  * Login tables (owner: P2). STARTER — P2 may add columns through a normal PR.
  * Only P1 runs `npm run db:push` on the shared Neon database.
  */
-import { boolean, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { boolean, index, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -20,12 +20,16 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
-export const consents = pgTable("consents", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  userId: uuid("user_id")
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  textVersion: text("text_version").notNull(), // "v1"
-  channel: text("channel", { enum: ["web", "whatsapp"] }).notNull(),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-});
+export const consents = pgTable(
+  "consents",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    textVersion: text("text_version").notNull(), // "v1"
+    channel: text("channel", { enum: ["web", "whatsapp"] }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("consents_user_idx").on(t.userId)],
+);

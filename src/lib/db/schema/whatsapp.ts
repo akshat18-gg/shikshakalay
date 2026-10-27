@@ -12,20 +12,24 @@ const bytea = customType<{ data: Buffer; driverData: Buffer }>({
 });
 
 /** One row per WhatsApp number. The phone number lives ONLY here. Never log it — log users.code instead. */
-export const waContacts = pgTable("wa_contacts", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  phone: text("phone").notNull().unique(), // "whatsapp:+91…", exactly as Twilio sends it
-  userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
-  step: text("step", { enum: ["new", "consent", "lang", "menu", "in_lesson", "checkin", "stopped"] })
-    .notNull()
-    .default("new"),
-  activeSessionId: uuid("active_session_id").references(() => sessions.id, { onDelete: "set null" }),
-  /** WhatsApp only allows free messages within 24 hours of her last message. */
-  lastInboundAt: timestamp("last_inbound_at", { withTimezone: true }),
-  /** The sandbox drops people after 3 days; we remind her to re-join at most every 2 days. */
-  lastRejoinTipAt: timestamp("last_rejoin_tip_at", { withTimezone: true }),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-});
+export const waContacts = pgTable(
+  "wa_contacts",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    phone: text("phone").notNull().unique(), // "whatsapp:+91…", exactly as Twilio sends it
+    userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
+    step: text("step", { enum: ["new", "consent", "lang", "menu", "in_lesson", "checkin", "stopped"] })
+      .notNull()
+      .default("new"),
+    activeSessionId: uuid("active_session_id").references(() => sessions.id, { onDelete: "set null" }),
+    /** WhatsApp only allows free messages within 24 hours of her last message. */
+    lastInboundAt: timestamp("last_inbound_at", { withTimezone: true }),
+    /** The sandbox drops people after 3 days; we remind her to re-join at most every 2 days. */
+    lastRejoinTipAt: timestamp("last_rejoin_tip_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("wa_contacts_user_idx").on(t.userId), index("wa_contacts_session_idx").on(t.activeSessionId)],
+);
 
 /**
  * Background work. The webhook saves a job, replies to Twilio at once, then runs it with after().
@@ -52,10 +56,14 @@ export const jobs = pgTable(
 );
 
 /** Short-lived audio served at /api/media/<token>. Deleted by the sweep after expires_at. */
-export const media = pgTable("media", {
-  token: text("token").primaryKey(), // 32 random hex characters
-  mime: text("mime").notNull(), // "audio/mpeg" or "audio/ogg"
-  data: bytea("data").notNull(),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
-});
+export const media = pgTable(
+  "media",
+  {
+    token: text("token").primaryKey(), // 32 random hex characters
+    mime: text("mime").notNull(), // "audio/mpeg" or "audio/ogg"
+    data: bytea("data").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  },
+  (t) => [index("media_expires_idx").on(t.expiresAt)],
+);
