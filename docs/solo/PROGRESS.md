@@ -5,11 +5,11 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
-- **Next task:** Phase 2 — S2.2 prod DB + real mode on Render (waiting on the operator's OK) → gate G2
+- **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
+- **Next task:** Phase 3 — P1-T9 Coach (needs no new keys); P3-T1 voice smoke waits on H3.1–H3.3
 - **Live URL:** https://shikshakalay.onrender.com
-- **Render mode:** `USE_MOCKS=1` (until gate G2)
-- **Last gate passed:** —
+- **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
+- **Last gate passed:** G2 (Tue 27 Oct 19:15)
 
 ## Waiting on the operator
 | # | What | 🛑/🟡 | Asked (IST) | Status |
@@ -20,6 +20,10 @@
 | H1.1 | Render web service | 🛑 | Tue 27 Oct 03:58 | done — https://shikshakalay.onrender.com |
 | H1.2 | UptimeRobot on `/api/healthz` | 🛑 | Tue 27 Oct 03:58 | done |
 | H-render | Render deploys from `akshat18-gg/shikshakalay` (auto-deploy on commit) | 🛑 | Tue 27 Oct 17:45 | done (live 23ac4ac) |
+| S2.2 | OK for db:push:prod + db:seed:prod; Render USE_MOCKS=0 | 🛑 | Tue 27 Oct 19:00 | done |
+| H3.1 | Sarvam API key → .env.local + Render `SARVAM_API_KEY` | 🛑 | Tue 27 Oct 17:00 | open |
+| H3.2 | Azure Speech Free F0 key → .env.local + Render `AZURE_SPEECH_KEY` | 🛑 | Tue 27 Oct 17:00 | open |
+| H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🛑 | Tue 27 Oct 17:00 | open |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
 ## Gates
@@ -27,7 +31,7 @@
 |---|---|---|---|
 | G0 Setup | ✅ | verify + build green locally; CI `check` green on PRs (#1–#5 old repo, #1 new repo); ruleset `main` active, squash only, auto-delete (gh api); env:check = MOCK mode | Tue 27 Oct 17:05 |
 | G1 Live skeleton | ✅ | `smoke:live --full` green on https://shikshakalay.onrender.com at 23ac4ac (login, Ravi 35 / Arjun 35 / Meena 26, card); readyz 200; UptimeRobot on; operator phone check ok | Tue 27 Oct 18:08 |
-| G2 Real engine (typed) | ⬜ | | |
+| G2 Real engine (typed) | ✅ | Live, real mode, commit 03e0510: `smoke:live --lesson --full` green — 35/35/26 → "Say 25" → all 25 → "43 − 18?" → Ravi 35, Arjun 35; same-key retry = same turn; card stored. Prod ai_calls: 6 rows with tokens + cost ($0.0012), cache reads from turn 2 (3,265 / 2,195). 403 test passes (`api.test.ts`). Prod DB: 13 tables, 13 indexes, 3 demo users. | Tue 27 Oct 19:15 |
 | G3 Voice + card | ⬜ | | |
 | G4 MVP | ⬜ | | |
 | G5 WhatsApp | ⬜ | | |
@@ -35,9 +39,6 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
-**Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [x] P1-T4 Render + UptimeRobot (operator, 0 agent minutes) · [x] S1.4 smoke:live (30 → 10)
-**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [x] P2-T3 logins (90 → 45) · [x] P1-T5 askJson + S2.1 (60 → 30) · [x] P3-T8 teacher lines (20 → 10) · [x] P1-T6 + P3-T2 lesson file (45 → 20) · [x] P1-T7 Director/Children/guardrails (120 → 50) · [x] P1-T8 step + orchestrator (120 → 70) · [x] P2-T5 real API (30 → 5, no UI change needed) · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
@@ -87,8 +88,8 @@
 - 27 Oct — CI actions bumped to `checkout@v5` / `setup-node@v5` (v4 runs on deprecated Node 20).
 
 ## Numbers
-- Reply time p50 / p90: — (first real turns from the Mac: ~4–5 s server time; Director then Children in sequence; P1-T11)
-- App AI spend so far (from `ai_calls`): ~$0.01 (dev: smoke + 2 Director checks + 1 Children check, 27 Oct)
+- Reply time p50 / p90: — (live G2 turns: 4.2 s, 3.1 s, 3.3 s server time; Director then Children in sequence; P1-T11)
+- App AI spend so far (from `ai_calls`): dev ~$0.012 · prod $0.0012 (27 Oct)
 - Coding spend (operator reads `/usage` at each gate): $14 (Tue 27 Oct 18:00, G1)
 - Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
@@ -96,4 +97,6 @@
 -
 
 ## Done log (one line per finished phase)
--
+- Phase 0 (Tue 27 Oct 04:10): Next.js 16 + shadcn (Radix) + kit, scripts, env, MIT licence, CI; repo moved to akshat18-gg/shikshakalay; ruleset on main.
+- Phase 1 (Tue 27 Oct 18:08): mock API with request ids/logs/env check/version, app shell + i18n, practice room, smoke:live; Render + UptimeRobot live; G1 on the phone.
+- Phase 2 (Tue 27 Oct 19:15): Neon + indexes + readyz, bugs, mind-state + speakers (Ravi's table), logins + consent + proxy, askJson + ai_calls + pricing + budget, teacher lines, lesson loader, Director/Children/line check, step() + orchestrator, real mode live; G2.
