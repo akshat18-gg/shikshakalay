@@ -97,3 +97,7 @@ export function logout(): Promise<{ ok: boolean }> {
 export function agreeToConsent(): Promise<{ ok: boolean }> {
   return postJson("/api/auth/consent", {}, z.object({ ok: z.boolean() }));
 }
+
+export function sendCheckin(sessionId: string, triedInClass: boolean): Promise<{ ok: boolean }> {
+  return postJson("/api/checkins", { sessionId, triedInClass }, z.object({ ok: z.boolean() }));
+}

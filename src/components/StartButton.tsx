@@ -29,7 +29,7 @@ export function StartButton() {
 
   return (
     <div className="mt-4 flex flex-col gap-3">
-      <Button size="lg" className="w-full sm:w-auto" onClick={start} disabled={busy} aria-busy={busy}>
+      <Button size="lg" className="w-full sm:w-auto sm:self-start" onClick={start} disabled={busy} aria-busy={busy}>
         {busy ? t("common.loading") : t("home.start")}
       </Button>
       {error && <ErrorNote error={error} />}
