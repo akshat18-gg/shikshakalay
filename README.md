@@ -5,6 +5,8 @@ English — then get a private coaching card that quotes their own words.
 
 Team Blue Screen (SRMIST Kattankulathur) · AI for Foundational Learning Hackathon · Challenge 3: Teacher Support.
 
+**Live demo:** https://shikshakalay.onrender.com · **Code:** https://github.com/akshat18-gg/shikshakalay
+
 > Work in progress. The full README (live link, demo logins, how it works, setup, evals) lands in Phase 6.
 
 ## Run it locally (mock mode, no keys)

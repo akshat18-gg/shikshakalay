@@ -5,26 +5,27 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 0 — Setup (S0.1–S0.4 merged; waiting on H0.1 transfer + H0.3 GitHub settings for G0)
-- **Next task:** Phase 1 — P1-T4 Render deploy (waiting on H0.1 transfer → H1.1 Render, H1.2 UptimeRobot); meanwhile Phase 2 tasks that need no keys (P1-T2 bugs, P1-T3 mind-state)
-- **Live URL:** — (Render not set up yet)
-- **Render mode:** — (`USE_MOCKS=1` until gate G2)
+- **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
+- **Next task:** Phase 2 — P1-T1 Neon schema review + indexes + readyz
+- **Live URL:** https://shikshakalay.onrender.com
+- **Render mode:** `USE_MOCKS=1` (until gate G2)
 - **Last gate passed:** —
 
 ## Waiting on the operator
 | # | What | 🛑/🟡 | Asked (IST) | Status |
 |---|---|---|---|---|
-| H0.1 | Transfer `sourin-git/shikshakalay` to the operator (needed for main protection + Render) | 🛑 | Tue 27 Oct 03:58 | open |
-| H0.3 | GitHub settings: ruleset on `main`, squash only, auto-delete branches (needs admin → after H0.1) | 🛑 | Tue 27 Oct 04:05 | open |
+| H0.1 | Repo the operator controls | 🛑 | Tue 27 Oct 03:58 | done — new repo `akshat18-gg/shikshakalay` (no transfer) |
+| H0.3 | GitHub settings: ruleset on `main`, squash only, auto-delete branches | 🛑 | Tue 27 Oct 04:05 | done (checked via API) |
 | H0.4 | Licence MIT, three names | 🟡 | Tue 27 Oct 03:58 | used default |
-| H1.1 | Render web service (after H0.1) | 🛑 | Tue 27 Oct 03:58 | open |
-| H1.2 | UptimeRobot on `/api/healthz` (after H1.1) | 🛑 | Tue 27 Oct 03:58 | open |
+| H1.1 | Render web service | 🛑 | Tue 27 Oct 03:58 | done — https://shikshakalay.onrender.com |
+| H1.2 | UptimeRobot on `/api/healthz` | 🛑 | Tue 27 Oct 03:58 | done |
+| G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | open |
 
 ## Gates
 | Gate | Status | Proof (what was run and seen) | When |
 |---|---|---|---|
-| G0 Setup | ⬜ | | |
-| G1 Live skeleton | ⬜ | | |
+| G0 Setup | ✅ | verify + build green locally; CI `check` green on PRs (#1–#5 old repo, #6 new repo); ruleset `main` active, squash only, auto-delete (gh api); env:check = MOCK mode | Tue 27 Oct 17:05 |
+| G1 Live skeleton | 🟨 | `npm run smoke:live -- --url https://shikshakalay.onrender.com --full` all green (commit 7d3d315: healthz ok, Ravi 35 / Arjun 35 / Meena 26, card) · UptimeRobot on · waiting: operator phone check | Tue 27 Oct 16:55 |
 | G2 Real engine (typed) | ⬜ | | |
 | G3 Voice + card | ⬜ | | |
 | G4 MVP | ⬜ | | |
@@ -34,7 +35,7 @@
 
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
-**Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [ ] P1-T4 Render + UptimeRobot · [x] S1.4 smoke:live (30 → 10)
+**Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [x] P1-T4 Render + UptimeRobot (operator, 0 agent minutes) · [x] S1.4 smoke:live (30 → 10)
 **Phase 2** — [ ] P1-T1 Neon + readyz · [ ] P1-T2 bugs · [ ] P1-T3 mind-state + speakers · [ ] P2-T3 logins · [ ] P1-T5 askJson + S2.1 · [ ] P3-T8 teacher lines · [ ] P1-T6 + P3-T2 lesson file · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
@@ -49,7 +50,8 @@
 - 27 Oct — Local Node is 26 (plan says 22); `engines >=22` accepts it. `.node-version` pins 22 for Render; CI uses 22.
 - 27 Oct — shadcn init worked on **Radix** (style `radix-nova`), so `asChild` stays. It adds runtime deps `radix-ui`, `cn` (shadcn's own clsx + tailwind-merge replacement), `lucide-react`, `next-themes`, `recharts`, `sonner`, `tw-animate-css`, `shadcn` (its Tailwind CSS import).
 - 27 Oct — CODEOWNERS is one line `* @akshat18-gg` (solo mode).
-- 27 Oct — First push went to `sourin-git/shikshakalay` (write access) before the transfer; a transfer keeps history.
+- 27 Oct — Repo moved to the operator's own `akshat18-gg/shikshakalay` (no transfer; same history). PRs #1–#5 were merged on the old repo.
+- 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.
 - 27 Oct — Env check failing in real mode: Next logs `env_check_failed` (names only) and answers 500 on every route, so Render's health check fails and the old deploy stays live.
@@ -65,7 +67,7 @@
 ## Numbers
 - Reply time p50 / p90: —
 - App AI spend so far (from `ai_calls`): —
-- Coding spend (operator reads `/usage` at each gate): —
+- Coding spend (operator reads `/usage` at each gate): $5.21 (Tue 27 Oct, after Phase 1 code)
 - Eval results: —
 
 ## Later (ideas nobody asked for — not in scope)
