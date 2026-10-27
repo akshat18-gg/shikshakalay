@@ -1,10 +1,11 @@
-/** The bar on every page: app name (home link) and the language switch. Log out arrives with logins (P2-T3). */
+/** The bar on every page: app name (home link), the language switch and, when logged in, Log out. */
 import Link from "next/link";
 import type { Lang } from "@/lib/contracts";
 import { t } from "@/lib/i18n";
 import { LangToggle } from "./LangToggle";
+import { LogoutButton } from "./LogoutButton";
 
-export function TopBar({ lang }: { lang: Lang }) {
+export function TopBar({ lang, loggedIn }: { lang: Lang; loggedIn: boolean }) {
   return (
     <header className="sticky top-0 z-10 bg-navy text-white">
       <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-4 py-2">
@@ -14,7 +15,10 @@ export function TopBar({ lang }: { lang: Lang }) {
         >
           {t("app.name", lang)}
         </Link>
-        <LangToggle />
+        <div className="flex items-center gap-2">
+          <LangToggle />
+          {loggedIn && <LogoutButton />}
+        </div>
       </div>
     </header>
   );

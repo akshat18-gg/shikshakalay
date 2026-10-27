@@ -77,8 +77,6 @@ async function main() {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ code: "teacher_demo", pin }),
     });
-    // Until logins exist (P2-T3) the route is missing and mock mode treats everyone as teacher_demo.
-    if (res.status === 404) return console.log("  (no login route yet — mock mode, skipped)");
     await expectOk(res);
     const set = res.headers.get("set-cookie");
     if (!set) throw new Error("no session cookie");

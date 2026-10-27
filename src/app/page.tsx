@@ -1,17 +1,17 @@
 import { StartButton } from "@/components/StartButton";
-import { getUser } from "@/lib/auth";
+import { requirePageUser } from "@/lib/auth";
 import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
 
 /** Teacher home: greeting, today's skill and the big Start button. */
 export default async function Home() {
-  const user = await getUser();
+  const user = await requirePageUser();
   const lang = await currentLang(user);
 
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-2xl font-bold text-navy">{t("home.greeting", lang, { code: user?.code ?? "" })}</h1>
+        <h1 className="text-2xl font-bold text-navy">{t("home.greeting", lang, { code: user.code })}</h1>
         <p className="mt-1 text-muted-foreground">{t("app.tagline", lang)}</p>
       </div>
 

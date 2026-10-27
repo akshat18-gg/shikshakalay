@@ -8,6 +8,7 @@ import {
   type ApiErrorCode,
   CoachCard,
   Lang,
+  SessionUser,
   SessionView,
   type StartLessonBody,
   StartLessonResult,
@@ -83,4 +84,16 @@ export function endLesson(sessionId: string): Promise<CoachCard> {
 
 export function getCard(sessionId: string): Promise<CoachCard> {
   return call(`/api/sessions/${encodeURIComponent(sessionId)}/card`, { method: "GET" }, CoachCard);
+}
+
+export function login(code: string, pin: string): Promise<{ user: SessionUser }> {
+  return postJson("/api/auth/login", { code, pin }, z.object({ user: SessionUser }));
+}
+
+export function logout(): Promise<{ ok: boolean }> {
+  return postJson("/api/auth/logout", {}, z.object({ ok: z.boolean() }));
+}
+
+export function agreeToConsent(): Promise<{ ok: boolean }> {
+  return postJson("/api/auth/consent", {}, z.object({ ok: z.boolean() }));
 }

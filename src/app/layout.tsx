@@ -21,12 +21,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = { themeColor: "#0b2850", viewportFit: "cover" };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const lang = await currentLang(await getUser());
+  const user = await getUser();
+  const lang = await currentLang(user);
   return (
     <html lang={lang} className={`${notoSans.variable} ${notoDeva.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <LangProvider lang={lang}>
-          <TopBar lang={lang} />
+          <TopBar lang={lang} loggedIn={user !== null} />
           <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6">{children}</main>
         </LangProvider>
       </body>
