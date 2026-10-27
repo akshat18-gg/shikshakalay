@@ -19,7 +19,11 @@ import {
 } from "@/lib/db/queries/lessons";
 import { checkEnv } from "@/lib/env";
 import { HttpError } from "@/lib/http";
-import { log } from "@/lib/log";
+import { log, logError } from "@/lib/log";
+import { saveMedia } from "@/lib/media/store";
+import { sttAvailable } from "@/lib/voice/stt";
+import { trackedSpeakLines, trackedTranscribe } from "@/lib/voice/tracked";
+import { ttsAvailable } from "@/lib/voice/tts";
 import { writeLines } from "./children";
 import { writeCard } from "./coach";
 import { step } from "./core";
@@ -53,7 +57,7 @@ export const realStartLesson: StartLesson = async (userId, body, channel) => {
     director: null,
     lines: hello,
     statesAfter: state.children,
-    audioUrl: null, // the fixed hello clip arrives with the voice work (P3-T6)
+    audioUrl: `/audio/hello-${body.lang}.mp3`, // fixed clip, made once (scripts/make-fixed-audio.ts)
     lessonOver: false,
     ms: Date.now() - started,
   });
@@ -104,11 +108,20 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
   );
   await assertWithinBudget({ limitUsd: e.AI_DAILY_BUDGET_USD, spendSince, now });
 
-  // Voice arrives in Phase 3 (transcribe); until then a recording without text can't be understood.
-  if (!input.text) throw new HttpError("stt_failed", "Voice is not available yet. Please type.");
-
   const scenario = scenarioOrThrow(session.scenarioId);
   const turnNo = (turns.at(-1)?.turn ?? 0) + 1;
+  const voiceCtx = { sessionId, turn: turnNo };
+
+  // Typed text wins; otherwise her recording is transcribed once and dropped (never stored).
+  let teacherText = input.text;
+  if (!teacherText) {
+    if (!input.audio || !sttAvailable()) throw new HttpError("stt_failed", "We couldn't hear that. Please type.");
+    try {
+      teacherText = await trackedTranscribe(input.audio, session.lang, scenario.keyterms, voiceCtx);
+    } catch {
+      throw new HttpError("stt_failed", "We couldn't hear that clearly. Please try again or type.");
+    }
+  }
   const recent = turns
     .filter((x) => x.turn > 0)
     .slice(-RECENT_TURNS)
@@ -118,7 +131,7 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
     {
       scenario,
       state: session.state,
-      teacherText: input.text,
+      teacherText,
       now,
       recent,
       models: { director: e.DIRECTOR_MODEL, child: e.CHILD_MODEL },
@@ -135,7 +148,7 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
     director: r.director,
     lines: r.lines,
     statesAfter: r.state.children,
-    audioUrl: null,
+    audioUrl: await replyAudio(r, session.lang, voiceCtx),
     lessonOver: r.lessonOver,
     ms: Date.now() - started,
   };
@@ -168,6 +181,26 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
   }
   return result;
 };
+
+/**
+ * The children's voices for this turn: the fixed "say again" clip, or one Bulbul clip of every line.
+ * Speech failing never fails the turn — the text is already there, so the answer is just silent.
+ */
+async function replyAudio(
+  r: { lines: TurnResult["lines"]; counted: boolean; director: TurnResult["director"] },
+  lang: "en" | "hi",
+  ctx: { sessionId: string; turn: number },
+): Promise<string | null> {
+  if (r.lines.length === 0) return null;
+  if (!r.counted && r.director === null) return `/audio/again-${lang}.mp3`;
+  if (!ttsAvailable()) return null;
+  try {
+    return await saveMedia(await trackedSpeakLines(r.lines, lang, "mp3", ctx), "audio/mpeg");
+  } catch (err) {
+    logError("tts_failed", err, { sessionId: ctx.sessionId, turn: ctx.turn });
+    return null;
+  }
+}
 
 /**
  * Idempotent: the first card is stored; asking again returns it. The Coach writes it (quote-checked); if the Coach

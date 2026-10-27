@@ -92,6 +92,7 @@ export const mockStartLesson: StartLesson = async (userId, body) => {
     ]),
     START,
   );
+  hello.audioUrl = `/audio/hello-${body.lang}.mp3`; // the committed fixed clip (no paid call)
   s.turns.push(hello);
   return { sessionId, scenarioId: body.scenarioId, lang: body.lang, firstSum: "52-27", hello };
 };
