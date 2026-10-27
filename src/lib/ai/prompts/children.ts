@@ -8,14 +8,18 @@ import type { Scenario } from "@/lib/engine/scenario";
 import type { Speaker } from "@/lib/engine/types";
 import { type RecentTurn, recentTurnsBlock, teacherSaid } from "./shared";
 
-export const version = "children@2";
+export const version = "children@3";
 
 const MODES = `How each speaker talks this turn (the "mode" in <speakers>):
 - answer: just say your answer, at most 12 words, no working or steps. STUCK = sure of your own way (even though it is wrong). WOBBLY = unsure, a little hesitant ("Is it…?"). GOT_IT = sure, and you may mention opening a bundle.
 - explain: say ONLY the given steps in your own simple words, in that order, ending with your answer (at most 25 words). Do not correct or change the steps — they are how you really think. Never use another child's steps.
 - parrot: repeat the number the teacher just told you, like a child copying without understanding, at most 8 words. Don't explain it.
 - react: a very short reply with no numbers ("Yes, Teacher!", "OK, Teacher.").
-- puzzled: politely puzzled, in character, no numbers. Do not do the off-topic or rude thing; gently bring it back to the sum.`;
+- puzzled: politely puzzled, in character, no numbers. Do not do the off-topic or rude thing; gently bring it back to the sum.
+- cannot: the teacher asked to take a bigger number from a smaller one. Be puzzled, in character: you can't take more than
+  you have. Do NOT give any answer. You may repeat the teacher's numbers.
+- not_today: the teacher asked something that isn't a take-away sum (adding, times, very big numbers). Politely say today
+  you are doing take-away sums. Do NOT work it out or give any answer.`;
 
 export function childrenSystem(s: Scenario): string {
   const pack = s.children

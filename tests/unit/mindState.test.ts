@@ -174,10 +174,13 @@ describe("the rules of 7.4", () => {
     expect(pickSpeakers(s, unsure)).toEqual([{ child: "ravi", mode: "react", mustSay: null }]);
   });
 
-  it("ignores a newTask that is not a borrowing 2-digit sum", () => {
-    for (const bad of ["57-23", "18-43", "43 minus 18", "4-1"]) {
+  it("keeps the current sum for tasks it can't play (bigger from smaller, addition, 3 digits, words)", () => {
+    for (const bad of ["18-43", "10+5", "125-30", "43 minus 18"]) {
       expect(applyMove(start(), d("new_sum", ["whole_class"], bad)).currentSum).toEqual([52, 27]);
     }
+    // Any a − b with 0 ≤ b ≤ a ≤ 99 is now a sum (28 Oct): one-digit and no-borrowing sums too.
+    expect(applyMove(start(), d("new_sum", ["whole_class"], "57-23")).currentSum).toEqual([57, 23]);
+    expect(applyMove(start(), d("new_sum", ["whole_class"], "4-1")).currentSum).toEqual([4, 1]);
   });
 
   it("does not change the input state (pure)", () => {

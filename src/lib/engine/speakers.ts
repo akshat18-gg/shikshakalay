@@ -2,7 +2,7 @@
  * Who speaks this turn and the exact number each line must contain (AGENTS.md 7.5). Claude only writes the words.
  */
 import type { ChildState, DirectorOutput } from "@/lib/contracts";
-import { explainSteps } from "./bugs";
+import { explainSteps, parseTask } from "./bugs";
 import { DEFAULT_MOVE_EFFECTS, type EngineState, type MoveEffects, type Speaker } from "./types";
 import { believesMistake, beliefAnswer, effectiveMove, spokenAnswer, targetsOf } from "./mindState";
 
@@ -35,6 +35,16 @@ export function pickSpeakers(
   const move = effectiveMove(director);
   const sum = state.currentSum;
 
+  // A task the engine can't compute: exactly one child answers, in character, with no number.
+  const task = parseTask(director.newTask, state.currentSum);
+  if (task.kind === "impossible" || task.kind === "unsupported") {
+    const to = director.addressedTo as string[];
+    const wholeClass = to.length === 0 || to.includes("whole_class");
+    const named = wholeClass ? undefined : state.children.find((c) => to.includes(c.id) && c.engagement >= 1);
+    const first = named ?? mostEager(state);
+    return first ? [{ child: first.id, mode: task.kind === "impossible" ? "cannot" : "not_today", mustSay: null }] : [];
+  }
+
   if (move === "off_task") {
     const first = mostEager(state);
     return first ? [{ child: first.id, mode: "puzzled", mustSay: null }] : [];
@@ -52,11 +62,12 @@ export function pickSpeakers(
       const steps = explainSteps(believesMistake(c, sum) ? c.bug : null, sum[0], sum[1]);
       return { child: c.id, mode: "explain", mustSay: beliefAnswer(c, sum), steps };
     }
+    // A plain reaction ("Good morning", "sit down") never repeats a told answer.
+    if (move === "other") return { child: c.id, mode: "react", mustSay: null };
     const parrot = state.parrots[c.id];
     if (parrot && parrot.sum[0] === sum[0] && parrot.sum[1] === sum[1]) {
       return { child: c.id, mode: "parrot", mustSay: parrot.answer };
     }
-    if (move === "other") return { child: c.id, mode: "react", mustSay: null };
     return { child: c.id, mode: "answer", mustSay: spokenAnswer(c, sum, state.parrots) };
   });
 }

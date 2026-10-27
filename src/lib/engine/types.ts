@@ -42,7 +42,8 @@ export const DEFAULT_MOVE_EFFECTS: MoveEffects = {
 };
 
 /** How a child speaks this turn (AGENTS.md 7.5). */
-export type SpeakMode = "answer" | "explain" | "parrot" | "react" | "puzzled";
+/** cannot = she asked to take a bigger number from a smaller one; not_today = addition, ×, ÷, 3 digits (no number). */
+export type SpeakMode = "answer" | "explain" | "parrot" | "react" | "puzzled" | "cannot" | "not_today";
 
 /** One child who speaks this turn, and the exact number the line must contain (null = no number). */
 export type Speaker = {

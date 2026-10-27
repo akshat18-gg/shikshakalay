@@ -40,11 +40,15 @@ export function answerWith(bug: string | null, a: number, b: number): number {
   return fn(a, b);
 }
 
+/** "0 - 0 = 0" says nothing — a step is dropped when both its numbers are 0 (one-digit sums like 7 − 3). */
+const steps = (...xs: (string | null)[]) => xs.filter((x): x is string => x !== null);
+const tensStep = (x: number, y: number, r: number) => (x === 0 && y === 0 ? null : `${x} - ${y} = ${r}`);
+
 function correctSteps(a: number, b: number): string[] {
   const [ta, oa] = split(a);
   const [tb, ob] = split(b);
-  if (oa < ob) return [`${oa + 10} - ${ob} = ${oa + 10 - ob}`, `${ta - 1} - ${tb} = ${ta - 1 - tb}`, `so ${a - b}`];
-  return [`${oa} - ${ob} = ${oa - ob}`, `${ta} - ${tb} = ${ta - tb}`, `so ${a - b}`];
+  if (oa < ob) return steps(`${oa + 10} - ${ob} = ${oa + 10 - ob}`, tensStep(ta - 1, tb, ta - 1 - tb), `so ${a - b}`);
+  return steps(`${oa} - ${ob} = ${oa - ob}`, tensStep(ta, tb, ta - tb), `so ${a - b}`);
 }
 
 /**
@@ -60,12 +64,12 @@ export function explainSteps(bug: string | null, a: number, b: number): string[]
       return correctSteps(a, b);
     case "smallerFromLarger": {
       const ones = `${Math.max(oa, ob)} - ${Math.min(oa, ob)} = ${Math.abs(oa - ob)}`;
-      const tens = `${Math.max(ta, tb)} - ${Math.min(ta, tb)} = ${Math.abs(ta - tb)}`;
-      return [ones, tens, `so ${smallerFromLarger(a, b)}`];
+      const tens = tensStep(Math.max(ta, tb), Math.min(ta, tb), Math.abs(ta - tb));
+      return steps(ones, tens, `so ${smallerFromLarger(a, b)}`);
     }
     case "borrowNoDecrement": {
       const ones = oa < ob ? `${oa + 10} - ${ob} = ${oa + 10 - ob}` : `${oa} - ${ob} = ${oa - ob}`;
-      return [ones, `${ta} - ${tb} = ${ta - tb}`, `so ${borrowNoDecrement(a, b)}`];
+      return steps(ones, tensStep(ta, tb, ta - tb), `so ${borrowNoDecrement(a, b)}`);
     }
     case "countBackOffByOne": {
       const end = countBackOffByOne(a, b);
@@ -86,6 +90,44 @@ export function parseSum(text: string): Sum | null {
   const a = Number(m[1]);
   const b = Number(m[2]);
   return a > b && a >= 10 && b >= 10 ? [a, b] : null;
+}
+
+/**
+ * What the teacher asked, from the Director's `newTask` (AGENTS.md 7.2, changed 28 Oct after a live test):
+ *   "10-5"  → a sum the engine can play: any a − b with 0 ≤ b ≤ a ≤ 99 (each child's mistake is run on it)
+ *   "1-2"   → impossible: take a bigger number from a smaller one (one child is puzzled, no number)
+ *   "10+5", "4x3", "125-30" → unsupported: not today's skill (one child says so, no number)
+ *   "", "43", "ten minus five" → none: no new task (also for a Director slip)
+ */
+export type Task =
+  { kind: "none" } | { kind: "sum"; sum: Sum } | { kind: "impossible"; a: number; b: number } | { kind: "unsupported" };
+
+/**
+ * The numbers a step of this sum can use: its digits, and the ones after borrowing (43 − 18 → 3, 8, 13, 4, 1).
+ * "13 take away 8" while working on 43 − 18 is a step of it, not a new sum — the engine decides, not Claude.
+ */
+export function stepNumbers([a, b]: Sum): Set<number> {
+  const [ta, oa] = split(a);
+  const [tb, ob] = split(b);
+  return new Set([oa, ob, oa + 10, ta, tb, ta - 1]);
+}
+
+export function parseTask(newTask: string, current?: Sum): Task {
+  const t = newTask.trim();
+  if (!t) return { kind: "none" };
+  // Two numbers joined by an operation. Anything else (a single number, words the Director didn't convert) is no task:
+  // a Director slip must never turn an ordinary turn into "today we do take-away".
+  const m = /^(\d+)\s*([-−–+x×*/÷])\s*(\d+)$/i.exec(t);
+  if (!m) return { kind: "none" };
+  const a = Number(m[1]);
+  const b = Number(m[3]);
+  const subtract = "-−–".includes(m[2]!);
+  if (subtract && current && !(a === current[0] && b === current[1])) {
+    const step = stepNumbers(current);
+    if (step.has(a) && step.has(b)) return { kind: "none" }; // a step of the current sum
+  }
+  if (!subtract || a > 99 || b > 99) return { kind: "unsupported" };
+  return b > a ? { kind: "impossible", a, b } : { kind: "sum", sum: [a, b] };
 }
 
 /** A sum this lesson can use: it must need borrowing (ones digit of a smaller than b's), or the mistakes can't show. */
