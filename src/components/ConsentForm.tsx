@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ApiClientError, agreeToConsent } from "@/lib/api";
 import { ErrorNote } from "./ErrorNote";
+import { reloadTo } from "@/lib/navigation";
 import { useT } from "./LangProvider";
 
 export function ConsentForm({ next }: { next: string }) {
@@ -16,8 +17,7 @@ export function ConsentForm({ next }: { next: string }) {
     setError(null);
     try {
       await agreeToConsent();
-      // A full page load, not router.replace: the router may hold pages prefetched before login (redirects to /login).
-      window.location.assign(next);
+      reloadTo(next);
     } catch (err) {
       setError(err instanceof ApiClientError ? err : new ApiClientError("internal"));
       setBusy(false);

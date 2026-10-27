@@ -1,6 +1,7 @@
 "use client";
 
 import { logout } from "@/lib/api";
+import { reloadTo } from "@/lib/navigation";
 import { useT } from "./LangProvider";
 
 export function LogoutButton() {
@@ -9,7 +10,7 @@ export function LogoutButton() {
     try {
       await logout();
     } finally {
-      window.location.assign("/login"); // full load: drop every page cached while logged in
+      reloadTo("/login");
     }
   }
   return (

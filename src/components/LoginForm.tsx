@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ApiClientError, login } from "@/lib/api";
+import { reloadTo } from "@/lib/navigation";
 import { useT } from "./LangProvider";
 
 export function LoginForm({ next }: { next: string }) {
@@ -19,8 +20,7 @@ export function LoginForm({ next }: { next: string }) {
     setError(null);
     try {
       await login(code.trim(), pin);
-      // A full page load, not router.replace: the router may hold pages prefetched before login (redirects to /login).
-      window.location.assign(next);
+      reloadTo(next);
     } catch (err) {
       const apiCode = err instanceof ApiClientError ? err.code : "internal";
       setError(
