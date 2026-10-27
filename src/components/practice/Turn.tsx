@@ -18,7 +18,8 @@ export function TeacherBubble({ text }: { text: string }) {
   );
 }
 
-export function Turn({ turn }: { turn: TurnResult }) {
+/** `onPlay` adds a small button that plays the children's voices for this turn again. */
+export function Turn({ turn, onPlay }: { turn: TurnResult; onPlay?: () => void }) {
   const t = useT();
   return (
     <>
@@ -34,6 +35,17 @@ export function Turn({ turn }: { turn: TurnResult }) {
           </li>
         );
       })}
+      {onPlay && turn.lines.length > 0 && (
+        <li>
+          <button
+            type="button"
+            onClick={onPlay}
+            className="min-h-11 text-sm font-semibold text-navy underline outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          >
+            ▶ {t("practice.playReply")}
+          </button>
+        </li>
+      )}
       {silentChildren(turn).map((id) => (
         <li key={id} className="text-sm text-muted-foreground italic">
           {t("practice.silent", { name: t(CHILD_STYLE[id].name) })}

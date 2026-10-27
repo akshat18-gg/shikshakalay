@@ -155,5 +155,11 @@
   "history.tryLine": "आज़माने की एक बात:",
   "history.openCard": "कार्ड खोलें",
   "history.notFinished": "अधूरा",
-  "home.seeCard": "पूरा कार्ड देखें"
+  "home.seeCard": "पूरा कार्ड देखें",
+
+  "practice.tapToSend": "रिकॉर्ड हो रहा है… भेजने के लिए दबाएँ",
+  "practice.voiceNote": "🎤 आवाज़ संदेश…",
+  "practice.recordLabel": "कक्षा से जो कहना है, रिकॉर्ड करें",
+  "practice.playReply": "बच्चों का जवाब सुनें",
+  "practice.stopRecording": "रोकें और भेजें"
 }

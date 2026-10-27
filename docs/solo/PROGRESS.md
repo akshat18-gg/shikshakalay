@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — P1-T11 speed (text first, audio fetched after) + children@2 shorter lines, then P2-T4 recorder
+- **Next task:** Phase 3 — P2-T8 + P3-T5 languages + card play button, then E1 (ask first)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G2 (Tue 27 Oct 19:15)
@@ -40,7 +40,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [ ] P2-T4 recorder · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
+**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [ ] P2-T8 + P3-T5 languages · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
@@ -81,6 +81,7 @@
 - 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 28 Oct — Voice is Sarvam only (operator): Azure keys are "optional" in env:check, AGENTS §2/§4/§8/§15 + README say Sarvam Bulbul; `tts.ts` stays swappable.
 - 28 Oct — Sarvam cost per voice lesson ≈ ₹2 (STT ₹0.49/min × ~1.2 min + Bulbul v4-flash ₹1/1K chars × ~1.3K); up to ₹7 if each request bills a full minute. Top up ₹500 before the pilot.
+- 28 Oct — Recorder: hold to talk (release sends, slide off cancels) or tap/tap (also keyboard); 30 s ring + auto-stop; webm/opus → mp4 → ogg at 24 kbps; one idempotency key per turn, retried twice on network errors (1 s, 3 s); audio unlocked on the first tap (silent WAV), replies auto-play, ▶ Play button if the phone blocks it and on every turn. Tested with Chrome's fake mic (a Bulbul-spoken WAV) against real mode: transcript → children → voices.
 - 28 Oct — Speed: children@2 (answer ≤ 12 words, parrot ≤ 8, explain ≤ 25 with only its own steps; mean 7.8 words, was ~20) and text first — web turns return as soon as the lines exist; `audioUrl` = `/api/sessions/[id]/turns/[n]/audio`, made by Bulbul on first request (deduped, cached 1 h).
 - 28 Oct — Voice in the turn: typed text wins, else Saaras (502 stt_failed on failure); Bulbul clip → media (60 min) → audioUrl; TTS failure → audioUrl null. "Say again" and hello use committed fixed clips (public/audio, mp3). Card audio: coach voice, cached 24 h. `/api/media/[token]` and card audio honour Range (iPhone Safari). Sarvam calls in ai_calls with approximate USD (₹ price / 88).
 - 28 Oct — Seen in the first real voice turn: 9–12 s server time from the Mac, and Ravi explained (with Arjun's steps!) in answer mode → 26 s of audio. Fix in P1-T11: shorter answer-mode lines (children@2) and audio fetched after the text.
@@ -98,7 +99,7 @@
 - 27 Oct — CI actions bumped to `checkout@v5` / `setup-node@v5` (v4 runs on deprecated Node 20).
 
 ## Numbers
-- Reply time p50 / p90: — (live G2 turns: 4.2 s, 3.1 s, 3.3 s server time; Director then Children in sequence; P1-T11)
+- Reply time p50 / p90 (live, spoken Hindi, 28 Oct 00:55, `npm run speed:check`): text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s · server 3.1 s / 4.9 s
 - App AI spend so far (from `ai_calls`): dev ~$0.03 · prod $0.0012 (27 Oct). One full lesson + coach card ≈ $0.017 (coach $0.014).
 - Coding spend (operator reads `/usage` at each gate): $41.47 total (Wed 28 Oct 00:20) · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
 - Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
