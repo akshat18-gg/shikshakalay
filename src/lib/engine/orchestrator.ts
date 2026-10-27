@@ -19,11 +19,12 @@ import {
 } from "@/lib/db/queries/lessons";
 import { checkEnv } from "@/lib/env";
 import { HttpError } from "@/lib/http";
+import { log } from "@/lib/log";
 import { writeLines } from "./children";
+import { writeCard } from "./coach";
 import { step } from "./core";
 import { tagMove } from "./director";
-import { backupLine, loadScenario, moveEffects, startState } from "./scenario";
-import { simpleCard } from "./simpleCard";
+import { backupLine, loadScenario, startState } from "./scenario";
 import { helloSpeakers } from "./speakers";
 import { assertLessonOpen, assertUnderTurnLimit } from "./turnGate";
 
@@ -168,7 +169,10 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
   return result;
 };
 
-/** Idempotent: the first card is stored; asking again returns it. The Coach (P1-T9) will come before the fallback. */
+/**
+ * Idempotent: the first card is stored; asking again returns it. The Coach writes it (quote-checked); if the Coach
+ * fails twice or today's AI budget is used up, the plain card from her own words is stored instead.
+ */
 export const realEndLesson: EndLesson = async (sessionId) => {
   const existing = await loadCard(sessionId);
   if (existing) return existing;
@@ -176,12 +180,39 @@ export const realEndLesson: EndLesson = async (sessionId) => {
   if (!session) throw new HttpError("not_found", "This lesson doesn't exist.");
   const scenario = scenarioOrThrow(session.scenarioId);
   const turns = await loadTurns(sessionId);
-  const card = simpleCard(
-    turns.map((x) => ({ turn: x.turn, teacherText: x.teacherText, director: x.director })),
-    session.lang,
-    moveEffects(scenario),
+  const e = serverEnv();
+  const allowClaude = await assertWithinBudget({ limitUsd: e.AI_DAILY_BUDGET_USD, spendSince }).then(
+    () => true,
+    () => false,
   );
-  return saveCardAndEnd({ sessionId, card, quotesVerified: true, droppedPoints: 0, lang: session.lang });
+  const outcome = await writeCard({
+    scenario,
+    lang: session.lang,
+    model: e.COACH_MODEL,
+    sessionId,
+    allowClaude,
+    turns: turns.map((x) => ({
+      turn: x.turn,
+      teacherText: x.teacherText,
+      director: x.director,
+      lines: x.result.lines,
+      statesBefore: x.statesBefore,
+      statesAfter: x.statesAfter,
+    })),
+  });
+  log("coach_card", {
+    sessionId,
+    source: outcome.source,
+    quotesVerified: outcome.quotesVerified,
+    dropped: outcome.droppedPoints,
+  });
+  return saveCardAndEnd({
+    sessionId,
+    card: outcome.card,
+    quotesVerified: outcome.quotesVerified,
+    droppedPoints: outcome.droppedPoints,
+    lang: session.lang,
+  });
 };
 
 export const realGetSession: GetSession = async (sessionId) => {
