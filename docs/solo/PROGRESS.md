@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 1 — Walking skeleton (all tasks merged; G1 waits only on the operator's phone check) → Phase 2 started
-- **Next task:** Phase 2 — P1-T3 mind-state + speakers
+- **Next task:** Phase 2 — P2-T3 logins
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=1` (until gate G2)
 - **Last gate passed:** —
@@ -36,7 +36,7 @@
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 0** — [x] S0.1 tools (5) · [x] S0.2 repo (2) · [x] S0.3 kickoff (app, shadcn, packages, kit, scripts, env, format, licence) (10) · [x] S0.4 first PR + CI (5)
 **Phase 1** — [x] P1-T0 + S1.1 logs/request ids + S1.2 env check + S1.3 /api/version (60 → 25) · [x] P2-T1 shell + i18n (45 → 20) · [x] P2-T2 practice room (mock) (90 → 30) · [x] P1-T4 Render + UptimeRobot (operator, 0 agent minutes) · [x] S1.4 smoke:live (30 → 10)
-**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [ ] P1-T3 mind-state + speakers · [ ] P2-T3 logins · [ ] P1-T5 askJson + S2.1 · [ ] P3-T8 teacher lines · [ ] P1-T6 + P3-T2 lesson file · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
+**Phase 2** — [x] P1-T1 Neon + readyz (40 → 20) · [x] P1-T2 bugs (30 → 10) · [x] P1-T3 mind-state + speakers (60 → 15) · [ ] P2-T3 logins · [ ] P1-T5 askJson + S2.1 · [ ] P3-T8 teacher lines · [ ] P1-T6 + P3-T2 lesson file · [ ] P1-T7 Director/Children/guardrails · [ ] P1-T8 step + orchestrator · [ ] P2-T5 real API · [ ] S2.2 prod DB + real mode
 **Phase 3** — [ ] P3-T1 voice smoke · [ ] P3-T3 stt/tts · [ ] P3-T4 media · [ ] P3-T6 fixed clips · [ ] P1-T9 coach · [ ] P1-T10 voice in turn · [ ] P2-T4 recorder · [ ] P2-T6 replies · [ ] P2-T7 card + history · [ ] P2-T8 + P3-T5 languages · [ ] P1-T11 speed · [ ] E1 eval batch
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
@@ -54,6 +54,8 @@
 - 27 Oct — Indexes on every FK and filter/sort column (13 named `*_idx`); pushed to the Neon dev branch (13 tables). `npm run db:ping` added.
 - 27 Oct — Neon free compute sleeps after ~5 min idle: the first query after that takes ~2.5 s (from the Mac), so `/api/readyz` (2 s limit) can say 503 once, then ok. Not the Render health check (that is `/api/healthz`).
 - 27 Oct — `parseSum` = format + a > b; `parseLessonSum` also needs borrowing (AGENTS 7.2: invalid `newTask` is ignored). Non-borrowing sums are ignored by the engine.
+- 27 Oct — Reveal moves put every speaking target in `explain` mode (also a whole-class `compare_methods`: "tell me how you each got it"). Naming all four children is not "whole class" (no 3-speaker cap).
+- 27 Oct — Move groups come from the lesson file (`MoveEffects`); `DEFAULT_MOVE_EFFECTS` = AGENTS 7.3 = sub_2digit.yaml.
 - 27 Oct — npm `overrides`: `@esbuild-kit/core-utils` → esbuild ^0.25 (Dependabot #1: drizzle-kit 0.31.11, the latest, still pins esbuild 0.18). drizzle-kit `generate` output is identical before/after; `npm audit` 0.
 - 27 Oct — contracts.ts (additive): `GetCard` type for `GET /api/sessions/[id]/card`.
 - 27 Oct — Mock lessons live on `globalThis` so every route module sees the same lessons.
