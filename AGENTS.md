@@ -23,8 +23,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > whole project on one machine. Section 0.5 replaces the team-process rules (owners, approvals, dates).
 > The product rules (sections 1–2, 5, 7–16, 18, 21) are unchanged.
 >
-> Last updated: Mon 26 Oct 2026 (solo mode). Repo: https://github.com/sourin-git/shikshakalay (the human
-> confirms the final owner in Phase 0 — update this line if it moves).
+> Last updated: Tue 27 Oct 2026 (solo mode). Repo: https://github.com/akshat18-gg/shikshakalay (the operator's
+> own repo; it replaced `sourin-git/shikshakalay` in Phase 0). Live: https://shikshakalay.onrender.com
 
 ---
 
