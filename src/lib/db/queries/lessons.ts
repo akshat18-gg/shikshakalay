@@ -88,6 +88,15 @@ export async function loadTurns(sessionId: string): Promise<TurnRow[]> {
   return db.select().from(turns).where(eq(turns.sessionId, sessionId)).orderBy(asc(turns.turn)).limit(MAX_TURN_ROWS);
 }
 
+export async function loadTurnResult(sessionId: string, turn: number): Promise<TurnResult | null> {
+  const [t] = await db
+    .select({ result: turns.result })
+    .from(turns)
+    .where(and(eq(turns.sessionId, sessionId), eq(turns.turn, turn)))
+    .limit(1);
+  return t?.result ?? null;
+}
+
 export async function findTurnByKey(sessionId: string, key: string): Promise<TurnResult | null> {
   const [t] = await db
     .select({ result: turns.result })

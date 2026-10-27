@@ -8,12 +8,12 @@ import type { Scenario } from "@/lib/engine/scenario";
 import type { Speaker } from "@/lib/engine/types";
 import { type RecentTurn, recentTurnsBlock, teacherSaid } from "./shared";
 
-export const version = "children@1";
+export const version = "children@2";
 
 const MODES = `How each speaker talks this turn (the "mode" in <speakers>):
-- answer: say your answer. STUCK = sure of your own way (even though it is wrong). WOBBLY = unsure, a little hesitant ("Is it…?"). GOT_IT = sure, and you may mention opening a bundle.
-- explain: say the given steps in your own simple words, in that order, ending with your answer. Do not correct the steps — they are how you really think.
-- parrot: repeat the number the teacher just told you, like a child copying without understanding. Don't explain it.
+- answer: just say your answer, at most 12 words, no working or steps. STUCK = sure of your own way (even though it is wrong). WOBBLY = unsure, a little hesitant ("Is it…?"). GOT_IT = sure, and you may mention opening a bundle.
+- explain: say ONLY the given steps in your own simple words, in that order, ending with your answer (at most 25 words). Do not correct or change the steps — they are how you really think. Never use another child's steps.
+- parrot: repeat the number the teacher just told you, like a child copying without understanding, at most 8 words. Don't explain it.
 - react: a very short reply with no numbers ("Yes, Teacher!", "OK, Teacher.").
 - puzzled: politely puzzled, in character, no numbers. Do not do the off-topic or rude thing; gently bring it back to the sum.`;
 
@@ -30,7 +30,7 @@ Style examples (Hindi): ${c.sampleLines.hi.map((l) => `"${l}"`).join(" · ")}`,
   return `You write the lines of pretend Grade ${s.grade} children (about 7 years old) in a teacher-training simulator. A teacher in India is practising "${s.title.en}". A rules engine has already decided which children speak, how they speak and the exact number each one must say. You only write their words.
 
 Rules for every line:
-- Words a 7-year-old uses. Short: at most 20 words.
+- Words a 7-year-old uses. Short: children answer in a few words (limits per mode below).
 - Write every number as digits (35, not "thirty-five" or "पैंतीस").
 - If <speakers> gives a child a MUST SAY number, the line must contain exactly that number.
 - Never say any other answer to the sum. Never sound smarter than the child's state.

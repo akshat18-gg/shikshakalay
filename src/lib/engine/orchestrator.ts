@@ -19,10 +19,9 @@ import {
 } from "@/lib/db/queries/lessons";
 import { checkEnv } from "@/lib/env";
 import { HttpError } from "@/lib/http";
-import { log, logError } from "@/lib/log";
-import { saveMedia } from "@/lib/media/store";
+import { log } from "@/lib/log";
 import { sttAvailable } from "@/lib/voice/stt";
-import { trackedSpeakLines, trackedTranscribe } from "@/lib/voice/tracked";
+import { trackedTranscribe } from "@/lib/voice/tracked";
 import { ttsAvailable } from "@/lib/voice/tts";
 import { writeLines } from "./children";
 import { writeCard } from "./coach";
@@ -30,6 +29,7 @@ import { step } from "./core";
 import { tagMove } from "./director";
 import { backupLine, loadScenario, startState } from "./scenario";
 import { helloSpeakers } from "./speakers";
+import { turnAudioPath } from "./turnAudio";
 import { assertLessonOpen, assertUnderTurnLimit } from "./turnGate";
 
 const RECENT_TURNS = 4;
@@ -148,7 +148,7 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
     director: r.director,
     lines: r.lines,
     statesAfter: r.state.children,
-    audioUrl: await replyAudio(r, session.lang, voiceCtx),
+    audioUrl: replyAudio(r, session.lang, voiceCtx),
     lessonOver: r.lessonOver,
     ms: Date.now() - started,
   };
@@ -183,23 +183,17 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
 };
 
 /**
- * The children's voices for this turn: the fixed "say again" clip, or one Bulbul clip of every line.
- * Speech failing never fails the turn — the text is already there, so the answer is just silent.
+ * Where the children's voices for this turn will be: the fixed "say again" clip, or (web) a link that makes the
+ * Bulbul clip when the browser asks — so the text isn't held up by speech. WhatsApp (Phase 5) will make it at once.
  */
-async function replyAudio(
+function replyAudio(
   r: { lines: TurnResult["lines"]; counted: boolean; director: TurnResult["director"] },
   lang: "en" | "hi",
   ctx: { sessionId: string; turn: number },
-): Promise<string | null> {
+): string | null {
   if (r.lines.length === 0) return null;
   if (!r.counted && r.director === null) return `/audio/again-${lang}.mp3`;
-  if (!ttsAvailable()) return null;
-  try {
-    return await saveMedia(await trackedSpeakLines(r.lines, lang, "mp3", ctx), "audio/mpeg");
-  } catch (err) {
-    logError("tts_failed", err, { sessionId: ctx.sessionId, turn: ctx.turn });
-    return null;
-  }
+  return ttsAvailable() ? turnAudioPath(ctx.sessionId, ctx.turn) : null;
 }
 
 /**
