@@ -548,13 +548,24 @@ roadmap slide; build it only if the operator asks after gate G6.
 
 **Speech → text — Sarvam Saaras v4** (`src/lib/voice/stt.ts`)
 - `POST https://api.sarvam.ai/speech-to-text`, multipart form, header `api-subscription-key`.
-- Fields: `file`, `model=saaras:v4`, `mode=codemix` (English words stay English, Hindi in Devanagari),
-  `language_code` = `hi-IN` or `en-IN`, `keyterms` = JSON array (≤ 50) from the lesson file.
+- Fields: `file`, `model=saaras:v4`, `language_code` = `hi-IN` or `en-IN`, `keyterms` = JSON array (≤ 50, ≤ 64
+  chars each) from the lesson file. (Checked 27 Oct: `mode` applies only to saaras:v3; v4 + keyterms writes numbers
+  as digits — "43 माइनस 18" — which the Director needs. Hinglish comes back in Devanagari.)
 - **Max 30 s per request.** The recorder stops at 30 s. Longer WhatsApp notes → ask her to keep turns short.
 - Accepts webm/opus (Chrome), mp4/aac (iPhone), ogg/opus (WhatsApp). Response: `{ transcript }`.
 - Verify the exact request with one real call on Day 1 (`scripts/voice-smoke.ts`); SDKs and fields change.
 
-**Text → speech — Azure Neural TTS** (`src/lib/voice/tts.ts`)
+**Text → speech — SOLO MODE: Sarvam Bulbul** (operator decision 27 Oct: no Azure key). `src/lib/voice/tts.ts` has a
+small backend interface; Azure (below) slots in as a second backend if a key arrives.
+- `POST https://api.sarvam.ai/text-to-speech`, JSON, header `api-subscription-key`: `text` (≤ 2500 chars),
+  `language_code`, `model` (`bulbul:v4-flash` / `bulbul:v3`), `speaker`, `pace` (0.5–2.0; **no pitch** on v3/v4),
+  `speech_sample_rate` (22050), `output_audio_codec=mp3` (opus is refused on this endpoint). Response
+  `{ audios: [base64] }`. One text and one voice per request → one request per child line, in parallel, MP3s joined
+  (ID3 tags stripped). Timeout 10 s.
+- Voices (`src/lib/voice/voices.ts`, picked by measured pitch): Ravi `shubh_hi_stories_dramatic`, Arjun
+  `kunal_hi_kids`, Meena `chhavi_hi_kids`, Sana `ritu_hi_kids`, coach `ishita_hi_edtech` — each works for hi-IN and en-IN.
+
+**Text → speech — Azure Neural TTS (if a key arrives)**
 - `POST https://<AZURE_SPEECH_REGION>.tts.speech.microsoft.com/cognitiveservices/v1`
   headers `Ocp-Apim-Subscription-Key`, `Content-Type: application/ssml+xml`, `X-Microsoft-OutputFormat`, `User-Agent`.
 - **One SSML document with one `<voice>` per line**, each with `<prosody pitch="+20%" rate="+5%">` and a
