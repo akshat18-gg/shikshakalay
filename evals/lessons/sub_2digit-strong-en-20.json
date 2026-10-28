@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-en-20",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning children! Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, I saw you using your fingers. Tell me slowly, how did you get your answer?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, when you count back seven from fifty two, which number do you say first on your finger? Do you say fifty two or fifty one?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here, Meena. Here are five bundles and two loose sticks, that is fifty two. Take away one stick. How many are left now? Fifty one, see? So the first finger is fifty one, not fifty two.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now Meena, we need seven loose sticks but we have only two. Open one bundle. How many loose sticks do you have now?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Meena, you opened the bundle and counted twelve sticks correctly before taking away seven.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sanaa, you have been working so quietly. Can you tell us what answer you got for fifty two minus twenty seven?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana says twenty five. Thumbs up if you also got twenty five.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Good. Now everybody try this one: sixty one minus thirty four. Use your bundles if you need.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "93-69",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-hi-05",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "नमस्ते बच्चों! आज हम bundles और sticks से subtraction करेंगे। सबके पास bundles हैं ना?",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो पहला sum — बावन में से सत्ताईस घटाओ। अपनी copy में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, तुम्हारा answer पैंतीस आया। बताओ, तुमने ones में क्या किया? कैसे सोचा?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने सात में से दो घटा दिया क्योंकि सात बड़ा है। Ravi, ऊपर वाली number कौन सी है — दो या सात? बावन में ones में कितने हैं?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, ये लो — पाँच bundles और दो खुली sticks, यही बावन है। अब इन दो sticks में से सात sticks निकालो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "नहीं निकल रहीं ना? तो एक bundle खोल दो। अब कितनी खुली sticks हो गईं? बारह! अब बारह में से सात निकालो, और गिनो कितने bundles बचे।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Bahut badhiya Ravi! Tumne khud bundle khola aur phir chaar bundles mein se do nikaale. Ye bundle kholna hi sabse zaroori step tha.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुम बहुत ध्यान से कर रही थी। धीरे से बताओगी, तुम्हारा answer क्या आया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब एक और करते हैं — इकसठ में से चौंतीस। Ravi, पहले बताओ, ones में एक में से चार निकलेगा क्या? क्या करना पड़ेगा?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "जिसको लगता है कि bundle खोलना पड़ेगा, thumbs up करो। Arjoon, मीना, सब दिखाओ।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "55-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-hi-22",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब शांत हो जाओ। किताबें बंद, हाथ डेस्क पर। आज हम subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाओ। 52-27 कितना होगा? जल्दी बताओ।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस नहीं है। गलत है। बैठ जाओ, कोई और बताए।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सुनो ध्यान से। दो में से सात नहीं घटता, तो दस उधार लो। बारह में से सात पाँच। फिर चार में से दो, दो। जवाब पच्चीस। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, phir se sunो. Main dobara bol rahi hoon. Do mein se saat nahi ghatta, das udhaar lo, barah mein se saat paanch. Samjhe? Dhyaan kahan hai tumhara?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया, अंगूठा ऊपर करो। हाँ, ठीक है।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अगला सवाल। इकसठ में से चौंतीस। 61-34. सब अपनी कॉपी में करो, बात नहीं करनी।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "मीना, उंगलियों पर मत गिनो, इसीलिए गलत आता है। जवाब सत्ताईस है। लिख लो, सत्ताईस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, बस। जिनका गलत आया, घर पर पाँच बार लिखकर लाना। अब सब चुपचाप बैठो।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "33-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

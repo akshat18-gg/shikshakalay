@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-weak-hi-21",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चो, जल्दी बैठो, टाइम कम है। बोर्ड पर देखो, बावन माइनस सत्ताईस।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "रबी, ये पैंतीस कैसे आया? गलत है। सुनो, जवाब पच्चीस है। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, मैंने बोला ना, ऊपर से दहाई लेते हैं। ऊपर से लेते हैं! कितनी बार बोलूँ, ऊपर से दहाई लेते हैं।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ungliyon pe mat gino, bahut time lagta hai. Galat hai, baith jao. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब ये करो, इकसठ माइनस चौंतीस। जल्दी लिखो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "जवाब सत्ताईस है। जिसका सत्ताईस आया, हाथ ऊपर करो। सबका आया? ठीक है।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बस, बाकी होमवर्क में करना। बैग पैक करो, घंटी बजने वाली है।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "96-67",
+  "reviewed": false,
+  "labelSource": "generator"
+}

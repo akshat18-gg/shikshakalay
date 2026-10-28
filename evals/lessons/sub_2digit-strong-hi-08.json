@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-hi-08",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "चुप! सब बैठ जाओ, जल्दी। आज का सवाल बोर्ड पर है — बावन में से सत्ताईस। कॉपी में करो, जल्दी।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "रबि, तुम्हारा answer पैंतीस आया? बताओ, कैसे किया? ones वाले column में क्या किया तुमने?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने सात में से दो घटाया। Ravi, सवाल ऊपर वाले नंबर से शुरू होता है — ऊपर ones में कितने हैं? दो। दो में से सात निकल सकते हैं क्या?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चुप, बाकी सब। रवि, ये लो पाँच bundles और दो sticks — बावन। अब सात sticks निकालो। नहीं निकल रहे? तो एक bundle खोलो, जल्दी। अब कितनी sticks हुईं?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुमने भी यही किया था ना? बेटा, धीरे से बताओ, bundle खोलने के बाद tens में कितने बचे?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Shabaash Ravi, tumne bundle khola aur barah mein se saat ghataya, yahi sahi tareeka hai. Ab jaldi yeh karo — tirasi mein se unatis. Chup chaap, apne aap.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "83-29"
+    }
+  ],
+  "finalSum": "65-36",
+  "reviewed": false,
+  "labelSource": "generator"
+}

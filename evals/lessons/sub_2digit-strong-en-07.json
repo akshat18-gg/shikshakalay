@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-strong-en-07",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook, okay?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five. Can you tell me how you got it? What did you do in the ones place?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, so you did seven minus two is five, because seven is bigger. Hmm. Ravi, look at the top number. In the ones place, which number is on top, two or seven?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, two is on top. So we have only two sticks and we must take away seven. Ravi, come here. Take five bundles and two loose sticks. Can you take seven loose sticks from these two?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "No, not enough, na? So what can we do? Ravi, open one bundle. Now how many loose sticks do you have? Count them... twelve. Now take away seven. And how many bundles are left?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Ravi, you opened the bundle yourself when the sticks were not enough. That is exactly the right thing to do.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you were working so quietly. Can you tell us what answer you got? It's okay, just say it softly.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more. Ravi, and everyone, try forty three minus eighteen. Ravi, remember, first check the top number in the ones.",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi",
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "61-45",
+  "reviewed": false,
+  "labelSource": "generator"
+}

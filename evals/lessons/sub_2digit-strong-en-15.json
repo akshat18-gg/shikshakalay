@@ -1,0 +1,85 @@
+{
+  "id": "sub_2digit-strong-en-15",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning children! Today we will do subtraction with our bundles and sticks. Fifty two minus twenty seven. Everybody, try it in your notebook.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Can you tell me how you got it? Start from the ones.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, so you said 2 is small, so you took one ten and made it 12, then 12 minus 7 is 5. Very good, that part is correct. Now, after you took that ten, how many tens are left in fifty two?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come, Arjun, take these five bundles and two sticks. That is fifty two. Now open one bundle for the ones. Count, how many bundles are still tied?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, only four bundles! So in the tens column it is four minus two, not five minus two. What do you get now?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Arjun. You remembered the opened bundle is gone from the tens. That is the main thing today.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sanaa, I saw you got 25 also. Can you softly tell us what you did with the tens?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you agree the answer is twenty five. Rabi, Mina, show me your thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more. Sixty one minus thirty four. Arjun, this time keep your bundles next to you and cross out the ten you open.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class",
+        "arjun"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "83-17",
+  "reviewed": false,
+  "labelSource": "generator"
+}

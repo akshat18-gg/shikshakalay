@@ -1,0 +1,61 @@
+{
+  "id": "sub_2digit-weak-hi-23",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चुप! सब बैठ जाओ। जल्दी कॉपी खोलो। आज का सवाल है बावन माइनस सत्ताईस, 52-27। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, तुमने 35 लिखा? गलत है। बैठ जाओ। अगला कौन?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अरे अर्जुन, फिर से गलत। सुनो, जवाब पच्चीस है, 25। सब लोग लिखो, 52 माइनस 27 बराबर 25। जल्दी!",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ungli pe mat gino! Maine bola na, ones mein ek ten lo, phir minus karo. Ek ten lo, phir minus karo. Samjhi? Chup, sirf suno.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया वो हाथ ऊपर करो। जल्दी, हाथ ऊपर!",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, अब दूसरा सवाल। तैंतालीस माइनस अठारह, 43-18। चुपचाप करो, पाँच मिनट में कॉपी दिखाना।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "41-33",
+  "reviewed": false,
+  "labelSource": "generator"
+}

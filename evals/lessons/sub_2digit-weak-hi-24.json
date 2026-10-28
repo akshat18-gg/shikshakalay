@@ -1,0 +1,79 @@
+{
+  "id": "sub_2digit-weak-hi-24",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "बच्चों, चलो बैठ जाओ। आज हम घटाना करेंगे। सब ध्यान से सुनो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाओ। 52 minus 27. कितना हुआ? जल्दी बताओ।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस नहीं होता। गलत है। बैठ जाओ। अर्जुन, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अरे अर्जून, पैंतीस नहीं, पच्चीस। सही answer पच्चीस है। सब बोलो, बावन माइनस सत्ताईस बराबर पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "देखो फिर से सुनो। दो में से सात नहीं जाता, तो दहाई से एक लो। दो में से सात नहीं जाता, तो दहाई से एक लो। समझे? दहाई से एक लो।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Jinko samajh aa gaya, haath upar karo. Haan, sab ne samjha na?",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब यह करो। तिरसठ में से छब्बीस। 63 minus 26. मीना, तुम बताओ।",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "63-26"
+    },
+    {
+      "teacher": "मीना, उंगलियों पर मत गिनो, गलत आ रहा है। सैंतीस होता है, सैंतीस। कॉपी में लिख लो, सब लोग सैंतीस लिखो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena",
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "46-18",
+  "reviewed": false,
+  "labelSource": "generator"
+}

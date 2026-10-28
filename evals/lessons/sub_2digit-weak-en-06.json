@@ -1,0 +1,63 @@
+{
+  "id": "sub_2digit-weak-en-06",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit down quietly, everybody. Today we do subtraction. Fifty two minus twenty seven. Write it in your copy.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote 35? No, no. That is wrong. Arjun, you say next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, 35 also? Listen. Two is small, so we borrow. Twelve minus seven is five. Then four minus two is two. Answer is 25. Everybody say, 52 minus 27 is 25.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, why you are counting on fingers? I told already. Borrow one ten, twelve minus seven, four minus two. BORROW one ten. Twelve minus seven. Four minus two. Understood?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who has understood? Thumbs up. Sana, thumbs up? Okay, good, all understood.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class",
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now do this one. Forty three minus eighteen. Quickly, two minutes only.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "56-48",
+  "reviewed": false,
+  "labelSource": "generator"
+}

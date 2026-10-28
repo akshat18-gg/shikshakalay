@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-en-21",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do fifty two minus twenty seven, 52-27. Take out your bundles and sticks. Try it in your notebook first.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Tell me slowly, how did you get 35? What did you do in the ones and in the tens?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay Arjun, you took one ten to make the ones 12, and 12 minus 7 is 5. Very good. But after you took that ten, how many tens are left in fifty two? Still five, or less?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come, Arjun, show me with bundles. Make 52, five bundles and two sticks. Now open one bundle for the ones. Count the bundles on the table now. How many bundles are there?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you did it quietly. Can you tell Arjun what answer you got for 52 minus 27? Speak slowly, no problem.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Arjun, you crossed out the five and wrote four after opening the bundle. Now everybody try sixty three minus twenty eight, 63-28.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "95-67",
+  "reviewed": false,
+  "labelSource": "generator"
+}

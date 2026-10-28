@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-weak-hi-04",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "बच्चों, बैठ जाओ। चुप हो जाओ। आज हम घटाना करेंगे। सब ध्यान से सुनो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाओ। 52 माइनस 27। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस? नहीं नहीं, गलत है। बैठ जाओ। अगला।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, तुम्हारा भी गलत है, पैंतीस नहीं आता। सुनो, उत्तर पच्चीस है। 52 माइनस 27 बराबर 25। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, फिर से सुनो। दो में से सात नहीं जाता, तो उधार लो। उधार लो। समझ आया? दो में से सात नहीं जाता, उधार लो।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sabko samajh aa gaya? Jisko samajh aaya, haath upar karo.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, अब ये करो। तैंतालीस में से अठारह। 43 माइनस 18। कॉपी में लिखो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "उत्तर पच्चीस है। 43 माइनस 18 बराबर 25। जिसका गलत है, ठीक कर लो। सब लिखो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "51-34",
+  "reviewed": false,
+  "labelSource": "generator"
+}

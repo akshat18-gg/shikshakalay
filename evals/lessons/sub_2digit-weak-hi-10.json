@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-weak-hi-10",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, बैठ जाओ सब। आज हम घटाना करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन में से सत्ताईस घटाओ। जल्दी बताओ।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? नहीं, गलत है। बैठ जाओ। अगला।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सही उत्तर पच्चीस है। सब बोलो, बावन माइनस सत्ताईस बराबर पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, पैंतीस फिर से? मैंने अभी बोला ना, पच्चीस! ध्यान कहाँ है तुम्हारा?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "फिर से सुनो। दस उधार लो, बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दस उधार लो, बारह में से सात!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आया, हाथ ऊपर करो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha, ab agla sawaal. Tirsath mein se untalis ghatao, sab apni copy mein karo.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-39"
+    },
+    {
+      "teacher": "Mina, पच्चीस नहीं है बेटा। उंगलियों पर मत गिनो। उत्तर चौबीस है, लिख लो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, बाकी सब घर से करके लाना। किताबें बंद करो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "71-64",
+  "reviewed": false,
+  "labelSource": "generator"
+}

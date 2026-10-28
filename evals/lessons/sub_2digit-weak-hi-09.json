@@ -1,0 +1,78 @@
+{
+  "id": "sub_2digit-weak-hi-09",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, बैठ जाओ। आज हम घटाना करेंगे। बोर्ड पर देखो — बावन में से सत्ताईस। 52 minus 27।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "रबी, तुमने पैंतीस लिखा? नहीं नहीं, गलत है। बैठ जाओ। अर्जुन, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "देखो, उत्तर पच्चीस है। 52 में से 27 बराबर 25। सब बोलो — पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने बोला ना, दो में से सात नहीं होता तो दस उधार लो। दस उधार लो। फिर से सुनो — दो में से सात नहीं होता, तो दस उधार लो।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Jinko samajh aa gaya, haath upar karo. Sab ko aa gaya na? Thumbs up karo.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, अब दूसरा सवाल। तैंतालीस में से अठारह। 43 minus 18। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "मीना, उंगली पर मत गिनो, इतना टाइम नहीं है। गलत आ रहा है तुम्हारा। Arjoon, तुमने फिर से वही गलती की, ध्यान कहाँ है?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "उत्तर पच्चीस है। 43 में से 18 बराबर 25। कॉपी में लिख लो और याद कर लो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "70-35",
+  "reviewed": false,
+  "labelSource": "generator"
+}

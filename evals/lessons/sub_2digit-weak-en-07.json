@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-weak-en-07",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly please. Today we are doing subtraction. First sum, fifty two minus twenty seven. Write it in your copy.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no, that is wrong. Next, Arjoon, what did you get?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, I told you already. You borrow one ten, so twelve minus seven is five, and four minus two is two. Twelve minus seven, four minus two. Listen properly this time!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, everyone who got twenty five, thumbs up. Show me your thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next sum. Forty three minus eighteen. Do it quickly, two minutes only.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, why are you counting on fingers? Don't use fingers, that is why your answer is coming wrong. Put your hands down.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer is twenty five again. Forty three minus eighteen is twenty five. Copy it from the board, all of you.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "61-32",
+  "reviewed": false,
+  "labelSource": "generator"
+}

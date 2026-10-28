@@ -1,0 +1,85 @@
+{
+  "id": "sub_2digit-strong-hi-12",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "सब लोग शांत हो जाओ। बस्ते नीचे रखो, सबके सामने तीलियों के बंडल होने चाहिए। हाथ बाँध लो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाना है, 52 माइनस 27। चुपचाप अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना, तुमने छब्बीस लिखा है। मुझे बताओ, तुमने यह कैसे निकाला? एक-एक स्टेप बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha Mina, tum ungliyon pe peeche gin rahi thi. Jab tumne pehli ungli uthayi, tab tumne kaun sa number bola? Bavan ya ikyavan?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो मीना, तीलियों से करते हैं। पाँच बंडल और दो खुली तीलियाँ रखो, यह बावन है। अब एक बंडल खोलो। खुली तीलियाँ कितनी हो गईं? बारह। इनमें से सात हटाओ, एक-एक करके।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, रुको। तुमने बारह में से पहली तीली हटाई, अब मेज़ पर कितनी बचीं? बारह या ग्यारह? तो पहली गिनती 'ग्यारह' होगी, शुरू वाला नंबर नहीं गिनते।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुमने क्या जवाब निकाला? कोई बात नहीं, धीरे से बताओ, मैं सुन रही हूँ।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, बहुत अच्छा! इस बार तुमने बारह को नहीं गिना, हटाने के बाद बची तीलियाँ गिनीं, इसलिए पाँच आईं और जवाब पच्चीस आया, सना जैसा।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब सब लोग चौंसठ माइनस अड़तीस करो, 64-38। मीना, तुम तीलियों से करना। बिना बोले काम करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class",
+        "meena"
+      ],
+      "newTask": "64-38"
+    }
+  ],
+  "finalSum": "77-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

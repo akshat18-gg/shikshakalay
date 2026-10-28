@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-hi-07",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "सब बच्चे शांत हो जाइए। बस्ते नीचे रखिए। आज हम बंडल और तीलियों से घटाना करेंगे। बोर्ड पर देखो, 52 में से 27 घटाना है।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, तुम्हारा उत्तर 35 आया है। मुझे बताओ, तुमने स्टेप बाय स्टेप कैसे किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने 2 में एक दस उधार लिया, 12 बनाया, 12 में से 7 गए तो 5 बचे। फिर दहाई में 5 में से 2 घटाया। अर्जुन, ये बताओ, जो दस उधार लिया था, वो कहाँ से आया था?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, ये लो पाँच बंडल और दो खुली तीलियाँ। अब एक बंडल खोलो। गिनो, अब कितने बंडल बचे टेबल पर?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, अब चार बंडल बचे। तो दहाई में पाँच नहीं, चार है। अब चार में से दो बंडल हटाओ, कितने बचे? तो सही उत्तर क्या हुआ?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत अच्छा अर्जुन, तुमने खुद देखा कि बंडल खोलने के बाद दहाई में एक कम हो जाता है। यही सबसे ज़रूरी बात है।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुम बहुत ध्यान से देख रही थीं। धीरे से बताओ, तुम्हारा उत्तर क्या आया था?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Chalo ab ek naya sawaal. Arjun, तिरासी में से छप्पन, matlab 83-56, bundles se karke dikhao.",
+      "label": "new_sum",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "83-56"
+    },
+    {
+      "teacher": "जिसे लगता है कि बंडल खोलने के बाद दहाई में एक कम लिखना है, वो अंगूठा ऊपर करे। चुपचाप, बिना बोले।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "62-46",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-en-25",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, books closed. Today we are doing subtraction. First sum, fifty two minus twenty seven.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no. That is wrong. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Listen. The answer is twenty five. 52 minus 27 is 25. Everybody write twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you also wrote thirty five? I just told, it is twenty five. When the ones are small you borrow. Borrow and then subtract. BORROW and then SUBTRACT.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you got twenty five. Okay, quickly, thumbs up.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Next sum. Forty three minus eighteen. Do it fast.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, why are you counting on fingers? Stop that, you are in class two now. Put hands down.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer is twenty five again. 43 minus 18 is 25. Correct it in your book.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "One more. Sixty one minus twenty nine. Everybody try, no talking.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-29"
+    }
+  ],
+  "finalSum": "50-34",
+  "reviewed": false,
+  "labelSource": "generator"
+}

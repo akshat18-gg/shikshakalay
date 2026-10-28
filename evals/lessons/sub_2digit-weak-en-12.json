@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-weak-en-12",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit down, sit down. Today we are doing subtraction. Okay?",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "First sum. Fifty two minus twenty seven. Do it in your notebook. Rabi, what did you get?",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Thirty five? No, no, Ravi, that is wrong. Next. Arjoon, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it. Twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See, I told you yesterday also. You borrow from the tens. You borrow from the tens! Listen properly. Borrow from the tens, then subtract.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, next one. Sixty three minus twenty eight. Mina, quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Thirty six? Meena, you are counting wrongly again. It is thirty five. Write thirty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Everyone understood? Thumbs up if you understood. Good. Okay, close your books now.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "74-67",
+  "reviewed": false,
+  "labelSource": "generator"
+}

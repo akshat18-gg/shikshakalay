@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-strong-en-02",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Okay children, good morning. Today we will do subtraction. Let us try fifty two minus twenty seven. Everyone, please try it in your notebook, okay?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, I see you wrote 26. That's okay. Can you tell me how you got 26? What did you do with your fingers?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Hmm, so you started saying fifty two, fifty one, fifty... on your fingers. Meena, wait, when you say fifty two on the first finger, have you taken anything away yet? Or is fifty two just where we are standing?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Let us check with sticks, Meena. Take five bundles and two loose sticks, that is fifty two. We need to take away seven loose sticks, but we have only two. So, um, open one bundle. Now count the loose sticks, how many?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, twelve loose sticks. Now Meena, take away seven from the twelve, one by one. How many are left? And then how many bundles are left, and how many bundles do we take away?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you have been working so quietly. Would you like to tell us what answer you got? It's okay, just say it softly.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twenty five, very nice Sana. I like that you opened one bundle to get twelve ones first, and then did the tens. Meena, you also got five left over and two bundles, so it is 25, see?",
+      "label": "specific_praise",
+      "addressedTo": [
+        "sana",
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay Meena, now you try one more with your bundles. Sixty three minus thirty eight. Take your sticks and show me slowly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "40-26",
+  "reviewed": false,
+  "labelSource": "generator"
+}

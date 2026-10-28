@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-en-05",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, bags under the desk. Today we are doing subtraction.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "First sum on the board. Fifty two minus twenty seven. Do it in your notebooks.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, that is wrong. The answer is twenty five. Everybody write twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "I told you yesterday also. When the top number is small, you borrow. You borrow! Listen. When the top is small, you BORROW from the tens.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, thirty five again? Wrong. Sit down, don't do it like that. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Next sum. Sixty three minus twenty eight. Quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Mina, you are counting on fingers again and getting thirty six. It is thirty five. Sixty three minus twenty eight is thirty five. Say it with me.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who got thirty five? Hands up. Thumbs up if you understood.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, one more. Seventy four minus thirty nine. Finish it at home, I will check tomorrow.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "74-39"
+    }
+  ],
+  "finalSum": "52-46",
+  "reviewed": false,
+  "labelSource": "generator"
+}

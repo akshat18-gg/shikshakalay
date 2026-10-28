@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-en-20",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit down quietly, take out your slates. Today we are doing subtraction.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Write this on your slate. Fifty two minus twenty seven. 52-27. Quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote 35? No no, wrong. Answer is 25. Write 25 and keep it.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, 35 also? I told you already. 2 is small, you cannot take 7, so take one ten. Take one ten! Listen properly this time.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, 26 is wrong. Not careful at all. Sit and listen, next time be careful.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Everybody say with me: fifty two minus twenty seven is twenty five. Again, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next one. Sixty one minus thirty eight. 61-38. Do it fast.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-38"
+    },
+    {
+      "teacher": "Answer is 23. Who got 23? Thumbs up. Okay, those who didn't get it, just copy 23 from the board.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Enough for now. Close your slates and put them in your bags. We will do more tomorrow.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "93-54",
+  "reviewed": false,
+  "labelSource": "generator"
+}

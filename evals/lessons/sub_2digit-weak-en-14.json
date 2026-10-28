@@ -1,0 +1,70 @@
+{
+  "id": "sub_2digit-weak-en-14",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children, chalo sit down properly. Today we do subtraction. Fifty two minus twenty seven, ka answer batao?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, thirty five? No no, galat hai. Wrong. Arjoon, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, the answer is twenty five. Fifty two minus twenty seven is twenty five. Sab log bolo, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Listen again. Two minus seven nahi hota, so take one ten. Twelve minus seven five. Four minus two two. Twenty five. Take one ten, twelve minus seven, five! Samjhe ki nahi?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who understood? Thumbs up karo. Haan, everybody thumbs up.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now do this one in copy. Sixty three minus twenty eight. Jaldi jaldi.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Mina, you are counting on fingers again? Fingers se nahi hoga. Stop it. Answer is thirty five, write it and keep copy on my table.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "81-39",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "sub_2digit-weak-en-02",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit down, sit down. Today we will do subtraction. Our first sum is fifty two minus twenty seven, 52 minus 27. Write it in your notebooks.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote 35? No, no, that is wrong. Next. Arjun, what did you get?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, 35 also? Again wrong. Listen, the answer is 25. Fifty two minus twenty seven is twenty five. Everybody write 25 and say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See, I told you before also, two minus seven you cannot do, so you take ten. Two minus seven you cannot do, so you take ten. You cannot do, so take ten. Okay?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who has understood? Thumbs up. Okay, okay, I think most of you have understood.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next sum. Sixty three minus twenty eight. 63 minus 28. Do it fast.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Mina, you are counting on fingers again? I said no fingers. You got 36, it is wrong. Don't do like that, just do it in the notebook properly.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is thirty five. Sixty three minus twenty eight is 35. Write it down, all of you, and copy the correct answer neatly.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "40-14",
+  "reviewed": false,
+  "labelSource": "generator"
+}

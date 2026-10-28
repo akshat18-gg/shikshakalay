@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-en-23",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning children! Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, you got twenty six. Very nice that you tried on your own. Can you tell me how you got twenty six?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ah, so you started at fifty two and counted back on your fingers, and fifty two was your first finger. Thank you for showing me so clearly, Meena.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, let us do a small one. If you have five sticks and I take away one stick, how many are left? When you take away one, do you say five or four first?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, come to the front. Here are five bundles of ten and two loose sticks, that is fifty two. We have to take away twenty seven. We cannot take seven from two, so open one bundle. Now count the loose sticks with me.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twelve loose sticks now. Meena, take away seven sticks one by one. When you pick up the first stick, is the number left still twelve, or is it eleven?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Wonderful, Meena! You said eleven for the first stick, not twelve. The starting number is not counted. So five ones left, and four bundles minus two bundles is two. Twenty five!",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you were working so quietly. Would you like to tell us what answer you got?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana also got twenty five. Show me thumbs up if you also got twenty five.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more. Meena, try sixty three minus twenty eight with the bundles, and remember, do not count the starting number.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "40-31",
+  "reviewed": false,
+  "labelSource": "generator"
+}

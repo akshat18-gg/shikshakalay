@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-en-09",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning bachcha log! Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everybody try in your copy.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Arjoon, you wrote thirty five. Tell me na, how you did it? Start from the ones column.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha, so you took one ten and made the two into twelve, twelve minus seven is five. Very nice. Now see, after borrowing, how many tens are left in fifty two? Still five, or something else?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here Arjun, take these five bundles and two sticks. That is fifty two. Now open one bundle for the ones. Count the bundles, how many are there now on the table?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, only four bundles bachal ba, four are left! So in the tens column it is four minus two, not five minus two. Good, you noticed the bundle is gone from the tens side.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you were writing very quietly. Will you tell us what answer you got? Only if you want.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, one more for you. Seventy three minus forty six. When you open a bundle, put one cross on the tens digit first, then tell me how many tens remain.",
+      "label": "new_sum",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "73-46"
+    }
+  ],
+  "finalSum": "68-19",
+  "reviewed": false,
+  "labelSource": "generator"
+}

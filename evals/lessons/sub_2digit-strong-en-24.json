@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-en-24",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning bachcho! Today we do subtraction with bundles and sticks. Our sum is fifty two minus twenty seven. Everybody write it, hum dekh rahe hain.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you got 35. Very nice try. Tell me na, how you got it? Ones column first, what you did?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha, so you borrowed one ten, made it twelve, twelve minus seven is five. Then in tens you did five minus two is three. Arjun, when you borrowed that ten, from where it came? How many tens are left in the fifty now?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come Arjun, take these. Five bundles and two sticks, that is fifty two. Now open one bundle, ka hua? Count the bundles left on the table, how many?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, only four bundles left! So you said four minus two is two, and answer twenty five. Very good Arjun, you remembered the opened bundle is gone from the tens.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you also got twenty five, I saw your slate. Can you tell us softly, after borrowing, what you wrote above the five?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now everybody try this one: sixty three minus twenty eight. Arjun, use the bundles again and keep the opened bundle aside.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "44-17",
+  "reviewed": false,
+  "labelSource": "generator"
+}

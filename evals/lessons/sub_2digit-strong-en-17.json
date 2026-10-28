@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-en-17",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning children. Umm, today we will do subtraction with bundles and sticks. First sum, fifty two minus twenty seven. Please try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, you got twenty six, no? Can you tell me how you did it? Show me with your fingers how you counted.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay Meena, wait. When you started, you said fifty two and put down one finger. But at fifty two, have we taken away anything yet? Or is fifty two still full?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here Meena. See, here are five bundles of ten and two loose sticks. That is fifty two. We need to take away seven loose sticks, but we have only two. So, umm, open one bundle. Now how many loose sticks do you have?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, twelve loose sticks. Now take away seven sticks one by one. Don't count the stick you are not removing. How many are left in the ones?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice Meena! This time you started taking away from the next stick, not counting the starting one. That is why you got five in ones and the answer twenty five.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you were working so quietly. Would you like to tell us what you got? It's okay, take your time.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay everyone, now try one more. Forty three minus eighteen. Use your bundles if you need.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "90-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

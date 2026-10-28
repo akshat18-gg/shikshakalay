@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-weak-hi-20",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, बैठ जाओ। आज हम घटाना करेंगे। बोर्ड पर देखो, बावन में से सत्ताईस।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, तुमने पैंतीस लिखा? गलत है। अगला बच्चा बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सही उत्तर पच्चीस है। सब लोग बोलो, बावन में से सत्ताईस बराबर पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, फिर से पैंतीस? मैंने अभी बताया ना, ऊपर से एक दहाई लो, दो को बारह बनाओ। ध्यान से सुनो, एक दहाई लो, दो को बारह बनाओ!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया, हाथ ऊपर करो। अंगूठा दिखाओ।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब दूसरा सवाल। इकसठ में से चौंतीस। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, उंगलियों पर मत गिनो, इतना टाइम नहीं है। बैठ जाओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer hai sattaais. Sab copy mein likho, ikasath minus chauntees equal to sattaais.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैं फिर से बोल रही हूँ, इकाई में छोटा हो तो दहाई से एक लो। दहाई से एक लो! समझे?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, कॉपी बंद करो। बाकी कल करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "94-38",
+  "reviewed": false,
+  "labelSource": "generator"
+}

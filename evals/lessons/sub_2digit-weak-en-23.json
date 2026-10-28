@@ -1,0 +1,94 @@
+{
+  "id": "sub_2digit-weak-en-23",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning, children! Very good, all sitting nicely. Today we will do subtraction. Our first sum is fifty two minus twenty seven.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Ravi, you said thirty five? No, no, that is wrong. Arjun, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, thirty five again? Listen. The answer is twenty five. Everybody say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See, I told you na, two is small, so we borrow. Two is small, so we borrow. Listen carefully this time, two is small, so we BORROW!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, very nice, good children. Now next sum. Sixty one minus thirty four.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, you are counting on fingers again? Twenty eight is not correct. Stop using fingers, we have no time for that.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty seven. Write twenty seven in your notebook. Everyone, twenty seven.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you got twenty seven. Show me, show me thumbs. Good!",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, one more. Seventy three minus forty six. Quickly, quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "73-46"
+    },
+    {
+      "teacher": "Again I am saying, one is small, so borrow from the tens. One is small, so borrow from the tens! Very good, you are all my clever children.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "40-18",
+  "reviewed": false,
+  "labelSource": "generator"
+}

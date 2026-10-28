@@ -1,0 +1,61 @@
+{
+  "id": "sub_2digit-weak-hi-13",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग बैठ जाओ। जल्दी जल्दी कॉपी खोलो, आज subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन माइनस सत्ताईस। जल्दी बताओ, कितना होगा?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? गलत है। चुप बैठो। Arjoon, तुम बताओ, जल्दी।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "नहीं! फिर से सुनो। दो में से सात नहीं होता, तो दस लो, बारह में से सात पाँच। फिर चार में से दो, दो। जवाब पच्चीस। पच्चीस! सब बोलो पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ungliyon pe mat gino! Maine bola na, das lo, barah mein se saat paanch. Phir se bol rahi hoon, das lo, barah mein se saat, paanch! Samjhi?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो, अब इकसठ माइनस चौंतीस करो। जल्दी, दो मिनट में। जिसका हो गया हाथ ऊपर करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "80-65",
+  "reviewed": false,
+  "labelSource": "generator"
+}

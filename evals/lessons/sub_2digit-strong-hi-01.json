@@ -1,0 +1,69 @@
+{
+  "id": "sub_2digit-strong-hi-01",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, जल्दी-जल्दी, last period है। बोर्ड पर देखो — बावन माइनस सत्ताईस, 52-27। सब अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, तुम्हारा answer 35 आया है। बताओ, तुमने ये कैसे किया? ones वाले column से शुरू करके बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने 2 को 12 बनाया, 12 में से 7 निकाले, 5 बचे। फिर tens में 5 में से 2 निकाले? Arjun, ये बताओ — वो 10 जो तुमने ones को दिया, वो कहाँ से आया था?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो Arjun, ये लो बंडल। पाँच बंडल दस-दस के और दो खुली तीलियाँ — ये है 52। अब एक बंडल खोलो। अब गिनो, कितने बंडल बचे टेबल पर?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, sirf chaar bundle bache! To tens mein 5 nahi, 4 hain. Ab 4 mein se 2 bundle hatao — kitne bache Arjun?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुम चुपचाप बहुत अच्छा काम कर रही हो। तुम्हारा answer क्या आया? धीरे से बता दो, कोई बात नहीं।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया Arjun, इस बार तुमने बंडल खोलने के बाद tens में से एक कम किया — यही असली बात है। 25 बिल्कुल सही, और सना का भी 25 आया।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun",
+        "sana"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "34-26",
+  "reviewed": false,
+  "labelSource": "generator"
+}

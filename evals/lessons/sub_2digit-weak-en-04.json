@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-weak-en-04",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Chalo children, sit properly. Bag niche rakho. Today we do subtraction. Fifty two minus twenty seven. Do it in your copy, jaldi jaldi.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? Wrong. Ka kar rahe ho? You cannot do seven minus two. Sit down. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Listen. Answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it. Twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you also got it wrong. I told already na. Borrow one ten, two becomes twelve, twelve minus seven five. Borrow one ten, twelve minus seven five. Again I am saying, borrow one ten!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who understood? Thumbs up. Sab log haath uthao. Achha, okay.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now do this one. Forty three minus eighteen. Fast, no talking.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, again finger counting? Twenty six is wrong, ho. Answer is twenty five. Write twenty five and keep your fingers inside.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "50-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,94 @@
+{
+  "id": "sub_2digit-weak-en-13",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children! Very nice, everyone is sitting so nicely today. Today we will do subtraction. Our first sum is fifty two minus twenty seven.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you said thirty five? No, no, that is wrong. Arjoon, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thirty five again? Listen. The answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very good, very good, lovely voices! Thumbs up if you understood. Show me thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, next sum. Sixty one minus thirty four. Try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, you counted on fingers and got twenty eight? Wrong, beta. Don't use fingers, it is a bad habit. Just write it properly.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See, I am telling again. When the top number is small, you borrow. You borrow. You BORROW one ten. Then you subtract. Borrow, then subtract. Okay?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sixty one minus thirty four is twenty seven. Write twenty seven. Arjun, cross out your answer and write twenty seven.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Super, Sana has written it neatly! Now one more. Seventy three minus forty six. Quickly, quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "sana",
+        "whole_class"
+      ],
+      "newTask": "73-46"
+    },
+    {
+      "teacher": "Ravi, again you did small from big? I told you so many times, borrow! Borrow one ten, then subtract. Borrow first, then take away. Listen carefully this time.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "80-24",
+  "reviewed": false,
+  "labelSource": "generator"
+}

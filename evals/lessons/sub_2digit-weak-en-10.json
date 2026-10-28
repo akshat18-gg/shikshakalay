@@ -1,0 +1,85 @@
+{
+  "id": "sub_2digit-weak-en-10",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, bags under the desk. Today we are doing subtraction.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "First sum on the board, fifty two minus twenty seven. Rabi, tell me the answer.",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "No Ravi, thirty five is wrong. Answer is twenty five. Everybody say twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, thirty five again? I just told. Don't be careless, listen in class. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See again. Two minus seven not possible, so take ten, twelve minus seven five, then four minus two two. Twenty five. Two minus seven not possible, take ten. Understood now?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up who understood. Everybody thumbs up? Good.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Next sum. Forty three minus eighteen. Mina, answer.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Twenty six? No no, stop counting on fingers. Answer is twenty five. Write twenty five in your notebook.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, enough for now. Close your notebooks, we will do more tomorrow.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "71-17",
+  "reviewed": false,
+  "labelSource": "generator"
+}

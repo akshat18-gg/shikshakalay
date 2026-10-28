@@ -1,0 +1,61 @@
+{
+  "id": "sub_2digit-strong-en-16",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning children. Settle down, settle down. Today we will do fifty two minus twenty seven. Everybody write 52-27 in your copy.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you got 35. Very nice that you started quickly. Tell me, how did you get 35? What did you do in the ones place?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, look at the top number. In the ones place we have 2, not 7. We have to take 7 away from 2. Can you take 7 sticks from only 2 sticks?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here, Ravi. See, here are 5 bundles and 2 loose sticks. That is fifty two. We need 7 loose sticks. Not enough, na? So open one bundle. Now how many loose sticks do you have? Count them.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes Ravi, 12 loose sticks! Now take away 7 loose sticks, and then 2 bundles from the 4 bundles left. Good, you opened the bundle and counted all 12 yourself.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, come, you try one with the bundles. Show us 43-18 slowly, Ravi will watch.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana",
+        "ravi"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "85-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

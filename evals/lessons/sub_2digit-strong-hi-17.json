@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-hi-17",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब शांत होकर बैठ जाओ। आज हम bundles और sticks से घटाना करेंगे। Board पर देखो: बावन माइनस सत्ताईस, 52-27।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रवि, तुम्हारा answer पैंतीस आया। बताओ बेटा, तुमने ones वाले column में क्या किया? कैसे सोचा?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने सात में से दो घटाया क्योंकि सात बड़ा है। रवि, ध्यान से देखो, ऊपर कौन सा number है, 2 या 7? हमें किसमें से घटाना है?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, ये लो पाँच bundles और दो खुली sticks। अब इनमें से सात खुली sticks निकालो। सिर्फ दो हैं ना? तो एक bundle खोलो, अब कितनी खुली sticks हो गईं?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, बारह! अब बारह में से सात हटाओ, और देखो कितने bundles बचे। Bundle खोला तो अब पाँच नहीं, चार bundles हैं ना? चार में से दो bundles हटाओ।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया रवि, तुमने खुद bundle खोलकर देखा कि ऊपर वाले में से ही घटाते हैं, नीचे वाले से नहीं। इसलिए पच्चीस आया।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुम भी बताओ, तुम्हारा answer क्या आया? धीरे से बोलो, कोई बात नहीं।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ab ek aur sum karte hain. Ravi, tum karo: forty three minus eighteen, 43-18. Pehle ones column dekho.",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "रवि, तीन में से आठ नहीं निकलता, तो पहले क्या करोगे? Bundle खोलोगे तो ones में कितने होंगे और tens में कितने बचेंगे?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "90-57",
+  "reviewed": false,
+  "labelSource": "generator"
+}

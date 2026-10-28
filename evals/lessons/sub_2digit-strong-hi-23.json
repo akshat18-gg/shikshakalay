@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-hi-23",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "चुप! सब बैठ जाओ, जल्दी। आज का सवाल बोर्ड पर है: बावन माइनस सत्ताईस। कॉपी में करो, जल्दी।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, तुम्हारा answer पैंतीस आया। बताओ, ones वाले कॉलम में तुमने क्या किया? कैसे किया, बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तुमने सात में से दो घटा दिया। रुको। Ravi, ऊपर कौन सा नंबर है ones में? दो। दो में से सात निकाल सकते हो क्या? बोलो।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चुप, बाकी लोग। Ravi, यहाँ आओ, जल्दी। ये लो पाँच बंडल और दो तीलियाँ, यही बावन है। अब सात तीलियाँ निकालो। दो ही हैं ना? तो एक बंडल खोलो, अब कितनी खुली तीलियाँ हो गईं? गिनो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, barah ho gayi. Ab barah mein se saat nikaalo, aur bundle kitne bache, chaar. Bahut accha Ravi, tumne bundle khol ke ones mein barah banaye, yahi sahi tareeka hai.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, तुम चुप बैठी हो। धीरे से बताओ, बावन माइनस सत्ताईस का पूरा answer क्या आया? डरो मत।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "42-17",
+  "reviewed": false,
+  "labelSource": "generator"
+}

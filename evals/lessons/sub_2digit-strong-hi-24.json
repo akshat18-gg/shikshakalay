@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-hi-24",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "बच्चों, ध्यान से सुनो... ध्यान से। आज का सवाल है बावन माइनस सत्ताईस। 52 में से 27 कम करना है। अपनी कॉपी में करो, आराम से, धीरे-धीरे।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना बेटा, तुम उंगलियों पर गिन रही थी ना? मुझे बताओ, तुमने कैसे किया? कौन सा नंबर पहले बोला, फिर कौन सा... धीरे-धीरे बताओ।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा मीना, एक बात बताओ। जब तुमने पीछे गिनना शुरू किया, तो पहली उंगली पर तुमने बावन बोला या इक्यावन? पहली उंगली पर कौन सा नंबर? सोचो... सोचो।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ye dekho. Mere paas paanch tilliyan hain. Ek tilli hatao. Ab kitni bachi? Chaar na? Toh jab ek hataya, hum chaar bolte hain, paanch nahi. Paanch toh shuru mein tha, woh hataya nahi gaya.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, अब बोर्ड पर नंबर लाइन देखो। यहाँ बावन है। एक कूदो, तो कहाँ पहुँचे? इक्यावन पर। पहली छलांग इक्यावन पर गिरती है, बावन पर नहीं। अब तुम छलांग लगाओ, मैं देखती हूँ।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया मीना! इस बार तुमने पहली उंगली पर इक्यावन बोला, बावन को नहीं गिना। यही सही तरीका है। शाबाश।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुम भी बताओ ना... कोई बात नहीं, धीरे से बोलो। तुम्हारा जवाब क्या आया? पच्चीस? कैसे सोचा, थोड़ा सा बताओगी?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो सब लोग, अब नया सवाल। तिरेसठ माइनस अड़तीस। 63 में से 38। ध्यान से... ध्यान से करना।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "47-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

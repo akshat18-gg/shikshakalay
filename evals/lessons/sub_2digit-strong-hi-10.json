@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-hi-10",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "नमस्ते बच्चों! आज हम bundles और sticks से घटाना करेंगे। सबके पास बंडल हैं ना? चलो शुरू करते हैं।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बावन में से सत्ताईस घटाओ। बावन माइनस सत्ताईस कितना होगा? सब अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "अर्जुन, तुम्हारा answer पैंतीस आया। मुझे step by step बताओ, तुमने कैसे किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने दो में एक दस उधार लिया, बारह बनाया, बारह में से सात पाँच। फिर tens में पाँच में से दो घटाया। Arjoon, एक मिनट रुको।",
+      "label": "other",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, ये देखो, पाँच बंडल और दो तीलियाँ, यही बावन है। अब एक बंडल खोलो और तीलियाँ गिनो। अब कितने बंडल बचे टेबल पर?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, chaar bundle bache. Toh Arjun, jab tumne ek dus udhaar liya, tens mein ab paanch hai ya chaar? Chaar mein se do ghataoge toh kitna?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया अर्जुन! तुमने खुद देखा कि बंडल खोलने के बाद tens में एक कम हो जाता है। इसलिए पच्चीस आया।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुमने भी बहुत ध्यान से किया है। धीरे से बताओगी, तुम्हारा answer क्या आया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो अब एक और। इकसठ में से चौंतीस। अर्जुन, इस बार बंडल से करो और जब बंडल खोलो तो एक बंडल हटाकर अलग रख देना।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "अर्जुन, बंडल खोलने के बाद tens में अब कितने बंडल बचे? छह या पाँच? बताओ, फिर पाँच में से तीन कितना?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "72-18",
+  "reviewed": false,
+  "labelSource": "generator"
+}

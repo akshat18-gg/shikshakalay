@@ -1,0 +1,62 @@
+{
+  "id": "sub_2digit-weak-hi-03",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग बैठ जाओ। जल्दी जल्दी कॉपी खोलो, आज subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन माइनस सत्ताईस, 52-27। जल्दी बताओ, कितना होगा?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? गलत है। चुप करके बैठो। Arjoon, तुम बताओ, जल्दी।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "नहीं Arjun, फिर से सुनो। दो में से सात नहीं होता तो दस उधार लो, बारह में से सात पाँच। चार में से दो दो। फिर से बोल रही हूँ, ध्यान से सुनो! बारह में से सात पाँच, चार में से दो दो।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer पच्चीस है, 25। सब लोग बोलो, पच्चीस! Mina, उँगलियों पर मत गिनो, बस लिखो 25।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class",
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Chalo ab agla sum, 63-28. Jaldi karo, chup chaap apni copy mein karo.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "45-37",
+  "reviewed": false,
+  "labelSource": "generator"
+}

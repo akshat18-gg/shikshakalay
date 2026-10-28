@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-hi-06",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, जल्दी जल्दी, टाइम कम है। बोर्ड पर देखो, बावन माइनस सत्ताईस। 52-27 कॉपी में करो, फटाफट।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, तुम्हारा 26 आया है। ज़रा बताओ, उंगलियों पर कैसे गिना तुमने? शुरू से बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा रुको Meena, तुमने 'बावन' बोलकर पहली उंगली खोली। पर बावन पे तो हम खड़े हैं ना, एक कदम पीछे जाएँ तो पहली उंगली पे कौन सा नंबर आएगा? इक्यावन या बावन?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो मीना, ये बंडल लो। पाँच बंडल दस-दस वाले और दो तीलियाँ, यानी 52। अब इनमें से 27 हटाओ। एक बंडल खोलो, फिर गिनो कितनी बचीं। देखो 26 बचती हैं या 25?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, tumne bhi kiya na? Dheere se batao, tumhara answer kya aaya?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "शाबाश मीना! इस बार तुमने बावन को नहीं गिना, सीधा इक्यावन से उंगली शुरू की, इसलिए 25 सही आया। और सना का भी 25 था।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, आखिरी वाला, जल्दी करो। तैंतालीस माइनस अठारह, 43-18। सब लोग।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "60-49",
+  "reviewed": false,
+  "labelSource": "generator"
+}

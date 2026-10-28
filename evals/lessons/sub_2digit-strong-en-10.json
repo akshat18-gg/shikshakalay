@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-en-10",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote 35. Can you tell me how you got 35? What did you do in the ones column?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, so you did seven minus two, because seven is bigger. Ravi, in fifty two, which number is on top in the ones place, 2 or 7?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, 2 is on top. Now Ravi, come here. Make fifty two with bundles. Five bundles of ten and two loose sticks. Can you take away seven loose sticks from only these two?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Not enough, na? So what can we do? Open one bundle, Ravi. Now how many loose sticks do you have?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twelve sticks, very good. You opened the bundle instead of turning the sum upside down. That is exactly the right idea. Now take away seven and count the tens left.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, I saw you writing quietly. Would you like to tell us what answer you got?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you also got twenty five like Sana and Ravi's sticks. Mina, Arjoon, show me your thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more. Forty three minus eighteen. Ravi, you use the bundles again and check the ones column first.",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "71-32",
+  "reviewed": false,
+  "labelSource": "generator"
+}

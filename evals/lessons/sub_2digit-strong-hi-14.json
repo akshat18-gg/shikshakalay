@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-hi-14",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "बच्चों, नमस्ते। आज हम घटाना करेंगे... घटाना। बोर्ड पर देखो — बावन में से सत्ताईस। 52 - 27। सब अपनी कॉपी में करो, धीरे-धीरे करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, तुम्हारा जवाब पैंतीस आया है। अच्छा... बताओ बेटा, तुमने कैसे किया? इकाई में क्या किया, धीरे-धीरे बताओ।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने सात में से दो घटाया, पाँच आया। ठीक है। रवि, एक बात बताओ — ऊपर वाली संख्या कौन सी है इकाई में? दो या सात? हमें किसमें से घटाना है?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "रवि, आओ यहाँ। ये लो — पाँच बंडल दस-दस के, और दो खुली तीलियाँ। ये है बावन। अब इसमें से सात तीलियाँ निकालनी हैं। खुली तो सिर्फ दो हैं... तो क्या करेंगे? एक बंडल खोलो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, बंडल खोला तो अब कितनी खुली तीलियाँ हुईं? बारह। बारह में से सात निकालो। और बंडल कितने बचे? चार। Ravi, ab chaar bundle mein se do bundle hatao. Kitna bacha?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया रवि! तुमने खुद बंडल खोला और देखा कि दो में से सात नहीं निकलते, इसलिए बारह बनाए। पच्चीस आया — शाबाश।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुमने भी पच्चीस लिखा है ना? धीरे से बताओ, तुमने बंडल वाला काम कैसे सोचा? कोई बात नहीं, आराम से।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब एक और करते हैं। इकसठ में से अड़तीस। 61 - 38। रवि, पहले इकाई देखो — ऊपर एक है, नीचे आठ। सब लोग करो, बंडल याद रखना।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-38"
+    }
+  ],
+  "finalSum": "82-34",
+  "reviewed": false,
+  "labelSource": "generator"
+}

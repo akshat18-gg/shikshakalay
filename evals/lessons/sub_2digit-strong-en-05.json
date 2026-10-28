@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-en-05",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, you are counting on your fingers. Tell me slowly, how did you count back to get your answer?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay Meena, let us check one small part. If you start at fifty two and take away just one, where do you land? Do you say fifty two as your first finger or not?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come Meena, take these sticks. Here are five bundles of ten and two loose sticks. That is fifty two. Now take away one stick. How many are left? See, fifty two is what we have, it is not one of the sticks we take away.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now Mina, we need to take away twenty seven. Remove two bundles first. Then for seven sticks, we have only two loose ones, so open one bundle. Count the sticks you take away one by one, putting each aside. How many are left on the table?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Meena. You did not count the fifty two this time, you started counting from the first stick you took away. That is exactly right, twenty five.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sanaa, you were working so quietly. Can you tell us what you got for fifty two minus twenty seven? Only if you are ready.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you also got twenty five. Ravi, Arjoon, show me your thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more. Meena, try forty one minus sixteen with the sticks. Remember, do not count the starting number.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "41-16"
+    }
+  ],
+  "finalSum": "53-25",
+  "reviewed": false,
+  "labelSource": "generator"
+}

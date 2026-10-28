@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-en-14",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning bachcha log! Today we are doing subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everyone try it in your copy, okay?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, I saw you counting on your fingers. Tell me na, how did you do it? Say slowly, what did you say first?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha, so you said fifty two, fifty one, fifty... You said fifty two also. Meena, when we take away one from fifty two, where do we land? Is fifty two gone or still there?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here Meena, take these five bundles of ten and two loose sticks. That is fifty two. Now take away just one stick. How many are left? Count the sticks on the table, not in your head.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "See, after taking one stick, fifty one is left. So your first finger is fifty one, not fifty two. Now open one bundle, take away seven loose and two bundles, and count what is left on the table, Mina.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Meena! You started counting from fifty one this time, that is exactly right, and you opened the bundle properly. Twenty five is correct.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you have been working so quietly. Will you try one for us? Sixty three minus thirty eight. Take your time, no hurry.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "81-54",
+  "reviewed": false,
+  "labelSource": "generator"
+}

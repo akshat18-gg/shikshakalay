@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-hi-19",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "बच्चों, नमस्ते। आज हम घटाना करेंगे... घटाना। बोर्ड पर देखो — बावन में से सत्ताईस, 52 minus 27। अपनी कॉपी में करो, धीरे-धीरे।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "अर्जुन, तुम्हारा answer पैंतीस आया। अच्छा... मुझे बताओ, तुमने कैसे किया? पहले ones में क्या किया, फिर tens में क्या किया? धीरे-धीरे बताओ।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने दो में से सात नहीं होता, इसलिए एक ten उधार लिया, बारह में से सात, पाँच। फिर पाँच में से दो, तीन। Arjoon, ये ones वाला step बिल्कुल सही है, बारह में से सात पाँच — शाबाश।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अर्जुन, ये लो बंडल। पाँच बंडल दस-दस के, और दो तीली। देखो... ones के लिए एक बंडल खोलना पड़ा। खोलो इसे। अब गिनो, कितने बंडल बचे टेबल पर? गिनो... एक, दो, तीन...",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, चार बंडल बचे। पाँच नहीं, चार। तो अर्जुन, एक सवाल — जो ten तुमने उधार लिया, वो tens column में से गया या नहीं? tens में अब पाँच है या चार? सोचो... आराम से सोचो।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Bilkul sahi, Arjun! Chaar mein se do, do. Toh answer pachchees, 25. Sana beta, tum bhi apni copy dikhao... tumhara kya aaya? Dheere se batao.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना का भी पच्चीस आया। सब बच्चे — जिसका पच्चीस आया, thumbs up करो। हाँ... रवि, मीना, तुम भी देखो, अपना answer मिलाओ।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अर्जुन, एक और करते हैं। तिरसठ में से अड़तीस, 63 minus 38। इस बार ones के लिए बंडल खोलो, और tens में उसे काटना मत भूलना। करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "92-88",
+  "reviewed": false,
+  "labelSource": "generator"
+}
