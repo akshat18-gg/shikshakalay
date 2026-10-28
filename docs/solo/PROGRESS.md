@@ -5,11 +5,11 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 3 — Voice, coach and card (G2 passed Tue 27 Oct 19:15)
-- **Next task:** Phase 3 — gate G3 (operator's phone test; KI-001 fix is live at c7c861c)
+- **Phase:** 4 — Judge-ready MVP (G3 passed Wed 28 Oct)
+- **Next task:** Phase 4 — P1-T12 seed (demo users + synthetic teachers T01–T08)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
-- **Last gate passed:** G2 (Tue 27 Oct 19:15)
+- **Last gate passed:** G3 (Wed 28 Oct)
 
 ## Waiting on the operator
 | # | What | 🛑/🟡 | Asked (IST) | Status |
@@ -34,14 +34,13 @@
 | G0 Setup | ✅ | verify + build green locally; CI `check` green on PRs (#1–#5 old repo, #1 new repo); ruleset `main` active, squash only, auto-delete (gh api); env:check = MOCK mode | Tue 27 Oct 17:05 |
 | G1 Live skeleton | ✅ | `smoke:live --full` green on https://shikshakalay.onrender.com at 23ac4ac (login, Ravi 35 / Arjun 35 / Meena 26, card); readyz 200; UptimeRobot on; operator phone check ok | Tue 27 Oct 18:08 |
 | G2 Real engine (typed) | ✅ | Live, real mode, commit 03e0510: `smoke:live --lesson --full` green — 35/35/26 → "Say 25" → all 25 → "43 − 18?" → Ravi 35, Arjun 35; same-key retry = same turn; card stored. Prod ai_calls: 6 rows with tokens + cost ($0.0012), cache reads from turn 2 (3,265 / 2,195). 403 test passes (`api.test.ts`). Prod DB: 13 tables, 13 indexes, 3 demo users. | Tue 27 Oct 19:15 |
-| G3 Voice + card | ⬜ | | |
+| G3 Voice + card | ✅ | Operator's phone test on the live link (real mode, c7c861c): spoken Hindi turns → transcript shows, children answer in different Bulbul voices, text before audio; End → the card quotes their real words ("phone ok"). Live speed (spoken Hindi, `npm run speed:check`): text p50 3.3 s / p90 5.1 s, audio p50 5.0 s / p90 6.6 s. E1 batch submitted and collected (100/100 lessons, #23). KI-001 (out-of-lesson sums) fixed and replayed live before the test. | Wed 28 Oct |
 | G4 MVP | ⬜ | | |
 | G5 WhatsApp | ⬜ | | |
 | G6 Evals + docs + freeze | ⬜ | | |
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 3** — [~] P3-T1 voice smoke (Sarvam TTS + STT checked with Bulbul-spoken lines; re-run on the operator's recordings) · [x] P3-T3 stt/tts (60 → 45, Sarvam Bulbul instead of Azure) · [x] P3-T4 media (30 → 20) · [x] P3-T6 fixed clips (20 → 10, mp3 only) · [x] P1-T9 coach (90 → 45; card audio route moves to P1-T10 with the voice code) · [x] P1-T10 voice in turn (60 → 35) · [x] P2-T4 recorder (90 → 60; real phones at G3) · [x] P2-T6 replies (already in the practice room; audio playback lands with voice) · [x] P2-T7 card + history (60 → 30; card play button lands with voice) · [x] P2-T8 + P3-T5 languages (45 → 25; key-parity test, hindi-review.md, card play button) · [x] P1-T11 speed (live spoken Hindi: text p50 3.3 s / p90 5.1 s; audio p50 5.0 s / p90 6.6 s) · [x] E1 eval batch (100/100 valid lessons, ≈ $0.90, msgbatch_01XRNLGyJ7APUaehcr5fFojz)
 **Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
@@ -105,7 +104,7 @@
 ## Numbers
 - Reply time p50 / p90 (live, spoken Hindi, 28 Oct 00:55, `npm run speed:check`): text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s · server 3.1 s / 4.9 s
 - App AI spend so far (from `ai_calls`): dev ~$0.03 · prod $0.0012 (27 Oct). One full lesson + coach card ≈ $0.017 (coach $0.014).
-- Coding spend (operator reads `/usage` at each gate): $41.47 total (Wed 28 Oct 00:20) · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
+- Coding spend (operator reads `/usage` at each gate): $66.85 total at G3 (Wed 28 Oct) · $41.47 mid-Phase 3 · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
 - Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
 ## Later (ideas nobody asked for — not in scope)
@@ -114,4 +113,5 @@
 ## Done log (one line per finished phase)
 - Phase 0 (Tue 27 Oct 04:10): Next.js 16 + shadcn (Radix) + kit, scripts, env, MIT licence, CI; repo moved to akshat18-gg/shikshakalay; ruleset on main.
 - Phase 1 (Tue 27 Oct 18:08): mock API with request ids/logs/env check/version, app shell + i18n, practice room, smoke:live; Render + UptimeRobot live; G1 on the phone.
+- Phase 3 (Wed 28 Oct): coach + quote check, history + check-in, Sarvam voice (Saaras in, Bulbul out, swappable TTS), media store, fixed clips, voice in the turn (text first), recorder, Hindi/English parity + hindi-review sheet, speed (text p50 3.3 s), KI-001 any-sum fix, E1 100 eval lessons; G3 on the phone.
 - Phase 2 (Tue 27 Oct 19:15): Neon + indexes + readyz, bugs, mind-state + speakers (Ravi's table), logins + consent + proxy, askJson + ai_calls + pricing + budget, teacher lines, lesson loader, Director/Children/line check, step() + orchestrator, real mode live; G2.
