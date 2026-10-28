@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-hi-03",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग सीधे बैठो। बोर्ड पर देखो, बावन माइनस सत्ताईस, 52-27, जल्दी करो कॉपी में।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना, तुम्हारा जवाब छब्बीस आया है। उंगलियों पर कुछ गिन रही थी ना? बताओ, कैसे गिना? धीरे-धीरे बोलो, बाकी सब चुप।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ruko. Jab tum 52 se peeche ginti shuru karti ho, pehli ungli pe kaun sa number bolna chahiye? 52 ya 51? 52 to humare paas pehle se hai, usko ginna hai kya?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, यहाँ आओ। ये लो पाँच बंडल और दो तीलियाँ, यही बावन है। अब सात तीलियाँ निकालनी हैं, पर दो ही हैं। एक बंडल खोलो, गिनो कितनी हुईं? अब सात हटाओ, फिर दो बंडल हटाओ। जो बचा, गिनो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुम चुपचाप बैठी हो। डरो मत, धीरे से बताओ, मीना के पास कितनी तीलियाँ बचीं?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो, बातें बंद। अब नया सवाल, तिरसठ माइनस अट्ठाईस, 63-28। जल्दी करो, दो मिनट हैं।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "46-39",
+  "reviewed": false,
+  "labelSource": "generator"
+}

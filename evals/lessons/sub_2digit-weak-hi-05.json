@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-weak-hi-05",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब बैठ जाओ। आज हम subtraction करेंगे, बिल्कुल शांत रहना।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बावन में से सत्ताईस घटाओ। जल्दी बताओ, कितना आया?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस नहीं है, गलत है। Answer पच्चीस है। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "देखो, मैंने बोला ना, ones में दो से सात नहीं घटता तो ten लेना पड़ता है। फिर से सुनो, दो से सात नहीं घटता, ten लेना पड़ता है!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, पैंतीस फिर से? ध्यान कहाँ है तुम्हारा? चलो, आगे बढ़ते हैं।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अगला। इकसठ में से चौंतीस। सब अपनी copy में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, अट्ठाइस नहीं, सत्ताईस होता है। Ek baar bolo, sattaees.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको सत्ताईस आया, thumbs up करो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, phir se wahi galti! Maine kitni baar bola, ten lena padta hai, ten lena padta hai. Samjhe?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, बहुत हो गया। Homework में तिहत्तर में से अड़तालीस करके लाना। Bag रख लो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "73-48"
+    }
+  ],
+  "finalSum": "54-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

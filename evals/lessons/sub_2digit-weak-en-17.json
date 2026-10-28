@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-weak-en-17",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, okay? Today we will do subtraction. First sum is fifty two minus twenty seven. Everyone write it in your notebook.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no, that is wrong. The answer is twenty five. Write twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, thirty five also? I told na, you have to borrow. You have to borrow. Borrow from the tens, then subtract. Borrow, then subtract.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, twenty six is not correct. Okay, leave it, we don't have much time. Next sum.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now do forty three minus eighteen. Quickly, everyone.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Answer is twenty five. Forty three minus eighteen is twenty five. All of you say it, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who got twenty five? Hands up. Hmm, only few hands. Everyone understood now, no? Thumbs up.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, again you did big minus small, I saw. How many times I have to tell? Don't do like that. Okay, sixty one minus thirty four, try at home.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "88-19",
+  "reviewed": false,
+  "labelSource": "generator"
+}

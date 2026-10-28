@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-hi-20",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "नमस्ते बच्चों! आज हम bundles और sticks से घटाना सीखेंगे। सब अपने bundles निकालो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "पहला सवाल है बावन में से सत्ताईस घटाओ। बावन माइनस सत्ताईस। सब अपनी copy में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, तुम्हारा answer पैंतीस आया। बताओ, तुमने कैसे किया? ones वाले column में क्या किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने सात में से दो घटाया क्योंकि सात बड़ा है। Ravi, ऊपर ones में कौन सा number है, दो या सात? किसमें से किसको घटाना है?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, ये लो। पाँच bundles दस-दस के और दो खुली sticks, यानी बावन। अब इनमें से सात खुली sticks निकालो। निकल पा रहीं हैं?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सिर्फ दो sticks हैं ना? तो एक bundle खोल दो। अब कितनी खुली sticks हो गईं? हाँ, बारह! अब बारह में से सात निकालो। और bundles कितने बचे?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया Ravi! तुमने खुद bundle खोला और बारह में से सात निकाले, पाँच बचे। फिर चार bundles में से दो, तो दो bundles। पच्चीस!",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, tumne bhi pachchees likha hai. Dheere se batao, tumne kya kiya tha?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब Ravi, एक और करो। इकसठ में से चौंतीस। पहले ones देखो, ऊपर एक है, नीचे चार। चार sticks निकालने के लिए क्या करोगे?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "सब बच्चे, जिसको लगता है Ravi सही बोला कि पहले bundle खोलना पड़ेगा, thumbs up करो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "94-59",
+  "reviewed": false,
+  "labelSource": "generator"
+}

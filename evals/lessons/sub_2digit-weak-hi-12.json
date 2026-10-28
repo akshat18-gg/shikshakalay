@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-hi-12",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब शांत हो जाओ। बस्ते नीचे रखो, सबकी नज़र बोर्ड पर।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "आज का सवाल है बावन माइनस सत्ताईस, 52 में से 27। जल्दी से कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, 35? गलत। बैठ जाओ। अगला कौन?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सही उत्तर है 25। सब लोग बोलो, बावन माइनस सत्ताईस बराबर पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, मैंने बोला था ना, ones में कम हो तो tens से उधार लो। उधार लो! फिर से सुनो, उधार लो, फिर घटाओ।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ungliyon pe mat gino, ye koi tareeka nahi hai. Haath neeche karo aur dhyan do.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अगला सवाल। तैंतालीस माइनस अठारह, 43 में से 18। कोई बात नहीं करेगा।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "जवाब 25 है। जिसका 25 आया वो thumbs up करो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, बाकी सब घर से पाँच सवाल करके लाना। कॉपी बंद करो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "76-48",
+  "reviewed": false,
+  "labelSource": "generator"
+}

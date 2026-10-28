@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-en-13",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning, children! Today we will do subtraction with our bundles and sticks. Everyone, look at the board: fifty two minus twenty seven. Try it in your notebook.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, I see you have written 35. Very neat writing! Can you tell me how you got 35?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, so in the ones you did seven minus two is five, and in the tens five minus two is three. Thank you for telling me so clearly, Ravi. Now look at the ones place only. On top is 2 and below is 7. Are we taking 7 from 2, or 2 from 7?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, we must take seven away from two. Come, Ravi, take five bundles of ten and two loose sticks. That is fifty two. Now, can you take away seven loose sticks?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Only two sticks, no? So what can we do? Open one bundle. Untie it, Ravi. Now how many loose sticks do you have? And how many bundles are left?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twelve loose sticks and four bundles. Superb, Ravi, you opened the bundle all by yourself! Now take away seven sticks and two bundles. What is left?",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you have been working so quietly. Would you like to tell us what is left after Ravi takes them away?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twenty five! Very nice, Sana, you counted the bundles and the loose sticks separately. Lovely.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more for everybody. Sixty one minus twenty four. Use your sticks if you want.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-24"
+    },
+    {
+      "teacher": "Ravi, before you start, look at the ones column. One on top, four below. What will you do first?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "80-36",
+  "reviewed": false,
+  "labelSource": "generator"
+}

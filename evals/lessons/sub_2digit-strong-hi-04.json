@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-hi-04",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "नमस्ते बच्चों। आज हम घटाना करेंगे... बंडल और तीलियों से। सब ध्यान से सुनो। बावन में से सत्ताईस घटाना है। 52 माइनस 27। सब अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "अर्जुन बेटा, तुम्हारा जवाब 35 आया है। मुझे बताओ... धीरे धीरे बताओ... तुमने कैसे किया? पहले ones में क्या किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने एक ten उधार लिया, 12 में से 7 किया, 5 आया। फिर tens में 5 में से 2 किया... 3 आया। ठीक है। अब एक सवाल। जो ten तुमने उधार लिया... वो कहाँ से आया था? 5 tens में से ही आया ना? तो अब tens में कितने बचे?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, ye lo... paanch bundle aur do teeliyan. Ab ek bundle kholo. Kholo... haan. Ab ginno, kitne bundle bache? Aur kitni teeliyan ho gayi?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "देखो अर्जुन, बंडल खोल दिया तो वो बंडल अब बंडलों में नहीं है। चार बंडल बचे। चार बंडल... चार। अब चार बंडल में से दो बंडल हटाओ। कितने बचे? गिनो... हाथ से हटाओ।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया अर्जुन! तुमने खुद देखा कि खोला हुआ बंडल tens में से कम करना पड़ता है। इसलिए जवाब 25 आया। यही सबसे ज़रूरी बात थी।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुम बहुत अच्छे से बैठी हो। तुमने 52 माइनस 27 में क्या जवाब लिखा? धीरे से बता दो, कोई बात नहीं।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अर्जुन, एक नया सवाल। तिरसठ में से अड़तीस। 63 माइनस 38। बंडल से करना, और याद रखना... खोला हुआ बंडल tens में से कम करना है।",
+      "label": "new_sum",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "51-47",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "sub_2digit-weak-en-09",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children, sit properly, hai na? Bag niche rakho. Today we will do subtraction. Fifty two minus twenty seven. Do it in your copy, quickly.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you have written thirty five? No no, wrong. Ka kar rahe ho? Sit down. Arjoon, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody write twenty five and say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, I told already na. Two is small, so take one ten. Two becomes twelve. Twelve minus seven five. Then four minus two, two. Twelve minus seven five, four minus two two. Listen properly!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Everybody understood? Thumbs up who got twenty five. Haan, thumbs up, jaldi.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next one. Forty three minus eighteen. Mina, you do on the board.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, again fingers? Fingers se nahi hoga, wrong answer. It is twenty five. Write twenty five and go and sit.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "66-59",
+  "reviewed": false,
+  "labelSource": "generator"
+}

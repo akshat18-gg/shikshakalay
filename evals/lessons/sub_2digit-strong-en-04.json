@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-en-04",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning bachcha log! Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everybody try in your copy.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five. Achha, tell me na, how did you get the ones digit? What did you do with the 2 and the 7?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Hmm, so you did seven minus two because seven is bigger. Ravi, look at the top number. In fifty two, how many loose sticks do we have in the ones place? Can we take seven sticks from only two sticks?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come Ravi, come to the table. Here are five bundles of ten and two loose sticks, that is fifty two. Now you have to give me seven loose sticks. Open one bundle, khol do. Now count, how many loose sticks you have?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice Ravi, you opened the bundle and got twelve loose sticks, and you saw only four bundles are left. That is exactly the right thinking! Now twelve take away seven?",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you are sitting so quietly. Can you tell us softly, after Ravi takes away seven sticks and two bundles, how many are left?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Hā, twenty five, well done. Now Ravi, try this one with the sticks yourself: sixty one minus thirty four. Remember to check the ones place first, hai na?",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "50-42",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-weak-en-22",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit down properly, today we will do subtraction. Our first sum is fifty two minus twenty seven. Everybody write it in your notebook.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no, that is wrong. Seven minus two is not allowed like that. Next, Arjoon, you tell.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty five. Fifty two minus twenty seven is twenty five. All of you say it with me: twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, again I am telling. You borrow one ten, so two becomes twelve. Twelve minus seven is five. Then four minus two is two. Borrow, then twelve minus seven. Listen carefully this time!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Who has got twenty five? Thumbs up if you got twenty five.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, next sum. Forty three minus eighteen. Do it quickly, everyone.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, why are you counting on fingers? Don't use fingers in class two, it takes too long. And your answer is wrong only. Put your hands down.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty five. Forty three minus eighteen is twenty five. Write it down and copy it from the board, everybody.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "31-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

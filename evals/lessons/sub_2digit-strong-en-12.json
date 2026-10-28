@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-en-12",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with bundles and sticks. Our first sum is fifty two minus twenty seven. Try it in your notebook, okay?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Can you tell me how you got it? Just tell me slowly, step by step.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, so you said 2 is small, so you borrowed a ten and made it 12, and 12 minus 7 is 5. Then in tens you did 5 minus 2. Hmm... Arjun, after you borrowed that ten, how many tens are left in fifty two?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come, Arjun, take these. Five bundles of ten and two loose sticks, this is fifty two. Now open one bundle for the ones. Count the bundles now, how many are still there?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes! Four bundles only. So the tens column is 4 minus 2, not 5 minus 2. Arjun, what is the answer now?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice, Arjun, you remembered to cut the 5 and write 4 after opening the bundle. That is exactly the step we needed.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, I saw you also wrote 25. Can you show us with the sticks, quietly is fine?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, now everyone try sixty three minus twenty eight. Arjun, remember the bundle you open.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "75-36",
+  "reviewed": false,
+  "labelSource": "generator"
+}

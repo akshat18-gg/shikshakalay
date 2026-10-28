@@ -1,0 +1,85 @@
+{
+  "id": "sub_2digit-weak-hi-07",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब शांत हो जाओ। हाथ नीचे, मुँह बंद। आज हम घटाना करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो — बावन में से सत्ताईस घटाओ। 52 minus 27. जल्दी करो, सब अपनी कॉपी में।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? नहीं, गलत है। बैठ जाओ। Arjoon, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, पैंतीस फिर से? ध्यान नहीं देते हो क्लास में। ऐसे नहीं चलेगा।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सुनो सब। उत्तर है पच्चीस। 52 minus 27 equals 25. सब बोलो — पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने कहा था ना, दो से सात नहीं घटता तो दहाई से एक लो। दहाई से एक लो! फिर से सुनो — दहाई से एक लो, बारह में से सात।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ab agla sawaal. Teintalees minus untees, 43 minus 19. Mina, ungliyon pe mat gino, seedha likho.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "43-19"
+    },
+    {
+      "teacher": "Mina, पच्चीस नहीं, चौबीस होगा। लिख लो — चौबीस। सब कॉपी में चौबीस लिखो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया, अंगूठा ऊपर करो। ठीक है, सबको आ गया। अब होमवर्क निकालो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "62-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

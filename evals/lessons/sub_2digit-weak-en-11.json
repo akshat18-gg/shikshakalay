@@ -1,0 +1,62 @@
+{
+  "id": "sub_2digit-weak-en-11",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, bags under the desk. Today we do subtraction. Fifty two minus twenty seven. Do it in your copy.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote 35? No, no. That is wrong. Arjun, you tell. Not 35. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Listen. Two is small, so take one ten. Twelve minus seven is five. Four minus two is two. Answer is twenty five. Everybody say, fifty two minus twenty seven is twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, again you wrote 35? I told you! Take one ten, twelve minus seven is five, four minus two is two. TAKE ONE TEN. Twelve minus seven. Four minus two. Understood?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, all of you understood? Thumbs up if you understood. Mina, thumbs up. Good.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class",
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next sum. Forty three minus eighteen. Everybody do quickly, then show me copy.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "72-56",
+  "reviewed": false,
+  "labelSource": "generator"
+}

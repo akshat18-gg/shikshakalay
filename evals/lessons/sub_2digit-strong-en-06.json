@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-en-06",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everyone try in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Tell me slowly, how did you get 35? What did you do in the ones and in the tens?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, see, here are 5 bundles of ten and 2 loose sticks. You need 7 sticks but you have only 2. So open one bundle. Now count, how many bundles are left on the table?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, 4 bundles only. So when you borrowed that ten for the ones, what happens to the 5 in the tens place? Is it still 5, or does it become 4?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice Arjun, you crossed out the 5 and wrote 4 above it. That small 4 is what you were forgetting. Now 4 tens minus 2 tens is 2 tens, so the answer is 25.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you were working so quietly. Can you come and show us with the sticks how you did sixty three minus twenty eight?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "58-29",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-en-18",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning, children! Today we will do subtraction with our bundles and sticks. Let us start with fifty two minus twenty seven. Everyone, try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Very nice that you tried so quickly! Can you tell me how you got 35, step by step?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "So you said 2 is small, so you borrowed a ten and made it 12, then 12 minus 7 is 5. Lovely, that ones part is perfectly right! Then in tens you did 5 minus 2 is 3. Hmm, let us check that.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, come to the front. Here are 5 bundles of ten and 2 loose sticks. That is fifty two. We need 7 sticks but only 2 are loose. Open one bundle for me. Now count the bundles left on the table.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, only 4 bundles are left now, not 5. So Arjun, when you borrowed that ten for the ones, what happened to the tens number? Is it still 5?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Exactly! It became 4. Now take away 2 bundles from these 4 bundles. How many bundles stay with you?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Super, Arjun! You remembered to cross out the 5 and write 4 on top. That is the most important step. So 52 minus 27 is 25.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you have been working so nicely and quietly. Can you tell us softly what answer you got?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now everyone try a new one: sixty three minus twenty eight. Arjun, you also do it with the bundles.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Arjun, before you do the tens, look at your bundles. You opened one for the ones. So how many tens are you starting with now, 6 or 5?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "91-19",
+  "reviewed": false,
+  "labelSource": "generator"
+}

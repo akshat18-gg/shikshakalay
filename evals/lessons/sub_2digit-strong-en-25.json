@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-en-25",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning children! Today we will do subtraction with our bundles and sticks. Let us start with fifty two minus twenty seven.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five. Tell me, how did you get the five in the ones place?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay Ravi, so you did seven take away two because seven is bigger. Look at the top number. How many loose sticks do we have in fifty two?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes, only two loose sticks. Come Ravi, take these two sticks in your hand. Can you give me seven sticks from only two?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Not enough, no? So open one bundle of ten. Untie it, Ravi. Now count all the loose sticks together. How many?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twelve! Very nice, Ravi, you opened the bundle and counted twelve ones. Now take away seven from twelve.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you are sitting so nicely. Can you tell us how many bundles are left after Ravi opened one?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Four bundles, take away two bundles. So the answer is twenty five. Thumbs up if you agree with twenty five.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now Ravi, you try this one with sticks. Forty three minus eighteen. First check the ones: can you take eight from three?",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "50-46",
+  "reviewed": false,
+  "labelSource": "generator"
+}

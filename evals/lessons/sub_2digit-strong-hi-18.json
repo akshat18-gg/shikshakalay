@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-hi-18",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग इधर देखो। बोर्ड पर सवाल है, बावन में से सत्ताईस। जल्दी करो, दो मिनट में जवाब चाहिए।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना, तुम्हारा छब्बीस आया। उंगलियों पर कैसे गिना? शुरू से बताओ, किस नंबर से गिनना शुरू किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ek baat batao. Jab tum peeche ginti karti ho, pehli ungli bawan par lagati ho ya ikyawan par? Bawan to pehle se tumhare paas hai na, use ginna hai kya?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चुप, बाकी सब शांत। मीना, ये लो पाँच बंडल और दो तीलियाँ, यही बावन है। दो तीलियों में से सात नहीं हटेंगी, तो एक बंडल खोलो। अब कितनी तीलियाँ हुईं? गिनो, फिर सात हटाओ।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुमने भी कॉपी में किया है। डरो मत, धीरे से बताओ, तुम्हारा क्या जवाब आया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, अब अगला सवाल। तैंतालीस में से अठारह। मीना, तुम करोगी, जल्दी शुरू करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "43-18"
+    }
+  ],
+  "finalSum": "91-66",
+  "reviewed": false,
+  "labelSource": "generator"
+}

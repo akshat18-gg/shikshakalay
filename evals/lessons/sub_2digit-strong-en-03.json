@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-en-03",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "Good morning, children! Today we will do subtraction with our bundles and sticks. Let us start with fifty two minus twenty seven. Everyone try it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Arjoon, you wrote 35. Very nice that you tried quickly! Can you tell me how you got 35? Start from the ones.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ah, so you borrowed a ten and made twelve, and twelve minus seven is five. That part is very good, Arjun, you remembered to borrow! Now tell me, when you borrowed that ten, how many tens were left in fifty two?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come, Arjun, take five bundles and two sticks. That is fifty two. Now open one bundle for the ones. Count the bundles still on the table. How many?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Yes! Only four bundles now. So in the tens column it is four minus two, not five minus two. Lovely counting, Arjun, you saw that the opened bundle is gone from the tens.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, I saw you writing carefully. Would you like to tell us your answer for fifty two minus twenty seven?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twenty five, very good Sana. Thumbs up if you also got twenty five. Ravi, Mina, show me your thumbs.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now Arjun, let us try sixty one minus thirty four. Before you subtract the tens, cross out the six and write the new number above it. What will you write there?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Five, correct! Because one bundle became ten sticks. So five minus three is two, and eleven minus four is seven. Twenty seven! Super, Arjun, you crossed out the tens this time.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Everyone, try seventy three minus forty eight in your notebooks. Remember to change the tens when you open a bundle.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "73-48"
+    }
+  ],
+  "finalSum": "43-38",
+  "reviewed": false,
+  "labelSource": "generator"
+}

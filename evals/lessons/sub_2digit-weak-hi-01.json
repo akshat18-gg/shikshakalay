@@ -1,0 +1,69 @@
+{
+  "id": "sub_2digit-weak-hi-01",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो चलो, जल्दी बैठो सब। टाइम कम है। आज बस subtraction करेंगे, फिर घर।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन माइनस सत्ताईस। 52-27. कितना हुआ? जल्दी बताओ।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? नहीं नहीं, गलत। बैठ जाओ। अर्जुन, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अरे answer पच्चीस है। 52 में से 27 गए तो 25 बचे। सब बोलो, पच्चीस। फिर से बोलो, पच्चीस!",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, मैंने अभी बोला ना? ones में दो से सात नहीं जाता, तो ten लो, बारह माइनस सात। फिर से सुनो, ONES में दो से सात नहीं जाता, ten लो!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Chalo ab ek aur, chhiyalis minus untees. 46-19. Jaldi karo, copy mein likho.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "46-19"
+    },
+    {
+      "teacher": "सबको समझ आ गया? जिसको आ गया, thumbs up करो। ठीक है, ठीक है, बाकी कल देखेंगे।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "33-25",
+  "reviewed": false,
+  "labelSource": "generator"
+}

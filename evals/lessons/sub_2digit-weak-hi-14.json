@@ -1,0 +1,77 @@
+{
+  "id": "sub_2digit-weak-hi-14",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "बच्चो, बैठ जाओ। शांति से बैठो। आज हम घटाना करेंगे। बोर्ड पर देखो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "यह सवाल है, बावन माइनस सत्ताईस। 52 में से 27 घटाना है। सब लोग कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस नहीं आएगा। गलत है। बैठ जाओ। अर्जुन, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "देखो, उत्तर पच्चीस है। 52 माइनस 27 बराबर 25। सब लोग बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "फिर से सुनो। दो में से सात नहीं जाता, तो दहाई से एक लेते हैं। बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दो में से सात नहीं जाता, तो एक लेते हैं।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Jinko samajh aa gaya, haath upar karo. Sab ko aa gaya na?",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, अब यह करो। तैंतालीस माइनस अठारह। 43 में से 18। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "मीना, उँगली पर मत गिनो। कितनी बार बताया है। ध्यान से सुना करो। उत्तर पच्चीस है, लिख लो।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "82-17",
+  "reviewed": false,
+  "labelSource": "generator"
+}

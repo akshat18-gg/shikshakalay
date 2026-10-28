@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-strong-hi-22",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "सब लोग शांत होकर बैठो। आज हम बावन में से सत्ताईस घटाएंगे। 52-27, अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जुन, तुम्हारा जवाब पैंतीस आया। मुझे बताओ, तुमने step by step कैसे किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने दो में दस जोड़कर बारह बनाया और बारह में से सात घटाया, पाँच। फिर tens में पाँच में से दो घटाया। अर्जुन, वो दस जो तुमने ones को दिया, वो कहाँ से आया था?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, ये लो पाँच bundles और दो sticks, यही बावन है। अब एक bundle खोलो। गिनो, अब कितने bundles बचे टेबल पर?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, चार bundles बचे। तो tens column में अब पाँच नहीं, चार है। अर्जुन, चार में से दो घटाओ तो कितने?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया अर्जुन, तुमने याद रखा कि bundle खोलने के बाद tens में एक कम हो जाता है। तो जवाब पच्चीस।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, tum bhi batao, tumhara answer kya aaya? Dheere se bolo, koi baat nahi.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब सब एक नया सवाल करो, इकसठ में से चौंतीस। 61-34, bundles और sticks से करके देखो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "अर्जुन, इस बार bundle खोलने के बाद tens column में क्या लिखोगे? पहले मुझे बताओ, फिर घटाओ।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "35-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

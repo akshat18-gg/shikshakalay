@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-en-11",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning children. Today we will do subtraction with our bundles and sticks. First sum on the board: fifty two minus twenty seven. Try it in your copy.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, you got twenty six. Can you tell me how you did it? Show me with your fingers how you counted.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, when you count back seven from fifty two, do you say fifty two as your first finger, or do you start with fifty one?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here Meena. Here are five bundles and two loose sticks, that is fifty two. Open one bundle, now twelve loose sticks. Take away seven sticks one by one and put them in my hand. How many loose sticks are left?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you were working so quietly. Can you tell us what answer you got for fifty two minus twenty seven?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very nice Meena, this time you started counting from the number just before, fifty one, so you got twenty five. Everyone try sixty one minus twenty four now.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "61-24"
+    }
+  ],
+  "finalSum": "73-14",
+  "reviewed": false,
+  "labelSource": "generator"
+}

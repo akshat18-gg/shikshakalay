@@ -1,0 +1,61 @@
+{
+  "id": "sub_2digit-weak-hi-08",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग बैठ जाओ। जल्दी कॉपी खोलो। आज का सवाल है बावन माइनस सत्ताईस, 52-27।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "रबी, तुमने 35 लिखा? गलत! बैठ जाओ। अगला बच्चा।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने बोला ना, दो में से सात नहीं होता तो दस उधार लो। दस उधार लो! बारह में से सात, पाँच। समझ नहीं आता क्या? दस उधार लो!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer hai 25. पच्चीस। Sab log copy mein likho, jaldi, aur teen baar bolo: bawan minus sattais barabar pachchis.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया, हाथ ऊपर करो। चलो जल्दी, सबके हाथ ऊपर।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अर्जून, मीना, चुप करके अब ये करो: इकसठ माइनस चौंतीस, 61-34। दो मिनट में, जल्दी।",
+      "label": "new_sum",
+      "addressedTo": [
+        "arjun",
+        "meena"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "64-57",
+  "reviewed": false,
+  "labelSource": "generator"
+}

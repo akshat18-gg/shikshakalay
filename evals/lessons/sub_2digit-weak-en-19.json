@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-weak-en-19",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children, sit properly. Aaj we are doing subtraction. Fifty two minus twenty seven. Do it in your copy, jaldi jaldi.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, what is this? Thirty five? Galat hai. You cannot take two from seven like that. Wrong. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it with me. Twenty five!",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, I told just now na? Borrow from tens, then tens becomes four. Borrow from tens, then tens becomes four! Listen properly, ka ho, where is your mind?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, stop counting on fingers, it takes too much time. Sit down. We will do the next one.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now do this one. Sixty three minus twenty eight. Five minutes only.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "Answer is thirty five. Who got thirty five? Hands up. Everyone understood na? Thumbs up, sab log.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "92-19",
+  "reviewed": false,
+  "labelSource": "generator"
+}

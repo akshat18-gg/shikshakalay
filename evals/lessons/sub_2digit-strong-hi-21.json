@@ -1,0 +1,69 @@
+{
+  "id": "sub_2digit-strong-hi-21",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, जल्दी जल्दी, टाइम कम है। बोर्ड पे देखो, बावन माइनस सत्ताईस। कॉपी में करो, दो मिनट।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Mina, तुम्हारा छब्बीस आया है। अच्छा, बताओ कैसे किया? उंगली पे गिना क्या? धीरे धीरे बोलो, मैं सुन रही हूँ।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने पहली उंगली पे बावन बोला। एक बात बताओ Meena, अगर मेरे पास बावन हैं और मैं एक हटाऊँ, तो पहली उंगली पे बावन आएगा या इक्यावन?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो बंडल से देखते हैं। Meena, ये लो पाँच बंडल और दो तीली, यही बावन है। सत्ताईस निकालना है। दो तीली से सात नहीं निकलेंगी ना, तो एक बंडल खोलो। अब कितनी खुली तीलियाँ हो गईं? गिनो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, बारह। अब बारह में से सात हटाओ, और चार बंडल में से दो बंडल। जो बचा वो गिनो, Meena। उंगली मत लगाना, तीली गिनो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, tumne bhi kiya tha na? Tumhara kya aaya, dheere se batao.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "शाबाश Meena, तुमने इस बार बावन को नहीं गिना, सीधा इक्यावन से शुरू किया, इसलिए पच्चीस आया। बिल्कुल सही, Sana का भी पच्चीस है।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena",
+        "sana"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "97-28",
+  "reviewed": false,
+  "labelSource": "generator"
+}

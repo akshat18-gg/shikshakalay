@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-strong-hi-13",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "arjun",
+  "turns": [
+    {
+      "teacher": "चुप! सब बोर्ड पर देखो। आज का sum है बावन माइनस सत्ताईस, 52-27। जल्दी अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, तुम्हारा answer 35 आया है। बताओ, तुमने कैसे किया? step by step बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तुमने 2 में से 7 नहीं हुआ तो एक ten उधार लिया, 12 बनाया। ठीक है। अब बताओ, वो ten कहाँ से आया? पाँच tens में से एक गया तो tens में कितने बचे?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Chalo Arjun, idhar aao. Ye paanch bundles aur do sticks lo. Ek bundle kholo, jaldi. Ab gino, kitne bundles bache?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "हाँ, चार बंडल बचे। बहुत बढ़िया Arjun, तुमने खुद देखा कि बंडल खोलने के बाद tens भी कम हो जाते हैं। अब चार में से दो tens घटाओ।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुम बहुत चुपचाप काम कर रही हो। धीरे से बताओ, तुम्हारा answer क्या आया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "80-77",
+  "reviewed": false,
+  "labelSource": "generator"
+}

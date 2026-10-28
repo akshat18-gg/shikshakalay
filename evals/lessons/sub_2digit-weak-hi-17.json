@@ -1,0 +1,84 @@
+{
+  "id": "sub_2digit-weak-hi-17",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "सब लोग शांत हो जाओ। बस्ते नीचे रखो, हाथ डेस्क पर। आज हम घटाना करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाओ। 52-27. कॉपी में करो, कोई बात नहीं करेगा।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, तुम्हारा पैंतीस आया? गलत है। बैठ जाओ। अगला।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सही जवाब पच्चीस है। 52 minus 27 equals 25. सब लोग बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, phir se 35? Maine abhi bataya na, dhyan kahan hai tumhara? Chup chaap baitho.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैं फिर से बोल रही हूँ, ध्यान से सुनो। दो में से सात नहीं होता, तो दस उधार लो। बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दस उधार लो, बारह में से सात!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया, अंगूठा ऊपर करो। जल्दी।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अगला सवाल। इकसठ में से चौंतीस। 61-34. मीना, उंगलियों पर मत गिनो, कॉपी में लिखो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "जवाब सत्ताईस है। सब लोग अपनी कॉपी में ठीक कर लो और लिखो, 61 minus 34 equals 27.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "90-45",
+  "reviewed": false,
+  "labelSource": "generator"
+}

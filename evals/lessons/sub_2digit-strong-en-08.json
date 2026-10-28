@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-en-08",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "Good morning, children! Today we will do take away with our bundles and sticks. Our first sum is fifty two minus twenty seven, 52 minus 27.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, you were counting on your fingers. Very nice that you tried! Tell me, how did you get your answer? Show me slowly.",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "I see, Mina, when you count back you are saying fifty two also, then fifty one, fifty... So when you count back one step from fifty two, which number do you say first?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come, Meena, let us use sticks. Here are five bundles of ten and two loose sticks, that is fifty two. If I take away one stick, how many are left? Did we take away fifty two, or the stick next to it?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now Meena, we need to take away seven loose sticks but we have only two. Open one bundle. How many loose sticks now? Twelve! Take away seven, one by one, and count what is left.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Wonderful, Meena! You did not count the starting stick this time, and you opened the bundle yourself. That is exactly right.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana, you have been working so quietly. Can you tell us, after opening one bundle, how many bundles are left for the tens?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very good, Sana, four bundles. Four take away two is two. So the answer is twenty five. Everybody, thumbs up if you also got twenty five.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now one more sum for everyone. Forty one minus seventeen, 41 minus 17. Use your bundles and sticks.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "41-17"
+    },
+    {
+      "teacher": "Meena, before you count, tell me: in the ones, we have one stick and need to take seven. What will you do first?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "63-56",
+  "reviewed": false,
+  "labelSource": "generator"
+}

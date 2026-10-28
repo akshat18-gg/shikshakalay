@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-weak-hi-06",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो चलो, जल्दी बैठो सब। टाइम कम है। बोर्ड पे देखो, बावन माइनस सत्ताईस, 52-27। करो जल्दी।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, सत्ताईस नहीं आता। गलत है। Answer पच्चीस है, 25। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, phir se 35? Maine bola na, ones mein ten borrow karo, tens mein ek kam karo. Ten borrow karo, tens mein ek kam! Samjhe?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, उंगलियों पे गिनना बंद करो, बहुत टाइम लगता है। बैठ जाओ, अगला।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब ये करो, इकतालीस माइनस अठारह, 41-18। दो मिनट में।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "41-18"
+    },
+    {
+      "teacher": "तेईस आया? जिसका तेईस आया, thumbs up करो। हाँ, जल्दी हाथ ऊपर।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, बस। कॉपी बंद करो, बैग रखो, घंटी बजने वाली है।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "60-37",
+  "reviewed": false,
+  "labelSource": "generator"
+}

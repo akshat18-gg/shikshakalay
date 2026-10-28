@@ -1,0 +1,94 @@
+{
+  "id": "sub_2digit-weak-hi-15",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, बैठ जाओ, कॉपी खोलो। आज हम subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन में से सत्ताईस घटाना है। जल्दी बताओ कितना हुआ?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "रबी, पैंतीस नहीं है। गलत है। बैठ जाओ। अर्जुन, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "नहीं Arjoon, पैंतीस भी नहीं, पैंतालीस भी नहीं। answer है पच्चीस। सब लोग बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने बोला ना, दो में से सात नहीं होता तो borrow करो। borrow करो! बारह में से सात पाँच। फिर से सुनो, borrow करो, बारह में से सात पाँच।",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आया, हाथ ऊपर करो। हाँ, सबको आ गया।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब यह करो, इकसठ में से चौंतीस।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, ungli pe ginna band karo, galat aata hai tumhara. Answer hai sattaais, likh lo.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "शोर मत करो पीछे वाले। चुप होकर लिखो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, टाइम नहीं है। होमवर्क में यही वाले पाँच सवाल करके लाना, कल चेक करूँगी।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "83-59",
+  "reviewed": false,
+  "labelSource": "generator"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-weak-en-21",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, no talking. Today we will do subtraction. Write fifty two minus twenty seven in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no. Wrong. The answer is twenty five. Write twenty five and say it after me: fifty two minus twenty seven is twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, again thirty five? I told you already. Two is smaller, so take a ten. TAKE A TEN. Twelve minus seven is five. Listen properly this time.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, stop counting on your fingers. Fingers are for small children. Sit down, we will go to the next one.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now everybody do this one. Sixty three minus twenty eight. Quickly, five minutes only.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-28"
+    },
+    {
+      "teacher": "The answer is thirty five. Who got thirty five? Hands up. Okay, those who got it wrong, copy the correct answer from the board.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "95-38",
+  "reviewed": false,
+  "labelSource": "generator"
+}

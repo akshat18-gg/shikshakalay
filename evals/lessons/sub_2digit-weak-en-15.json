@@ -1,0 +1,86 @@
+{
+  "id": "sub_2digit-weak-en-15",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, take out your notebooks. Today we are doing subtraction.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "First sum on the board: fifty two minus twenty seven. Do it quickly in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, you wrote thirty five? No, no, that is wrong. Arjoon, next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you also got it wrong. The answer is twenty five. Everybody write twenty five and say it with me, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Listen again. Two minus seven is not possible, so we borrow. I told you, we BORROW. Two minus seven is not possible, so borrow!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Thumbs up if you understood. Everyone? Okay, good.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Now next sum. Forty three minus eighteen. Mina, you do it.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, twenty six is wrong. Don't count on fingers, it is not correct. The answer is twenty five. Write it.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, time is over. Close your books and do the remaining sums at home. Stand up quietly for the next period.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "82-69",
+  "reviewed": false,
+  "labelSource": "generator"
+}

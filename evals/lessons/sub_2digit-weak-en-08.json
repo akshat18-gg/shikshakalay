@@ -1,0 +1,93 @@
+{
+  "id": "sub_2digit-weak-en-08",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning, children! Today we will do subtraction. Very nice, everyone is sitting so nicely.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Our first sum is fifty two minus twenty seven. Write it in your notebook. Rabi, what did you get?",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "No Ravi, thirty five is wrong. The answer is twenty five. Everybody say it, fifty two minus twenty seven is twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, you also wrote thirty five? I told you, it is twenty five. Twenty five! Listen carefully, you have to borrow, then it becomes twenty five.",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very good, very good. Who got twenty five? Thumbs up.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, next sum. Forty three minus eighteen. Do it quickly.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "43-18"
+    },
+    {
+      "teacher": "Mina, twenty six? No, no, that is not correct. Don't count on fingers. Next, who else?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "The answer is twenty five again. Forty three minus eighteen is twenty five. Write it down, all of you.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjun, again you made the same mistake! Borrow means borrow. I am saying again, when you borrow, you borrow. Okay?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Very good, children, you all tried so hard. Close your notebooks now, we will do more tomorrow.",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "63-37",
+  "reviewed": false,
+  "labelSource": "generator"
+}

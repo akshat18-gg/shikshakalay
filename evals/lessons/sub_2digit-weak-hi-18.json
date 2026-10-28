@@ -1,0 +1,61 @@
+{
+  "id": "sub_2digit-weak-hi-18",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चुप! सब लोग चुप। आज subtraction करेंगे। बोर्ड पर देखो, बावन माइनस सत्ताईस। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पचास नहीं आता। गलत है। बैठ जाओ। अर्जुन, तुम बोलो, जल्दी।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "नहीं Arjoon, पैंतीस नहीं। सुनो, ऊपर से दस लो, बारह में से सात, फिर ऊपर से दस लो, बारह में से सात। समझ आया? ज़ोर से सुनो!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer पच्चीस है। सब लोग बोलो, बावन माइनस सत्ताईस बराबर पच्चीस। तीन बार बोलो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Chup Mina, ungli pe mat gino, time waste hota hai. Ab agla sawaal, chauhattar minus unchaas. Jaldi likho.",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "74-49"
+    },
+    {
+      "teacher": "जिसका पच्चीस आया, हाथ ऊपर करो। ठीक है, बाकी लोग घर पर दस बार लिखकर लाना।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "91-53",
+  "reviewed": false,
+  "labelSource": "generator"
+}

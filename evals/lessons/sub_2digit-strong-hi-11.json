@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-hi-11",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, जल्दी जल्दी, last sum of the day. बावन माइनस सत्ताईस, 52-27. कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, तुम्हारा answer 35 आया? बताओ, ones में तुमने क्या किया, कैसे किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने 7 में से 2 घटाया। Ravi, ऊपर वाला number कौन सा है ones में? 2 में से 7 घटाना है, 7 में से 2 नहीं। क्या 2 sticks में से 7 sticks निकाल सकते हैं?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ये लो, पाँच bundles और दो खुली sticks, यानी 52. अब 7 sticks निकालो... नहीं निकल रहीं ना? तो एक bundle खोलो Ravi, गिनो अब कितनी खुली sticks हुईं?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, 12 ho gayi! Bahut badhiya Ravi, tumne khud bundle khola aur 12 mein se 7 nikaale. Ab tens mein kitne bundles bache?",
+      "label": "specific_praise",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना बेटा, तुम बताओ ना, धीरे से भी चलेगा, तुम्हारा answer क्या आया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, अब Ravi एक और करो, इकसठ माइनस चौंतीस, 61-34. पहले sticks से, फिर कॉपी में।",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "74-16",
+  "reviewed": false,
+  "labelSource": "generator"
+}

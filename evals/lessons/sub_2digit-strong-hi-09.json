@@ -1,0 +1,76 @@
+{
+  "id": "sub_2digit-strong-hi-09",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "बच्चों, ध्यान से सुनो... ध्यान से। आज हम घटाना करेंगे। बावन में से सत्ताईस। फिर से बोलती हूँ, बावन में से सत्ताईस। सब अपनी कॉपी में करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना, तुमने छब्बीस लिखा है। अच्छा, मुझे बताओ, तुमने कैसे किया? धीरे धीरे बताओ, कोई जल्दी नहीं है... कैसे किया?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तुम उंगली पर पीछे गिनती हो। मीना, एक बात बताओ... जब तुम पहली उंगली मोड़ती हो, तब कौन सा नंबर बोलती हो? बावन बोलती हो या इक्यावन? सोचो, फिर बोलो।",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, ये देखो। ये पाँच बंडल और दो तीलियाँ, यानी बावन। अब मैं एक तीली हटाती हूँ... एक तीली। अब कितनी बचीं? इक्यावन ना? तो एक हटाया तो पहला नंबर इक्यावन हुआ, बावन नहीं। बावन तो शुरू में था।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, अब तुम खुद तीलियों से करो। बावन रखो। पहले एक बंडल खोलो... खोलो बंडल। अब सत्ताईस हटाओ, दो बंडल और सात तीलियाँ। धीरे धीरे गिनो, जो बचा है वो गिनो।",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुम भी तो कर रही थी। बताओ बेटा, बावन में से सत्ताईस कितना आया? धीरे से बोलो, कोई बात नहीं।",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Meena, bahut accha! Tumne is baar pehli ungli par ikyavan bola, baavan nahi. Aur sticks gin ke pachchees nikala. Yahi sahi tareeka hai.",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब एक और करते हैं। तिरसठ में से अट्ठाईस। फिर से... तिरसठ में से अट्ठाईस। मीना, इस बार तीलियों से भी करना और उंगली से भी, देखेंगे दोनों में एक ही आता है क्या।",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "63-28"
+    }
+  ],
+  "finalSum": "70-47",
+  "reviewed": false,
+  "labelSource": "generator"
+}

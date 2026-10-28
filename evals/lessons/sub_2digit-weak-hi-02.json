@@ -1,0 +1,85 @@
+{
+  "id": "sub_2digit-weak-hi-02",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, सब चुप हो जाओ। बैग नीचे रखो, सीधे बैठो। आज हम subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो। बावन में से सत्ताईस घटाओ। 52 minus 27 कितना होगा?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? गलत है। बैठ जाओ। Arjoon, तुम बताओ।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi",
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सुनो ध्यान से। दो में से सात नहीं घटता, तो दहाई से एक लो। बारह में से सात पाँच। फिर चार में से दो, दो। जवाब पच्चीस। सब बोलो, पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, फिर से पैंतीस? मैंने अभी बताया ना! दो में से सात नहीं घटता, दहाई से एक लो, बारह में से सात। समझे? फिर से सुनो, दहाई से एक लो!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आ गया वो हाथ ऊपर करो। Haan, theek hai, sab ne haath uthaya.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब अगला सवाल। तिरसठ में से अड़तीस। 63 minus 38. जल्दी करो, copy में लिखो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-38"
+    },
+    {
+      "teacher": "Mina, उंगलियों पर मत गिनो, इसलिए छब्बीस आ रहा है। गलत है। उंगलियाँ नीचे रखो, ऐसे नहीं होता।",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer hai pachchees, 25. Sab log copy mein 25 likho aur ghar pe aise paanch sawaal aur karke laana.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "41-27",
+  "reviewed": false,
+  "labelSource": "generator"
+}

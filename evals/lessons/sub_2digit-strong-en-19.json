@@ -1,0 +1,68 @@
+{
+  "id": "sub_2digit-strong-en-19",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "strong",
+  "focusChild": "ravi",
+  "turns": [
+    {
+      "teacher": "Good morning bachcha log! Today we will do subtraction with our bundles and sticks. First sum on the board: fifty two minus twenty seven. Everybody try in your copy, hai na?",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Rabi, you wrote 35. Tell me na, how did you get the ones? What did you do with the 2 and the 7?",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Achha, so you did seven take away two because seven is bigger. Ravi, look carefully. On top it is 2 ones, and we have to take away 7 ones from that 2. Can we take 7 sticks from only 2 sticks?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Come here, Ravi. Make fifty two with bundles. Five bundles of ten and two loose sticks. Now you have to give me seven loose sticks. You have only two, so what will you do? Open one bundle, haan, open it. Now count your loose sticks.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Twelve loose sticks! Very good, Ravi, you opened the bundle yourself and found twelve. Now take away seven sticks. And how many bundles are left with you now, still five or only four?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Sana beta, you have been working so quietly. Will you tell us what you got for fifty two minus twenty seven? Just tell slowly, no tension.",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ravi, now one more for you. Sixty one minus thirty four. Use the bundles first, then write it. Remember, the top number in ones is small, so what do you do first?",
+      "label": "new_sum",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "92-36",
+  "reviewed": false,
+  "labelSource": "generator"
+}

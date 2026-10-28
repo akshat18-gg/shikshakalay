@@ -1,0 +1,72 @@
+{
+  "id": "sub_2digit-weak-hi-16",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो चलो, जल्दी बैठो सब। बैग नीचे रखो। आज last period है, जल्दी खत्म करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन माइनस सत्ताईस। 52-27. Copy में करो, दो मिनट।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? नहीं नहीं, गलत है। बैठ जाओ। Arjoon, तुम बताओ... पैंतीस भी नहीं, पैंतालीस भी नहीं। सुनो सब, answer पच्चीस है। 25. लिखो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi",
+        "arjun",
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने कितनी बार बताया है, ones में दो में से सात नहीं होता तो ten लो। ten लो! फिर से बोल रही हूँ, ten लो, बारह में से सात। समझ आया? ten लो!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Jinko samajh aa gaya, thumbs up karo. Haan, theek hai, sabka aa gaya.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब ये करो, इकसठ माइनस चौंतीस, 61-34. Mina, उंगलियों पर मत गिनो, टाइम waste होता है। बस करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class",
+        "meena"
+      ],
+      "newTask": "61-34"
+    },
+    {
+      "teacher": "Mina, अट्ठाईस? गलत। ध्यान नहीं देती हो। इसका answer सत्ताईस है, 27. सब लिख लो और बैग पैक करो, घंटी बजने वाली है।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena",
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "85-78",
+  "reviewed": false,
+  "labelSource": "generator"
+}

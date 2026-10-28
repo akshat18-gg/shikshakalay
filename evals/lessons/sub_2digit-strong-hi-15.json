@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-strong-hi-15",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "strong",
+  "focusChild": "meena",
+  "turns": [
+    {
+      "teacher": "नमस्ते बच्चों! आज हम bundles और sticks से subtraction करेंगे। पहला सवाल है बावन माइनस सत्ताईस।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "मीना, तुम्हारा answer छब्बीस आया। मुझे बताओ, तुमने कैसे किया? Step by step बोलो।",
+      "label": "ask_to_explain",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अच्छा, तो तुमने उंगलियों पर पीछे गिना और बावन से ही गिनती शुरू की, बावन, इक्यावन, पचास... ठीक है ना Mina?",
+      "label": "other",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मीना, एक बात सोचो। अगर तुम्हारे पास बावन हैं और एक हटाया, तो कितने बचे? क्या बावन को भी गिनना है या पहले हटाने के बाद वाला नंबर, इक्यावन?",
+      "label": "targeted_question",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "चलो sticks से देखते हैं। मीना, ये पाँच bundles और दो खुली sticks लो, यानी बावन। अब सात ones हटाने हैं, पर सिर्फ़ दो हैं। एक bundle खोलो, अब कितनी खुली sticks हुईं?",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Haan, barah! Ab barah mein se saat hatao, kitni bachi? Phir chaar bundles mein se do bundles hatao. Meena, ab table par jo bacha hai, gino.",
+      "label": "concrete_materials",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बहुत बढ़िया मीना! तुमने bundle खोलकर बारह बनाए और गिनकर पच्चीस निकाला, बिना बावन को दोबारा गिने।",
+      "label": "specific_praise",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सना, तुमने भी पच्चीस लिखा है ना? धीरे से बताओ, तुमने ones वाला हिस्सा कैसे किया?",
+      "label": "invite_quiet_child",
+      "addressedTo": [
+        "sana"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "सब लोग, जो मानते हैं कि बावन माइनस सत्ताईस पच्चीस है, thumbs up करो।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "अब मीना, अगला सवाल bundles से करो: इकसठ माइनस चौंतीस।",
+      "label": "new_sum",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": "61-34"
+    }
+  ],
+  "finalSum": "83-78",
+  "reviewed": false,
+  "labelSource": "generator"
+}

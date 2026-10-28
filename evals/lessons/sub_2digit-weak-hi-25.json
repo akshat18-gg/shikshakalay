@@ -1,0 +1,92 @@
+{
+  "id": "sub_2digit-weak-hi-25",
+  "scenarioId": "sub_2digit",
+  "lang": "hi",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "चलो बच्चों, बैठ जाओ, कॉपी खोलो। आज हम subtraction करेंगे।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "बोर्ड पर देखो, बावन में से सत्ताईस घटाओ। जल्दी करो।",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, पैंतीस? नहीं, गलत है। अगला कौन बताएगा?",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "उत्तर है पच्चीस। सब लिखो, पच्चीस। दोहराओ, बावन माइनस सत्ताईस बराबर पच्चीस।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "मैंने बोला ना, दो में से सात नहीं होता तो दस उधार लो! दो में से सात नहीं होता तो दस उधार लो! समझ आया?",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "जिसको समझ आया, हाथ ऊपर करो। हाँ, ठीक है।",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Ab next sum, chhiyaasi mein se unchaas. Sab jaldi karo.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "86-49"
+    },
+    {
+      "teacher": "Arjoon, सैंतालीस फिर से? कितनी बार बताऊँ, ध्यान से सुनो क्लास में!",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, तुम भी गलत। सही जवाब सैंतीस है। सब लोग सैंतीस लिखो।",
+      "label": "tell_answer",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "ठीक है, घर जाकर ये दोनों सवाल पाँच बार लिखकर लाना। चलो, कॉपी बंद करो।",
+      "label": "other",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    }
+  ],
+  "finalSum": "51-38",
+  "reviewed": false,
+  "labelSource": "generator"
+}

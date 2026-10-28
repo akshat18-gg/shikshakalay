@@ -1,0 +1,60 @@
+{
+  "id": "sub_2digit-weak-en-16",
+  "scenarioId": "sub_2digit",
+  "lang": "en",
+  "kind": "weak",
+  "focusChild": null,
+  "turns": [
+    {
+      "teacher": "Good morning children. Sit properly, books inside the bag. Today we will do subtraction. Fifty two minus twenty seven, everyone write it in your notebook.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "52-27"
+    },
+    {
+      "teacher": "Rabi, thirty five is wrong. You cannot take small from big like that. Answer is twenty five. Say it, twenty five.",
+      "label": "tell_answer",
+      "addressedTo": [
+        "ravi"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Arjoon, again thirty five? I told you na, we borrow from the tens. We borrow from the tens! Two becomes twelve, five becomes four. Borrow from the tens!",
+      "label": "repeat_same_way",
+      "addressedTo": [
+        "arjun"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Mina, stop counting on fingers, you are getting twenty six. Wrong. Next.",
+      "label": "move_on_or_scold",
+      "addressedTo": [
+        "meena"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Answer is twenty five. Who got twenty five? Thumbs up.",
+      "label": "check_whole_class",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": ""
+    },
+    {
+      "teacher": "Okay, next sum. Sixty three minus thirty eight. Do it quickly, no talking.",
+      "label": "new_sum",
+      "addressedTo": [
+        "whole_class"
+      ],
+      "newTask": "63-38"
+    }
+  ],
+  "finalSum": "84-59",
+  "reviewed": false,
+  "labelSource": "generator"
+}
