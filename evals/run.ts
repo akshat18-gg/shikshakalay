@@ -277,7 +277,7 @@ async function main() {
   writeFileSync(file, `${JSON.stringify({ promptVersions, ...m, spendUsd: spend, results }, null, 2)}\n`);
   console.log(
     `\n\n${Object.entries(m.metrics)
-      .map(([k, v]) => `${k.padEnd(20)} ${(v * 100).toFixed(1)}%`)
+      .map(([k, v]) => `${k.padEnd(20)} ${v === null ? "n/a" : `${(v * 100).toFixed(1)}%`}`)
       .join("\n")}`,
   );
   console.log(`\n${JSON.stringify(m.counts)} · spend $${spend.toFixed(3)} · ${file}`);
@@ -287,9 +287,11 @@ async function main() {
       import("../src/lib/db/client"),
       import("../src/lib/db/schema/core"),
     ]);
+    // Only what was measured goes in the row (an empty slice is n/a, not 0).
+    const measured = Object.fromEntries(Object.entries(m.metrics).filter((e): e is [string, number] => e[1] !== null));
     await db.insert(evalRuns).values({
       promptVersions,
-      metrics: m.metrics,
+      metrics: measured,
       details: { counts: m.counts, confusion: m.confusion },
       notes: `${lessons.length} lessons · ${file}`,
     });
