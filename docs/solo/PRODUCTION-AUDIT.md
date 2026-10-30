@@ -10,12 +10,12 @@
 
 | # | Item | Done looks like here | Phase | Status | Evidence |
 |---|---|---|---|---|---|
-| A1 | Problem + value proposition | README opens with a 3–5 sentence problem statement and a one-line value proposition (< 20 words) | 6 | unknown | |
-| A2 | Users, requirements, honest limits | README lists the 4 user types (teacher, trainer, admin, judge), the main features, and real targets: reply ≤ 6 s p50, ≤ 1 MB per lesson, cost caps | 6 | unknown | |
-| A3 | Out of scope, with reasons | README "Not in this build" = AGENTS.md §19 Won't + why | 6 | unknown | |
-| A4 | Stack with reasons + the trade-off | README table: each part, why, what we gave up | 6 | unknown | |
+| A1 | Problem + value proposition | README opens with a 3–5 sentence problem statement and a one-line value proposition (< 20 words) | 6 | done | README "The problem" + the one-line value proposition at the top |
+| A2 | Users, requirements, honest limits | README lists the 4 user types (teacher, trainer, admin, judge), the main features, and real targets: reply ≤ 6 s p50, ≤ 1 MB per lesson, cost caps | 6 | done | README: roles table (teacher, trainer, admin, judge), features, targets table (≤ 6 s p50, cost per lesson, caps) |
+| A3 | Out of scope, with reasons | README "Not in this build" = AGENTS.md §19 Won't + why | 6 | done | README "Roadmap" + "What changed from our Ideate deck" (Tamil, Glific, IVR, vector search — with reasons) |
+| A4 | Stack with reasons + the trade-off | README table: each part, why, what we gave up | 6 | done | README services table + "Why this shape" in `docs/ARCHITECTURE.md` (monolith, no Redis/vector DB; what we gave up) |
 | A5 | Monolith on purpose, thin routes | One Next.js app; no SQL or business rules in `src/app/api/**` (grep proves it) | all | done | No DB import or SQL in `src/app/api/**` (grep 31 Oct); the only query is readyz's `select 1` health ping |
-| A6 | Diagrams | `docs/ARCHITECTURE.md`: a web turn and a WhatsApp turn (with failure branches) + ER diagram, in Mermaid | 6 | unknown | |
+| A6 | Diagrams | `docs/ARCHITECTURE.md`: a web turn and a WhatsApp turn (with failure branches) + ER diagram, in Mermaid | 6 | done | `docs/ARCHITECTURE.md`: overview, web turn and WhatsApp turn sequences with failure branches, ER diagram (Mermaid) |
 | A7 | 12-factor basics | Config only from env; no files written to local disk (audio in `media` with expiry); logs to stdout; survives a restart | 1–5 | done | Config only via `src/lib/env.ts`; audio in `media` with expiry, nothing on local disk; JSON logs to stdout; survives every Render redeploy |
 | A8 | Separate dev and prod data | Neon `dev` branch locally, `main` on Render; prod scripts need `DB_TARGET=prod` + the operator's OK | 2 | done | Neon `dev` locally, `main` on Render; `*:prod` scripts set `DB_TARGET=prod` and are on the ask-list in `.claude/settings.json` |
 
@@ -63,7 +63,7 @@
 | D8 | No secret in the browser | No `NEXT_PUBLIC_` secrets; the built JS searched for `sk-ant-` and other key prefixes | 6 | done | No `NEXT_PUBLIC_` anywhere; `.next/static` searched for `sk-ant-`, Twilio SIDs, postgres URLs with passwords, secret names: none (31 Oct) |
 | D9 | Injection and XSS | SQL only via Drizzle / `sql` templates; no `dangerouslySetInnerHTML`; model output shown as text; SSML text escaped | all | done | SQL only through Drizzle / `sql` templates; the only `dangerouslySetInnerHTML` was the unused shadcn chart (deleted); model output rendered as text; no SSML (Azure unused) |
 | D10 | Security headers | nosniff, Referrer-Policy, X-Frame-Options DENY, Permissions-Policy (mic = self), short HSTS; checked once on securityheaders.com | 4 + 6 | done | Live headers (31 Oct): nosniff, strict-origin-when-cross-origin, DENY, mic=(self), HSTS 86400; `x-powered-by` removed (`poweredByHeader: false`). securityheaders.com would mark CSP missing (D15) |
-| D11 | Secrets map and rotation | `docs/INFRASTRUCTURE.md`: every secret, where it lives, how to rotate it in < 10 min; the app's Claude key is separate from the coding agent's | 6 | unknown | |
+| D11 | Secrets map and rotation | `docs/INFRASTRUCTURE.md`: every secret, where it lives, how to rotate it in < 10 min; the app's Claude key is separate from the coding agent's | 6 | done | `docs/INFRASTRUCTURE.md`: secrets map + rotation steps per key; the app's Claude key is separate |
 | D12 | OWASP Top 10, one line each | Written in this file's notes, naming our weakest area honestly | 6 | done | See OWASP notes below |
 | D13 | Live error check | Forcing an error on the live site shows our page + a reference id, no stack trace | 6 | done | Live 31 Oct: bad request → friendly JSON with reference id, no stack; `error.tsx`/`global-error.tsx` show the id |
 | D14 | API versioning (`/v1`) | — | — | skipped-deliberately | One client, deployed together with the server |
@@ -111,7 +111,7 @@
 | G7 | Timeouts everywhere | Claude 15 s (Director/Children) / 45 s (Coach), Sarvam 15 s, Azure 10 s, Twilio 10 s, DB connect 10 s | 2–5 | done | Claude per-purpose timeouts (`ai/claude.ts`), Sarvam STT/TTS `AbortSignal.timeout`, Twilio 10 s, DB connect 10 s |
 | G8 | Retries only where safe | Jobs: 3 tries with backoff; user-facing calls: at most 1 retry | 2 + 5 | done | Jobs: 3 attempts a minute apart; user-facing: one retry (children line check, Coach once) |
 | G9 | Graceful failure | Children fail → backup lines; TTS fails → text only; STT fails → text box; Coach fails → simple card from her words | 2–3 | done | Children → backup lines; TTS → text only; STT → 502 + text box; Coach → plain card from her words |
-| G10 | "If this service is down" table | `docs/ARCHITECTURE.md`: Anthropic, Sarvam, Azure, Twilio, Neon, Render — slow → ?, down → ? | 6 | unknown | |
+| G10 | "If this service is down" table | `docs/ARCHITECTURE.md`: Anthropic, Sarvam, Azure, Twilio, Neon, Render — slow → ?, down → ? | 6 | done | `docs/ARCHITECTURE.md` "If a service is slow or down" |
 | G11 | Backups, RPO and RTO | Neon history + a backup branch before the freeze; README states RPO and RTO honestly | 7 | unknown | |
 | G12 | Infrastructure as code | — | — | skipped-deliberately | `docs/INFRASTRUCTURE.md` lists every service and every changed setting instead |
 | G13 | Error-tracking service | — | — | skipped-deliberately | `ai_calls` errors + JSON logs with request ids + the admin trace + UptimeRobot cover it this week |
@@ -131,8 +131,8 @@
 | # | Item | Done looks like here | Phase | Status | Evidence |
 |---|---|---|---|---|---|
 | I1 | Lock file + Dependabot | `package-lock.json` committed; Dependabot alerts on | 0 | done | `package-lock.json` committed; Dependabot alerts on (one open low alert: shadcn CLI's `deepmerge`, never runs in the app) |
-| I2 | Version + changelog | Tag `v1.0-submission`; `CHANGELOG.md` | 7 | unknown | |
-| I3 | Docs set | README, `docs/ARCHITECTURE.md`, `docs/INFRASTRUCTURE.md`, `LICENSE`, `CHANGELOG.md`; README steps tested from a clean clone | 6 | unknown | |
+| I2 | Version + changelog | Tag `v1.0-submission`; `CHANGELOG.md` | 7 | done | `CHANGELOG.md`; tag `v1.0-submission` in Phase 7 |
+| I3 | Docs set | README, `docs/ARCHITECTURE.md`, `docs/INFRASTRUCTURE.md`, `LICENSE`, `CHANGELOG.md`; README steps tested from a clean clone | 6 | done | README, ARCHITECTURE, INFRASTRUCTURE, LICENSE, CHANGELOG; README local steps tested from a clean clone in /tmp (31 Oct): `npm ci` → `env:init` → `next dev` → teacher_demo/1234 logs in |
 | I4 | Cost per lesson known | From `ai_calls`: average $ per lesson in the README and on `/admin/evals` | 6 | unknown | |
 | I5 | Could two copies run? | Yes, except the in-memory login lockout and lesson-file cache (written down) | 6 | done | Yes, except the in-memory login lockout and the lesson-file cache (KNOWN-ISSUES) |
 | I6 | LLM basics | Keys on the server only; `max_tokens`, timeout, tokens and cost logged on every call; prompt caching confirmed (`cacheReadTokens > 0`) | 2 | done | Keys server-only; `max_tokens` + timeout + tokens + cost per call in `ai_calls`; cache reads 3,265 / 2,195 tokens from turn 2 (G2) |
@@ -140,7 +140,7 @@
 | I8 | Structured output, checked | `messages.parse` + Zod; parse failures, refusals and `max_tokens` stops go to the fallback path | 2 | done | `messages.parse` + Zod; refusal / max_tokens / no JSON → `ClaudeCallError` → fallbacks (`claude.test.ts`) |
 | I9 | Prompt-injection defence | Teacher text inside `<teacher_said>`; no tools; model output never executed or rendered as HTML; red-team cases pass | 2 + 6 | unknown | |
 | I10 | Hallucination guard | The engine decides every number; line check + quote check; the card says it was written by AI | 2–3 | done | Engine decides every number; line check + quote check; the card says it was written by AI (`card.aiNote`) |
-| I11 | Outside APIs pinned and listed | README lists Claude model ids, Sarvam `saaras:v4`, Azure voice names, the Twilio sandbox — and which key each needs | 6 | unknown | |
+| I11 | Outside APIs pinned and listed | README lists Claude model ids, Sarvam `saaras:v4`, Azure voice names, the Twilio sandbox — and which key each needs | 6 | done | README "External AI services and models": claude-haiku-5-5, claude-sonnet-5-5, claude-opus-5-5 (Batch), saaras:v4, bulbul:v4-flash, Twilio trial — and the key for each |
 | I12 | Incident notes | If the live site breaks: 5 lines in `docs/incidents/` (what, impact, why, fix, how we'd notice sooner) | as needed | unknown | |
 
 ## OWASP Top 10 notes (filled 31 Oct)
