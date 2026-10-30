@@ -7,6 +7,7 @@ import {
   ApiError,
   type ApiErrorCode,
   CoachCard,
+  type FeedbackBody,
   Lang,
   SessionUser,
   SessionView,
@@ -96,6 +97,10 @@ export function logout(): Promise<{ ok: boolean }> {
 
 export function agreeToConsent(): Promise<{ ok: boolean }> {
   return postJson("/api/auth/consent", {}, z.object({ ok: z.boolean() }));
+}
+
+export function sendFeedback(body: FeedbackBody): Promise<{ ok: boolean }> {
+  return postJson("/api/feedback", body, z.object({ ok: z.boolean() }));
 }
 
 export function sendCheckin(sessionId: string, triedInClass: boolean): Promise<{ ok: boolean }> {

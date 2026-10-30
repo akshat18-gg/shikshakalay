@@ -3,7 +3,7 @@
  */
 import { desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db/client";
-import { checkins, coachCards, sessions } from "@/lib/db/schema/core";
+import { checkins, coachCards, feedback, sessions } from "@/lib/db/schema/core";
 
 export async function dbHistory(userId: string, limit: number) {
   const rows = await db
@@ -25,6 +25,13 @@ export async function dbHistory(userId: string, limit: number) {
 }
 
 /** One "did you try the line?" answer per lesson: a second answer is ignored. */
+export async function dbSaveFeedback(
+  userId: string,
+  f: { doesWhatINeed: number; easyToUse: number; openAnswers: Record<string, string> },
+): Promise<void> {
+  await db.insert(feedback).values({ userId, ...f });
+}
+
 export async function dbSaveCheckin(sessionId: string, triedInClass: boolean): Promise<void> {
   const [existing] = await db
     .select({ id: checkins.id })

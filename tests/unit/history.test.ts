@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { POST as checkin } from "@/app/api/checkins/route";
+import { POST as feedback } from "@/app/api/feedback/route";
 import { POST as login } from "@/app/api/auth/login/route";
 import { type HistoryRow, checkinDue, formatIst } from "@/lib/history";
 import { mockCard, mockStartLesson } from "@/lib/mocks/lesson";
@@ -59,5 +60,34 @@ describe("POST /api/checkins (mock mode)", () => {
     expect((await post(c, { sessionId: theirs.sessionId, triedInClass: true })).status).toBe(403);
     expect((await post(c, { sessionId: mine.sessionId, triedInClass: "yes" })).status).toBe(400);
     expect((await post("", { sessionId: mine.sessionId, triedInClass: true })).status).toBe(401);
+  });
+});
+
+describe("POST /api/feedback (mock mode)", () => {
+  const post = (c: string, body: unknown) =>
+    feedback(
+      new Request("http://x", {
+        method: "POST",
+        headers: { "content-type": "application/json", cookie: c },
+        body: JSON.stringify(body),
+      }),
+      undefined,
+    );
+
+  it("takes two 1–7 answers and an optional comment; refuses bad bodies and no login", async () => {
+    const res = await login(
+      new Request("http://x", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ code: "teacher_demo", pin: "1234" }),
+      }),
+      undefined,
+    );
+    const c = (res.headers.get("set-cookie") ?? "").split(";")[0]!;
+    expect((await post(c, { doesWhatINeed: 6, easyToUse: 7 })).status).toBe(200);
+    expect((await post(c, { doesWhatINeed: 6, easyToUse: 7, openAnswers: { change: "More sums" } })).status).toBe(200);
+    expect((await post(c, { doesWhatINeed: 8, easyToUse: 7 })).status).toBe(400);
+    expect((await post(c, { doesWhatINeed: 6, easyToUse: 7, userId: "someone-else" })).status).toBe(400);
+    expect((await post("", { doesWhatINeed: 6, easyToUse: 7 })).status).toBe(401);
   });
 });
