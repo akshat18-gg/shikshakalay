@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { requirePageUser } from "@/lib/auth";
 import { formatIst } from "@/lib/history";
-import { t } from "@/lib/i18n";
+import { type MessageKey, t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -9,14 +9,55 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 /** Targets from AGENTS.md 18. Results come from the latest eval_runs row (npm run evals, Phase 6). */
-const TARGETS: { key: string; label: string; target: string }[] = [
-  { key: "resistWeak", label: "Children resist weak moves", target: "≥ 90%" },
-  { key: "teachable", label: "Children can be taught", target: "≥ 80%" },
-  { key: "directorAccuracy", label: "Director accuracy", target: "≥ 85%" },
-  { key: "lineFirstTry", label: "Line fidelity, first try", target: "≥ 98%" },
-  { key: "lineFinal", label: "Line fidelity after fallback", target: "100%" },
-  { key: "quoteValidity", label: "Quote validity", target: "100%" },
+const TARGETS: { key: string; label: MessageKey; target: string }[] = [
+  { key: "resistWeak", label: "evals.resistWeak", target: "≥ 90%" },
+  { key: "teachable", label: "evals.teachable", target: "≥ 80%" },
+  { key: "directorAccuracy", label: "evals.directorAccuracy", target: "≥ 85%" },
+  { key: "lineFirstTry", label: "evals.lineFirstTry", target: "≥ 98%" },
+  { key: "lineFinal", label: "evals.lineFinal", target: "100%" },
+  { key: "quoteValidity", label: "evals.quoteValidity", target: "100%" },
 ];
+
+type Confusion = Record<string, Record<string, number>>;
+
+/** The runner stores { counts, confusion }; rows = the answer key's move, cells = what the Director said. */
+function confusionOf(details: unknown): Confusion | null {
+  const c = (details as { confusion?: unknown } | null)?.confusion;
+  return c && typeof c === "object" ? (c as Confusion) : null;
+}
+
+function ConfusionTable({ confusion }: { confusion: Confusion }) {
+  const rows = Object.keys(confusion).sort();
+  const cols = [...new Set(rows.concat(Object.values(confusion).flatMap((r) => Object.keys(r))))].sort();
+  return (
+    <div className="overflow-x-auto">
+      <table className="text-xs tabular-nums">
+        <thead>
+          <tr>
+            <th />
+            {cols.map((c) => (
+              <th key={c} className="px-1 py-1 align-bottom font-medium [writing-mode:vertical-rl]">
+                {c}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr key={r} className="border-t border-border">
+              <th className="pr-2 text-left font-medium whitespace-nowrap">{r}</th>
+              {cols.map((c) => (
+                <td key={c} className={`px-1 text-center ${r === c ? "bg-pale font-semibold" : ""}`}>
+                  {confusion[r]?.[c] ?? ""}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export default async function EvalsPage() {
   const user = await requirePageUser(["admin"]);
@@ -43,7 +84,7 @@ export default async function EvalsPage() {
             <tbody>
               {TARGETS.map((m) => (
                 <tr key={m.key} className="border-b border-border">
-                  <td className="py-2">{m.label}</td>
+                  <td className="py-2">{t(m.label, lang)}</td>
                   <td>{m.target}</td>
                   <td className="font-semibold tabular-nums">
                     {run.metrics[m.key] === undefined ? "—" : `${Math.round(run.metrics[m.key]! * 1000) / 10}%`}
@@ -58,12 +99,10 @@ export default async function EvalsPage() {
               .map(([k, v]) => `${k}: ${v}`)
               .join(" · ")}
           </p>
-          {run.details !== null && (
+          {confusionOf(run.details) && (
             <>
               <h2 className="font-semibold">{t("admin.confusion", lang)}</h2>
-              <pre className="overflow-x-auto bg-pale p-2 text-xs">
-                {JSON.stringify(run.details, null, 1).slice(0, 6000)}
-              </pre>
+              <ConfusionTable confusion={confusionOf(run.details)!} />
             </>
           )}
         </>
