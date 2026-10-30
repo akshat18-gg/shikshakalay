@@ -15,6 +15,7 @@ import {
   StartLessonResult,
   TurnResult,
 } from "@/lib/contracts";
+import { SANA_AUDIO_PATH } from "@/lib/samples";
 
 const TIMEOUT_MS = 30_000;
 
@@ -97,6 +98,13 @@ export function logout(): Promise<{ ok: boolean }> {
 
 export function agreeToConsent(): Promise<{ ok: boolean }> {
   return postJson("/api/auth/consent", {}, z.object({ ok: z.boolean() }));
+}
+
+/** The pre-recorded Hindi voice note for sample 5 (a static file next to the app). */
+export async function fetchSampleAudio(): Promise<Blob> {
+  const res = await fetch(SANA_AUDIO_PATH, { signal: AbortSignal.timeout(TIMEOUT_MS) });
+  if (!res.ok) throw new ApiClientError("internal", undefined, res.status);
+  return res.blob();
 }
 
 export function sendFeedback(body: FeedbackBody): Promise<{ ok: boolean }> {

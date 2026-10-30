@@ -3,10 +3,10 @@
 /** Plays a sample: a fresh lesson, its turns sent in order, the children's replies shown like the practice room. */
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ApiClientError, sendTurn, startLesson } from "@/lib/api";
+import { ApiClientError, fetchSampleAudio, sendTurn, startLesson } from "@/lib/api";
 import type { TurnResult } from "@/lib/contracts";
 import type { MessageKey } from "@/lib/i18n";
-import { SAMPLES, SANA_AUDIO_PATH } from "@/lib/samples";
+import { SAMPLES } from "@/lib/samples";
 import { ErrorNote } from "./ErrorNote";
 import { useLang, useT } from "./LangProvider";
 import { Turn } from "./practice/Turn";
@@ -33,7 +33,7 @@ export function TrySamples({ hasSanaAudio }: { hasSanaAudio: boolean }) {
       const shown: TurnResult[] = [lesson.hello];
       setTurns([...shown]);
       for (const text of sample.turns) {
-        const audio = sample.voice && hasSanaAudio ? await (await fetch(SANA_AUDIO_PATH)).blob() : undefined;
+        const audio = sample.voice && hasSanaAudio ? await fetchSampleAudio() : undefined;
         const r = await sendTurn(lesson.sessionId, {
           ...(audio ? { audio: new File([audio], "sana-hi.m4a", { type: "audio/mp4" }) } : { text }),
           idempotencyKey: crypto.randomUUID(),

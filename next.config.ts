@@ -12,6 +12,7 @@ const SECURITY_HEADERS = [
 const nextConfig: NextConfig = {
   // opusscript loads its .wasm file from its own folder at run time, so it must stay a plain Node require.
   serverExternalPackages: ["opusscript"],
+  poweredByHeader: false, // don't advertise the framework
   async headers() {
     return [
       { source: "/:path*", headers: SECURITY_HEADERS },
