@@ -192,6 +192,19 @@ export const ApiError = z.object({
   }),
 });
 
+/** POST /api/feedback — the two 1–7 ease questions (UMUX-Lite) and an optional "what should we change?". */
+export const FeedbackBody = z
+  .object({
+    doesWhatINeed: z.number().int().min(1).max(7),
+    easyToUse: z.number().int().min(1).max(7),
+    openAnswers: z
+      .object({ change: z.string().trim().max(1000).optional() })
+      .strict()
+      .default({}),
+  })
+  .strict();
+export type FeedbackBody = z.infer<typeof FeedbackBody>;
+
 /* ----------------------------------------------------------------------------
  * Eval lessons (P3 writes them in evals/lessons/*.json, P1's evals/run.ts reads them)
  * ------------------------------------------------------------------------- */

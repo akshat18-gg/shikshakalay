@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CardAudioButton } from "@/components/CardAudioButton";
+import { FeedbackForm } from "@/components/FeedbackForm";
 import { getCard } from "@/lib/engine";
 import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
@@ -59,6 +60,7 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
       </section>
 
       <p className="text-sm text-muted-foreground">{t("card.aiNote", lang)}</p>
+      {user.role === "teacher" && <FeedbackForm />}
       <Link href="/" className="min-h-11 font-semibold text-navy underline">
         {t("card.backHome", lang)}
       </Link>

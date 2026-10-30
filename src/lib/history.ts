@@ -1,7 +1,7 @@
 /**
  * Past lessons for the history page and home, plus the check-in. Mock mode reads the in-memory mock lessons.
  */
-import type { CoachCard } from "@/lib/contracts";
+import type { CoachCard, FeedbackBody } from "@/lib/contracts";
 import { mockHistory } from "@/lib/mocks/lesson";
 
 export const HISTORY_LIMIT = 50;
@@ -29,6 +29,13 @@ export function checkinDue(rows: HistoryRow[], now: Date): HistoryRow | null {
   const last = rows.find((r) => r.card !== null);
   if (!last?.endedAt || last.hasCheckin) return null;
   return now.getTime() - last.endedAt.getTime() >= CHECKIN_AFTER_MS ? last : null;
+}
+
+/** The teacher's answers to the two ease questions (one row per answer; the newest counts). */
+export async function saveFeedback(userId: string, body: FeedbackBody): Promise<void> {
+  if (mock()) return;
+  const openAnswers: Record<string, string> = body.openAnswers.change ? { change: body.openAnswers.change } : {};
+  await (await import("@/lib/db/queries/history")).dbSaveFeedback(userId, { ...body, openAnswers });
 }
 
 export async function saveCheckin(sessionId: string, triedInClass: boolean): Promise<void> {
