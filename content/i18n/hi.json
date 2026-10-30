@@ -197,5 +197,11 @@
   "admin.mustSay": "{n} कहना है",
   "admin.noNumber": "कोई संख्या नहीं",
   "admin.hello": "नमस्ते (तय लाइनें, AI नहीं)",
-  "admin.evalRun": "{date} की जाँच"
+  "admin.evalRun": "{date} की जाँच",
+
+  "try.running": "नमूना चल रहा है…",
+  "try.again": "फिर से चलाएँ",
+  "try.minds": "अभी सोच:",
+  "try.voice": "🎤 हिंदी आवाज़ संदेश",
+  "try.typedFallback": "(रिकॉर्डिंग जुड़ने तक लिखकर भेजा गया)"
 }
