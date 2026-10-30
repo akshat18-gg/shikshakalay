@@ -195,5 +195,11 @@
   "admin.mustSay": "must say {n}",
   "admin.noNumber": "no number",
   "admin.hello": "Hello (fixed lines, no AI)",
-  "admin.evalRun": "Run of {date}"
+  "admin.evalRun": "Run of {date}",
+
+  "try.running": "Playing the sample…",
+  "try.again": "Play again",
+  "try.minds": "Minds now:",
+  "try.voice": "🎤 Hindi voice note",
+  "try.typedFallback": "(sent as text until the recorded voice note is added)"
 }

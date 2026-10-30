@@ -22,6 +22,12 @@ export function TopBar({ lang, loggedIn }: { lang: Lang; loggedIn: boolean }) {
         {loggedIn && (
           <nav className="flex w-full justify-end gap-4 border-t border-white/20 sm:w-auto sm:border-0 sm:ml-auto">
             <Link
+              href="/try"
+              className="min-h-11 content-center px-1 text-sm underline outline-none focus-visible:ring-3 focus-visible:ring-mint"
+            >
+              {t("nav.try", lang)}
+            </Link>
+            <Link
               href="/history"
               className="min-h-11 content-center px-1 text-sm underline outline-none focus-visible:ring-3 focus-visible:ring-mint"
             >

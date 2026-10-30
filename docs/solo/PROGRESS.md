@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 4 — Judge-ready MVP (G3 passed Wed 28 Oct)
-- **Next task:** Phase 4 — P2-T11 /try + P1-T13 Sana + P3-T14 red team
+- **Next task:** Phase 4 — P2-T12 PWA + S4.1 polish + Twilio docs, then S4.2 pilot pack → G4
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G3 (Wed 28 Oct)
@@ -42,7 +42,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [ ] P1-T13 Sana · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
+**Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
 **Phase 7** — [ ] bug bash · [ ] screenshots · [ ] video script + deck numbers + form answers · [ ] final evals · [ ] audit final · [ ] freeze + tag
@@ -82,6 +82,7 @@
 - 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 28 Oct — Voice is Sarvam only (operator): Azure keys are "optional" in env:check, AGENTS §2/§4/§8/§15 + README say Sarvam Bulbul; `tts.ts` stays swappable.
 - 28 Oct — Sarvam cost per voice lesson ≈ ₹2 (STT ₹0.49/min × ~1.2 min + Bulbul v4-flash ₹1/1K chars × ~1.3K); up to ₹7 if each request bills a full minute. Top up ₹500 before the pilot.
+- 30 Oct — /try: 5 samples, each a fresh lesson. Sample 4 = "Now 43 minus 18?" → "Ravi, how did you get 35?" → "Ravi, show 43 with bundles…" → "Ravi, 13 take away 8?" (a fresh lesson starts on 52 − 27, so the arc needs the sum and the reveal first) → Ravi GOT_IT. Sample 5 sends public/samples/sana-hi.m4a as audio when the file exists (checked per request), else the Hindi line as text.
 - 30 Oct — Seed: T01–T08 (isDemo, no PIN) with 1–4 lessons each played through the real step() with a fake Claude (backup lines), cards with Teach scores from the moves, ai_calls rows tagged `demo-seed` (exclude from real spend). Re-running replaces only these teachers' rows. Trainer dashboard: CSS bars (plan's cut for charts), privacy rule = hide any number from < 5 teachers. Admin trace: her words → Director JSON → minds before/after (changes highlighted) → lines + check → calls, time, cost. Trainers/admins are sent from / to their pages.
 - 28 Oct — E1: 100/100 lessons valid (50 weak / 50 strong, 50 en / 50 hi, focus ravi 17 · arjun 17 · meena 16; 800 teacher turns, all 11 moves present; 46 romanised-Hinglish turns), output 78,827 tokens ≈ $0.90. labelSource "generator", reviewed false until E2. For P1-T14: a newTask equal to the current sum and "" mean the same — compare them as equal.
 - 28 Oct — KI-001 (operator's live test): any a − b ≤ 99 plays through the mistakes; b > a → one child `cannot`; +/×/÷/3-digit → one child `not_today`; both numbers from the current sum's digits = a step, not a task (engine decides — protects sample 4); a react never parrots; line check: no-number lines only her numbers + the sum, parrots only the told answer; digits count for "too short"; director@3 (36/36 sums, 36/36 children, 35/36 moves on the 36 lines); children@3; lesson file v3 (`cannot`, `notToday` backups). AGENTS §7.2/7.4/7.5/7.10 updated.
