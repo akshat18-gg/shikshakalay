@@ -188,8 +188,10 @@ These are our own pass marks; we report the real numbers even where they fall sh
 
 ## Known limitations
 
-- **WhatsApp is a trial:** one active recipient at a time and 100 free messages — shown in the video; teachers and
-  judges use the web link. WHATSAPP-STATUS-HERE
+- **WhatsApp is not live for judges.** The WhatsApp door is fully built and unit-tested (signed webhook, job
+  queue, Ogg/Opus voice notes, the conversation steps), but Twilio's current free trial ("Try out WhatsApp") offers no
+  incoming-message webhook, so messages can't reach our server. Teachers and judges use the web link; turning
+  WhatsApp on needs a paid Twilio account with the WhatsApp Sandbox — settings only, no code change.
 - One skill (2-digit subtraction). Letter-sound blending, more languages and adaptive difficulty are on the roadmap.
 - Bulbul has no child-pitched boy voice, so Ravi and Arjun sound older than Meena and Sana.
 - Offline: the app shell and past pages open, but a new turn needs the network (offline recording queue cut).
