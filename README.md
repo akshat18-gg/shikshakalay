@@ -8,6 +8,14 @@ Hackathon (ShikshaNext / Central Square Foundation × Anthropic) · **Challenge 
 **Live demo:** https://shikshakalay.onrender.com · **Video:** _link added on submission day_ ·
 **Code:** https://github.com/akshat18-gg/shikshakalay
 
+<p>
+  <img src="docs/media/practice-en-phone-full.png" alt="Practice lesson: Ravi and Arjun say 35, Meena 26; after the teacher tells the answer they parrot 25, then get the next sum wrong again" width="260">
+  <img src="docs/media/card-en-phone-full.png" alt="Coaching card quoting the teacher's own words: what worked, one thing to try, a line to say tomorrow" width="260">
+  <img src="docs/media/practice-hi-phone.png" alt="The same lesson in Hindi: Ravi explains his steps" width="260">
+</p>
+
+More screens (trainer dashboard, AI trace, evals): [`docs/media/`](docs/media/).
+
 ## The problem
 
 A primary teacher in India gets very little chance to practise *how* she responds to a child's mistake before she
