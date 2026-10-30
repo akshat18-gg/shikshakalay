@@ -178,7 +178,7 @@ docs** when unsure (Next.js 16 changed several APIs).
 | Tests | **Vitest** (unit) · **Playwright** (end-to-end) · eval script over 100 lessons | P1 · P2 · P3 + P1 |
 | Repo | GitHub + GitHub Actions (lint, type-check, Vitest on every PR) | P2 |
 
-**Packages:** `@anthropic-ai/sdk zod drizzle-orm postgres jose twilio yaml idb-keyval server-only`
+**Packages:** `@anthropic-ai/sdk zod drizzle-orm postgres jose twilio yaml opusscript server-only` (solo mode: `idb-keyval` removed with the cut offline queue; `opusscript` makes WhatsApp voice notes)
 · dev: `drizzle-kit vitest tsx @playwright/test @types/node@22 prettier`. Node.js 22 everywhere (local, CI, Render).
 Add a new package only in its own small PR. CI runs: format check, lint, type-check, Vitest, build.
 

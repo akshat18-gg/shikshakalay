@@ -114,16 +114,22 @@ export async function claimDueJobs(limit: number): Promise<JobRow[]> {
   return [...rows];
 }
 
+/** Done jobs keep only their dedupe key: the payload (her number, her words) is cleared. */
 export async function finishJob(id: string): Promise<void> {
-  await db.update(jobs).set({ status: "done", lastError: null }).where(eq(jobs.id, id));
+  await db.update(jobs).set({ status: "done", lastError: null, payload: {} }).where(eq(jobs.id, id));
 }
 
-/** Retry in a minute, up to 3 attempts; then failed. */
+/** Retry in a minute, up to 3 attempts; then failed (and the payload is cleared, as for done jobs). */
 export async function failJob(id: string, attempts: number, error: string): Promise<void> {
   const done = attempts >= 3;
   await db
     .update(jobs)
-    .set({ status: done ? "failed" : "pending", runAt: new Date(Date.now() + 60_000), lastError: error.slice(0, 300) })
+    .set({
+      status: done ? "failed" : "pending",
+      runAt: new Date(Date.now() + 60_000),
+      lastError: error.slice(0, 300),
+      ...(done ? { payload: {} } : {}),
+    })
     .where(eq(jobs.id, id));
 }
 

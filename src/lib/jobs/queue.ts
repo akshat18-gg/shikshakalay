@@ -3,7 +3,7 @@
  * (after()), and the sweep picks up anything due or stuck. Retries: 3 attempts, a minute apart.
  */
 import type { JobRow } from "@/lib/db/queries/whatsapp";
-import { log, logError } from "@/lib/log";
+import { log, logError, maskPersonal } from "@/lib/log";
 import { HANDLERS } from "./handlers";
 
 async function q() {
@@ -28,7 +28,7 @@ async function run(job: JobRow): Promise<void> {
     log("job_done", { jobId: job.id, type: job.type, ms: Date.now() - started });
   } catch (err) {
     logError("job_failed", err, { jobId: job.id, type: job.type, attempts: job.attempts });
-    await (await q()).failJob(job.id, job.attempts, err instanceof Error ? err.message : String(err));
+    await (await q()).failJob(job.id, job.attempts, maskPersonal(err instanceof Error ? err.message : String(err)));
   }
 }
 
