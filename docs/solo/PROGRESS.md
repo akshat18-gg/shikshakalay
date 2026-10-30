@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 6 — Evals, hardening, docs (G4 passed Sat 31 Oct 01:10)
-- **Next task:** eval run 1 → top-3 fixes · G5 (operator's WhatsApp test; Plan B at Sat 12 noon) · S6 security + docs
+- **Next task:** Phase 7 bug bash (no approvals) · waiting: label picks, eval run 2 OK, Twilio decision (G5 parked, Plan B text in place)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G4 (Sat 31 Oct)
@@ -27,6 +27,12 @@
 | H4.2 | Hindi check: read `docs/solo/hindi-review.md` (232 lines; screen text, lesson lines, 20 child lines, a coach card), mark what sounds wrong | 🟡 | Wed 28 Oct 01:20 | open (Phase 4) |
 | S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | done (Sat 31 Oct 01:09) |
 | H6.1 | Label review: `docs/solo/label-review.md` (65 disagreements + 40 spot checks) | 🟡 | Sat 31 Oct 01:25 | open |
+| H-usage | `/usage` total (coding spend) — last message had "$<amount>" | 🟡 | Sat 31 Oct 02:15 | open |
+| H-pin | DEMO_PIN value for README/form (AGENTS §11: demo-only) — or OK to set a new one | 🛑 G7 | Sat 31 Oct 03:40 | open |
+| H-pilot | Forward `private/pilot-messages.md` to teachers | 🟡 | Sat 31 Oct 02:15 | open |
+| H5 | Twilio: new trial has no inbound webhook → G5 parked; operator decides Sat afternoon on the $20 upgrade | 🟡 | Sat 31 Oct 02:00 | open — Plan B text in README + video script |
+| E-run2 | OK for eval run 2 with director@4 (~$0.55, ~1 h 45 min), then merge PR #37 | 🛑 | Sat 31 Oct 03:40 | open |
+| H7 | Phase 7: Neon branch `backup-submission`, Render auto-deploy off after the tag, GitHub push protection on? | 🛑 | Sat 31 Oct 03:40 | later |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -45,8 +51,8 @@
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [x] P2-T12 PWA + offline (shell + pages offline; recording queue cut, KNOWN-ISSUES) · [x] S4.1 polish (headers, 404/error/global-error, OG image, footer, /privacy, /terms) · [x] S4.2 pilot pack (guide, consent EN+HI, WhatsApp forward message, changes log, scripts/create-pilot-users.ts)
 **Phase 5** — [x] P3-T10 jobs + webhook · [x] P3-T11 conversation (real Ogg/Opus voice notes since 31 Oct) · [x] P3-T12 sweep · [ ] H5 webhook + UptimeRobot + phone test
-**Phase 6** — [~] E2 labels (label check done: 735/800 agree, 50 lessons agreed; operator picks open) · [~] P1-T14 evals (runner + red-team mode built and smoke-tested on 2 lessons + 3 cases, $0.04; full run waits on the operator's OK) · [ ] top-3 fixes · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [x] S6.1 security pass (audit 55 rows filled) · [x] S6.2 docs (README with TODO markers for eval numbers + demo PIN, ARCHITECTURE, INFRASTRUCTURE, CHANGELOG; clean-clone test ok) · [x] S6.3 secret scan (gitleaks clean)
-**Phase 7** — [ ] bug bash · [ ] screenshots · [ ] video script + deck numbers + form answers · [ ] final evals · [ ] audit final · [ ] freeze + tag
+**Phase 6** — [~] E2 labels (label check done: 735/800 agree, 50 lessons agreed; operator picks open) · [x] P1-T14 evals (run 1: 100 lessons $0.53; red team 20/20 $0.003) · [~] top-3 fixes (director@4 in PR #37, fixture 36/36; held until run 2) · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [x] S6.1 security pass (audit 55 rows filled) · [x] S6.2 docs (README with TODO markers for eval numbers + demo PIN, ARCHITECTURE, INFRASTRUCTURE, CHANGELOG; clean-clone test ok) · [x] S6.3 secret scan (gitleaks clean)
+**Phase 7** — [ ] bug bash · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [ ] final evals · [ ] audit final · [ ] freeze + tag
 
 ## Decisions (date — decision — why)
 - 26 Oct — Solo build mode: one coding agent builds everything; the operator pre-approved squash-merging green PRs.
@@ -89,6 +95,7 @@
 - 30 Oct — PWA: manifest + icons + OG image made by Playwright from HTML (scripts/make-images.mts); hand-written sw.js (cache-first static/audio/icons, precache fixed clips, network-first pages with the cached copy offline, never /api); registered in production. Bug found and fixed: cloning a response after returning it cached nothing. Offline recording queue cut. Twilio docs: +1 737 250 8034, `join twilio-trial`, 1 recipient / 100 messages / 5 testers — WhatsApp = operator test + video; one audio + one text per turn.
 - 30 Oct — /try: 5 samples, each a fresh lesson. Sample 4 = "Now 43 minus 18?" → "Ravi, how did you get 35?" → "Ravi, show 43 with bundles…" → "Ravi, 13 take away 8?" (a fresh lesson starts on 52 − 27, so the arc needs the sum and the reveal first) → Ravi GOT_IT. Sample 5 sends public/samples/sana-hi.m4a as audio when the file exists (checked per request), else the Hindi line as text.
 - 30 Oct — Seed: T01–T08 (isDemo, no PIN) with 1–4 lessons each played through the real step() with a fake Claude (backup lines), cards with Teach scores from the moves, ai_calls rows tagged `demo-seed` (exclude from real spend). Re-running replaces only these teachers' rows. Trainer dashboard: CSS bars (plan's cut for charts), privacy rule = hide any number from < 5 teachers. Admin trace: her words → Director JSON → minds before/after (changes highlighted) → lines + check → calls, time, cost. Trainers/admins are sent from / to their pages.
+- 31 Oct — Twilio: the classic Sandbox (shared +1 415 523 8886, own `join <code>`, "When a message comes in" under Sandbox settings) is a legacy-Console feature; the new-console trial only has "Try out WhatsApp" without an inbound webhook → G5 parked, Plan B wording in README/video script/form answers (no fake WhatsApp footage).
 - 31 Oct — Security pass: live cross-account 403s, cookie flags, headers, friendly errors; no secrets in `.next/static`; gitleaks 78 commits → 2 false positives (fake MessageSid) in `.gitleaksignore`; licences OK (no GPL/AGPL); npm audit 3 low (shadcn CLI). Fixes: `logError` masks phone numbers/emails (Twilio errors repeat the number), finished/failed jobs drop their payload, `poweredByHeader: false`, /try's fetch moved to api.ts, unused shadcn files + recharts/sonner/next-themes/idb-keyval removed. `scripts/delete-user.ts` (dry run default) tested on dev.
 - 31 Oct — Feedback (AGENTS §12 route that was missing; the pilot guide promised it): contracts.ts (additive) `FeedbackBody` (two 1–7 UMUX-Lite answers + optional `change`, strict); `POST /api/feedback` (user from the cookie); form under the card for teachers (7-column scale fits 360 px). Pilot messages for P01–P10 filled into `private/pilot-messages.md` (git-ignored).
 - 31 Oct — WhatsApp voice notes (operator OK'd opusscript, MIT, no install scripts): Sarvam WAV 24 kHz → opusscript (WASM libopus, VOIP, 24 kbps, 20 ms frames) → our own Ogg writer (OpusHead/OpusTags, CRC, granules). A real Bulbul clip: Chromium decodes it (1.45 s, same loudness); ~3 KB/s vs MP3's 16 KB/s. WhatsApp turns, hello/again fixed clips (.ogg next to .mp3) and the card's say-tomorrow line use it; web stays MP3. `serverExternalPackages: ["opusscript"]` so the .wasm loads from node_modules.
@@ -117,7 +124,8 @@
 - Reply time p50 / p90 (live, spoken Hindi, 28 Oct 00:55, `npm run speed:check`): text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s · server 3.1 s / 4.9 s
 - App AI spend so far (from `ai_calls`): dev ~$0.03 · prod $0.0012 (27 Oct). One full lesson + coach card ≈ $0.017 (coach $0.014).
 - Coding spend (operator reads `/usage` at each gate): $70.80 total (Fri 30 Oct 08:00) · $66.85 at G3 (Wed 28 Oct) · $41.47 mid-Phase 3 · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
-- Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
+- Eval run 1 (31 Oct, director@3): resist 100 % · teachable 100 % · Director 89.1 % on agreed lines (85.8 % all) · addressedTo 94.8 % · newTask 99.9 % · lines first try 97.6 % / final 100 % · quotes 100 % · red team 20/20 · $0.53. App AI spend this session ≈ $0.80 (labels $0.22, run 1 $0.53, red team, fixture checks, screenshots).
+- Eval results before: (tuning only: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
 ## Later (ideas nobody asked for — not in scope)
 -

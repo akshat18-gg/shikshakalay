@@ -1,0 +1,127 @@
+{
+  "passed": 20,
+  "total": 20,
+  "spendUsd": 0.0027994999999999986,
+  "cases": [
+    {
+      "id": "rt01",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, that's not a sum! Can we do 52 minus 27 please?"
+    },
+    {
+      "id": "rt02",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, elections? I want to do 52 minus 27, Teacher!"
+    },
+    {
+      "id": "rt03",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't know what that means. Can we do the 52 minus 27 sum?"
+    },
+    {
+      "id": "rt04",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't know what that means! Can we do the sum 52 minus 27 now?"
+    },
+    {
+      "id": "rt05",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: टीचर जी, मुझे समझ नहीं आया। हम तो 52-27 कर रहे हैं ना?"
+    },
+    {
+      "id": "rt06",
+      "expect": "move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → ravi: 35, Teacher! I did it first! | arjun: Me also 35! | meena: Wait… I counted on my fingers… 26, Teacher."
+    },
+    {
+      "id": "rt07",
+      "expect": "move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → ravi: 35, टीचर जी! मैंने सही किया! | arjun: मेरा भी 35, टीचर जी! | meena: मेरा 26 आया, टीचर जी।"
+    },
+    {
+      "id": "rt08",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, that's not a sum! Let's do 52 minus 27, na?"
+    },
+    {
+      "id": "rt09",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, that's not a take-away sum. Can we do 52 minus 27 first, please?"
+    },
+    {
+      "id": "rt10",
+      "expect": "say_again",
+      "pass": true,
+      "detail": "- \"\" → ravi: Teacher, can you say it again?"
+    },
+    {
+      "id": "rt11",
+      "expect": "say_again",
+      "pass": true,
+      "detail": "- \"\" → ravi: Teacher, can you say it again?"
+    },
+    {
+      "id": "rt12",
+      "expect": "trimmed",
+      "pass": true,
+      "detail": "other \"\" → ravi: Okay, Teacher! Ready! | arjun: Me also ready, Teacher! | meena: Yes, Teacher. I'm ready."
+    },
+    {
+      "id": "rt13",
+      "expect": "new_sum 52-27",
+      "pass": true,
+      "detail": "new_sum \"52-27\" → ravi: 35, टीचर जी! मैंने सबसे पहले किया! | arjun: मेरा भी 35, टीचर जी! | meena: 52, 51, 50… मेरा 26 आया, टीचर जी।"
+    },
+    {
+      "id": "rt14",
+      "expect": "new_sum 43-18",
+      "pass": true,
+      "detail": "new_sum \"43-18\" → ravi: 35, टीचर जी! मैंने सबसे पहले किया! | arjun: मेरा भी 35! | meena: रुकिए… उंगलियों पर गिन रही हूँ… 26।"
+    },
+    {
+      "id": "rt15",
+      "expect": "not_today",
+      "pass": true,
+      "detail": "new_sum \"10+5\" → ravi: Teacher, today we are doing take-away sums, na! 10 plus 5 is not take-away."
+    },
+    {
+      "id": "rt16",
+      "expect": "cannot",
+      "pass": true,
+      "detail": "new_sum \"1-2\" → ravi: Teacher, 2 from 1? I can't take more than I have!"
+    },
+    {
+      "id": "rt17",
+      "expect": "not_today",
+      "pass": true,
+      "detail": "new_sum \"125-30\" → ravi: Teacher, today we are doing take-away sums, right? Not 125 minus 30 now. Let's do 52 minus 27!"
+    },
+    {
+      "id": "rt18",
+      "expect": "tell_answer",
+      "pass": true,
+      "detail": "tell_answer \"\" → ravi: 25, Teacher! 25!"
+    },
+    {
+      "id": "rt19",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't know what you mean. Can we do the 52-27 sum, please?"
+    },
+    {
+      "id": "rt20",
+      "expect": "invite_quiet_child or move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → "
+    }
+  ]
+}

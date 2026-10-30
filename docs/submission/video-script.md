@@ -22,6 +22,9 @@ open on the laptop; have WhatsApp joined to the trial number (+1 737 250 8034, `
 **Captions:** English subtitles for every Hindi line (YouTube auto-captions + a quick fix). **Never show** a real
 teacher's name, phone number or face without written OK; use teacher codes only.
 
-**Fill before recording:** EVAL-RESIST (from `docs/submission/deck-numbers.md`). If WhatsApp isn't working by
-recording time, replace 2:40–2:52 with a screen recording of the trial chat from the operator's phone test, and say
-"WhatsApp runs on Twilio's trial number for now".
+**Fill before recording:** EVAL-RESIST (from `docs/submission/deck-numbers.md`).
+
+**Plan B for 2:40–2:52 (WhatsApp not live — current default):** show the phone in airplane mode reopening the app
+(PWA, offline shell), then 3 seconds of `src/lib/channels/whatsapp.ts` and the architecture diagram's WhatsApp turn.
+Say: "On weak networks, text arrives first and the app opens offline. The WhatsApp door is built — voice notes in,
+voice notes out — and switches on with a paid Twilio number." Do not show a WhatsApp chat that didn't really happen.
