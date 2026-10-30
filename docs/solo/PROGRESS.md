@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 4 — Judge-ready MVP (G3 passed Wed 28 Oct)
-- **Next task:** G4 — needs the operator's OK for db:seed:prod (+ optional pilot logins); then Phase 5 WhatsApp
+- **Next task:** G4 (waiting on db:seed:prod OK) · G5 (waiting on the Twilio webhook + phone test) · Phase 6 E2 labels
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G3 (Wed 28 Oct)
@@ -43,7 +43,7 @@
 
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [x] P2-T12 PWA + offline (shell + pages offline; recording queue cut, KNOWN-ISSUES) · [x] S4.1 polish (headers, 404/error/global-error, OG image, footer, /privacy, /terms) · [x] S4.2 pilot pack (guide, consent EN+HI, WhatsApp forward message, changes log, scripts/create-pilot-users.ts)
-**Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
+**Phase 5** — [x] P3-T10 jobs + webhook · [x] P3-T11 conversation (mp3 audio until opusscript OK) · [x] P3-T12 sweep · [ ] H5 webhook + UptimeRobot + phone test
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
 **Phase 7** — [ ] bug bash · [ ] screenshots · [ ] video script + deck numbers + form answers · [ ] final evals · [ ] audit final · [ ] freeze + tag
 
@@ -82,6 +82,7 @@
 - 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 28 Oct — Voice is Sarvam only (operator): Azure keys are "optional" in env:check, AGENTS §2/§4/§8/§15 + README say Sarvam Bulbul; `tts.ts` stays swappable.
 - 28 Oct — Sarvam cost per voice lesson ≈ ₹2 (STT ₹0.49/min × ~1.2 min + Bulbul v4-flash ₹1/1K chars × ~1.3K); up to ₹7 if each request bills a full minute. Top up ₹500 before the pilot.
+- 30 Oct — WhatsApp: webhook checks the Twilio signature → job (dedupe MessageSid) → TwiML at once → after() runs it; step machine in channels/whatsapp.ts (pure, tested with fakes); no transaction held during Claude — overlapping messages get the engine's `busy` → "one moment". WhatsApp audio is made at once (Twilio needs a public media URL), mp3 for now. Check-in next evening ~6:30 pm IST capped at 23 h after her last message. Sweep: due + stuck jobs (FOR UPDATE SKIP LOCKED), 3 attempts, deletes expired media.
 - 30 Oct — PWA: manifest + icons + OG image made by Playwright from HTML (scripts/make-images.mts); hand-written sw.js (cache-first static/audio/icons, precache fixed clips, network-first pages with the cached copy offline, never /api); registered in production. Bug found and fixed: cloning a response after returning it cached nothing. Offline recording queue cut. Twilio docs: +1 737 250 8034, `join twilio-trial`, 1 recipient / 100 messages / 5 testers — WhatsApp = operator test + video; one audio + one text per turn.
 - 30 Oct — /try: 5 samples, each a fresh lesson. Sample 4 = "Now 43 minus 18?" → "Ravi, how did you get 35?" → "Ravi, show 43 with bundles…" → "Ravi, 13 take away 8?" (a fresh lesson starts on 52 − 27, so the arc needs the sum and the reveal first) → Ravi GOT_IT. Sample 5 sends public/samples/sana-hi.m4a as audio when the file exists (checked per request), else the Hindi line as text.
 - 30 Oct — Seed: T01–T08 (isDemo, no PIN) with 1–4 lessons each played through the real step() with a fake Claude (backup lines), cards with Teach scores from the moves, ai_calls rows tagged `demo-seed` (exclude from real spend). Re-running replaces only these teachers' rows. Trainer dashboard: CSS bars (plan's cut for charts), privacy rule = hide any number from < 5 teachers. Admin trace: her words → Director JSON → minds before/after (changes highlighted) → lines + check → calls, time, cost. Trainers/admins are sent from / to their pages.
