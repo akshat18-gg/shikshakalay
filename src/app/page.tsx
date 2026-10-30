@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { CheckinPrompt } from "@/components/CheckinPrompt";
 import { StartButton } from "@/components/StartButton";
 import { requirePageUser } from "@/lib/auth";
+import { homeFor } from "@/lib/auth/access";
 import { checkinDue, getHistory } from "@/lib/history";
 import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
@@ -9,6 +11,7 @@ import { currentLang } from "@/lib/lang";
 /** Teacher home: greeting, today's skill and the big Start button, the last card, and the check-in. */
 export default async function Home() {
   const user = await requirePageUser();
+  if (user.role !== "teacher") redirect(homeFor(user.role)); // trainers → /trainer, admins → /admin
   const lang = await currentLang(user);
   const history = await getHistory(user.id);
   const last = history.find((r) => r.card !== null);
