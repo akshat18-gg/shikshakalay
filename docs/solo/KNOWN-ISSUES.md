@@ -39,7 +39,7 @@ Status: fixed in #22 (tests: `tests/unit/anySum.test.ts`, fixture lines t31–t3
   pages open (service worker) and the fixed clips play, but a turn needs the network; a failed send shows the error
   with Retry (same idempotency key, so no double turn).
 - TTS is Sarvam Bulbul (no Azure key): it has no child-pitched boy voice, so Ravi and Arjun sound older than
-  Meena and Sana; and it can't make ogg/opus, so WhatsApp gets the children's audio as an MP3 file (not a voice
-  note) or text only — decide in Phase 5. Audio is 128 kbps (≈ 16 KB/s); 8 kHz (64 kbps) is the data-saver option.
+  Meena and Sana; and it can't make ogg/opus, so for WhatsApp we ask it for WAV and encode Ogg/Opus ourselves
+  (opusscript, `src/lib/voice/oggOpus.ts`) — real voice notes. Web audio is 128 kbps (≈ 16 KB/s); 8 kHz (64 kbps) is the data-saver option.
 - Short-lived audio clips live in Postgres (`media`, 60-minute expiry) instead of object storage: they are small
   and deleted by the sweep.

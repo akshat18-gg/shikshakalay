@@ -57,7 +57,7 @@ export const realStartLesson: StartLesson = async (userId, body, channel) => {
     director: null,
     lines: hello,
     statesAfter: state.children,
-    audioUrl: `/audio/hello-${body.lang}.mp3`, // fixed clip, made once (scripts/make-fixed-audio.ts)
+    audioUrl: fixedClip("hello", body.lang, channel), // made once (scripts/make-fixed-audio.ts)
     lessonOver: false,
     ms: Date.now() - started,
   });
@@ -187,6 +187,11 @@ export const realRunTurn: RunTurn = async (sessionId, input, channel) => {
  * Bulbul clip when the browser asks (so the text isn't held up); on WhatsApp the clip made now (Twilio fetches a
  * public media URL). Speech failing never fails the turn — the text is already there.
  */
+/** The committed fixed clips: MP3 for the web, Ogg/Opus (a voice note) for WhatsApp. */
+export function fixedClip(name: "hello" | "again", lang: "en" | "hi", channel: "web" | "whatsapp"): string {
+  return `/audio/${name}-${lang}.${channel === "whatsapp" ? "ogg" : "mp3"}`;
+}
+
 async function replyAudio(
   r: { lines: TurnResult["lines"]; counted: boolean; director: TurnResult["director"] },
   lang: "en" | "hi",
@@ -194,7 +199,7 @@ async function replyAudio(
   channel: "web" | "whatsapp",
 ): Promise<string | null> {
   if (r.lines.length === 0) return null;
-  if (!r.counted && r.director === null) return `/audio/again-${lang}.mp3`;
+  if (!r.counted && r.director === null) return fixedClip("again", lang, channel);
   if (!ttsAvailable()) return null;
   if (channel === "web") return turnAudioPath(ctx.sessionId, ctx.turn);
   try {
@@ -202,7 +207,8 @@ async function replyAudio(
       import("@/lib/voice/tracked"),
       import("@/lib/media/store"),
     ]);
-    return await saveMedia(await trackedSpeakLines(r.lines, lang, "mp3", ctx), "audio/mpeg");
+    // WhatsApp shows only Ogg/Opus as a voice note.
+    return await saveMedia(await trackedSpeakLines(r.lines, lang, "ogg", ctx), "audio/ogg");
   } catch (err) {
     logError("tts_failed", err, { sessionId: ctx.sessionId, turn: ctx.turn });
     return null;

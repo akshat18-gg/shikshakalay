@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { SttError, transcribeWith } from "@/lib/voice/stt";
 import { TtsError, activeBackend, sarvamBackend, stripId3 } from "@/lib/voice/tts";
 import { SARVAM_VOICES } from "@/lib/voice/voices";
+import { makeWav } from "./wav";
 
 type Call = { url: string; init: RequestInit };
 
@@ -43,13 +44,29 @@ describe("Sarvam text-to-speech", () => {
     expect(calls[0]!.init.signal).toBeInstanceOf(AbortSignal);
   });
 
-  it("refuses ogg (Bulbul can't make opus here) and reports provider errors as TtsError", async () => {
-    const ok = fakeFetch(() => ({ body: { audios: [b64("x")] } }));
-    await expect(
-      sarvamBackend({ apiKey: "k", fetch: ok.f }).speak([{ voice: "coach", text: "Hi" }], "en", "ogg"),
-    ).rejects.toMatchObject({
-      reason: "unsupported_format",
+  it("makes WhatsApp voice notes: asks Sarvam for 24 kHz WAV and returns one Ogg/Opus file", async () => {
+    const { f, calls } = fakeFetch(() => ({ body: { audios: [makeWav(4800, 24000).toString("base64")] } }));
+    const out = await sarvamBackend({ apiKey: "k", fetch: f }).speak(
+      [
+        { voice: "ravi", text: "35!" },
+        { voice: "meena", text: "26." },
+      ],
+      "hi",
+      "ogg",
+    );
+    expect(JSON.parse(String(calls[0]!.init.body))).toMatchObject({
+      output_audio_codec: "wav",
+      speech_sample_rate: 24000,
     });
+    expect(out.toString("latin1", 0, 4)).toBe("OggS");
+    expect(out.includes(Buffer.from("OpusHead"))).toBe(true);
+  });
+
+  it("reports provider errors and broken audio as TtsError", async () => {
+    const notWav = fakeFetch(() => ({ body: { audios: [b64("x")] } }));
+    await expect(
+      sarvamBackend({ apiKey: "k", fetch: notWav.f }).speak([{ voice: "coach", text: "Hi" }], "en", "ogg"),
+    ).rejects.toMatchObject({ reason: "provider_error" });
     const bad = fakeFetch(() => ({ status: 429, body: { error: { message: "rate limited" } } }));
     await expect(
       sarvamBackend({ apiKey: "k", fetch: bad.f }).speak([{ voice: "coach", text: "Hi" }], "en", "mp3"),

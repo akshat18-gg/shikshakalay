@@ -572,7 +572,9 @@ small backend interface; Azure (below) slots in as a second backend if a key arr
   `language_code`, `model` (`bulbul:v4-flash` / `bulbul:v3`), `speaker`, `pace` (0.5–2.0; **no pitch** on v3/v4),
   `speech_sample_rate` (22050), `output_audio_codec=mp3` (opus is refused on this endpoint). Response
   `{ audios: [base64] }`. One text and one voice per request → one request per child line, in parallel, MP3s joined
-  (ID3 tags stripped). Timeout 10 s.
+  (ID3 tags stripped). Timeout 10 s. **WhatsApp voice notes:** the same requests with `output_audio_codec=wav` at
+  24000 Hz → PCM joined with 300 ms pauses → Ogg/Opus (24 kbps) made in `src/lib/voice/oggOpus.ts` with `opusscript`
+  (libopus as WebAssembly) — no ffmpeg.
 - Voices (`src/lib/voice/voices.ts`, picked by measured pitch): Ravi `shubh_hi_stories_dramatic`, Arjun
   `kunal_hi_kids`, Meena `chhavi_hi_kids`, Sana `ritu_hi_kids`, coach `ishita_hi_edtech` — each works for hi-IN and en-IN.
 
