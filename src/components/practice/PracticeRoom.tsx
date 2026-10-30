@@ -156,23 +156,25 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
         </p>
       </div>
 
-      <ol role="log" aria-live="polite" className="flex flex-1 flex-col gap-2">
-        {turns.map((turn) => (
-          <Turn
-            key={turn.turn}
-            turn={turn}
-            onPlay={turn.audioUrl ? () => (unlockAudio(), play(turn.audioUrl!)) : undefined}
-          />
-        ))}
-        {pending && (
-          <>
-            <TeacherBubble text={pending} />
-            <li className="text-sm text-muted-foreground" aria-busy="true">
-              {t("practice.thinking")}
-            </li>
-          </>
-        )}
-      </ol>
+      <div role="log" aria-live="polite" className="flex flex-1 flex-col">
+        <ol className="flex flex-col gap-2">
+          {turns.map((turn) => (
+            <Turn
+              key={turn.turn}
+              turn={turn}
+              onPlay={turn.audioUrl ? () => (unlockAudio(), play(turn.audioUrl!)) : undefined}
+            />
+          ))}
+          {pending && (
+            <>
+              <TeacherBubble text={pending} />
+              <li className="text-sm text-muted-foreground" aria-busy="true">
+                {t("practice.thinking")}
+              </li>
+            </>
+          )}
+        </ol>
+      </div>
 
       {blockedAudio && (
         <Button variant="outline" className="self-start" onClick={() => play(blockedAudio)}>

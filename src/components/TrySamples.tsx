@@ -74,11 +74,13 @@ export function TrySamples({ hasSanaAudio }: { hasSanaAudio: boolean }) {
       )}
       {error && <ErrorNote error={error} />}
       {turns.length > 0 && (
-        <ol role="log" aria-live="polite" className="flex flex-col gap-2 border-t border-border pt-3">
-          {turns.map((turn) => (
-            <Turn key={turn.turn} turn={turn} onPlay={turn.audioUrl ? () => playAudio(turn.audioUrl!) : undefined} />
-          ))}
-        </ol>
+        <div role="log" aria-live="polite" className="border-t border-border pt-3">
+          <ol className="flex flex-col gap-2">
+            {turns.map((turn) => (
+              <Turn key={turn.turn} turn={turn} onPlay={turn.audioUrl ? () => playAudio(turn.audioUrl!) : undefined} />
+            ))}
+          </ol>
+        </div>
       )}
       {turns.length > 1 && !running && (
         <p className="text-sm text-muted-foreground">
