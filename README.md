@@ -11,6 +11,10 @@ Team Blue Screen (SRMIST Kattankulathur) · AI for Foundational Learning Hackath
 Claude (Haiku 5.5 for the children and the move classifier, Sonnet 5.5 for the coach) only writes words — a plain
 TypeScript engine decides what each child believes and the exact number they say.
 
+**WhatsApp (trial):** send `join twilio-trial` to **+1 737 250 8034** on WhatsApp. Twilio's free trial allows one
+active recipient at a time, 100 messages and up to 5 verified testers, so WhatsApp is shown in the video; teachers and
+judges use the web link.
+
 > Work in progress. The full README (live link, demo logins, how it works, setup, evals) lands in Phase 6.
 
 ## Run it locally (mock mode, no keys)

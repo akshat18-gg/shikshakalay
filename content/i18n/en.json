@@ -201,5 +201,27 @@
   "try.again": "Play again",
   "try.minds": "Minds now:",
   "try.voice": "🎤 Hindi voice note",
-  "try.typedFallback": "(sent as text until the recorded voice note is added)"
+  "try.typedFallback": "(sent as text until the recorded voice note is added)",
+
+  "footer.team": "Made by Team Blue Screen (SRMIST) for the AI for Foundational Learning hackathon. Not a government programme.",
+  "footer.contact": "Contact",
+  "footer.code": "Source code",
+  "footer.privacy": "Privacy",
+  "footer.terms": "Terms",
+  "error.title": "Something went wrong",
+  "error.body": "Sorry — that didn't work. Please try again.",
+  "error.home": "Go to home",
+  "error.notFoundTitle": "Page not found",
+  "error.notFoundBody": "We couldn't find that page.",
+  "privacy.title": "Privacy",
+  "privacy.p1": "Shikshakalay is a practice tool made by three students for a hackathon. We keep as little as we can.",
+  "privacy.p2": "What we keep: your login ID, the text of what you said in practice lessons (your voice is turned into text and the recording is deleted at once), the children's replies, your coaching cards, and your feedback. We never ask for your name; WhatsApp numbers are stored in one place only and never shown to anyone.",
+  "privacy.p3": "Why: to run the lessons and cards, and to improve the tool. Trainers only see totals from 5 or more teachers — never one teacher's lessons.",
+  "privacy.p4": "Who else sees data: Anthropic (Claude writes the children's words and the card), Sarvam (speech to text and the voices), Twilio/Meta (only if you use WhatsApp), Neon (our database), Render (our server). Each only gets what it needs for that step.",
+  "privacy.p5": "How long: until the end of the pilot (December 2026), then deleted. Want your data deleted sooner? Write to {email} with your login ID and we will delete everything within 7 days.",
+  "terms.title": "Terms",
+  "terms.p1": "Shikshakalay is a free practice tool from a student hackathon team, offered as it is, with no guarantee.",
+  "terms.p2": "The children are pretend and run by a computer program; the coaching card is written by AI from your lesson — check what matters to you. It is not an official assessment.",
+  "terms.p3": "Please don't enter real children's names, phone numbers or other private details. Be kind — the tool is for practice.",
+  "terms.p4": "Questions: {email}."
 }

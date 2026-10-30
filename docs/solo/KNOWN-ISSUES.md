@@ -35,6 +35,9 @@ Status: fixed in #22 (tests: `tests/unit/anySum.test.ts`, fixture lines t31–t3
   session list. Fine for a demo with test logins.
 - Schema changes use `drizzle-kit push` from the schema files in git (no migration files). The schema can be
   rebuilt from empty with one command.
+- Offline recording queue (P2-T12) cut — first item on the plan's cut list: offline, the app shell and the last
+  pages open (service worker) and the fixed clips play, but a turn needs the network; a failed send shows the error
+  with Retry (same idempotency key, so no double turn).
 - TTS is Sarvam Bulbul (no Azure key): it has no child-pitched boy voice, so Ravi and Arjun sound older than
   Meena and Sana; and it can't make ogg/opus, so WhatsApp gets the children's audio as an MP3 file (not a voice
   note) or text only — decide in Phase 5. Audio is 128 kbps (≈ 16 KB/s); 8 kHz (64 kbps) is the data-saver option.
