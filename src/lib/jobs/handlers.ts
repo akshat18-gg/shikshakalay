@@ -41,7 +41,7 @@ function depsFor(phone: string): WhatsAppDeps {
           import("@/lib/voice/tracked"),
           import("@/lib/media/store"),
         ]);
-        return saveMedia(await trackedSpeakText(text, lang, "mp3", { sessionId }), "audio/mpeg", 24 * 60);
+        return saveMedia(await trackedSpeakText(text, lang, "ogg", { sessionId }), "audio/ogg", 24 * 60);
       },
     },
     store: {
