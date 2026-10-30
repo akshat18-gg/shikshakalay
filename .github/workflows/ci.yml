@@ -45,9 +45,8 @@ jobs:
       - run: npm test
       - run: npm run build
 
-  # Turned on in Phase 6 (remove `if: false`) once tests/e2e exists.
+  # Playwright in mock mode (Phase 6): login → lesson → card, roles, /try, axe on 3 pages.
   e2e:
-    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: check
