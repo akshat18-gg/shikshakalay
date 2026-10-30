@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 4 — Judge-ready MVP (G3 passed Wed 28 Oct)
-- **Next task:** Phase 4 — P1-T12 seed (demo users + synthetic teachers T01–T08)
+- **Next task:** Phase 4 — P2-T11 /try + P1-T13 Sana + P3-T14 red team
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G3 (Wed 28 Oct)
@@ -25,6 +25,7 @@
 | H3.2 | Azure Speech key | 🛑 | Tue 27 Oct 17:00 | replaced: Sarvam Bulbul for all voices (operator, 27 Oct) |
 | H3.4 | Voice picks | 🟡 | Tue 27 Oct 20:40 | done — keep defaults (operator, 28 Oct) |
 | H4.2 | Hindi check: read `docs/solo/hindi-review.md` (232 lines; screen text, lesson lines, 20 child lines, a coach card), mark what sounds wrong | 🟡 | Wed 28 Oct 01:20 | open (Phase 4) |
+| S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | open |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -41,7 +42,7 @@
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
-**Phase 4** — [ ] P1-T12 seed · [ ] P1-T13 Sana · [ ] P2-T9 trainer · [ ] P2-T10 admin · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
+**Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [ ] P1-T13 Sana · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [ ] P2-T11 /try · [ ] P3-T14 red team · [ ] P2-T12 PWA + offline · [ ] S4.1 polish · [ ] S4.2 pilot pack
 **Phase 5** — [ ] P3-T10 jobs + webhook · [ ] P3-T11 conversation · [ ] P3-T12 sweep
 **Phase 6** — [ ] E2 labels · [ ] P1-T14 evals · [ ] top-3 fixes · [ ] Playwright + axe · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
 **Phase 7** — [ ] bug bash · [ ] screenshots · [ ] video script + deck numbers + form answers · [ ] final evals · [ ] audit final · [ ] freeze + tag
@@ -81,6 +82,7 @@
 - 27 Oct — TTS = Sarvam Bulbul (operator: Azure unavailable). `tts.ts` backend interface (Sarvam now, Azure later). One request per line, parallel, MP3 joined (ID3 stripped); 22050 Hz. Voices picked by measured pitch (scripts/voice-samples.ts). STT = saaras:v4 + keyterms (digits, unlike v3). AGENTS §8 updated.
 - 28 Oct — Voice is Sarvam only (operator): Azure keys are "optional" in env:check, AGENTS §2/§4/§8/§15 + README say Sarvam Bulbul; `tts.ts` stays swappable.
 - 28 Oct — Sarvam cost per voice lesson ≈ ₹2 (STT ₹0.49/min × ~1.2 min + Bulbul v4-flash ₹1/1K chars × ~1.3K); up to ₹7 if each request bills a full minute. Top up ₹500 before the pilot.
+- 30 Oct — Seed: T01–T08 (isDemo, no PIN) with 1–4 lessons each played through the real step() with a fake Claude (backup lines), cards with Teach scores from the moves, ai_calls rows tagged `demo-seed` (exclude from real spend). Re-running replaces only these teachers' rows. Trainer dashboard: CSS bars (plan's cut for charts), privacy rule = hide any number from < 5 teachers. Admin trace: her words → Director JSON → minds before/after (changes highlighted) → lines + check → calls, time, cost. Trainers/admins are sent from / to their pages.
 - 28 Oct — E1: 100/100 lessons valid (50 weak / 50 strong, 50 en / 50 hi, focus ravi 17 · arjun 17 · meena 16; 800 teacher turns, all 11 moves present; 46 romanised-Hinglish turns), output 78,827 tokens ≈ $0.90. labelSource "generator", reviewed false until E2. For P1-T14: a newTask equal to the current sum and "" mean the same — compare them as equal.
 - 28 Oct — KI-001 (operator's live test): any a − b ≤ 99 plays through the mistakes; b > a → one child `cannot`; +/×/÷/3-digit → one child `not_today`; both numbers from the current sum's digits = a step, not a task (engine decides — protects sample 4); a react never parrots; line check: no-number lines only her numbers + the sum, parrots only the told answer; digits count for "too short"; director@3 (36/36 sums, 36/36 children, 35/36 moves on the 36 lines); children@3; lesson file v3 (`cannot`, `notToday` backups). AGENTS §7.2/7.4/7.5/7.10 updated.
 - 28 Oct — E1 generator: Opus 5.5, structured output, 100 specs (50 weak / 50 strong, half Hindi/Hinglish, 10 teacher styles, focus child rotates ravi/arjun/meena, a fresh borrowing final sum each), each lesson checked (weak = only weak moves; strong = reveal → ≥ 2 fixes on the focus child; valid sums). Sample cost says the batch is ≈ $1, not $5.
@@ -104,7 +106,7 @@
 ## Numbers
 - Reply time p50 / p90 (live, spoken Hindi, 28 Oct 00:55, `npm run speed:check`): text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s · server 3.1 s / 4.9 s
 - App AI spend so far (from `ai_calls`): dev ~$0.03 · prod $0.0012 (27 Oct). One full lesson + coach card ≈ $0.017 (coach $0.014).
-- Coding spend (operator reads `/usage` at each gate): $66.85 total at G3 (Wed 28 Oct) · $41.47 mid-Phase 3 · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
+- Coding spend (operator reads `/usage` at each gate): $70.80 total (Fri 30 Oct 08:00) · $66.85 at G3 (Wed 28 Oct) · $41.47 mid-Phase 3 · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
 - Eval results: — (tuning only so far: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
 ## Later (ideas nobody asked for — not in scope)
