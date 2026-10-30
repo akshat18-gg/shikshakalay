@@ -19,7 +19,7 @@ import {
 } from "@/lib/db/queries/lessons";
 import { checkEnv } from "@/lib/env";
 import { HttpError } from "@/lib/http";
-import { log } from "@/lib/log";
+import { log, logError } from "@/lib/log";
 import { sttAvailable } from "@/lib/voice/stt";
 import { trackedTranscribe } from "@/lib/voice/tracked";
 import { ttsAvailable } from "@/lib/voice/tts";
@@ -90,7 +90,7 @@ export const realStartLesson: StartLesson = async (userId, body, channel) => {
   };
 };
 
-export const realRunTurn: RunTurn = async (sessionId, input) => {
+export const realRunTurn: RunTurn = async (sessionId, input, channel) => {
   const started = Date.now();
   const session = await loadSession(sessionId);
   if (!session) throw new HttpError("not_found", "This lesson doesn't exist.");
@@ -148,7 +148,7 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
     director: r.director,
     lines: r.lines,
     statesAfter: r.state.children,
-    audioUrl: replyAudio(r, session.lang, voiceCtx),
+    audioUrl: await replyAudio(r, session.lang, voiceCtx, channel),
     lessonOver: r.lessonOver,
     ms: Date.now() - started,
   };
@@ -183,17 +183,30 @@ export const realRunTurn: RunTurn = async (sessionId, input) => {
 };
 
 /**
- * Where the children's voices for this turn will be: the fixed "say again" clip, or (web) a link that makes the
- * Bulbul clip when the browser asks — so the text isn't held up by speech. WhatsApp (Phase 5) will make it at once.
+ * Where the children's voices for this turn will be: the fixed "say again" clip; on the web a link that makes the
+ * Bulbul clip when the browser asks (so the text isn't held up); on WhatsApp the clip made now (Twilio fetches a
+ * public media URL). Speech failing never fails the turn — the text is already there.
  */
-function replyAudio(
+async function replyAudio(
   r: { lines: TurnResult["lines"]; counted: boolean; director: TurnResult["director"] },
   lang: "en" | "hi",
   ctx: { sessionId: string; turn: number },
-): string | null {
+  channel: "web" | "whatsapp",
+): Promise<string | null> {
   if (r.lines.length === 0) return null;
   if (!r.counted && r.director === null) return `/audio/again-${lang}.mp3`;
-  return ttsAvailable() ? turnAudioPath(ctx.sessionId, ctx.turn) : null;
+  if (!ttsAvailable()) return null;
+  if (channel === "web") return turnAudioPath(ctx.sessionId, ctx.turn);
+  try {
+    const [{ trackedSpeakLines }, { saveMedia }] = await Promise.all([
+      import("@/lib/voice/tracked"),
+      import("@/lib/media/store"),
+    ]);
+    return await saveMedia(await trackedSpeakLines(r.lines, lang, "mp3", ctx), "audio/mpeg");
+  } catch (err) {
+    logError("tts_failed", err, { sessionId: ctx.sessionId, turn: ctx.turn });
+    return null;
+  }
 }
 
 /**
