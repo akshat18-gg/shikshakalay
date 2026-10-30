@@ -19,7 +19,7 @@
     "db:push:prod": "DB_TARGET=prod drizzle-kit push",
     "db:seed": "tsx --env-file-if-exists=.env.local scripts/seed.ts",
     "db:seed:prod": "DB_TARGET=prod tsx --env-file-if-exists=.env.local scripts/seed.ts",
-    "evals": "tsx --env-file-if-exists=.env.local evals/run.ts",
+    "evals": "LOG_SILENT=1 tsx --env-file-if-exists=.env.local evals/run.ts",
     "gen:lessons": "tsx --env-file-if-exists=.env.local evals/generate.ts",
     "smoke:live": "tsx --env-file-if-exists=.env.local scripts/smoke-live.ts",
     "db:ping": "tsx --env-file-if-exists=.env.local scripts/db-ping.ts",
