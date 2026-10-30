@@ -606,7 +606,13 @@ The teacher's recording is **never stored** — transcribe it and drop it.
 
 ## 9. The WhatsApp door (P3)
 
-**Teacher's path:** joins the sandbox (sends `join <code>` to +1 415 523 8886) → our consent message →
+**Solo mode — Twilio trial (operator, 30 Oct):** the account's WhatsApp *testing environment* (not the old shared
+sandbox): number **+1 737 250 8034**, join code **`join twilio-trial`**. Limits: **one active recipient at a time**,
+**100 free messages**, up to **5 verified testers** (India). So WhatsApp is for the operator's own test and the video;
+pilot teachers and judges use the web link. Each turn = **one audio + one text** message (keeps the 100 messages).
+The incoming-message webhook is set on Twilio's "Try out WhatsApp" screen (Phase 5).
+
+**Teacher's path:** joins the testing environment (sends `join twilio-trial` to +1 737 250 8034) → our consent message →
 `YES` → language (`1` English / `2` हिन्दी) → menu (`1` = Subtraction) → children say hello (one voice note +
 one text) → she sends voice notes or text → each reply = one combined voice note + one text "who said what"
 → `END` (or 12 turns / 5 min) → card as text + "say tomorrow" as audio → next evening (within 24 h):
