@@ -5,11 +5,11 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 4 — Judge-ready MVP (G3 passed Wed 28 Oct)
-- **Next task:** G4 (waiting on db:seed:prod OK) · G5 (waiting on the Twilio webhook + phone test) · Phase 6 E2 labels
+- **Phase:** 6 — Evals, hardening, docs (G4 passed Sat 31 Oct 01:10)
+- **Next task:** eval run 1 → top-3 fixes · G5 (operator's WhatsApp test; Plan B at Sat 12 noon) · S6 security + docs
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
-- **Last gate passed:** G3 (Wed 28 Oct)
+- **Last gate passed:** G4 (Sat 31 Oct)
 
 ## Waiting on the operator
 | # | What | 🛑/🟡 | Asked (IST) | Status |
@@ -25,7 +25,8 @@
 | H3.2 | Azure Speech key | 🛑 | Tue 27 Oct 17:00 | replaced: Sarvam Bulbul for all voices (operator, 27 Oct) |
 | H3.4 | Voice picks | 🟡 | Tue 27 Oct 20:40 | done — keep defaults (operator, 28 Oct) |
 | H4.2 | Hindi check: read `docs/solo/hindi-review.md` (232 lines; screen text, lesson lines, 20 child lines, a coach card), mark what sounds wrong | 🟡 | Wed 28 Oct 01:20 | open (Phase 4) |
-| S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | open |
+| S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | done (Sat 31 Oct 01:09) |
+| H6.1 | Label review: `docs/solo/label-review.md` (65 disagreements + 40 spot checks) | 🟡 | Sat 31 Oct 01:25 | open |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -36,7 +37,7 @@
 | G1 Live skeleton | ✅ | `smoke:live --full` green on https://shikshakalay.onrender.com at 23ac4ac (login, Ravi 35 / Arjun 35 / Meena 26, card); readyz 200; UptimeRobot on; operator phone check ok | Tue 27 Oct 18:08 |
 | G2 Real engine (typed) | ✅ | Live, real mode, commit 03e0510: `smoke:live --lesson --full` green — 35/35/26 → "Say 25" → all 25 → "43 − 18?" → Ravi 35, Arjun 35; same-key retry = same turn; card stored. Prod ai_calls: 6 rows with tokens + cost ($0.0012), cache reads from turn 2 (3,265 / 2,195). 403 test passes (`api.test.ts`). Prod DB: 13 tables, 13 indexes, 3 demo users. | Tue 27 Oct 19:15 |
 | G3 Voice + card | ✅ | Operator's phone test on the live link (real mode, c7c861c): spoken Hindi turns → transcript shows, children answer in different Bulbul voices, text before audio; End → the card quotes their real words ("phone ok"). Live speed (spoken Hindi, `npm run speed:check`): text p50 3.3 s / p90 5.1 s, audio p50 5.0 s / p90 6.6 s. E1 batch submitted and collected (100/100 lessons, #23). KI-001 (out-of-lesson sums) fixed and replayed live before the test. | Wed 28 Oct |
-| G4 MVP | ⬜ | | |
+| G4 MVP | ✅ | Prod seeded (11 users, 50 lessons). Live at 2021589: `smoke:live --full` green (35/35/26, card); teacher_demo/trainer_demo/admin_demo log in; teacher → /trainer redirected to /; /trainer shows 9 teachers · 51 lessons with small numbers hidden; /admin/trace lists 100 lessons; /try 200; offline shell checked in Phase 4. 10 pilot logins P01–P10 on prod (PINs only in `private/pilot-logins.txt`). | Sat 31 Oct 01:12 |
 | G5 WhatsApp | ⬜ | | |
 | G6 Evals + docs + freeze | ⬜ | | |
 | G7 Submission ready | ⬜ | | |
@@ -44,7 +45,7 @@
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [x] P2-T12 PWA + offline (shell + pages offline; recording queue cut, KNOWN-ISSUES) · [x] S4.1 polish (headers, 404/error/global-error, OG image, footer, /privacy, /terms) · [x] S4.2 pilot pack (guide, consent EN+HI, WhatsApp forward message, changes log, scripts/create-pilot-users.ts)
 **Phase 5** — [x] P3-T10 jobs + webhook · [x] P3-T11 conversation (mp3 audio until opusscript OK) · [x] P3-T12 sweep · [ ] H5 webhook + UptimeRobot + phone test
-**Phase 6** — [ ] E2 labels · [~] P1-T14 evals (runner + red-team mode built and smoke-tested on 2 lessons + 3 cases, $0.04; full run waits on the operator's OK) · [ ] top-3 fixes · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
+**Phase 6** — [~] E2 labels (label check done: 735/800 agree, 50 lessons agreed; operator picks open) · [~] P1-T14 evals (runner + red-team mode built and smoke-tested on 2 lessons + 3 cases, $0.04; full run waits on the operator's OK) · [ ] top-3 fixes · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [ ] S6.1 security pass · [ ] S6.2 docs · [ ] S6.3 secret scan
 **Phase 7** — [ ] bug bash · [ ] screenshots · [ ] video script + deck numbers + form answers · [ ] final evals · [ ] audit final · [ ] freeze + tag
 
 ## Decisions (date — decision — why)
@@ -88,6 +89,7 @@
 - 30 Oct — PWA: manifest + icons + OG image made by Playwright from HTML (scripts/make-images.mts); hand-written sw.js (cache-first static/audio/icons, precache fixed clips, network-first pages with the cached copy offline, never /api); registered in production. Bug found and fixed: cloning a response after returning it cached nothing. Offline recording queue cut. Twilio docs: +1 737 250 8034, `join twilio-trial`, 1 recipient / 100 messages / 5 testers — WhatsApp = operator test + video; one audio + one text per turn.
 - 30 Oct — /try: 5 samples, each a fresh lesson. Sample 4 = "Now 43 minus 18?" → "Ravi, how did you get 35?" → "Ravi, show 43 with bundles…" → "Ravi, 13 take away 8?" (a fresh lesson starts on 52 − 27, so the arc needs the sum and the reveal first) → Ravi GOT_IT. Sample 5 sends public/samples/sana-hi.m4a as audio when the file exists (checked per request), else the Hindi line as text.
 - 30 Oct — Seed: T01–T08 (isDemo, no PIN) with 1–4 lessons each played through the real step() with a fake Claude (backup lines), cards with Teach scores from the moves, ai_calls rows tagged `demo-seed` (exclude from real spend). Re-running replaces only these teachers' rows. Trainer dashboard: CSS bars (plan's cut for charts), privacy rule = hide any number from < 5 teachers. Admin trace: her words → Director JSON → minds before/after (changes highlighted) → lines + check → calls, time, cost. Trainers/admins are sent from / to their pages.
+- 31 Oct — E2 label check: Sonnet 5.5 (Batch, $0.22) labels all 800 lines blind with the generator's own tag definitions (shared `MOVE_MEANINGS`); 735/800 agree (91.9%), 50/100 lessons fully agreed → `agreed` + reviewed; 65 disagreements (33 are new_sum ↔ other, which change no child) + 40 seeded spot checks → `docs/solo/label-review.md`; `--apply` reads the picks (`human`). Eval runner: per-turn numbers + `--rescore <file>` scores a saved run against today's labels at no cost.
 - 28 Oct — E1: 100/100 lessons valid (50 weak / 50 strong, 50 en / 50 hi, focus ravi 17 · arjun 17 · meena 16; 800 teacher turns, all 11 moves present; 46 romanised-Hinglish turns), output 78,827 tokens ≈ $0.90. labelSource "generator", reviewed false until E2. For P1-T14: a newTask equal to the current sum and "" mean the same — compare them as equal.
 - 28 Oct — KI-001 (operator's live test): any a − b ≤ 99 plays through the mistakes; b > a → one child `cannot`; +/×/÷/3-digit → one child `not_today`; both numbers from the current sum's digits = a step, not a task (engine decides — protects sample 4); a react never parrots; line check: no-number lines only her numbers + the sum, parrots only the told answer; digits count for "too short"; director@3 (36/36 sums, 36/36 children, 35/36 moves on the 36 lines); children@3; lesson file v3 (`cannot`, `notToday` backups). AGENTS §7.2/7.4/7.5/7.10 updated.
 - 28 Oct — E1 generator: Opus 5.5, structured output, 100 specs (50 weak / 50 strong, half Hindi/Hinglish, 10 teacher styles, focus child rotates ravi/arjun/meena, a fresh borrowing final sum each), each lesson checked (weak = only weak moves; strong = reveal → ≥ 2 fixes on the focus child; valid sums). Sample cost says the batch is ≈ $1, not $5.

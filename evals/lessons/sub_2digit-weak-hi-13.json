@@ -56,6 +56,6 @@
     }
   ],
   "finalSum": "80-65",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "agreed"
 }

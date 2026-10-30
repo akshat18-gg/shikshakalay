@@ -89,6 +89,6 @@
     }
   ],
   "finalSum": "90-86",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "agreed"
 }
