@@ -1,0 +1,1002 @@
+{
+  "sub_2digit-weak-hi-14": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "think_aloud",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-weak-en-21": [
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-19": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "invite_quiet_child",
+    "concrete_materials"
+  ],
+  "sub_2digit-strong-hi-25": [
+    "other",
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "check_whole_class"
+  ],
+  "sub_2digit-weak-hi-20": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "other"
+  ],
+  "sub_2digit-weak-en-05": [
+    "other",
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-08": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-strong-en-15": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "think_aloud",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-19": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "check_whole_class"
+  ],
+  "sub_2digit-weak-hi-18": [
+    "other",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "tell_answer",
+    "move_on_or_scold",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-en-13": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "specific_praise",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-hi-05": [
+    "other",
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class",
+    "repeat_same_way",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-20": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-14": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-03": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum",
+    "repeat_same_way",
+    "tell_answer",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer"
+  ],
+  "sub_2digit-weak-en-25": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-15": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-weak-hi-23": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-12": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-en-21": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-weak-hi-13": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-06": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-19": [
+    "other",
+    "ask_to_explain",
+    "specific_praise",
+    "concrete_materials",
+    "targeted_question",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-17": [
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-strong-hi-09": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-03": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-05": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-12": [
+    "other",
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "invite_quiet_child",
+    "specific_praise",
+    "new_sum"
+  ],
+  "sub_2digit-weak-hi-12": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-weak-en-13": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "tell_answer",
+    "new_sum",
+    "repeat_same_way"
+  ],
+  "sub_2digit-weak-hi-17": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-18": [
+    "other",
+    "ask_to_explain",
+    "think_aloud",
+    "concrete_materials",
+    "targeted_question",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-hi-11": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "check_whole_class",
+    "other"
+  ],
+  "sub_2digit-strong-hi-04": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-14": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-weak-en-09": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-weak-hi-02": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "think_aloud",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer"
+  ],
+  "sub_2digit-weak-hi-22": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "think_aloud",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-strong-hi-07": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-hi-11": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-20": [
+    "other",
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "targeted_question",
+    "check_whole_class"
+  ],
+  "sub_2digit-weak-hi-04": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-25": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-hi-08": [
+    "other",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-16": [
+    "other",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-07": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer"
+  ],
+  "sub_2digit-weak-hi-07": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-en-04": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-04": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-strong-hi-21": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-strong-hi-13": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-weak-hi-24": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-22": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "targeted_question",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-10": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-01": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-strong-hi-05": [
+    "other",
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "targeted_question",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-hi-18": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-16": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-weak-en-18": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-hi-16": [
+    "other",
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "move_on_or_scold",
+    "tell_answer"
+  ],
+  "sub_2digit-weak-hi-03": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "tell_answer",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-24": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-07": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-02": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise",
+    "concrete_materials"
+  ],
+  "sub_2digit-strong-en-08": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-en-24": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "tell_answer",
+    "check_whole_class"
+  ],
+  "sub_2digit-weak-en-01": [
+    "other",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-hi-21": [
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-strong-en-11": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-weak-hi-10": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-strong-en-03": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "targeted_question",
+    "specific_praise",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-09": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-22": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-en-10": [
+    "other",
+    "new_sum",
+    "tell_answer",
+    "move_on_or_scold",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-weak-en-20": [
+    "other",
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "tell_answer",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-weak-hi-15": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "other",
+    "other"
+  ],
+  "sub_2digit-weak-hi-06": [
+    "new_sum",
+    "tell_answer",
+    "repeat_same_way",
+    "move_on_or_scold",
+    "new_sum",
+    "check_whole_class",
+    "other"
+  ],
+  "sub_2digit-strong-en-23": [
+    "other",
+    "ask_to_explain",
+    "other",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-hi-01": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "check_whole_class"
+  ],
+  "sub_2digit-strong-hi-23": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-weak-hi-25": [
+    "other",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-strong-hi-02": [
+    "other",
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-14": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold"
+  ],
+  "sub_2digit-weak-hi-09": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-16": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-strong-hi-06": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-08": [
+    "other",
+    "ask_to_explain",
+    "tell_answer",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "other"
+  ],
+  "sub_2digit-strong-hi-15": [
+    "other",
+    "ask_to_explain",
+    "think_aloud",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-06": [
+    "new_sum",
+    "ask_to_explain",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child"
+  ],
+  "sub_2digit-strong-hi-24": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "think_aloud",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-en-12": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "tell_answer",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-01": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "invite_quiet_child",
+    "specific_praise"
+  ],
+  "sub_2digit-weak-en-23": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "check_whole_class",
+    "new_sum",
+    "repeat_same_way"
+  ],
+  "sub_2digit-weak-hi-19": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "tell_answer",
+    "other"
+  ],
+  "sub_2digit-strong-hi-17": [
+    "other",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "concrete_materials",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-en-22": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer"
+  ],
+  "sub_2digit-strong-en-17": [
+    "new_sum",
+    "ask_to_explain",
+    "targeted_question",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum"
+  ],
+  "sub_2digit-strong-hi-10": [
+    "other",
+    "new_sum",
+    "ask_to_explain",
+    "think_aloud",
+    "concrete_materials",
+    "targeted_question",
+    "specific_praise",
+    "invite_quiet_child",
+    "new_sum",
+    "targeted_question"
+  ],
+  "sub_2digit-weak-en-11": [
+    "other",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum"
+  ],
+  "sub_2digit-weak-en-02": [
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer",
+    "repeat_same_way",
+    "check_whole_class",
+    "new_sum",
+    "move_on_or_scold",
+    "tell_answer"
+  ]
+}

@@ -84,6 +84,16 @@ export function specs(): Spec[] {
   return list;
 }
 
+/** The tag definitions — shared with the label check (evals/label-check.ts), so both passes use one rubric. */
+export const MOVE_MEANINGS = `Move meanings: ask_to_explain = asks a child HOW they got it · compare_methods = asks two or more to compare/each explain ·
+concrete_materials = uses bundles/sticks/objects/drawings · targeted_question = a precise question on the exact wrong step
+(the borrowed ten, opening a bundle, the ones column) · think_aloud = solves it herself step by step aloud · new_sum = gives a
+whole new sum (or asks the current one again) with no other teaching · check_whole_class = thumbs up / who agrees ·
+invite_quiet_child = gently invites a child who hasn't spoken · specific_praise = praises a specific thing ·
+tell_answer = gives the right answer / tells them to repeat it · repeat_same_way = repeats the same explanation, louder ·
+move_on_or_scold = dismisses, scolds, "wrong, next" · other = greetings, classroom management, plain "good" ·
+off_task = not about the lesson.`;
+
 const SYSTEM = `You write realistic practice-lesson transcripts for a teacher-training simulator in India. A primary teacher
 practises "${scenario.title.en}" (Grade 2) with four pretend children:
 ${scenario.children.map((c) => `- ${c.name.en} (${c.id}): ${c.bug === null ? "gets it right but is very shy, speaks only when invited by name" : c.explainsAs}`).join("\n")}
@@ -91,14 +101,7 @@ The lesson starts with the sum ${scenario.sums[0]}.
 
 You write ONLY the teacher's turns (what she says to the class), and label each one with exactly one move:
 ${Move.options.join(", ")}.
-Move meanings: ask_to_explain = asks a child HOW they got it · compare_methods = asks two or more to compare/each explain ·
-concrete_materials = uses bundles/sticks/objects/drawings · targeted_question = a precise question on the exact wrong step
-(the borrowed ten, opening a bundle, the ones column) · think_aloud = solves it herself step by step aloud · new_sum = gives a
-whole new sum (or asks the current one again) with no other teaching · check_whole_class = thumbs up / who agrees ·
-invite_quiet_child = gently invites a child who hasn't spoken · specific_praise = praises a specific thing ·
-tell_answer = gives the right answer / tells them to repeat it · repeat_same_way = repeats the same explanation, louder ·
-move_on_or_scold = dismisses, scolds, "wrong, next" · other = greetings, classroom management, plain "good" ·
-off_task = not about the lesson.
+${MOVE_MEANINGS}
 
 For each turn also give addressedTo (child ids she names, or ["whole_class"]) and newTask (a whole new 2-digit sum she asks,
 as digits "a-b" with the bigger first and needing borrowing, e.g. "43-18"; otherwise ""). Steps inside a sum ("13 take away 8")

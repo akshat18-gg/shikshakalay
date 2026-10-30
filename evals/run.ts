@@ -5,6 +5,7 @@
  *   npm run evals -- --limit 10 --unreviewed      quick run on generator labels (before the label check)
  *   npm run evals -- --kind weak --lang hi        a slice
  *   npm run evals -- --redteam            the 20 red-team cases
+ *   npm run evals -- --rescore evals/results/<file>.json    score a saved run again with today's labels (no Claude)
  *   add --save to store the eval_runs row (DB_TARGET=prod → shown on the live /admin/evals page)
  *
  * After each lesson a probe turn ("Everyone, what is {finalSum}?") skips the Director and makes every child answer.
@@ -41,7 +42,7 @@ function taskKey(newTask: string, current: Sum): string {
   return t.kind;
 }
 
-type TurnScore = { move: Move; label: Move; toOk: boolean; taskOk: boolean };
+type TurnScore = { turn: number; move: Move; label: Move; toOk: boolean; taskOk: boolean };
 type LessonResult = {
   id: string;
   kind: "weak" | "strong";
@@ -74,6 +75,7 @@ async function runLesson(
     if (d) {
       const to = (x: string[]) => [...x].sort().join();
       scores.push({
+        turn: i + 1,
         move: d.move,
         label: t.label,
         toOk: to(d.addressedTo) === to(t.addressedTo),
@@ -223,6 +225,30 @@ async function runRedteam(models: { director: string; child: string; coach: stri
   return out;
 }
 
+/**
+ * Scores a saved run again against the lesson files' current labels (after the label check). Claude's answers are
+ * already in the file, so this costs nothing. Only reviewed lessons count unless --unreviewed.
+ */
+export function rescore(results: LessonResult[], lessons: EvalLesson[], includeUnreviewed: boolean): LessonResult[] {
+  const byId = new Map(lessons.map((l) => [l.id, l]));
+  return results
+    .filter((r) => {
+      const l = byId.get(r.id);
+      return l && (includeUnreviewed || l.reviewed);
+    })
+    .map((r) => {
+      const l = byId.get(r.id)!;
+      return { ...r, turns: r.turns.map((t) => ({ ...t, label: l.turns[t.turn - 1]?.label ?? t.label })) };
+    });
+}
+
+function loadLessons(): EvalLesson[] {
+  return readdirSync("evals/lessons")
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => EvalLesson.parse(JSON.parse(readFileSync(`evals/lessons/${f}`, "utf8"))));
+}
+
 async function main() {
   const env = checkEnv({ ...process.env, USE_MOCKS: "0" });
   const models = { director: env.DIRECTOR_MODEL, child: env.CHILD_MODEL, coach: env.COACH_MODEL };
@@ -236,10 +262,20 @@ async function main() {
     for (const x of rt.filter((y) => !y.pass)) console.log(`  ✗ ${x.id} (want ${x.expect}): ${x.detail.slice(0, 200)}`);
     return;
   }
-  let lessons = readdirSync("evals/lessons")
-    .filter((f) => f.endsWith(".json"))
-    .sort()
-    .map((f) => EvalLesson.parse(JSON.parse(readFileSync(`evals/lessons/${f}`, "utf8"))));
+  const rescoreFile = arg("rescore");
+  if (rescoreFile) {
+    const saved = JSON.parse(readFileSync(rescoreFile, "utf8")) as {
+      promptVersions: Record<string, string>;
+      spendUsd: number;
+      results: LessonResult[];
+    };
+    const results = rescore(saved.results, loadLessons(), flag("unreviewed"));
+    if (results.some((r) => r.turns.some((t) => t.turn === undefined)))
+      throw new Error("this results file is older than per-turn numbers — run the lessons again");
+    await report(results, saved.promptVersions, saved.spendUsd, `rescored ${rescoreFile}`);
+    return;
+  }
+  let lessons = loadLessons();
   if (!flag("unreviewed")) lessons = lessons.filter((l) => l.reviewed);
   if (arg("kind")) lessons = lessons.filter((l) => l.kind === arg("kind"));
   if (arg("lang")) lessons = lessons.filter((l) => l.lang === arg("lang"));
@@ -264,23 +300,28 @@ async function main() {
       }
     }),
   );
-  const m = metrics(results);
   const promptVersions = {
     director: directorVersion,
     children: childrenVersion,
     coach: coachVersion,
     scenario: `sub_2digit@${scenario.version}`,
   };
+  await report(results, promptVersions, spend, `${results.length} lessons`);
+}
+
+/** Prints the numbers, writes evals/results/<date>.json and, with --save, one eval_runs row. */
+async function report(results: LessonResult[], promptVersions: Record<string, string>, spendUsd: number, note: string) {
+  const m = metrics(results);
   const date = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   mkdirSync("evals/results", { recursive: true });
   const file = `evals/results/${date}.json`;
-  writeFileSync(file, `${JSON.stringify({ promptVersions, ...m, spendUsd: spend, results }, null, 2)}\n`);
+  writeFileSync(file, `${JSON.stringify({ promptVersions, ...m, spendUsd, note, results }, null, 2)}\n`);
   console.log(
     `\n\n${Object.entries(m.metrics)
       .map(([k, v]) => `${k.padEnd(20)} ${v === null ? "n/a" : `${(v * 100).toFixed(1)}%`}`)
       .join("\n")}`,
   );
-  console.log(`\n${JSON.stringify(m.counts)} · spend $${spend.toFixed(3)} · ${file}`);
+  console.log(`\n${JSON.stringify(m.counts)} · spend $${spendUsd.toFixed(3)} · ${file}`);
 
   if (flag("save")) {
     const [{ db, sql }, { evalRuns }] = await Promise.all([
@@ -293,14 +334,16 @@ async function main() {
       promptVersions,
       metrics: measured,
       details: { counts: m.counts, confusion: m.confusion },
-      notes: `${lessons.length} lessons · ${file}`,
+      notes: `${note} · ${file}`,
     });
     console.log(`✓ eval_runs row saved (${process.env.DB_TARGET === "prod" ? "prod" : "dev"})`);
     await sql.end();
   }
 }
 
-main().catch((err: unknown) => {
-  console.error(err);
-  process.exit(1);
-});
+if (process.argv[1]?.endsWith("run.ts")) {
+  main().catch((err: unknown) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
