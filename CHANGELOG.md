@@ -16,6 +16,8 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
 - UI polish (visual and motion only): instant press feedback, translucent top bar and composer, chat lines that
   fade up as they arrive, a smooth recording ring, size-specific type with looser Devanagari leading, and
   reduced-motion / reduced-transparency / high-contrast fallbacks (#48).
+- Dark glass theme (operator's request): near-black base with teal/mint glows, translucent glass panels, mint
+  buttons, lighter child colours so every text colour passes WCAG AA (axe in e2e); PWA theme colour updated (#49).
 
 ### Sat 31 Oct — evals, WhatsApp voice notes, hardening, docs
 - Label check: a blind second labelling pass (Claude Sonnet 5.5) over all 800 eval teacher lines, a review sheet for

@@ -18,7 +18,7 @@ function Minds({ before, after, lang }: { before: ChildState[]; after: ChildStat
         const b = before.find((x) => x.id === a.id)!;
         const changed = b.state !== a.state || b.revealed !== a.revealed || b.engagement !== a.engagement;
         return (
-          <li key={a.id} className={`border p-2 ${changed ? "border-teal bg-pale font-semibold" : "border-border"}`}>
+          <li key={a.id} className={`border p-2 ${changed ? "border-teal glass-teal font-semibold" : "border-border"}`}>
             <div>{t(`child.${a.id}` as MessageKey, lang)}</div>
             <div className="text-xs">
               {b.state}
@@ -37,8 +37,8 @@ function TurnBlock({ turn, lang }: { turn: TraceTurn; lang: "en" | "hi" }) {
   const ms = turn.calls.reduce((n, c) => n + c.ms, 0);
   const cost = turn.calls.reduce((n, c) => n + (c.costUsd ?? 0), 0);
   return (
-    <section className="flex flex-col gap-3 border-l-4 border-navy bg-white p-4 shadow-sm">
-      <h2 className="font-bold text-navy">
+    <section className="flex flex-col gap-3 border-l-4 border-mint glass p-4">
+      <h2 className="font-bold text-heading">
         {turn.turn === 0 ? t("admin.hello", lang) : t("admin.turn", lang, { n: turn.turn })}
       </h2>
       {turn.turn > 0 && (
@@ -49,7 +49,7 @@ function TurnBlock({ turn, lang }: { turn: TraceTurn; lang: "en" | "hi" }) {
           </div>
           <div>
             <h3 className="text-sm font-semibold text-muted-foreground">2 · {t("admin.director", lang)}</h3>
-            <pre className="mt-1 overflow-x-auto bg-pale p-2 text-xs whitespace-pre-wrap">
+            <pre className="mt-1 overflow-x-auto glass-teal p-2 text-xs whitespace-pre-wrap">
               {turn.director ? JSON.stringify(turn.director, null, 1) : "—"}
             </pre>
           </div>
@@ -114,7 +114,7 @@ export default async function TracePage({ params }: PageProps<"/admin/trace/[ses
   return (
     <div className="flex flex-col gap-4">
       <header>
-        <h1 className="text-2xl font-bold text-navy">
+        <h1 className="text-2xl font-bold text-heading">
           {t("admin.trace", lang)} · {trace.session.code}
         </h1>
         <p className="text-sm text-muted-foreground">

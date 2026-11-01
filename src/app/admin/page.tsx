@@ -11,10 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AdminPage() {
   const user = await requirePageUser(["admin"]);
   const lang = await currentLang(user);
-  const link = "flex min-h-11 items-center border-l-4 border-teal bg-pale p-4 font-semibold text-navy underline";
+  const link = "flex min-h-11 items-center border-l-4 border-teal glass-teal p-4 font-semibold text-mint underline";
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-navy">{t("admin.title", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("admin.title", lang)}</h1>
       <Link href="/admin/trace" className={link}>
         {t("admin.trace", lang)}
       </Link>

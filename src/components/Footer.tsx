@@ -6,7 +6,7 @@ import { CONTACT_EMAIL, REPO_URL } from "@/lib/site";
 export function Footer({ lang }: { lang: Lang }) {
   const link = "inline-flex min-h-11 items-center underline";
   return (
-    <footer className="border-t border-border bg-pale">
+    <footer className="border-t border-border glass-teal">
       <div className="mx-auto flex max-w-3xl flex-col gap-1 px-4 py-4 text-sm text-muted-foreground">
         <p>{t("footer.team", lang)}</p>
         <nav className="flex flex-wrap gap-x-4">

@@ -12,7 +12,7 @@ export default async function Page() {
   const lang = await currentLang();
   return (
     <article className="flex max-w-2xl flex-col gap-4">
-      <h1 className="text-2xl font-bold text-navy">{t("privacy.title", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("privacy.title", lang)}</h1>
       {Array.from({ length: 5 }, (_, i) => (
         <p key={i}>{t(`privacy.p${i + 1}` as MessageKey, lang, { email: CONTACT_EMAIL })}</p>
       ))}

@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const viewport: Viewport = { themeColor: "#0b2850", viewportFit: "cover" };
+export const viewport: Viewport = { themeColor: "#0b0d10", viewportFit: "cover" };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const user = await getUser();

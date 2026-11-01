@@ -16,7 +16,7 @@ export default async function ConsentPage({ searchParams }: PageProps<"/consent"
   const { next } = await searchParams;
   return (
     <div className="mx-auto flex max-w-xl flex-col gap-5">
-      <h1 className="text-2xl font-bold text-navy">{t("consent.title", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("consent.title", lang)}</h1>
       <p className="whitespace-pre-line">{t("consent.body", lang)}</p>
       <ConsentForm next={safeNext(typeof next === "string" ? next : null)} />
     </div>

@@ -19,7 +19,7 @@ export default async function TryPage() {
   const hasSanaAudio = existsSync(path.join(process.cwd(), "public", SANA_AUDIO_PATH));
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-navy">{t("try.title", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("try.title", lang)}</h1>
       <p className="text-muted-foreground">{t("try.intro", lang)}</p>
       <TrySamples hasSanaAudio={hasSanaAudio} />
     </div>
