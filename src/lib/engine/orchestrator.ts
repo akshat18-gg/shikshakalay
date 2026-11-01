@@ -102,10 +102,14 @@ export const realRunTurn: RunTurn = async (sessionId, input, channel) => {
   const now = new Date();
   assertLessonOpen({ status: session.status, last: turns.at(-1)?.result, startedAt: session.startedAt, now });
   const e = serverEnv();
-  assertUnderTurnLimit(
-    await countUserTurnsSince(session.userId, new Date(now.getTime() - HOUR_MS)),
-    e.TURNS_PER_HOUR_LIMIT,
-  );
+  // Demo accounts are shared by judges and the team, so the per-user hourly cap would lock everyone out at once;
+  // the daily AI budget guard below still protects the credits. Real teachers keep the hourly cap.
+  if (!session.isDemo) {
+    assertUnderTurnLimit(
+      await countUserTurnsSince(session.userId, new Date(now.getTime() - HOUR_MS)),
+      e.TURNS_PER_HOUR_LIMIT,
+    );
+  }
   await assertWithinBudget({ limitUsd: e.AI_DAILY_BUDGET_USD, spendSince, now });
 
   const scenario = scenarioOrThrow(session.scenarioId);
