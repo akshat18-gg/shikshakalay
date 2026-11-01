@@ -18,6 +18,8 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
   reduced-motion / reduced-transparency / high-contrast fallbacks (#48).
 - Dark glass theme (operator's request): near-black base with teal/mint glows, translucent glass panels, mint
   buttons, lighter child colours so every text colour passes WCAG AA (axe in e2e); PWA theme colour updated (#49).
+- Fix: a told answer now survives the teacher asking the *same* sum again ("No, it's 19." → "So what is 23 − 4?" →
+  still 19); only a different sum brings the mistake back, as AGENTS §7.3/7.4 say (#51).
 - apple.com look (operator's request): white pages, #f5f5f7 tiles with 18 px corners, #1d1d1f text, blue links and pill
   buttons, the dark translucent nav, system font; Messages-style chat (blue teacher bubble, grey child bubbles with
   avatars); own SVG illustrations (bundles and sticks as 52 and 43, child avatars) (#50).

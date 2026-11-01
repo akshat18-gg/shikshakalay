@@ -430,7 +430,8 @@ how this child thinks?), `engagement` (0 = silent … 3 = eager), `workedSum` (t
 Per turn, in this order:
 
 1. If `director.confidence === "low"`, treat the move as `other`.
-2. If `newTask` is a sum the engine can play, it becomes the **current sum** (clear all parrots) — so "10 minus 5 is 5"
+2. If `newTask` is a sum the engine can play, it becomes the **current sum** (clear all parrots **if it is a different
+   sum**; asking the same sum again keeps them) — so "10 minus 5 is 5"
    sets 10 − 5 before the parrot. An impossible or unsupported task changes nothing at all (steps 3–4 are skipped).
 3. Targets = children named in `addressedTo`; if it contains `"whole_class"` or is empty → all children.
 4. Apply the move to each target:

@@ -107,6 +107,16 @@ describe("the rules of 7.4", () => {
     expect(said(s, "arjun")).toBe(47);
   });
 
+  it("asking the same sum again keeps the told answer; only a different sum clears it (live bug, 1 Nov)", () => {
+    // "No, it is 25." → "So what is 52 minus 27?" — the child still repeats 25; the mistake returns on the next sum.
+    let s = applyMove(start(), d("tell_answer"));
+    s = applyMove(s, d("new_sum", ["whole_class"], "52-27"));
+    expect(s.currentSum).toEqual([52, 27]);
+    for (const id of ["ravi", "arjun", "meena"] as const) expect(said(s, id)).toBe(25);
+    s = applyMove(s, d("new_sum", ["whole_class"], "43-18"));
+    expect(said(s, "ravi")).toBe(35);
+  });
+
   it("a fix without a reveal stops at WOBBLY, and WOBBLY is right only on the worked sum", () => {
     let s = applyMove(start(), d("concrete_materials", ["meena"]));
     s = applyMove(s, d("targeted_question", ["meena"]));
