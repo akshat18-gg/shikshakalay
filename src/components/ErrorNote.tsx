@@ -17,7 +17,7 @@ export function ErrorNote({ error, onRetry }: { error: ApiClientError; onRetry?:
         <button
           type="button"
           onClick={onRetry}
-          className="press mt-2 min-h-11 font-semibold text-mint underline underline-offset-4"
+          className="press mt-2 min-h-11 text-mint hover:underline underline-offset-4"
         >
           {t("common.retry")}
         </button>

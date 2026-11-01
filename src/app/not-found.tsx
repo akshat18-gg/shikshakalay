@@ -6,9 +6,9 @@ export default async function NotFound() {
   const lang = await currentLang();
   return (
     <div className="flex flex-col gap-3">
-      <h1 className="text-2xl font-bold text-heading">{t("error.notFoundTitle", lang)}</h1>
+      <h1 className="text-3xl font-semibold text-heading">{t("error.notFoundTitle", lang)}</h1>
       <p>{t("error.notFoundBody", lang)}</p>
-      <Link href="/" className="min-h-11 font-semibold text-mint underline">
+      <Link href="/" className="min-h-11 text-mint hover:underline">
         {t("error.home", lang)}
       </Link>
     </div>

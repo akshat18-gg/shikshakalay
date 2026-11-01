@@ -28,7 +28,8 @@ export function LangToggle() {
   }
 
   return (
-    <div role="group" aria-label={t("login.language")} className="flex">
+    // a segmented control, like iOS: a pill track, the chosen language on a white pill
+    <div role="group" aria-label={t("login.language")} className="flex rounded-full bg-white/15 p-0.5">
       {LANGS.map((l) => (
         <button
           key={l}
@@ -37,7 +38,7 @@ export function LangToggle() {
           aria-pressed={l === lang}
           disabled={pending}
           onClick={() => choose(l)}
-          className="press min-h-11 min-w-11 border border-white/30 bg-white/5 px-3 text-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-mint aria-pressed:bg-mint aria-pressed:text-ink disabled:opacity-70"
+          className="press min-h-10 min-w-11 rounded-full px-3 text-xs font-medium text-white outline-none focus-visible:ring-3 focus-visible:ring-white/60 aria-pressed:bg-white aria-pressed:text-foreground disabled:opacity-70"
         >
           {t(l === "en" ? "lang.en" : "lang.hi")}
         </button>

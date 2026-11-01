@@ -35,7 +35,7 @@ export function LoginForm({ next }: { next: string }) {
   }
 
   const field =
-    "h-11 w-full border border-input px-3 outline-none transition-[box-shadow,border-color] duration-150 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+    "h-12 w-full rounded-xl border border-input px-4 outline-none transition-[box-shadow,border-color] duration-150 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
   return (
     <form onSubmit={submit} className="flex flex-col gap-4" noValidate>
       <div className="flex flex-col gap-1">

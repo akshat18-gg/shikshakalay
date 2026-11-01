@@ -27,7 +27,7 @@ export default async function TrainerPage() {
   return (
     <div className="flex flex-col gap-6">
       <header>
-        <h1 className="text-2xl font-bold text-heading">{t("trainer.title", lang)}</h1>
+        <h1 className="text-3xl font-semibold text-heading">{t("trainer.title", lang)}</h1>
         <p className="mt-1 text-muted-foreground">
           {t("trainer.teachers", lang, { n: v.teachers })} · {t("trainer.lessons", lang, { n: v.lessons })}
         </p>
@@ -38,7 +38,7 @@ export default async function TrainerPage() {
         <p className="text-muted-foreground">{t("trainer.empty", lang)}</p>
       ) : (
         <>
-          <section aria-labelledby="wvs" className="border-l-4 border-teal glass p-4">
+          <section aria-labelledby="wvs" className="tile p-4">
             <h2 id="wvs" className="font-semibold">
               {t("trainer.weakVsStrong", lang)}
             </h2>
@@ -70,7 +70,7 @@ export default async function TrainerPage() {
                     ? hidden
                     : bar(
                         (m.uses / maxUses) * 100,
-                        m.kind === "weak" ? "bg-child-ravi" : m.kind === "strong" ? "bg-teal-strong" : "glass/40",
+                        m.kind === "weak" ? "bg-child-ravi" : m.kind === "strong" ? "bg-teal-strong" : "tile/40",
                       )}
                   <span className="text-right tabular-nums">{m.uses ?? ""}</span>
                 </li>

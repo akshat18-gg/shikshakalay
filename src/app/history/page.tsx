@@ -17,13 +17,13 @@ export default async function HistoryPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-heading">{t("history.title", lang)}</h1>
+      <h1 className="text-3xl font-semibold text-heading">{t("history.title", lang)}</h1>
       {rows.length === 0 ? (
         <p className="text-muted-foreground">{t("history.empty", lang)}</p>
       ) : (
         <ul className="flex flex-col gap-3">
           {rows.map((r) => (
-            <li key={r.sessionId} className="border-l-4 border-teal glass-teal p-4">
+            <li key={r.sessionId} className="tile-alt p-4">
               <p className="text-sm text-muted-foreground">
                 {formatIst(r.startedAt, lang)} · {t("history.turns", lang, { n: r.turnCount })}
               </p>
@@ -35,7 +35,7 @@ export default async function HistoryPage() {
                   </p>
                   <Link
                     href={`/card/${r.sessionId}`}
-                    className="mt-2 inline-flex min-h-11 items-center font-semibold text-mint underline"
+                    className="mt-2 inline-flex min-h-11 items-center text-mint hover:underline"
                   >
                     {t("history.openCard", lang)}
                   </Link>

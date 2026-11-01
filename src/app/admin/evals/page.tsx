@@ -47,7 +47,7 @@ function ConfusionTable({ confusion }: { confusion: Confusion }) {
             <tr key={r} className="border-t border-border">
               <th className="pr-2 text-left font-medium whitespace-nowrap">{r}</th>
               {cols.map((c) => (
-                <td key={c} className={`px-1 text-center ${r === c ? "glass-teal font-semibold" : ""}`}>
+                <td key={c} className={`px-1 text-center ${r === c ? "tile-alt font-semibold" : ""}`}>
                   {confusion[r]?.[c] ?? ""}
                 </td>
               ))}
@@ -65,7 +65,7 @@ export default async function EvalsPage() {
   const run = process.env.USE_MOCKS === "1" ? null : await (await import("@/lib/db/queries/admin")).latestEvalRun();
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-heading">{t("admin.evals", lang)}</h1>
+      <h1 className="text-3xl font-semibold text-heading">{t("admin.evals", lang)}</h1>
       {!run ? (
         <p className="text-muted-foreground">{t("admin.noEvals", lang)}</p>
       ) : (
