@@ -9,8 +9,8 @@ import { CHILD_STYLE } from "./childStyle";
 export function TeacherBubble({ text }: { text: string }) {
   const t = useT();
   return (
-    <li className="flex justify-end">
-      <p className="max-w-[85%] bg-teal-strong px-3 py-2 text-white">
+    <li className="bubble-in flex justify-end">
+      <p className="max-w-[85%] bg-teal-strong px-3 py-2 text-white shadow-sm">
         <span className="sr-only">{t("practice.you")}: </span>
         {text}
       </p>
@@ -27,27 +27,27 @@ export function Turn({ turn, onPlay }: { turn: TurnResult; onPlay?: () => void }
       {turn.lines.map((line, i) => {
         const style = CHILD_STYLE[line.child];
         return (
-          <li key={i} className="flex justify-start">
+          <li key={i} className="bubble-in flex justify-start">
             <div className={`max-w-[85%] border-l-4 bg-white px-3 py-2 shadow-sm ${style.border}`}>
-              <p className={`text-sm font-semibold ${style.text}`}>{t(style.name)}</p>
+              <p className={`text-sm font-semibold tracking-wide ${style.text}`}>{t(style.name)}</p>
               <p>{line.text}</p>
             </div>
           </li>
         );
       })}
       {onPlay && turn.lines.length > 0 && (
-        <li>
+        <li className="bubble-in">
           <button
             type="button"
             onClick={onPlay}
-            className="min-h-11 text-sm font-semibold text-navy underline outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="press min-h-11 text-sm font-semibold text-navy underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             ▶ {t("practice.playReply")}
           </button>
         </li>
       )}
       {silentChildren(turn).map((id) => (
-        <li key={id} className="text-sm text-muted-foreground italic">
+        <li key={id} className="bubble-in text-sm text-muted-foreground italic">
           {t("practice.silent", { name: t(CHILD_STYLE[id].name) })}
         </li>
       ))}

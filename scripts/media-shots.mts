@@ -11,7 +11,8 @@ import { type Browser, type Page, chromium } from "@playwright/test";
 
 const i = process.argv.indexOf("--url");
 const BASE = i > 0 ? process.argv[i + 1]! : "http://localhost:3000";
-const OUT = "docs/media";
+const o = process.argv.indexOf("--out");
+const OUT = o > 0 ? process.argv[o + 1]! : "docs/media"; // e.g. --out private/screens/before for a by-eye check
 const PHONE = { width: 360, height: 640 };
 const LAPTOP = { width: 1280, height: 800 };
 
@@ -65,7 +66,7 @@ async function lesson(browser: Browser, viewport: typeof PHONE, lang: "en" | "hi
     .locator("main form button, main button")
     .filter({ hasText: /Start practice|अभ्यास शुरू करें/ })
     .click();
-  await page.waitForURL(/\/practice\//, { timeout: 30_000 });
+  await page.waitForURL(/\/practice\//, { timeout: 90_000 }); // a dev server compiles the room on first use
   await page.waitForTimeout(1500);
   for (const t of turns) await say(page, t);
   return page;

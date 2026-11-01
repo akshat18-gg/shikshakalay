@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 7 — Freeze and submission (Sun 1 Nov; G6 evals + docs done today)
-- **Next task:** tag `v1.0-submission` → smoke every role · waiting: recordings, pilot numbers, video/deck links (see the table)
+- **Next task:** deploy the UI polish (`v1.0.1-submission`) → smoke every role → debugging with the operator · waiting: recordings, pilot numbers, video/deck links (see the table)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G4 (Sat 31 Oct)
@@ -56,7 +56,7 @@
 **Phase 7** — [~] bug bash (favicon fixed; the debugging phase with the operator comes next) · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [x] final evals (run 2 + red team) · [x] audit final (#43) · [x] freeze + tag (`v1.0-submission` = 23a2db8, live, smoke `--full --lesson --roles` green Sun 1 Nov 17:00)
 
 ## Decisions (date — decision — why)
-- 1 Nov — Work moved to a Windows PC: `node_modules` reinstalled (`npm ci`, the Mac's esbuild binary can't run); npm scripts with `VAR=1 cmd` need Git Bash; Neon's port 5432 times out from this network, so prod DB steps go to the operator.
+- 1 Nov — UI polish after the tag (operator's request, `docs/…/SKILL.md` = Apple "fluid interfaces" notes): visual + motion only, no logic. `.press` = feedback on pointer-down (3 % scale, 100 ms); top bar and composer are translucent materials with a soft scroll edge; chat lines arrive with `@starting-style` fade-up; smooth 30 s ring + recording halo; typing dots; size-specific tracking/leading (Devanagari looser); `prefers-reduced-motion/-transparency/-contrast` fallbacks. Square corners, deck colours, Noto fonts kept (AGENTS §13). Playwright needed `npx playwright install chromium` on this PC; `media-shots.mts --out` for before/after shots in `private/screens/`.- 1 Nov — Work moved to a Windows PC: `node_modules` reinstalled (`npm ci`, the Mac's esbuild binary can't run); npm scripts with `VAR=1 cmd` need Git Bash; Neon's port 5432 times out from this network, so prod DB steps go to the operator.
 - 1 Nov — contracts.ts (additive): `labelSource: "arbiter"`. A third model pass settled the 65 label disagreements (`label-check --apply --source arbiter`); the README/deck never call it human labelling. `--apply` is not idempotent (spot-check fixes look like new disagreements): apply once, from the pre-#41 lessons.
 - 1 Nov — D044/D057 picked as `repeat_same_way` (she repeats what she already told them); both runs scored on the same key: director@3 84.1 %, director@4 89.1 % → #37 merged.
 - 1 Nov — Hindi model review: hi.json 11 strings, lesson file v4 (5 Hindi sample lines), coach@3 ("सवाल", not "सम"). Consent text left at v1 (pilot teachers agreed to it).

@@ -37,7 +37,7 @@ export function LangToggle() {
           aria-pressed={l === lang}
           disabled={pending}
           onClick={() => choose(l)}
-          className="min-h-11 min-w-11 border border-white/40 px-3 text-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-mint aria-pressed:bg-white aria-pressed:text-navy disabled:opacity-70"
+          className="press min-h-11 min-w-11 border border-white/40 px-3 text-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-mint aria-pressed:bg-white aria-pressed:text-navy disabled:opacity-70"
         >
           {t(l === "en" ? "lang.en" : "lang.hi")}
         </button>
