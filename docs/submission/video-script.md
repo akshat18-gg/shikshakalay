@@ -1,11 +1,13 @@
 # 3-minute video — script and shot list
 
-> For: the operator (recording) · Length: 3:00 · Screen recording on a phone (or Chrome device mode 360×640) plus
+> For: the operator (recording) · Length: **under 2:55** (judges may stop at 3:00) · Screen recording on a phone (or Chrome device mode 360×640) plus
 > the laptop for the admin pages. Speak slowly; on-screen captions for every Hindi line. Record the voice-over in
 > one take per section. Public on YouTube.
 
 **Before recording:** log in as `teacher_demo` on the phone in Hindi and English (fresh lessons); have `admin_demo`
-open on the laptop; have WhatsApp joined to the trial number (+1 737 250 8034, `join twilio-trial`).
+open on the laptop (incognito, zoom 110–125 %). Phone on Do Not Disturb. Close `.env.local`, Render's Environment
+page, UptimeRobot and email — no keys, real teachers' PINs or phone numbers on screen (the demo PIN is fine).
+WhatsApp is **Plan B** (not live): no WhatsApp chat on screen.
 
 | Time | On screen | Voice-over (say this) |
 |---|---|---|
@@ -15,16 +17,14 @@ open on the laptop; have WhatsApp joined to the trial number (+1 737 250 8034, `
 | **1:10–1:30** · A strong move works | Say: "रवि, तुमने 35 कैसे निकाला?" → Ravi explains his steps. Then: "43 को बंडल और तीलियों से दिखाओ… 3 तीलियों में से 8 ले सकते हो?" → "13 में से 8?" → Ravi gets 25 | "But when she asks *how* Ravi got 35, his thinking is revealed. Then bundles and sticks — and Ravi changes step by step, until he gets it right." |
 | **1:30–1:40** · Sana speaks | Say: "सना, तुम क्या सोचती हो? आराम से बताओ।" → Sana answers in Hindi | "Inviting the quiet child by name works too." |
 | **1:40–2:05** · The coaching card | End lesson → the card: "What worked" with her quote, "One thing to try", "Say this in class tomorrow" → tap Play | "At the end she gets a private coaching card. One strength and one fix — each quoting her own words — and one line to try in class tomorrow, which she can listen to. Kind, specific, never an inspection." |
-| **2:05–2:40** · Under the hood | Laptop: admin → AI trace of this lesson: her words → Director's move → each child's mind before/after → line check → cost. Then `/admin/evals`. Then a 2-second look at `src/lib/engine/bugs.ts` | "Here is the key idea: Claude never decides a child's answer. A plain TypeScript engine decides what each child believes and the exact number they say; Claude only turns it into a child's words, and a line check enforces it. The coach's quotes are checked against her real words. Every AI call is logged with its cost. On 100 test lessons, the children resisted weak moves in EVAL-RESIST of cases." |
-| **2:40–2:52** · WhatsApp + weak networks | Phone: WhatsApp chat — the children's voice note and the text "who said what" | "Teachers can also practise on WhatsApp with voice notes. On weak networks, text arrives first and audio follows; the app installs and opens offline." |
-| **2:52–3:00** · Roadmap | End card: live link, GitHub link, team names | "Next: Tamil and more languages, more skills, and Glific for WhatsApp at scale. Shikshakalay — practise, then teach." |
+| **2:05–2:40** · Under the hood | Laptop: admin → AI trace of this lesson: her words → Director's move → each child's mind before/after → line check → cost. Then `/admin/evals`. Then a 2-second look at `src/lib/engine/bugs.ts` | "Here is the key idea: Claude never decides a child's answer. A plain TypeScript engine decides what each child believes and the exact number they say; Claude only turns it into a child's words, and a line check enforces it. The coach's quotes are checked against her real words. Every AI call is logged with its cost. In all 50 test lessons with weak teaching, the children kept their mistakes." |
+| **2:40–2:50** · Weak networks (Plan B) | Phone: (1) open the app once on mobile data → (2) airplane mode on → reopen it: the app shell and the last card still open, with the offline note → (3) airplane mode off → a typed turn: text arrives first, audio follows. Then 2 s of the architecture diagram's WhatsApp turn (`docs/ARCHITECTURE.md`) | "On weak networks, text arrives first and audio follows, and the app installs and opens offline. The WhatsApp voice-note door is built and tested in code; it switches on with a paid WhatsApp number." |
+| **2:50–2:55** · Roadmap | End card: live link, GitHub link, team names | "Next: Tamil and more languages, more skills, and Glific for WhatsApp at scale. Shikshakalay — practise, then teach." |
 
 **Captions:** English subtitles for every Hindi line (YouTube auto-captions + a quick fix). **Never show** a real
 teacher's name, phone number or face without written OK; use teacher codes only.
 
-**Fill before recording:** EVAL-RESIST (from `docs/submission/deck-numbers.md`).
+**Numbers used:** children resisted weak moves in 100 % of 50 weak test lessons (`docs/submission/deck-numbers.md`).
 
-**Plan B for 2:40–2:52 (WhatsApp not live — current default):** show the phone in airplane mode reopening the app
-(PWA, offline shell), then 3 seconds of `src/lib/channels/whatsapp.ts` and the architecture diagram's WhatsApp turn.
-Say: "On weak networks, text arrives first and the app opens offline. The WhatsApp door is built — voice notes in,
-voice notes out — and switches on with a paid Twilio number." Do not show a WhatsApp chat that didn't really happen.
+**WhatsApp:** Plan B is final (Twilio's free trial can't receive messages). Do not show a WhatsApp chat that didn't
+really happen.
