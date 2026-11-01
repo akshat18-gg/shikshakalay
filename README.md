@@ -63,9 +63,9 @@ lesson ends   ─► Coach (Claude Sonnet 5.5): strength, fix, "say tomorrow", T
                ─► Quote check (code): every quote must be her real words → one rewrite → else repaired in code
 ```
 
-- **The puppet rule.** Each child's mistake is a TypeScript function (`src/lib/engine/bugs.ts`): Ravi takes the
-  smaller digit from the bigger one (52 − 27 → 35), Arjun borrows but forgets to take the ten away (→ 35), Meena
-  counts back one too many (→ 26). Sana is right but shy. Claude never decides an answer — `mindState.ts` does
+- **The puppet rule.** A child's mistake is a TypeScript function (`src/lib/engine/bugs.ts`): Ravi takes the
+  smaller digit from the bigger one (52 − 27 → 35). Arjun and Meena get it right (→ 25), and so does Sana — but she
+  is shy and speaks only when invited by name. Claude never decides an answer — `mindState.ts` does
   (STUCK → WOBBLY → GOT_IT, "revealed", engagement), based on the move the Director tagged.
 - **Teaching moves** come from the World Bank **Teach** observation tool (12 moves + `other` / `off_task`).
 - **Every AI call is logged** in `ai_calls` (model, prompt version, tokens incl. cache, time, cost, ok/error) and
