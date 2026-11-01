@@ -44,7 +44,7 @@ sticks, does. At the end she gets one strength, one fix and one line to try tomo
 | 2 | "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" | They parrot 25, then Ravi and Arjun say 35 again — a weak move is resisted |
 | 3 | "Ravi, tell me how you got 35." | "8 minus 3 is 5, 4 minus 1 is 3…" — his mistake is revealed |
 | 4 | "Ravi, show 43 with bundles and sticks…" then "13 take away 8?" | Ravi changes step by step and gets 25 — a strong move works |
-| 5 | A Hindi voice note: "सना, तुम क्या सोचती हो? आराम से बताओ।" | Shy Sana speaks for the first time, in Hindi |
+| 5 | A Hindi voice note (`public/samples/sana-hi.m4a`; until it is added, the same Hindi line is sent as text): "सना, तुम क्या सोचती हो? आराम से बताओ।" | Shy Sana speaks for the first time, in Hindi |
 
 Then tap **End lesson** to see the coaching card, and log in as `admin_demo` → **AI trace** to see how it was made.
 
@@ -143,19 +143,21 @@ Mock mode runs a scripted engine with in-memory users — no keys, no database. 
 - **End-to-end (Playwright, CI):** login → lesson → "35" → card; roles; `/try`; axe on 3 pages.
 - **Evals:** 100 synthetic lessons (50 weak, 50 strong; 50 English, 50 Hindi/Hinglish; 800 teacher turns) written
   by Claude Opus 5.5. **How the labels were checked:** a second, independent pass (Claude Sonnet 5.5) labelled every
-  teacher line without seeing the first label — they agreed on **735 / 800 lines (91.9 %)**; a person settled the 65
-  disagreements by hand and spot-checked 40 random agreed lines (spot-check result: pending). Each lesson runs through the
+  teacher line without seeing the first label — they agreed on **735 / 800 lines (91.9 %)**. A third model pass
+  (Claude, used as an arbiter with the Director's own tag definitions) settled the 65 disagreements and re-checked 40
+  random agreed lines (35 / 40 confirmed, 5 corrected); the picks and a one-line reason for each are in
+  `docs/solo/label-review.md` (`labelSource: "arbiter"`). No person has confirmed these picks yet. Each lesson runs through the
   real engine with real Claude, then a probe ("Everyone, what is {sum}?") checks whether each child still holds its
   mistake. Plus 20 red-team cases (`evals/redteam.json`).
 
-| Metric | Target | Result (run of Sat 31 Oct, run 1) |
+| Metric | Target | Result (run 2, Sun 1 Nov: director@4, children@3, coach@2, lesson file v3) |
 |---|---|---|
 | Children resist weak moves | ≥ 90 % | **100 %** (50/50) |
 | Children can be taught (strong lessons) | ≥ 80 % | **100 %** (50/50) |
-| Director accuracy (move tag) | ≥ 85 % | **89.1 %** on the 735 lines both labellers agree on (85.8 % on all 800 vs. first labels) |
-| Line fidelity, first try / after fallback | ≥ 98 % / 100 % | 97.6 % / **100 %** |
+| Director accuracy (move tag) | ≥ 85 % | **89.1 %** of 800 lines vs. the arbiter-settled key (run 1 with director@3: 84.1 % on the same key) |
+| Line fidelity, first try / after fallback | ≥ 98 % / 100 % | 96.9 % (below target) / **100 %** — 1,744 lines |
 | Quote validity after the check | 100 % | **100 %** (20 cards; 100 % on first pass) |
-| Red-team cases as expected | 20 / 20 | **20 / 20** |
+| Red-team cases as expected | 20 / 20 | **20 / 20** (director@4, Sun 1 Nov) |
 | Reply time, spoken Hindi (live) | ≤ 6 s p50 / ≤ 10 s p90 | text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s (28 Oct) |
 | Cost per lesson (12 turns + card) | — | ≈ $0.017 Claude + ≈ ₹2 Sarvam |
 

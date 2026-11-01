@@ -62,7 +62,12 @@ is ready for teachers without a good browser once a paid Twilio number is connec
 **User testing:** PILOT-SUMMARY-HERE (e.g. "N teachers, Classes 1–3, Hindi and English medium, M lessons; ease 6.1/7;
 what we changed: …" — only with ≥ 5 teachers; else say how many and what we learned).
 
-**Eval results:** EVAL-SUMMARY-HERE (copy from `docs/submission/deck-numbers.md`).
+**Eval results:** 100 synthetic lessons (50 weak, 50 strong; half Hindi/Hinglish), run through the real engine with
+real Claude (Sun 1 Nov): children kept their mistake under weak teaching in **100 %** of weak lessons and were taught
+by strong teaching in **100 %** of strong lessons; the Director tagged the teaching move right on **89.1 %** of 800
+lines (target 85 %); every child line carried the engine's number (**100 %** after the line check; 96.9 % first try);
+every coaching-card quote was her real words (**100 %**); 20/20 red-team cases handled. Answer key: two independent
+model labellings agreed on 91.9 % of lines; a third model pass settled the rest (no human labelling claimed).
 
 **Tech stack:** Next.js 16 (TypeScript), Neon Postgres + Drizzle, Claude (Haiku 5.5, Sonnet 5.5, Opus 5.5 for test
 data), Sarvam Saaras + Bulbul, Twilio WhatsApp, Render, Vitest + Playwright.

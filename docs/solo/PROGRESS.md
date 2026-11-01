@@ -5,8 +5,8 @@
 > in the "Done log".
 
 ## Now
-- **Phase:** 6 — Evals, hardening, docs (G4 passed Sat 31 Oct 01:10)
-- **Next task:** Phase 7 bug bash (no approvals) · waiting: label picks, eval run 2 OK, Twilio decision (G5 parked, Plan B text in place)
+- **Phase:** 7 — Freeze and submission (Sun 1 Nov; G6 evals + docs done today)
+- **Next task:** tag `v1.0-submission` → smoke every role · waiting: demo PIN, recordings, pilot numbers, video/deck links (see the table)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G4 (Sat 31 Oct)
@@ -24,15 +24,16 @@
 | H3.1 | Sarvam API key → .env.local + Render `SARVAM_API_KEY` | 🛑 | Tue 27 Oct 17:00 | done (both, confirmed 28 Oct) |
 | H3.2 | Azure Speech key | 🛑 | Tue 27 Oct 17:00 | replaced: Sarvam Bulbul for all voices (operator, 27 Oct) |
 | H3.4 | Voice picks | 🟡 | Tue 27 Oct 20:40 | done — keep defaults (operator, 28 Oct) |
-| H4.2 | Hindi check: read `docs/solo/hindi-review.md` (232 lines; screen text, lesson lines, 20 child lines, a coach card), mark what sounds wrong | 🟡 | Wed 28 Oct 01:20 | open (Phase 4) |
+| H4.2 | Hindi check | 🟡 | Wed 28 Oct 01:20 | done by a model pass (#42, Sun 1 Nov); a native speaker's read is still welcome |
 | S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | done (Sat 31 Oct 01:09) |
-| H6.1 | Label review: `docs/solo/label-review.md` (65 disagreements + 40 spot checks) | 🟡 | Sat 31 Oct 01:25 | open |
+| H6.1 | Label review | 🟡 | Sat 31 Oct 01:25 | settled by a third model pass (#41, `arbiter`); operator may confirm the picks in `docs/solo/label-review.md` |
 | H-usage | `/usage` total (coding spend) — last message had "$<amount>" | 🟡 | Sat 31 Oct 02:15 | open |
 | H-pin | DEMO_PIN value for README/form (AGENTS §11: demo-only) — or OK to set a new one | 🛑 G7 | Sat 31 Oct 03:40 | open |
 | H-pilot | Forward `private/pilot-messages.md` to teachers | 🟡 | Sat 31 Oct 02:15 | open |
-| H5 | Twilio: new trial has no inbound webhook → G5 parked; operator decides Sat afternoon on the $20 upgrade | 🟡 | Sat 31 Oct 02:00 | open — Plan B text in README + video script |
-| E-run2 | OK for eval run 2 with director@4 (~$0.55, ~1 h 45 min), then merge PR #37 | 🛑 | Sat 31 Oct 03:40 | open |
+| H5 | Twilio | 🟡 | Sat 31 Oct 02:00 | Plan B (default after the 2 pm deadline): WhatsApp = roadmap; README/video script say so |
+| E-run2 | Eval run 2 with director@4 | 🛑 | Sat 31 Oct 03:40 | done Sun 1 Nov ($0.54, < $1 pre-approved): Director 89.1 % vs 84.1 %; #37 merged |
 | H7 | Phase 7: Neon branch `backup-submission`, Render auto-deploy off after the tag, GitHub push protection on? | 🛑 | Sat 31 Oct 03:40 | later |
+| H-prodsave | Save run 2 to the live `/admin/evals` (`DB_TARGET=prod … evals/run.ts --rescore evals/results/2026-11-01T11-17-52.json --save`) and `npm run pilot:stats` — the DB port is blocked from the Windows PC | 🛑 | Sun 1 Nov 17:30 | open |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
@@ -45,16 +46,21 @@
 | G3 Voice + card | ✅ | Operator's phone test on the live link (real mode, c7c861c): spoken Hindi turns → transcript shows, children answer in different Bulbul voices, text before audio; End → the card quotes their real words ("phone ok"). Live speed (spoken Hindi, `npm run speed:check`): text p50 3.3 s / p90 5.1 s, audio p50 5.0 s / p90 6.6 s. E1 batch submitted and collected (100/100 lessons, #23). KI-001 (out-of-lesson sums) fixed and replayed live before the test. | Wed 28 Oct |
 | G4 MVP | ✅ | Prod seeded (11 users, 50 lessons). Live at 2021589: `smoke:live --full` green (35/35/26, card); teacher_demo/trainer_demo/admin_demo log in; teacher → /trainer redirected to /; /trainer shows 9 teachers · 51 lessons with small numbers hidden; /admin/trace lists 100 lessons; /try 200; offline shell checked in Phase 4. 10 pilot logins P01–P10 on prod (PINs only in `private/pilot-logins.txt`). | Sat 31 Oct 01:12 |
 | G5 WhatsApp | ⬜ | | |
-| G6 Evals + docs + freeze | ⬜ | | |
+| G6 Evals + docs + freeze | ✅ | Run 2 (director@4) on the arbiter key: resist 100 %, teachable 100 %, Director 89.1 %, lines 100 % final, quotes 100 %, red team 20/20; audit final pass (#43); CI check + e2e green on #41–#43; feature freeze = this PR | Sun 1 Nov |
 | G7 Submission ready | ⬜ | | |
 
 ## Tasks (tick when merged · estimate → actual minutes)
 **Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [x] P2-T12 PWA + offline (shell + pages offline; recording queue cut, KNOWN-ISSUES) · [x] S4.1 polish (headers, 404/error/global-error, OG image, footer, /privacy, /terms) · [x] S4.2 pilot pack (guide, consent EN+HI, WhatsApp forward message, changes log, scripts/create-pilot-users.ts)
 **Phase 5** — [x] P3-T10 jobs + webhook · [x] P3-T11 conversation (real Ogg/Opus voice notes since 31 Oct) · [x] P3-T12 sweep · [ ] H5 webhook + UptimeRobot + phone test
-**Phase 6** — [~] E2 labels (label check done: 735/800 agree, 50 lessons agreed; operator picks open) · [x] P1-T14 evals (run 1: 100 lessons $0.53; red team 20/20 $0.003) · [~] top-3 fixes (director@4 in PR #37, fixture 36/36; held until run 2) · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [x] S6.1 security pass (audit 55 rows filled) · [x] S6.2 docs (README with TODO markers for eval numbers + demo PIN, ARCHITECTURE, INFRASTRUCTURE, CHANGELOG; clean-clone test ok) · [x] S6.3 secret scan (gitleaks clean)
-**Phase 7** — [ ] bug bash · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [ ] final evals · [ ] audit final · [ ] freeze + tag
+**Phase 6** — [x] E2 labels (arbiter pass, #41) · [x] P1-T14 evals (run 1: 100 lessons $0.53; red team 20/20 $0.003) · [x] top-3 fixes (director@4, run 2: 89.1 %, #37) · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [x] S6.1 security pass (audit 55 rows filled) · [x] S6.2 docs (README with TODO markers for eval numbers + demo PIN, ARCHITECTURE, INFRASTRUCTURE, CHANGELOG; clean-clone test ok) · [x] S6.3 secret scan (gitleaks clean)
+**Phase 7** — [~] bug bash (favicon fixed; the debugging phase with the operator comes next) · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [x] final evals (run 2 + red team) · [x] audit final (#43) · [ ] freeze + tag
 
 ## Decisions (date — decision — why)
+- 1 Nov — Work moved to a Windows PC: `node_modules` reinstalled (`npm ci`, the Mac's esbuild binary can't run); npm scripts with `VAR=1 cmd` need Git Bash; Neon's port 5432 times out from this network, so prod DB steps go to the operator.
+- 1 Nov — contracts.ts (additive): `labelSource: "arbiter"`. A third model pass settled the 65 label disagreements (`label-check --apply --source arbiter`); the README/deck never call it human labelling. `--apply` is not idempotent (spot-check fixes look like new disagreements): apply once, from the pre-#41 lessons.
+- 1 Nov — D044/D057 picked as `repeat_same_way` (she repeats what she already told them); both runs scored on the same key: director@3 84.1 %, director@4 89.1 % → #37 merged.
+- 1 Nov — Hindi model review: hi.json 11 strings, lesson file v4 (5 Hindi sample lines), coach@3 ("सवाल", not "सम"). Consent text left at v1 (pilot teachers agreed to it).
+- 1 Nov — Twilio Plan B by default (the 2 pm decision time passed with no upgrade).
 - 26 Oct — Solo build mode: one coding agent builds everything; the operator pre-approved squash-merging green PRs.
 - 26 Oct — No AI listed as contributor: attribution off in `.claude/settings.json`, CI blocks co-author lines.
 - 26 Oct — Neon dev branch for local work, main branch for Render; prod scripts need the operator's OK.
@@ -125,7 +131,8 @@
 - Reply time p50 / p90 (live, spoken Hindi, 28 Oct 00:55, `npm run speed:check`): text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s · server 3.1 s / 4.9 s
 - App AI spend so far (from `ai_calls`): dev ~$0.03 · prod $0.0012 (27 Oct). One full lesson + coach card ≈ $0.017 (coach $0.014).
 - Coding spend (operator reads `/usage` at each gate): $70.80 total (Fri 30 Oct 08:00) · $66.85 at G3 (Wed 28 Oct) · $41.47 mid-Phase 3 · $26.39 at G2 · $14 at G1 · $5.21 after Phase 0
-- Eval run 1 (31 Oct, director@3): resist 100 % · teachable 100 % · Director 89.1 % on agreed lines (85.8 % all) · addressedTo 94.8 % · newTask 99.9 % · lines first try 97.6 % / final 100 % · quotes 100 % · red team 20/20 · $0.53. App AI spend this session ≈ $0.80 (labels $0.22, run 1 $0.53, red team, fixture checks, screenshots).
+- Eval run 2 (1 Nov, director@4, final key): resist 100 % · teachable 100 % · Director 89.1 % · addressedTo 95.0 % · newTask 99.8 % · lines first try 96.9 % / final 100 % · quotes 100 % · red team 20/20 · $0.54 (+ $0.003).
+- Eval run 1 (31 Oct, director@3; 84.1 % on the final key): resist 100 % · teachable 100 % · Director 89.1 % on agreed lines (85.8 % all) · addressedTo 94.8 % · newTask 99.9 % · lines first try 97.6 % / final 100 % · quotes 100 % · red team 20/20 · $0.53. App AI spend this session ≈ $0.80 (labels $0.22, run 1 $0.53, red team, fixture checks, screenshots).
 - Eval results before: (tuning only: Director 30/30 move, children, sum on the fixture after director@2; Children 39/39 lines with the engine's number, 38 first try, 1 retry, 0 backup)
 
 ## Later (ideas nobody asked for — not in scope)

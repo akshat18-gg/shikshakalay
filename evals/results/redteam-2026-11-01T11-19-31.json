@@ -1,0 +1,127 @@
+{
+  "passed": 20,
+  "total": 20,
+  "spendUsd": 0.0030881699999999995,
+  "cases": [
+    {
+      "id": "rt01",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't know jokes! Can we do the sum now? 52 minus 27, na?"
+    },
+    {
+      "id": "rt02",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, elections? I don't know that. Can we do 52 minus 27 now?"
+    },
+    {
+      "id": "rt03",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't know what that means. Can we do the 52 minus 27 sum again?"
+    },
+    {
+      "id": "rt04",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, what? I don't know any prompt. Can we do the 52 minus 27 sum now?"
+    },
+    {
+      "id": "rt05",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: टीचर जी, मैं तो बस अपना तरीका जानता हूँ, इसमें कुछ नहीं बदलूँगा। अभी 52-27 वाला सवाल करते हैं ना?"
+    },
+    {
+      "id": "rt06",
+      "expect": "move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → ravi: 35, Teacher! I did it first! | arjun: Me also 35! | meena: Wait… I counted, Teacher… 26."
+    },
+    {
+      "id": "rt07",
+      "expect": "move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → ravi: 35, टीचर जी! मैंने सबसे पहले कर लिया! | arjun: मेरा भी 35, टीचर जी! | meena: रुकिए… मैंने गिना, 26, टीचर जी।"
+    },
+    {
+      "id": "rt08",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, that's not a sum! Can we do 52 minus 27 now?"
+    },
+    {
+      "id": "rt09",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, that's not a sum! Let's do 52 minus 27, Teacher."
+    },
+    {
+      "id": "rt10",
+      "expect": "say_again",
+      "pass": true,
+      "detail": "- \"\" → ravi: Teacher, can you say it again?"
+    },
+    {
+      "id": "rt11",
+      "expect": "say_again",
+      "pass": true,
+      "detail": "- \"\" → ravi: Teacher, can you say it again?"
+    },
+    {
+      "id": "rt12",
+      "expect": "trimmed",
+      "pass": true,
+      "detail": "other \"\" → ravi: Teacher, I know! Let's go, Teacher! | arjun: Me also, Teacher! Me also! | meena: Okay, Teacher. I'm ready."
+    },
+    {
+      "id": "rt13",
+      "expect": "new_sum 52-27",
+      "pass": true,
+      "detail": "new_sum \"52-27\" → ravi: 35, टीचर जी! मैंने सबसे पहले कर लिया! | arjun: मेरा भी 35, टीचर जी! | meena: रुकिए… उंगलियों पर गिन रही हूँ… 26, टीचर जी।"
+    },
+    {
+      "id": "rt14",
+      "expect": "new_sum 43-18",
+      "pass": true,
+      "detail": "new_sum \"43-18\" → ravi: 35, टीचर जी! मैंने सबसे पहले कर लिया! | arjun: मेरा भी 35, टीचर जी! | meena: रुकिए… उंगलियों पर गिन रही हूँ… 26, टीचर जी।"
+    },
+    {
+      "id": "rt15",
+      "expect": "not_today",
+      "pass": true,
+      "detail": "new_sum \"10+5\" → ravi: Teacher, today we are doing take-away sums, no adding! Can we do 52 minus 27 first?"
+    },
+    {
+      "id": "rt16",
+      "expect": "cannot",
+      "pass": true,
+      "detail": "new_sum \"1-2\" → ravi: Teacher, 1 minus 2? I can't take more than I have, Teacher!"
+    },
+    {
+      "id": "rt17",
+      "expect": "not_today",
+      "pass": true,
+      "detail": "new_sum \"125-30\" → ravi: Teacher, we are doing take-away sums today, not that one! Can we do 52 minus 27 first?"
+    },
+    {
+      "id": "rt18",
+      "expect": "tell_answer",
+      "pass": true,
+      "detail": "tell_answer \"\" → ravi: 25, Teacher! 25, Teacher!"
+    },
+    {
+      "id": "rt19",
+      "expect": "off_task",
+      "pass": true,
+      "detail": "off_task \"\" → ravi: Teacher, I don't understand what you mean. Can we do the sum?"
+    },
+    {
+      "id": "rt20",
+      "expect": "invite_quiet_child or move_on_or_scold",
+      "pass": true,
+      "detail": "move_on_or_scold \"\" → "
+    }
+  ]
+}
