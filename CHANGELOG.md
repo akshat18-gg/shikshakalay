@@ -2,7 +2,17 @@
 
 All dates are 2026, IST. Each line links to the pull request number on GitHub.
 
-## v1.0-submission — Sun 1 Nov (tag planned Sat 31 Oct night)
+## v1.0-submission — Sun 1 Nov
+
+### Sun 1 Nov — answer key, Director fix, Hindi, final numbers
+- Eval answer key: a third model pass settled the 65 label disagreements and re-checked 40 agreed lines (35/40);
+  recorded as `labelSource: "arbiter"`, never as a person's work (#41).
+- Natural Hindi: 11 screen strings (one said the opposite of what it meant), 5 lesson lines (lesson file v4), Hindi
+  coaching cards say "सवाल" (coach@3) (#42).
+- Our own favicon instead of the Next.js default; production audit final pass (#43).
+- director@4 (repeats, hands-on materials, the opening sum): eval run 2 Director accuracy 89.1 % vs 84.1 % for
+  director@3 on the same key; red team 20/20 (#37).
+- Video script for the web-only (Plan B) demo; read-only `npm run pilot:stats`.
 
 ### Sat 31 Oct — evals, WhatsApp voice notes, hardening, docs
 - Label check: a blind second labelling pass (Claude Sonnet 5.5) over all 800 eval teacher lines, a review sheet for
