@@ -6,7 +6,7 @@
 
 ## Now
 - **Phase:** 7 — Freeze and submission (Sun 1 Nov; G6 evals + docs done today)
-- **Next task:** tag `v1.0-submission` → smoke every role · waiting: demo PIN, recordings, pilot numbers, video/deck links (see the table)
+- **Next task:** tag `v1.0-submission` → smoke every role · waiting: recordings, pilot numbers, video/deck links (see the table)
 - **Live URL:** https://shikshakalay.onrender.com
 - **Render mode:** `USE_MOCKS=0` — real engine on the Neon main branch
 - **Last gate passed:** G4 (Sat 31 Oct)
@@ -28,7 +28,7 @@
 | S4-seed | OK to run `npm run db:seed:prod` (8 synthetic teachers, adds rows only) | 🛑 | Fri 30 Oct 09:55 | done (Sat 31 Oct 01:09) |
 | H6.1 | Label review | 🟡 | Sat 31 Oct 01:25 | settled by a third model pass (#41, `arbiter`); operator may confirm the picks in `docs/solo/label-review.md` |
 | H-usage | `/usage` total (coding spend) — last message had "$<amount>" | 🟡 | Sat 31 Oct 02:15 | open |
-| H-pin | DEMO_PIN value for README/form (AGENTS §11: demo-only) — or OK to set a new one | 🛑 G7 | Sat 31 Oct 03:40 | open |
+| H-pin | DEMO_PIN value for README/form | 🛑 G7 | Sat 31 Oct 03:40 | done — `1234` (operator, Sun 1 Nov; checked on the live login) |
 | H-pilot | Forward `private/pilot-messages.md` to teachers | 🟡 | Sat 31 Oct 02:15 | open |
 | H5 | Twilio | 🟡 | Sat 31 Oct 02:00 | Plan B (default after the 2 pm deadline): WhatsApp = roadmap; README/video script say so |
 | E-run2 | Eval run 2 with director@4 | 🛑 | Sat 31 Oct 03:40 | done Sun 1 Nov ($0.54, < $1 pre-approved): Director 89.1 % vs 84.1 %; #37 merged |
@@ -53,7 +53,7 @@
 **Phase 4** — [x] P1-T12 seed (60 → 40; dev seeded; prod waits on the operator's OK) · [x] P1-T13 Sana (EN + HI speak when invited; trace shows engagement 0 → 1) · [x] P2-T9 trainer (60 → 30) · [x] P2-T10 admin (60 → 30) · [x] P2-T11 /try (45 → 25) · [x] P3-T14 red team (evals/redteam.json, 20 cases; sample-5 recording later) · [x] P2-T12 PWA + offline (shell + pages offline; recording queue cut, KNOWN-ISSUES) · [x] S4.1 polish (headers, 404/error/global-error, OG image, footer, /privacy, /terms) · [x] S4.2 pilot pack (guide, consent EN+HI, WhatsApp forward message, changes log, scripts/create-pilot-users.ts)
 **Phase 5** — [x] P3-T10 jobs + webhook · [x] P3-T11 conversation (real Ogg/Opus voice notes since 31 Oct) · [x] P3-T12 sweep · [ ] H5 webhook + UptimeRobot + phone test
 **Phase 6** — [x] E2 labels (arbiter pass, #41) · [x] P1-T14 evals (run 1: 100 lessons $0.53; red team 20/20 $0.003) · [x] top-3 fixes (director@4, run 2: 89.1 %, #37) · [x] Playwright + axe (4 e2e tests in mock mode, axe on login/home/practice, CI job on) · [x] S6.1 security pass (audit 55 rows filled) · [x] S6.2 docs (README with TODO markers for eval numbers + demo PIN, ARCHITECTURE, INFRASTRUCTURE, CHANGELOG; clean-clone test ok) · [x] S6.3 secret scan (gitleaks clean)
-**Phase 7** — [~] bug bash (favicon fixed; the debugging phase with the operator comes next) · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [x] final evals (run 2 + red team) · [x] audit final (#43) · [ ] freeze + tag
+**Phase 7** — [~] bug bash (favicon fixed; the debugging phase with the operator comes next) · [x] screenshots (docs/media, scripts/media-shots.mts) · [~] video script + deck numbers + form answers (drafts; TODO markers: demo PIN, video/deck links, pilot, spot checks) · [x] final evals (run 2 + red team) · [x] audit final (#43) · [x] freeze + tag (`v1.0-submission` = 23a2db8, live, smoke `--full --lesson --roles` green Sun 1 Nov 17:00)
 
 ## Decisions (date — decision — why)
 - 1 Nov — Work moved to a Windows PC: `node_modules` reinstalled (`npm ci`, the Mac's esbuild binary can't run); npm scripts with `VAR=1 cmd` need Git Bash; Neon's port 5432 times out from this network, so prod DB steps go to the operator.
