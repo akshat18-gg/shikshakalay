@@ -321,8 +321,8 @@ Why: asks what he got, not how = new_sum
 > Arjoon, you also wrote thirty five? I told you, it is twenty five. Twenty five! Listen carefully, you have to borrow, then it becomes twenty five.
 
 A: `repeat_same_way` · B: `tell_answer`
-Pick: B
-Why: gives the answer again; tell_answer beats repeat_same_way (director@3 order; director@4 would say repeat_same_way)
+Pick: A
+Why: she repeats what she already told them ("I told you") = repeat_same_way (AGENTS 7.3; director@4 rule, Sun 1 Nov)
 
 ### D045 · sub_2digit-weak-en-09 · turn 1
 > Good morning children, sit properly, hai na? Bag niche rakho. Today we will do subtraction. Fifty two minus twenty seven. Do it in your copy, quickly.
@@ -412,8 +412,8 @@ Why: gives the answer first; tell_answer beats check_whole_class
 > फिर से सुनो। दो में से सात नहीं जाता, तो दहाई से एक लेते हैं। बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दो में से सात नहीं जाता, तो एक लेते हैं।
 
 A: `repeat_same_way` · B: `think_aloud`
-Pick: tell_answer
-Why: repeat that ends with the answer; director@3 order tell_answer > think_aloud > repeat_same_way (director@4 would say repeat_same_way)
+Pick: A
+Why: "फिर से सुनो" — the same steps again = repeat_same_way (AGENTS 7.3; director@4 rule, Sun 1 Nov)
 
 ### D058 · sub_2digit-weak-hi-15 · turn 10
 > ठीक है, टाइम नहीं है। होमवर्क में यही वाले पाँच सवाल करके लाना, कल चेक करूँगी।
