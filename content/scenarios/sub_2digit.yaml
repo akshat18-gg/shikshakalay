@@ -9,7 +9,7 @@
 # - Both languages must be complete, or the engine refuses to start.
 
 id: sub_2digit
-version: 3
+version: 4
 title:
   en: "2-digit subtraction with bundles and sticks"
   hi: "बंडल और तीलियों से दो अंकों का घटाव"
@@ -34,7 +34,7 @@ children:
     explainsAs: "In each column I take the small number from the big number."
     sampleLines:
       en: ["35, Teacher! I did it first!", "Easy! 8 minus 3 is 5.", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
-      hi: ["35, टीचर जी! मैंने सबसे पहले किया!", "आसान है! 8 में से 3 गए तो 5।", "मैं पहले, टीचर जी! मैं पहले!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
+      hi: ["35, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! 8 में से 3 गए तो 5।", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
 
   - id: arjun
     name: { en: Arjun, hi: अर्जुन }
@@ -56,7 +56,7 @@ children:
     explainsAs: "I count back on my fingers, and I count the starting number too."
     sampleLines:
       en: ["Wait… I'm counting on my fingers… 26.", "52, 51, 50… I got 26, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
-      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "मैं धीरे-धीरे फिर से गिनती हूँ।", "मुझे लगता है मैंने सही गिना।"]
+      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
 
   - id: sana
     name: { en: Sana, hi: सना }
@@ -67,7 +67,7 @@ children:
     explainsAs: "I open one bundle, so I have enough sticks."
     sampleLines:
       en: ["Umm… 25, Teacher?", "I opened one bundle…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
-      hi: ["उम्म… 25, टीचर जी?", "मैंने एक बंडल खोला…", "मैं, टीचर जी?", "उम्म… मुझे लगता है…", "थैंक यू, टीचर जी।"]
+      hi: ["वो… 25, टीचर जी?", "मैंने एक बंडल खोला…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
 
 # What each move does in this skill (the engine's rules use these groups).
 moves:
