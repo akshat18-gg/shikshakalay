@@ -71,5 +71,4 @@ model labellings agreed on 91.9 % of lines; a third model pass settled the rest 
 **Tech stack:** Next.js 16 (TypeScript), Neon Postgres + Drizzle, Claude (Haiku 5.5, Sonnet 5.5, Opus 5.5 for test
 data), Sarvam Saaras + Bulbul, Twilio WhatsApp, Render, Vitest + Playwright.
 
-**What's next:** Tamil and more languages, more skills (letter-sound blending, place value), Glific on a verified
-WhatsApp Business number, adaptive difficulty, trainer replays.
+**What's next:** more modules on the same engine — each is a set of known-misconception rules plus two-language lines and eval lessons (about a day per module): addition with carrying, place value, multiplication as groups, division as sharing, fractions (Classes 1–3 maths); letter-sound blending, Hindi matras, reading fluency and comprehension (Classes 1–3 literacy, Hindi + English). Teachers pick grade and module; trainers see gaps per module. Then Tamil and more languages, Glific on a verified WhatsApp Business number, adaptive difficulty, trainer replays. (Full grade-wise table in the README → Roadmap.)

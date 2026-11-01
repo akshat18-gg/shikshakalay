@@ -47,5 +47,19 @@ Run 1 rescored on the final key: `evals/results/2026-11-01T11-17-50.json` (raw r
   (with OK, no name) and one change we made (`docs/pilot/changes.md`).
 - **Sun 1 Nov 17:20 IST (prod, read-only): 0 of 10 pilot logins used — 0 lessons, 0 feedback forms, 0 check-ins.** Say so honestly; update with `npm run pilot:stats` if teachers try it before submitting.
 
+## Roadmap slide — subjects and modules by grade (paste as a table)
+One skill today because each module is hand-built: known-misconception rules (code, not the model) + Hindi/English lines +
+eval lessons ≈ 1 day per module. The engine, 12 teaching moves, line check, coach and quote check are shared.
+
+| Grade | Maths (NIPUN Bharat goals) | Literacy (Hindi + English) |
+|---|---|---|
+| 1–2 | Place value & number names | Letter-sound blending (specified) · Hindi matras |
+| 2 | Addition with carrying (next) · **Subtraction with borrowing (live)** | Reading fluency & sight words |
+| 3 | Multiplication as groups · Division as sharing · Fractions as equal parts | Reading comprehension (who / what / where) |
+
+Each module = 3 modelled mistakes + 1 correct-but-shy child · teacher picks grade + module on the home screen / WhatsApp menu ·
+trainer sees gaps per module. Then: Tamil + more languages · Glific (verified WhatsApp Business) · adaptive difficulty ·
+expert-move replays · IVR.
+
 ## Not measured yet (say so)
 - Coach vs. expert agreement (≥ 80 % promised): needs 2 expert raters on 20 lessons — not done in this build.
