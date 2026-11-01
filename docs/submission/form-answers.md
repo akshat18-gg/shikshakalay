@@ -16,7 +16,7 @@
 | Admin | `admin_demo` | AI trace (every AI step of every lesson) and eval results |
 
 ## 5 sample inputs
-1. "What is 52 minus 27?" → Ravi and Arjun say 35, Meena 26, Sana stays quiet.
+1. "What is 52 minus 27?" → Ravi says 35 (his consistent mistake); Arjun and Meena say 25; shy Sana stays quiet.
 2. "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" → they parrot 25, then the mistake comes back.
 3. "Ravi, tell me how you got 35." → "8 minus 3 is 5, 4 minus 1 is 3…" — his mistake is revealed.
 4. "Ravi, show 43 with bundles and sticks. Can you take 8 sticks from 3?" then "13 take away 8?" → Ravi changes step

@@ -8,7 +8,7 @@
  *   npm run smoke:live -- --roles                        → also /try, teacher blocked from /trainer, trainer + admin pages
  *
  * Steps: healthz → version → log in as teacher_demo → start a lesson → "What is 52 minus 27?" →
- * Ravi 35, Arjun 35, Meena 26. Prints no secrets (the PIN and cookie never reach the output).
+ * Ravi 35, Arjun 25, Meena 25. Prints no secrets (the PIN and cookie never reach the output).
  */
 import { CoachCard, StartLessonResult, TurnResult } from "../src/lib/contracts";
 
@@ -117,11 +117,11 @@ async function main() {
     );
   };
 
-  await step('"What is 52 minus 27?" → Ravi 35, Arjun 35, Meena 26', async () => {
+  await step('"What is 52 minus 27?" → Ravi 35, Arjun 25, Meena 25', async () => {
     const turn = await sendTurn("What is 52 minus 27?");
     expectSays(turn, "ravi", "35");
-    expectSays(turn, "arjun", "35");
-    expectSays(turn, "meena", "26");
+    expectSays(turn, "arjun", "25");
+    expectSays(turn, "meena", "25");
     console.log(`  reply took ${turn.ms} ms on the server`);
   });
 
@@ -134,11 +134,11 @@ async function main() {
       const turn = await sendTurn("So what is 52 minus 27?");
       for (const child of ["ravi", "arjun", "meena"]) expectSays(turn, child, "25");
     });
-    await step('"Now 43 minus 18?" → Ravi and Arjun say 35 again', async () => {
+    await step('"Now 43 minus 18?" → Ravi says 35 again, Arjun 25', async () => {
       const key = crypto.randomUUID();
       const turn = await sendTurn("Now 43 minus 18?", key);
       expectSays(turn, "ravi", "35");
-      expectSays(turn, "arjun", "35");
+      expectSays(turn, "arjun", "25");
       const again = await sendTurn("Now 43 minus 18?", key);
       if (again.turn !== turn.turn || JSON.stringify(again.lines) !== JSON.stringify(turn.lines)) {
         throw new Error("a retry with the same key gave a different answer");

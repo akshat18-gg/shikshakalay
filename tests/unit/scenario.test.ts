@@ -50,8 +50,8 @@ describe("sub_2digit.yaml", () => {
     expect(st.currentSum).toEqual([52, 27]);
     expect(st.children.map((c) => [c.id, c.bug, c.state, c.engagement])).toEqual([
       ["ravi", "smallerFromLarger", "STUCK", 3],
-      ["arjun", "borrowNoDecrement", "STUCK", 2],
-      ["meena", "countBackOffByOne", "STUCK", 2],
+      ["arjun", null, "GOT_IT", 2], // correct since lesson file v5 (operator, 1 Nov)
+      ["meena", null, "GOT_IT", 2],
       ["sana", null, "GOT_IT", 0],
     ]);
     expect(st).toMatchObject({ lang: "hi", turnCount: 0, parrots: {} });

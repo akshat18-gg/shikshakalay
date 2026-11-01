@@ -19,7 +19,7 @@ describe("mock lesson", () => {
 
     const t1 = TurnResult.parse(await run("What is 52 minus 27?"));
     expect(t1.lines.find((l) => l.child === "ravi")?.text).toContain("35");
-    expect(t1.lines.find((l) => l.child === "meena")?.text).toContain("26");
+    expect(t1.lines.find((l) => l.child === "meena")?.text).toContain("25"); // Meena gets it right
 
     const t2 = TurnResult.parse(await run("No, the answer is 25. Everyone say 25."));
     expect(t2.director?.move).toBe("tell_answer");

@@ -27,8 +27,8 @@ test("a teacher practises a lesson and gets a card", async ({ page }) => {
   await page.getByLabel("Or type what you say…").fill("What is 52 minus 27?");
   await page.getByRole("button", { name: "Send" }).click();
   const log = page.getByRole("log");
-  await expect(log).toContainText("35");
-  await expect(log).toContainText("26");
+  await expect(log).toContainText("35"); // Ravi's mistake
+  await expect(log).toContainText("25"); // the others get it right
   await noSeriousA11yIssues(page);
   await page.getByRole("button", { name: "End lesson" }).click();
   await page.waitForURL(/\/card\//);
