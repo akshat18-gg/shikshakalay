@@ -221,7 +221,7 @@ One engine change unlocks the maths modules: the task parser and "correct answer
 (`a − b`); making them per-skill (`operation` in the scenario file, `answerOf(task)`, one bug registry per skill) is
 about a day.
 
-### Modules by grade (Classes 1–3, aligned with NIPUN Bharat foundational goals; Hindi + English)
+### Modules by grade (Classes 1–3 below; the full Classes 1–5 catalogue is in the app at `/modules`, one live, the rest marked "coming soon")
 
 | Grade | Subject | Module | The children's mistakes we would model | Status |
 |---|---|---|---|---|
