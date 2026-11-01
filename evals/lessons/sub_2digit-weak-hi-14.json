@@ -40,7 +40,7 @@
     },
     {
       "teacher": "फिर से सुनो। दो में से सात नहीं जाता, तो दहाई से एक लेते हैं। बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दो में से सात नहीं जाता, तो एक लेते हैं।",
-      "label": "repeat_same_way",
+      "label": "tell_answer",
       "addressedTo": [
         "whole_class"
       ],
@@ -72,6 +72,6 @@
     }
   ],
   "finalSum": "82-17",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

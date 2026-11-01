@@ -81,7 +81,7 @@
     },
     {
       "teacher": "ठीक है, टाइम नहीं है। होमवर्क में यही वाले पाँच सवाल करके लाना, कल चेक करूँगी।",
-      "label": "move_on_or_scold",
+      "label": "other",
       "addressedTo": [
         "whole_class"
       ],
@@ -89,6 +89,6 @@
     }
   ],
   "finalSum": "83-59",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

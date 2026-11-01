@@ -7,7 +7,7 @@
   "turns": [
     {
       "teacher": "Good morning children, sit properly, hai na? Bag niche rakho. Today we will do subtraction. Fifty two minus twenty seven. Do it in your copy, quickly.",
-      "label": "other",
+      "label": "new_sum",
       "addressedTo": [
         "whole_class"
       ],
@@ -64,6 +64,6 @@
     }
   ],
   "finalSum": "66-59",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

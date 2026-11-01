@@ -39,7 +39,7 @@
     },
     {
       "teacher": "हाँ, अब चार बंडल बचे। तो दहाई में पाँच नहीं, चार है। अब चार में से दो बंडल हटाओ, कितने बचे? तो सही उत्तर क्या हुआ?",
-      "label": "targeted_question",
+      "label": "concrete_materials",
       "addressedTo": [
         "arjun"
       ],
@@ -79,6 +79,6 @@
     }
   ],
   "finalSum": "62-46",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

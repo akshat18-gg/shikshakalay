@@ -71,7 +71,7 @@
     },
     {
       "teacher": "Now Ravi, you try this one with sticks. Forty three minus eighteen. First check the ones: can you take eight from three?",
-      "label": "new_sum",
+      "label": "concrete_materials",
       "addressedTo": [
         "ravi"
       ],
@@ -79,6 +79,6 @@
     }
   ],
   "finalSum": "50-46",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

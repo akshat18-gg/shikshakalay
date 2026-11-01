@@ -71,6 +71,6 @@
     }
   ],
   "finalSum": "75-36",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

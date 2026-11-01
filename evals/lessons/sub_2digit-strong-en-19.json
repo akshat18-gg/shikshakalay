@@ -55,7 +55,7 @@
     },
     {
       "teacher": "Ravi, now one more for you. Sixty one minus thirty four. Use the bundles first, then write it. Remember, the top number in ones is small, so what do you do first?",
-      "label": "new_sum",
+      "label": "concrete_materials",
       "addressedTo": [
         "ravi"
       ],
@@ -63,6 +63,6 @@
     }
   ],
   "finalSum": "92-36",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

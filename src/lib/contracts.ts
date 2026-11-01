@@ -231,9 +231,10 @@ export const EvalLesson = z.object({
   /**
    * How the labels were confirmed (say this honestly in the README):
    * "generator" = only the generating model's label · "agreed" = a second, independent model pass agreed
-   * on every turn · "human" = a person settled the disagreements by hand.
+   * on every turn · "arbiter" = a third, independent model pass settled the disagreements (no person yet) ·
+   * "human" = a person settled the disagreements by hand.
    */
-  labelSource: z.enum(["generator", "agreed", "human"]).optional(),
+  labelSource: z.enum(["generator", "agreed", "arbiter", "human"]).optional(),
 });
 
 /* ----------------------------------------------------------------------------

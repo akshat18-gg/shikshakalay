@@ -47,7 +47,7 @@
     },
     {
       "teacher": "The answer is thirty five. Who got thirty five? Hands up. Okay, those who got it wrong, copy the correct answer from the board.",
-      "label": "check_whole_class",
+      "label": "tell_answer",
       "addressedTo": [
         "whole_class"
       ],
@@ -55,6 +55,6 @@
     }
   ],
   "finalSum": "95-38",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

@@ -39,7 +39,7 @@
     },
     {
       "teacher": "Yes Ravi, 12 loose sticks! Now take away 7 loose sticks, and then 2 bundles from the 4 bundles left. Good, you opened the bundle and counted all 12 yourself.",
-      "label": "specific_praise",
+      "label": "concrete_materials",
       "addressedTo": [
         "ravi"
       ],
@@ -56,6 +56,6 @@
     }
   ],
   "finalSum": "85-16",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

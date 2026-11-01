@@ -7,7 +7,7 @@
   "turns": [
     {
       "teacher": "चलो बच्चो, जल्दी बैठो, टाइम कम है। बोर्ड पर देखो, बावन माइनस सत्ताईस।",
-      "label": "other",
+      "label": "new_sum",
       "addressedTo": [
         "whole_class"
       ],
@@ -47,7 +47,7 @@
     },
     {
       "teacher": "जवाब सत्ताईस है। जिसका सत्ताईस आया, हाथ ऊपर करो। सबका आया? ठीक है।",
-      "label": "check_whole_class",
+      "label": "tell_answer",
       "addressedTo": [
         "whole_class"
       ],
@@ -63,6 +63,6 @@
     }
   ],
   "finalSum": "96-67",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

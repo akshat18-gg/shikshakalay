@@ -71,7 +71,7 @@
     },
     {
       "teacher": "Now one more. Sixty one minus thirty four. Arjun, this time keep your bundles next to you and cross out the ten you open.",
-      "label": "new_sum",
+      "label": "concrete_materials",
       "addressedTo": [
         "whole_class",
         "arjun"
@@ -80,6 +80,6 @@
     }
   ],
   "finalSum": "83-17",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }
