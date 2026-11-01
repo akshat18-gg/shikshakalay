@@ -17,7 +17,7 @@ export default async function TraceListPage() {
   const rows = await (await import("@/lib/db/queries/admin")).recentLessons(50);
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-navy">{t("admin.trace", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("admin.trace", lang)}</h1>
       <p className="text-sm text-muted-foreground">
         {t("admin.recent", lang)} — {t("admin.lessonCols", lang)}
       </p>
@@ -26,9 +26,9 @@ export default async function TraceListPage() {
           <li key={r.id}>
             <Link
               href={`/admin/trace/${r.id}`}
-              className="flex min-h-11 flex-wrap items-center gap-x-3 border border-border p-3 hover:bg-pale"
+              className="flex min-h-11 flex-wrap items-center gap-x-3 border border-border p-3 hover:glass-teal"
             >
-              <span className="font-semibold text-navy">{r.code}</span>
+              <span className="font-semibold text-heading">{r.code}</span>
               <span className="text-sm">
                 {r.lang} · {r.channel} · {t("history.turns", lang, { n: r.turnCount })}
               </span>

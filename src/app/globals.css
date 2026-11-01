@@ -17,6 +17,7 @@
   --color-child-arjun: var(--child-arjun);
   --color-child-meena: var(--child-meena);
   --color-child-sana: var(--child-sana);
+  --color-heading: var(--heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -56,54 +57,58 @@
 }
 
 /*
- * Shikshakalay design tokens — defined once, used everywhere. Deck colours: navy, teal, mint, ink, pale.
- * teal-strong is teal darkened until white text on it passes WCAG AA (5.4:1; plain teal is only 3.8:1).
- * Child colours are for names and bubble edges on white (each ≥ 5:1). Square corners: --radius 0.
+ * Shikshakalay design tokens — defined once, used everywhere. Dark glass theme (operator's request, 1 Nov):
+ * a near-black base with soft teal/mint glows, translucent "glass" panels, and the deck's teal and mint as the
+ * accents. Every text colour passes WCAG AA on the base (muted text 8.6:1, mint 12:1, each child ≥ 7:1).
+ * teal-strong stays the teacher-bubble colour (white on it is 5.4:1). Square corners: --radius 0.
  */
 :root {
   --navy: #0b2850;
   --teal: #3a8e93;
   --teal-strong: #2e7479;
   --mint: #8fd3cd;
-  --ink: #1b2833;
+  --ink: #0b1220;
   --pale: #e5f2f1;
-  --child-ravi: #c2410c;
-  --child-arjun: #1d4ed8;
-  --child-meena: #7e22ce;
-  --child-sana: #be185d;
+  /* lighter than the light theme's child colours so names read on dark glass */
+  --child-ravi: #fb923c;
+  --child-arjun: #7cb3ff;
+  --child-meena: #c084fc;
+  --child-sana: #f472b6;
 
-  --background: #ffffff;
-  --foreground: var(--ink);
-  --card: #ffffff;
-  --card-foreground: var(--ink);
-  --popover: #ffffff;
-  --popover-foreground: var(--ink);
-  --primary: var(--navy);
-  --primary-foreground: #ffffff;
-  --secondary: var(--pale);
-  --secondary-foreground: var(--ink);
-  --muted: var(--pale);
-  --muted-foreground: #4a5a66;
+  --background: #0b0d10;
+  --foreground: #eef2f5;
+  --heading: #f6f9fc;
+  --card: rgb(255 255 255 / 0.06);
+  --card-foreground: var(--foreground);
+  --popover: #15181d;
+  --popover-foreground: var(--foreground);
+  --primary: var(--mint);
+  --primary-foreground: var(--ink);
+  --secondary: rgb(255 255 255 / 0.1);
+  --secondary-foreground: var(--foreground);
+  --muted: rgb(255 255 255 / 0.08);
+  --muted-foreground: #a9b4bf;
   --accent: var(--mint);
   --accent-foreground: var(--ink);
-  --destructive: #b42318;
-  --border: #c9dedc;
-  --input: #6b8a88;
-  --ring: var(--teal);
-  --chart-1: var(--navy);
+  --destructive: #f87171;
+  --border: rgb(255 255 255 / 0.14);
+  --input: rgb(255 255 255 / 0.32);
+  --ring: var(--mint);
+  --chart-1: var(--mint);
   --chart-2: var(--teal);
-  --chart-3: var(--mint);
-  --chart-4: #c2410c;
-  --chart-5: #7e22ce;
+  --chart-3: #ffffff;
+  --chart-4: var(--child-ravi);
+  --chart-5: var(--child-meena);
   --radius: 0rem;
-  --sidebar: var(--pale);
-  --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--navy);
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--mint);
+  --sidebar-primary-foreground: var(--ink);
   --sidebar-accent: var(--mint);
   --sidebar-accent-foreground: var(--ink);
-  --sidebar-border: #c9dedc;
-  --sidebar-ring: var(--teal);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--mint);
+  color-scheme: dark;
 }
 
 @layer base {
@@ -111,7 +116,14 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* near-black with two soft glows, so the glass panels have something to blur */
+    background-color: var(--background);
+    background-image:
+      radial-gradient(70% 45% at 15% 0%, rgb(58 142 147 / 0.28), transparent 65%),
+      radial-gradient(55% 40% at 100% 100%, rgb(143 211 205 / 0.14), transparent 65%);
+    background-repeat: no-repeat;
+    min-height: 100dvh;
     /* keep content clear of the phone's home bar and notch */
     padding-bottom: env(safe-area-inset-bottom);
     /* body copy: comfortable leading; headings tighten below */
@@ -120,8 +132,16 @@
   html {
     @apply font-sans;
     font-optical-sizing: auto;
+    background-color: var(--background); /* behind the body's gradient on over-scroll */
     /* we draw our own press feedback (.press), so no grey tap flash on phones */
     -webkit-tap-highlight-color: transparent;
+  }
+  ::placeholder {
+    color: var(--muted-foreground);
+    opacity: 1;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--mint) 45%, transparent);
   }
   /* Type changes shape with size: large text wants tighter tracking and leading, body stays near 0. */
   :is(h1, h2, h3) {
@@ -168,26 +188,42 @@
     transition-duration: 100ms;
   }
 
-  .material-navy {
-    background-color: color-mix(in oklab, var(--navy) 90%, transparent);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    backdrop-filter: blur(16px) saturate(160%);
+  /* Glass: a faint white tint, a blur of what is behind, a hairline edge, and a brighter top edge (light). */
+  .glass {
+    background-color: rgb(255 255 255 / 0.06);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.1),
+      0 12px 32px -20px rgb(0 0 0 / 0.8);
   }
+  .glass-teal {
+    background-color: color-mix(in oklab, var(--teal) 22%, rgb(255 255 255 / 0.04));
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgb(143 211 205 / 0.22);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.12),
+      0 12px 32px -20px rgb(0 0 0 / 0.8);
+  }
+  /* floating chrome: darker, heavier glass than the panels (weight = hierarchy) */
+  .material-navy,
   .material-light {
-    background-color: color-mix(in oklab, var(--background) 84%, transparent);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    backdrop-filter: blur(16px) saturate(160%);
+    background-color: rgb(11 13 16 / 0.72);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
   }
-  /* a bright top edge reads as light catching the material; the shadow is the scroll edge */
+  /* a bright edge reads as light catching the material; the shadow is the scroll edge */
   .edge-bottom {
     box-shadow:
-      inset 0 -1px 0 rgb(255 255 255 / 0.08),
-      0 10px 24px -14px rgb(11 40 80 / 0.45);
+      inset 0 -1px 0 rgb(255 255 255 / 0.1),
+      0 12px 28px -14px rgb(0 0 0 / 0.9);
   }
   .edge-top {
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.6),
-      0 -12px 24px -16px rgb(11 40 80 / 0.28);
+      inset 0 1px 0 rgb(255 255 255 / 0.12),
+      0 -12px 28px -16px rgb(0 0 0 / 0.8);
   }
 
   .bubble-in {
@@ -279,32 +315,40 @@
     transition: none;
   }
 }
+/* Frostier when asked: solid surfaces, no blur; high contrast adds a defined edge. */
 @media (prefers-reduced-transparency: reduce) {
-  .material-navy {
-    background-color: var(--navy);
-    backdrop-filter: none;
-  }
+  .material-navy,
   .material-light {
     background-color: var(--background);
+    backdrop-filter: none;
+  }
+  .glass,
+  .glass-teal {
+    background-color: #15181d;
     backdrop-filter: none;
   }
 }
 @media (prefers-contrast: more) {
-  .material-navy {
-    background-color: var(--navy);
-    backdrop-filter: none;
-  }
+  .material-navy,
   .material-light {
     background-color: var(--background);
     backdrop-filter: none;
-    box-shadow: 0 -1px 0 var(--ink);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.6);
+  }
+  .glass,
+  .glass-teal {
+    background-color: #15181d;
+    backdrop-filter: none;
+    border-color: rgb(255 255 255 / 0.6);
   }
 }
 @supports not (backdrop-filter: blur(1px)) {
-  .material-navy {
-    background-color: var(--navy);
-  }
+  .material-navy,
   .material-light {
     background-color: var(--background);
+  }
+  .glass,
+  .glass-teal {
+    background-color: #15181d;
   }
 }

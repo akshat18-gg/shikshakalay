@@ -19,7 +19,7 @@ export default async function TrainerPage() {
   const hidden = <span className="text-muted-foreground italic">{t("trainer.hidden", lang)}</span>;
   const maxUses = Math.max(1, ...v.moves.map((m) => m.uses ?? 0));
   const bar = (pct: number, cls: string) => (
-    <div className="h-3 w-full bg-pale" aria-hidden="true">
+    <div className="h-3 w-full bg-white/10" aria-hidden="true">
       <div className={`bar-in h-3 ${cls}`} style={{ width: `${Math.max(2, Math.min(100, pct))}%` }} />
     </div>
   );
@@ -27,7 +27,7 @@ export default async function TrainerPage() {
   return (
     <div className="flex flex-col gap-6">
       <header>
-        <h1 className="text-2xl font-bold text-navy">{t("trainer.title", lang)}</h1>
+        <h1 className="text-2xl font-bold text-heading">{t("trainer.title", lang)}</h1>
         <p className="mt-1 text-muted-foreground">
           {t("trainer.teachers", lang, { n: v.teachers })} · {t("trainer.lessons", lang, { n: v.lessons })}
         </p>
@@ -38,14 +38,14 @@ export default async function TrainerPage() {
         <p className="text-muted-foreground">{t("trainer.empty", lang)}</p>
       ) : (
         <>
-          <section aria-labelledby="wvs" className="border-l-4 border-teal bg-white p-4 shadow-sm">
+          <section aria-labelledby="wvs" className="border-l-4 border-teal glass p-4">
             <h2 id="wvs" className="font-semibold">
               {t("trainer.weakVsStrong", lang)}
             </h2>
             <dl className="mt-3 grid grid-cols-2 gap-4">
               <div>
                 <dt className="text-sm text-muted-foreground">{t("trainer.strong", lang)}</dt>
-                <dd className="text-2xl font-bold text-teal-strong">
+                <dd className="text-2xl font-bold text-mint">
                   {v.strongShare === null ? hidden : `${v.strongShare}%`}
                 </dd>
               </div>
@@ -70,7 +70,7 @@ export default async function TrainerPage() {
                     ? hidden
                     : bar(
                         (m.uses / maxUses) * 100,
-                        m.kind === "weak" ? "bg-child-ravi" : m.kind === "strong" ? "bg-teal-strong" : "bg-navy/50",
+                        m.kind === "weak" ? "bg-child-ravi" : m.kind === "strong" ? "bg-teal-strong" : "glass/40",
                       )}
                   <span className="text-right tabular-nums">{m.uses ?? ""}</span>
                 </li>
@@ -86,7 +86,7 @@ export default async function TrainerPage() {
               {v.scores.map((s) => (
                 <li key={s.element} className="grid grid-cols-[minmax(0,10rem)_1fr_4rem] items-center gap-2 text-sm">
                   <span>{t(`teach.${s.element}` as MessageKey, lang)}</span>
-                  {s.avg === null ? hidden : bar((s.avg / 5) * 100, "bg-navy")}
+                  {s.avg === null ? hidden : bar((s.avg / 5) * 100, "bg-mint")}
                   <span className="text-right tabular-nums">{s.avg === null ? "" : `${s.avg} / 5`}</span>
                 </li>
               ))}
@@ -111,7 +111,9 @@ export default async function TrainerPage() {
             </div>
             <div>
               <h2 className="font-semibold">{t("trainer.returnRate", lang)}</h2>
-              <p className="mt-2 text-3xl font-bold text-navy">{v.returnRate === null ? hidden : `${v.returnRate}%`}</p>
+              <p className="mt-2 text-3xl font-bold text-heading">
+                {v.returnRate === null ? hidden : `${v.returnRate}%`}
+              </p>
             </div>
           </section>
         </>

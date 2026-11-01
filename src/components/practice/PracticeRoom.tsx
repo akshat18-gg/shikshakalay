@@ -202,7 +202,7 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
       )}
       {error && <ErrorNote error={error} onRetry={failed ? () => submit(failed) : undefined} />}
       {micDenied && (
-        <p role="alert" className="border-l-4 border-destructive bg-red-50 p-3 text-sm">
+        <p role="alert" className="border-l-4 border-destructive bg-destructive/15 p-3 text-sm">
           {t("practice.micDenied")}
         </p>
       )}

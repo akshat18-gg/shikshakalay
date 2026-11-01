@@ -24,11 +24,11 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
   return (
     <article className="flex flex-col gap-5">
       <header>
-        <h1 className="text-2xl font-bold text-navy">{t("card.title", lang)}</h1>
+        <h1 className="text-2xl font-bold text-heading">{t("card.title", lang)}</h1>
         <p className="mt-1 text-sm text-muted-foreground">{t("card.private", lang)}</p>
       </header>
 
-      <section aria-labelledby="strength" className="border-l-4 border-teal bg-pale p-4">
+      <section aria-labelledby="strength" className="border-l-4 border-teal glass-teal p-4">
         <h2 id="strength" className="font-semibold">
           {t("card.strength", lang)} · {t("card.turn", lang, { n: card.strength.turn })}
         </h2>
@@ -36,7 +36,7 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
         <p className="mt-2">{card.strength.why}</p>
       </section>
 
-      <section aria-labelledby="fix" className="border-l-4 border-child-ravi bg-white p-4 shadow-sm">
+      <section aria-labelledby="fix" className="border-l-4 border-child-ravi glass p-4">
         <h2 id="fix" className="font-semibold">
           {t("card.fix", lang)} · {t("card.turn", lang, { n: card.fix.turn })}
         </h2>
@@ -51,7 +51,7 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
         </p>
       </section>
 
-      <section aria-labelledby="tomorrow" className="bg-navy p-4 text-white">
+      <section aria-labelledby="tomorrow" className="bg-mint p-4 text-white">
         <h2 id="tomorrow" className="font-semibold">
           {t("card.sayTomorrow", lang)}
         </h2>
@@ -61,7 +61,7 @@ export default async function CardPage({ params }: PageProps<"/card/[sessionId]"
 
       <p className="text-sm text-muted-foreground">{t("card.aiNote", lang)}</p>
       {user.role === "teacher" && <FeedbackForm />}
-      <Link href="/" className="min-h-11 font-semibold text-navy underline">
+      <Link href="/" className="min-h-11 font-semibold text-mint underline">
         {t("card.backHome", lang)}
       </Link>
     </article>

@@ -28,7 +28,7 @@ export function Turn({ turn, onPlay }: { turn: TurnResult; onPlay?: () => void }
         const style = CHILD_STYLE[line.child];
         return (
           <li key={i} className="bubble-in flex justify-start">
-            <div className={`max-w-[85%] border-l-4 bg-white px-3 py-2 shadow-sm ${style.border}`}>
+            <div className={`max-w-[85%] border-l-4 glass px-3 py-2 ${style.border}`}>
               <p className={`text-sm font-semibold tracking-wide ${style.text}`}>{t(style.name)}</p>
               <p>{line.text}</p>
             </div>
@@ -40,7 +40,7 @@ export function Turn({ turn, onPlay }: { turn: TurnResult; onPlay?: () => void }
           <button
             type="button"
             onClick={onPlay}
-            className="press min-h-11 text-sm font-semibold text-navy underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="press min-h-11 text-sm font-semibold text-mint underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             ▶ {t("practice.playReply")}
           </button>

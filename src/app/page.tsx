@@ -20,17 +20,17 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-2xl font-bold text-navy">{t("home.greeting", lang, { code: user.code })}</h1>
+        <h1 className="text-2xl font-bold text-heading">{t("home.greeting", lang, { code: user.code })}</h1>
         <p className="mt-1 text-muted-foreground">{t("app.tagline", lang)}</p>
       </div>
 
       {due && (
-        <section className="border-l-4 border-mint bg-white p-4 shadow-sm">
+        <section className="border-l-4 border-mint glass p-4">
           <CheckinPrompt sessionId={due.sessionId} />
         </section>
       )}
 
-      <section aria-labelledby="skill" className="border-l-4 border-teal bg-pale p-4">
+      <section aria-labelledby="skill" className="border-l-4 border-teal glass-teal p-4">
         <h2 id="skill" className="text-lg font-semibold">
           {t("home.skillTitle", lang)}
         </h2>
@@ -53,7 +53,7 @@ export default async function Home() {
             </p>
             <Link
               href={`/card/${last.sessionId}`}
-              className="inline-flex min-h-11 items-center font-semibold text-navy underline"
+              className="inline-flex min-h-11 items-center font-semibold text-mint underline"
             >
               {t("home.seeCard", lang)}
             </Link>

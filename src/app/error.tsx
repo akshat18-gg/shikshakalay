@@ -9,16 +9,16 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
   const lang = useLang();
   return (
     <div role="alert" className="flex flex-col gap-3">
-      <h1 className="text-2xl font-bold text-navy">{t("error.title", lang)}</h1>
+      <h1 className="text-2xl font-bold text-heading">{t("error.title", lang)}</h1>
       <p>{t("error.body", lang)}</p>
       {error.digest && (
         <p className="text-sm text-muted-foreground">{t("errors.reference", lang, { id: error.digest })}</p>
       )}
       <div className="flex gap-4">
-        <button type="button" onClick={reset} className="min-h-11 font-semibold text-navy underline">
+        <button type="button" onClick={reset} className="min-h-11 font-semibold text-mint underline">
           {t("common.retry", lang)}
         </button>
-        <Link href="/" className="inline-flex min-h-11 items-center font-semibold text-navy underline">
+        <Link href="/" className="inline-flex min-h-11 items-center font-semibold text-mint underline">
           {t("error.home", lang)}
         </Link>
       </div>
