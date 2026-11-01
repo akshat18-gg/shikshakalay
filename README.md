@@ -196,7 +196,8 @@ These are our own pass marks; we report the real numbers even where they fall sh
   queue, Ogg/Opus voice notes, the conversation steps), but Twilio's current free trial ("Try out WhatsApp") offers no
   incoming-message webhook, so messages can't reach our server. Teachers and judges use the web link; turning
   WhatsApp on needs a paid Twilio account with the WhatsApp Sandbox — settings only, no code change.
-- One skill (2-digit subtraction). Letter-sound blending, more languages and adaptive difficulty are on the roadmap.
+- Six arithmetic modules (Classes 1–4); the literacy and EVS modules on `/modules` are marked "coming soon". The five
+  newer modules were built on submission night and smoke-tested live, but have no eval run of their own yet.
 - Bulbul has no child-pitched boy voice, so Ravi and Arjun sound older than Meena and Sana.
 - Offline: the app shell and past pages open, but a new turn needs the network (offline recording queue cut).
 - Logins are 4-digit PINs with an in-memory lockout (resets on restart) and no server-side session list.
@@ -217,19 +218,22 @@ already multi-skill: a lesson is a YAML scenario file (`content/scenarios/`), le
 (3) a few Director examples for that skill's tasks, (4) 50–100 synthetic eval lessons. The 12 teaching moves, the
 mind-state rules, the line check, the coach and the quote check are skill-independent and stay as they are.
 
-One engine change unlocks the maths modules: the task parser and "correct answer" are subtraction-only today
-(`a − b`); making them per-skill (`operation` in the scenario file, `answerOf(task)`, one bug registry per skill) is
-about a day.
+The engine takes an `operation` (add · sub · mul · div) from the lesson file since Sun 1 Nov: the correct answer, the
+task parser, the mistake rules and the explain-steps are per operation, so an arithmetic module is one YAML file plus
+one or two rules in `bugs.ts`. Six arithmetic modules are live; literacy and EVS need a different kind of answer key
+(items with a right and a wrong reading) and are the next engine step.
 
-### Modules by grade (Classes 1–3 below; the full Classes 1–5 catalogue is in the app at `/modules`, one live, the rest marked "coming soon")
+### Modules by grade (Classes 1–3 below; the full Classes 1–5 catalogue is in the app at `/modules`: six arithmetic modules live, the rest marked "coming soon")
 
 | Grade | Subject | Module | The children's mistakes we would model | Status |
 |---|---|---|---|---|
-| 1–2 | Maths | Place value and number names | reads 31 as "thirteen"; thinks the longer-looking number is bigger; counts the start number when counting on | planned |
-| 2 | Maths | Addition with carrying | writes both digits of a column (27 + 35 → 512); forgets the carry (→ 52); adds the carry twice | planned (next) |
+| 1 | Maths | Adding to 9 | counts the start number when counting on (5 + 3 → 9) — `countOnOffByOne` | **live** (`add_to_9`) |
+| 1–2 | Maths | Place value and number names | reads 31 as "thirteen"; thinks the longer-looking number is bigger | planned |
+| 2 | Maths | Addition with carrying | forgets the carry (27 + 35 → 52) — `forgetCarry` | **live** (`add_2digit_carry`) |
 | 2 | Maths | **Subtraction with borrowing** | smaller-from-larger; borrow without reducing the tens; counting back off by one | **live** |
-| 3 | Maths | Multiplication as groups / tables | adds instead of multiplies (3 × 4 → 7); one group too many when skip-counting; 5 × 0 → 5 | planned |
-| 3 | Maths | Division as sharing | drops the remainder; "how many groups" vs "how many each"; divides in the wrong order | planned |
+| 3 | Maths | Multiplication as groups | adds instead of multiplies (3 × 4 → 7) — `addInstead` | **live** (`mul_groups`) |
+| 4 | Maths | Tables and 2-digit × 1-digit | forgets the carry (23 × 4 → 82) — `forgetCarryMul` | **live** (`mul_2x1_carry`) |
+| 3 | Maths | Division as sharing | takes away instead of sharing (12 ÷ 3 → 9) — `subtractInstead` | **live** (`div_sharing`) |
 | 3 | Maths | Fractions as equal parts | counts parts that are not equal; bigger denominator = bigger fraction | planned |
 | 1–2 | Literacy (EN + HI) | Letter-sound blending | says each sound but cannot join them; guesses from the first letter; mixes look-alike letters (b/d, ब/व) | specified (AGENTS §7.11) |
 | 1–2 | Literacy (HI) | Matras | drops the matra (कि / की); reads a half letter as a full one; puts ि after the consonant | planned |

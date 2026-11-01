@@ -18,6 +18,11 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
   reduced-motion / reduced-transparency / high-contrast fallbacks (#48).
 - Dark glass theme (operator's request): near-black base with teal/mint glows, translucent glass panels, mint
   buttons, lighter child colours so every text colour passes WCAG AA (axe in e2e); PWA theme colour updated (#49).
+- Five more arithmetic modules really play (operator's request): adding to 9 (Class 1), addition with carrying (Class 2),
+  multiplication as groups and division as sharing (Class 3), tables / 2-digit × 1-digit (Class 4). The engine now
+  takes an `operation` (add · sub · mul · div) from the lesson file; each module's mistake is a rule in `bugs.ts`;
+  Director @5 and Children @4 are told the operation; `npm run smoke:modules` checks every live module on the live
+  site. Literacy and EVS modules stay "coming soon" (#57).
 - `/modules`: the catalogue of Classes 1–5 × Maths, Hindi, English, EVS (46 modules, EN + HI names); the one live
   module has its Start button, every other one is marked "coming soon" — the product's shape, nothing pretended (#56).
 - Lesson file v5 (operator's decision): only Ravi carries a mistake; Arjun and Meena answer correctly (like Sana, who

@@ -2,9 +2,9 @@
  * The engine's own types (AGENTS.md 7.8). EngineState is saved as JSON in sessions.state after every turn.
  */
 import type { ChildId, ChildState, Lang, Move } from "@/lib/contracts";
-import type { Sum } from "./bugs";
+import type { Operation, Sum } from "./bugs";
 
-export type { Sum };
+export type { Operation, Sum };
 
 export type Parrot = { sum: Sum; answer: number };
 
@@ -12,6 +12,8 @@ export type EngineState = {
   scenarioId: string;
   scenarioVersion: number;
   lang: Lang;
+  /** The lesson's arithmetic, copied from the lesson file. Missing in lessons stored before 1 Nov = "sub". */
+  operation?: Operation;
   currentSum: Sum;
   children: ChildState[];
   /** A child told the answer repeats it — for this sum only. Cleared when the sum changes. */
@@ -41,8 +43,10 @@ export const DEFAULT_MOVE_EFFECTS: MoveEffects = {
   engagementDown: ["move_on_or_scold"],
 };
 
-/** How a child speaks this turn (AGENTS.md 7.5). */
-/** cannot = she asked to take a bigger number from a smaller one; not_today = addition, ×, ÷, 3 digits (no number). */
+/**
+ * How a child speaks this turn (AGENTS.md 7.5). cannot = a task this operation can't do (sub: a bigger number from a
+ * smaller one; div: it doesn't share out equally); not_today = another operation or numbers too big (no number).
+ */
 export type SpeakMode = "answer" | "explain" | "parrot" | "react" | "puzzled" | "cannot" | "not_today";
 
 /** One child who speaks this turn, and the exact number the line must contain (null = no number). */
@@ -50,7 +54,10 @@ export type Speaker = {
   child: ChildId;
   mode: SpeakMode;
   mustSay: number | null;
-  /** Only in explain mode: the steps behind the child's belief, e.g. ["8 - 3 = 5", "4 - 1 = 3", "so 35"]. */
+  /**
+   * Only in explain mode: the steps behind the child's belief, e.g. ["8 - 3 = 5", "4 - 1 = 3", "so 35"] or, in an
+   * adding lesson, ["7 + 5 = 12, so 2", "2 + 3 = 5", "so 52"].
+   */
   steps?: string[];
 };
 

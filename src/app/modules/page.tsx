@@ -10,8 +10,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 /**
- * The catalogue: every class and subject up to Class 5, the one live module with its Start button, the rest
- * marked "coming soon" — so the shape of the product is visible without pretending anything is built.
+ * The catalogue: every class and subject up to Class 5, each live module with its own Start button (it opens a
+ * lesson on that module's file), the rest marked "coming soon" — so the shape of the product is visible without
+ * pretending anything is built.
  */
 export default async function ModulesPage() {
   const user = await requirePageUser();
@@ -49,7 +50,7 @@ export default async function ModulesPage() {
                               {t("modules.live", lang)}
                             </span>
                           </div>
-                          {canStart && <StartButton />}
+                          {canStart && <StartButton scenarioId={m.scenarioId} />}
                         </li>
                       ) : (
                         <li key={m.id} className="tile-alt flex items-start justify-between gap-3 p-4">

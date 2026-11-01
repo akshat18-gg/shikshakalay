@@ -1,0 +1,98 @@
+# Module — Class 3 maths: division as sharing (12 sticks shared equally among 3 children → 4 each). Ravi takes away instead of sharing.
+# Written Sun 1 Nov (generated for the operator's "all modules working" request). Same shape as sub_2digit.yaml; the engine decides every number.
+# Hindi reviewed Sun 1 Nov 2026 (native-level pass: classroom register, gender agreement, everyday words). Bump `version` on every change.
+
+id: div_sharing
+version: 1
+operation: div
+title:
+  en: "Division as sharing"
+  hi: "बाँटकर भाग"
+grade: 3
+languages: [en, hi]
+
+# The first task starts the lesson. The rest are for evals and suggestions. Every one divides exactly.
+sums: ["12/3", "10/2", "15/5", "8/4", "18/3", "20/4"]
+
+# Up to 50 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, share, sharing, "share equally", divide, "divided by", equally, each, groups, piles, sticks, sweets,
+   रवि, अर्जुन, मीना, सना, बाँटो, बाँटना, बराबर, भाग, "भाग दो", "हर एक", ढेरी, तीली, तीलियाँ, टॉफ़ी, बच्चों]
+
+children:
+  # Operator's rule (1 Nov): one child carries the mistake; the rest of the class gets it right.
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: subtractInstead
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "I take the small number away from the big number. That is my answer."
+    sampleLines:
+      en: ["9, Teacher! I did it first!", "Easy! Just take away. 9!", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
+      hi: ["9, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! बस घटा दिया, 9!", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
+
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with sticks. Likes to deal them out one by one, one for each child, and show it."
+    explainsAs: "I give one stick to each child, again and again, until the sticks are over. Then I count what each child got."
+    sampleLines:
+      en: ["4, Teacher! Everyone gets 4.", "I gave one to each, one to each, till they were over.", "Easy, Teacher!", "I can show it with sticks!", "Done, Teacher!"]
+      hi: ["4, टीचर जी! सबको 4 मिलीं।", "मैंने सबको एक-एक करके बाँटीं, जब तक खत्म नहीं हो गईं।", "आसान है, टीचर जी!", "मैं तीलियों से दिखा सकता हूँ!", "हो गया, टीचर जी!"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Makes one small pile for each child and checks that every pile is the same. Speaks softly."
+    explainsAs: "I make equal piles, one pile for each child, and check that every pile has the same."
+    sampleLines:
+      en: ["Wait… I'm making the piles… 4.", "Every pile has 4, Teacher.", "One minute, Teacher… I'm still sharing.", "Let me check the piles again slowly.", "I think all the piles are the same."]
+      hi: ["रुकिए… मैं ढेरियाँ बना रही हूँ… 4।", "हर ढेरी में 4 हैं, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी बाँट रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से देख लूँ।", "मुझे लगता है सब ढेरियाँ बराबर हैं।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I give everyone the same, one at a time, so it is fair."
+    sampleLines:
+      en: ["Umm… 4, Teacher?", "I gave everyone the same…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["वो… 4, टीचर जी?", "मैंने सबको बराबर-बराबर दीं…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
+
+# What each move does in this skill (the engine's rules use these groups).
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! Everyone gets the same."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+    cannot: "Teacher, we can't share it equally!"
+    notToday: "Teacher, today we are doing sharing sums!"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! सबको बराबर मिला।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, ये तो बराबर बँटेगा ही नहीं!"
+    notToday: "टीचर जी, आज तो हम बाँटना सीख रहे हैं ना?"

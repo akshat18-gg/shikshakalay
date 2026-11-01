@@ -88,7 +88,7 @@ describe("lesson routes (mock mode)", () => {
   it("lists the scenarios", async () => {
     const res = await scenarios(req("/api/scenarios"), undefined);
     const list = (await res.json()) as { id: string }[];
-    expect(list.map((s) => s.id)).toEqual(["sub_2digit"]);
+    expect(list.map((s) => s.id)).toContain("sub_2digit"); // the other modules' files sit beside it since 1 Nov
   });
 
   it("starts a Hindi lesson with the children's hello", async () => {

@@ -6,6 +6,7 @@
 import { ClaudeCallError, askJson } from "@/lib/ai/claude";
 import { type SpeakerBrief, childrenSystem, childrenUser, version } from "@/lib/ai/prompts/children";
 import { type ChildId, type ChildLine, ChildLines } from "@/lib/contracts";
+import { answerOf, formatTask } from "./bugs";
 import { namesFor } from "./director";
 import { checkLine, fillBackup, numbersIn, strictReminder } from "./guardrails";
 import type { AiTurnContext, Speaker } from "./types";
@@ -28,7 +29,8 @@ export async function writeLines(
   if (speakers.length === 0) return { lines: [], records: [] };
   const names = namesFor(ctx);
   const sum = ctx.state.currentSum;
-  const correct = sum[0] - sum[1];
+  const op = ctx.scenario.operation;
+  const correct = answerOf(op, sum[0], sum[1]);
   const childOf = (id: ChildId) => ctx.state.children.find((c) => c.id === id)!;
   const brief = (sp: Speaker): SpeakerBrief => ({ ...sp, name: names[sp.child], state: childOf(sp.child).state });
 
@@ -42,7 +44,7 @@ export async function writeLines(
         system: childrenSystem(ctx.scenario),
         user: childrenUser({
           lang: ctx.state.lang,
-          currentSum: `${sum[0]}-${sum[1]}`,
+          currentSum: formatTask(op, sum),
           recent: ctx.recent,
           names,
           speakers: group.map(brief),
@@ -66,8 +68,13 @@ export async function writeLines(
   const teacherNumbers = numbersIn(ctx.teacher);
   const allowedFor = (sp: Speaker): number[] | undefined =>
     sp.mustSay === null ? [...teacherNumbers, sum[0], sum[1]] : sp.mode === "parrot" ? [sum[0], sum[1]] : undefined;
+  // An explanation follows the engine's own steps, which may pass through the right answer (counting on 5 + 3 as
+  // "5, 6, 7, 8, 9" says 8): that many extra mentions are allowed — the engine wrote them, not Claude.
+  const extraCorrectFor = (sp: Speaker): number =>
+    sp.mode === "explain" && sp.steps ? numbersIn(sp.steps.join(" ")).filter((n) => n === correct).length : 0;
   const passes = (sp: Speaker, text: string | undefined) =>
-    text !== undefined && checkLine(text, sp.mustSay, sum, childOf(sp.child), allowedFor(sp)).ok;
+    text !== undefined &&
+    checkLine(text, sp.mustSay, sum, childOf(sp.child), allowedFor(sp), op, extraCorrectFor(sp)).ok;
 
   const final = new Map<ChildId, LineRecord>();
   let first = new Map<ChildId, string>();
@@ -88,7 +95,9 @@ export async function writeLines(
 
   let second = new Map<ChildId, string>();
   if (failing.length > 0 && !callFailed) {
-    const strict = failing.map((sp) => strictReminder(names[sp.child], sp.mustSay, correct, childOf(sp.child)));
+    const strict = failing.map((sp) =>
+      strictReminder(names[sp.child], sp.mustSay, correct, childOf(sp.child), extraCorrectFor(sp)),
+    );
     try {
       second = await ask(failing, strict);
     } catch (err) {

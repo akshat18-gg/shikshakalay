@@ -1,0 +1,98 @@
+# Module c2-math-carry — Class 2 addition with carrying (bundles and sticks): Ravi forgets the carry, the rest get it right.
+# Written Sun 1 Nov 2026 by the coding agent for the operator's "all modules working" request; same keys as sub_2digit.yaml.
+# Hindi reviewed Sun 1 Nov 2026 (native-level pass: classroom register, gender agreement, everyday words).
+
+id: add_2digit_carry
+version: 1
+operation: add
+title:
+  en: "Addition with carrying"
+  hi: "हासिल वाला जोड़"
+grade: 2
+languages: [en, hi]
+
+# The first sum starts the lesson. Every sum needs a carry (ones add up to 10 or more), so Ravi's mistake shows.
+sums: ["27+35", "48+17", "56+29", "39+44", "65+28", "17+76"]
+
+# Up to 40 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, bundle, bundles, sticks, carry, carrying, tens, ones, plus, add, "add up",
+   रवि, अर्जुन, मीना, सना, बंडल, तीली, तीलियाँ, दहाई, इकाई, हासिल, जोड़, जोड़ो, प्लस]
+
+children:
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: forgetCarry
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "I add the ones and write only the last digit, then I add the tens. There is nothing to carry."
+    sampleLines:
+      en: ["52, Teacher! I did it first!", "Easy! Add the ones, then add the tens.", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
+      hi: ["52, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! पहले इकाई जोड़ी, फिर दहाई।", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
+
+  # Operator's rule (1 Nov): one child carries the mistake; the rest of the class gets it right.
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with bundles and sticks. Likes to show how he tied the loose sticks into a new bundle and carried it."
+    explainsAs: "When the ones make a full bundle, I tie it up and carry it to the tens."
+    sampleLines:
+      en: ["62, Teacher! I tied a new bundle.", "I carried the new bundle to the tens, Teacher.", "Easy, Teacher!", "I can show it with sticks!", "Done, Teacher!"]
+      hi: ["62, टीचर जी! मैंने एक नया बंडल बाँधा।", "मैंने हासिल को दहाई में जोड़ दिया, टीचर जी।", "आसान है, टीचर जी!", "मैं तीलियों से दिखा सकता हूँ!", "हो गया, टीचर जी!"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Counts the sticks one at a time on her fingers and gets it right. Speaks softly."
+    explainsAs: "I count the loose sticks first; when they make a full bundle I tie it and add it to the bundles."
+    sampleLines:
+      en: ["Wait… I'm counting the sticks… 62.", "I tied the extra sticks into a bundle… I got 62, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
+      hi: ["रुकिए… तीलियाँ गिन रही हूँ… 62।", "तीलियों का एक बंडल बाँधा… मेरा 62 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I tie the extra sticks into a bundle and carry it."
+    sampleLines:
+      en: ["Umm… 62, Teacher?", "I made a new bundle…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["वो… 62, टीचर जी?", "मैंने एक नया बंडल बनाया…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
+
+# What each move does in this skill (the engine's rules use these groups).
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! I tied a new bundle."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+    cannot: "Teacher, we can't make that sum with our sticks!"
+    notToday: "Teacher, today we are doing adding sums!"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! मैंने एक नया बंडल बाँधा।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, ये सवाल तो हमारी तीलियों से नहीं बनेगा!"
+    notToday: "टीचर जी, आज तो हम जोड़ना सीख रहे हैं ना?"

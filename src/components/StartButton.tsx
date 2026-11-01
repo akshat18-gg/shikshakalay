@@ -1,6 +1,9 @@
 "use client";
 
-/** "Start practice": creates a lesson in the screen language, then opens the practice room. */
+/**
+ * "Start practice": creates a lesson in the screen language, then opens the practice room.
+ * `scenarioId` picks the module (lesson file); the home page uses the default, /modules passes each live module's id.
+ */
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -8,7 +11,7 @@ import { ApiClientError, startLesson } from "@/lib/api";
 import { ErrorNote } from "./ErrorNote";
 import { useLang, useT } from "./LangProvider";
 
-export function StartButton() {
+export function StartButton({ scenarioId = "sub_2digit" }: { scenarioId?: string }) {
   const t = useT();
   const lang = useLang();
   const router = useRouter();
@@ -19,7 +22,7 @@ export function StartButton() {
     setBusy(true);
     setError(null);
     try {
-      const lesson = await startLesson({ scenarioId: "sub_2digit", lang });
+      const lesson = await startLesson({ scenarioId, lang });
       router.push(`/practice/${lesson.sessionId}`);
     } catch (err) {
       setError(err instanceof ApiClientError ? err : new ApiClientError("internal"));

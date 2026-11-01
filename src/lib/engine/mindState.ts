@@ -5,7 +5,7 @@
  * but the mistake stays.
  */
 import type { ChildId, ChildState, DirectorOutput, Move } from "@/lib/contracts";
-import { answerWith, parseTask } from "./bugs";
+import { type Operation, answerOf, answerWith, parseTask } from "./bugs";
 import { DEFAULT_MOVE_EFFECTS, type EngineState, type MoveEffects, type Parrot, type Sum } from "./types";
 
 const sameSum = (x: Sum | null, y: Sum) => x !== null && x[0] === y[0] && x[1] === y[1];
@@ -59,12 +59,14 @@ export function applyMove(
   effects: MoveEffects = DEFAULT_MOVE_EFFECTS,
 ): EngineState {
   const move = effectiveMove(director);
+  const op = state.operation ?? "sub"; // lessons stored before the field existed are take-away
   let currentSum = state.currentSum;
   let parrots = state.parrots;
 
-  // A task the engine can't play (bigger from smaller, addition, ×, 3 digits) changes nothing at all:
-  // one child answers without a number (speakers.ts) and the lesson stays on its sum.
-  const task = parseTask(director.newTask, state.currentSum);
+  // A task this lesson can't play (another operation, numbers too big, or one its operation can't do — sub: a
+  // bigger number from a smaller one; div: not exact or by 0) changes nothing at all: one child answers without a
+  // number (speakers.ts) and the lesson stays on its sum.
+  const task = parseTask(director.newTask, state.currentSum, op);
   if (task.kind === "impossible" || task.kind === "unsupported") return state;
   if (task.kind === "sum") {
     // A told answer is "for this sum only": asking the same sum again keeps it, a different sum clears it
@@ -77,7 +79,7 @@ export function applyMove(
   const children = state.children.map((c) => (targets.has(c.id) ? changeChild(c, move, currentSum, effects) : c));
 
   if (move === "tell_answer") {
-    const told: Parrot = { sum: currentSum, answer: currentSum[0] - currentSum[1] };
+    const told: Parrot = { sum: currentSum, answer: answerOf(op, currentSum[0], currentSum[1]) };
     parrots = { ...parrots };
     for (const id of targets) parrots[id] = told;
   }
@@ -85,20 +87,28 @@ export function applyMove(
   return { ...state, currentSum, parrots, children };
 }
 
-/** What the child really thinks the answer is. WOBBLY is right only on the sum worked on with the teacher. */
-export function beliefAnswer(child: ChildState, [a, b]: Sum): number {
-  if (child.bug === null || child.state === "GOT_IT") return a - b;
-  if (child.state === "WOBBLY" && sameSum(child.workedSum, [a, b])) return a - b;
-  return answerWith(child.bug, a, b);
+/**
+ * What the child really thinks the answer is. WOBBLY is right only on the sum worked on with the teacher.
+ * `op` is the lesson's operation (every grown signature defaults to take-away, so older callers stay correct).
+ */
+export function beliefAnswer(child: ChildState, [a, b]: Sum, op: Operation = "sub"): number {
+  if (child.bug === null || child.state === "GOT_IT") return answerOf(op, a, b);
+  if (child.state === "WOBBLY" && sameSum(child.workedSum, [a, b])) return answerOf(op, a, b);
+  return answerWith(child.bug, a, b, op);
 }
 
 /** What the child says out loud: a told answer for this sum, otherwise what it believes. */
-export function spokenAnswer(child: ChildState, sum: Sum, parrots: EngineState["parrots"]): number {
+export function spokenAnswer(
+  child: ChildState,
+  sum: Sum,
+  parrots: EngineState["parrots"],
+  op: Operation = "sub",
+): number {
   const parrot = parrots[child.id];
-  return parrot && sameSum(parrot.sum, sum) ? parrot.answer : beliefAnswer(child, sum);
+  return parrot && sameSum(parrot.sum, sum) ? parrot.answer : beliefAnswer(child, sum, op);
 }
 
 /** Does the child's belief come from its mistake (true) or from the right method (false)? */
-export function believesMistake(child: ChildState, sum: Sum): boolean {
-  return child.bug !== null && beliefAnswer(child, sum) !== sum[0] - sum[1];
+export function believesMistake(child: ChildState, sum: Sum, op: Operation = "sub"): boolean {
+  return child.bug !== null && beliefAnswer(child, sum, op) !== answerOf(op, sum[0], sum[1]);
 }

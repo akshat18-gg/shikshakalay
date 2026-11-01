@@ -1,14 +1,15 @@
 /**
  * Lesson files: content/scenarios/<id>.yaml (AGENTS.md 7.1). Checked strictly when loaded — both languages
- * complete, every mistake exists in bugs.ts, every sum needs borrowing — so a broken file fails loudly at the
- * first request instead of in the middle of a teacher's lesson. Loaded once, then kept in memory.
+ * complete, every mistake exists in bugs.ts and belongs to the file's operation, every sum fits that operation
+ * (sub: 2-digit with borrowing) and shows every mistake — so a broken file fails loudly at the first request
+ * instead of in the middle of a teacher's lesson. Loaded once, then kept in memory.
  */
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { ChildId, type ChildState, type Lang, Mind, Move, type ScenarioSummary } from "@/lib/contracts";
-import { isBug, parseLessonSum } from "./bugs";
+import { LESSON_SUM_RULE, OPERATIONS, bugOperation, hidesMistake, isBug, parseLessonSum } from "./bugs";
 import type { EngineState, MoveEffects, Sum } from "./types";
 
 const text = z.string().trim().min(1);
@@ -54,10 +55,11 @@ export const Scenario = z
     version: z.number().int().min(1),
     title: Bilingual,
     grade: z.number().int().min(1).max(5),
+    /** The arithmetic this lesson plays. A file that says nothing means take-away (the first module). */
+    operation: z.enum(OPERATIONS).default("sub"),
     languages: z.array(z.enum(["en", "hi"])).refine((l) => l.includes("en") && l.includes("hi"), "needs en and hi"),
-    sums: z
-      .array(z.string().refine((s) => parseLessonSum(s) !== null, "must be a 2-digit sum that needs borrowing"))
-      .min(1),
+    /** Checked against `operation` below — a field-level check can't see it. */
+    sums: z.array(z.string()).min(1),
     keyterms: z.array(text).max(50),
     children: z
       .array(Child)
@@ -75,7 +77,32 @@ export const Scenario = z
       .strict(),
     backupLines: z.object({ en: BackupLines, hi: BackupLines }).strict(),
   })
-  .strict();
+  .strict()
+  .superRefine((s, ctx) => {
+    // The checks that need the whole file: every mistake belongs to the operation, every sum fits the operation and
+    // shows every mistake (a mistake a sum hides would make the child look right by accident).
+    const mistakes = s.children.flatMap((c) => (c.bug !== null && isBug(c.bug) ? [c.bug] : []));
+    s.children.forEach((c, i) => {
+      if (c.bug !== null && isBug(c.bug) && !isBug(c.bug, s.operation)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["children", i, "bug"],
+          message: `${c.bug} is a "${bugOperation(c.bug)}" mistake, not one for a "${s.operation}" lesson`,
+        });
+      }
+    });
+    s.sums.forEach((written, i) => {
+      const sum = parseLessonSum(written, s.operation);
+      if (!sum) {
+        ctx.addIssue({ code: "custom", path: ["sums", i], message: LESSON_SUM_RULE[s.operation] });
+        return;
+      }
+      for (const bug of mistakes) {
+        const why = hidesMistake(bug, sum);
+        if (why) ctx.addIssue({ code: "custom", path: ["sums", i], message: why });
+      }
+    });
+  });
 
 export type Scenario = z.infer<typeof Scenario>;
 export type BackupKey = keyof Scenario["backupLines"]["en"];
@@ -150,7 +177,7 @@ export function backupLine(s: Scenario, lang: Lang, key: BackupKey, answer?: num
   return s.backupLines[lang][key].replace("{answer}", answer === undefined ? "" : String(answer));
 }
 
-/** The state a new lesson starts in: the first sum, every child as the file describes. */
+/** The state a new lesson starts in: the file's operation, its first sum, every child as the file describes. */
 export function startState(s: Scenario, lang: Lang, startedAt: string): EngineState {
   const children: ChildState[] = s.children.map((c) => ({
     id: c.id,
@@ -164,7 +191,8 @@ export function startState(s: Scenario, lang: Lang, startedAt: string): EngineSt
     scenarioId: s.id,
     scenarioVersion: s.version,
     lang,
-    currentSum: parseLessonSum(s.sums[0]) as Sum,
+    operation: s.operation,
+    currentSum: parseLessonSum(s.sums[0], s.operation) as Sum,
     children,
     parrots: {},
     turnCount: 0,
