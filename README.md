@@ -28,7 +28,7 @@ sticks, does. At the end she gets one strength, one fix and one line to try tomo
 ## Try it (judges)
 
 1. Open https://shikshakalay.onrender.com (the first load after a quiet spell can take ~30 s — free hosting).
-2. Log in with a demo account. PIN for all three: **`DEMO-PIN-HERE`** (demo-only, not a secret).
+2. Log in with a demo account. PIN for all three: **`1234`** (demo-only, not a secret).
 
 | Role | ID | What you see |
 |---|---|---|

@@ -8,7 +8,7 @@
 - **Video (YouTube, public):** VIDEO-LINK-HERE
 - **Deck:** DECK-LINK-HERE
 
-## Test logins (one per role) — PIN for all: DEMO-PIN-HERE
+## Test logins (one per role) — PIN for all: 1234
 | Role | ID | Start here |
 |---|---|---|
 | Teacher | `teacher_demo` | "Start practice", or "Try a sample" for the 5 one-tap samples |
