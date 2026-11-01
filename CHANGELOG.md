@@ -18,6 +18,8 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
   reduced-motion / reduced-transparency / high-contrast fallbacks (#48).
 - Dark glass theme (operator's request): near-black base with teal/mint glows, translucent glass panels, mint
   buttons, lighter child colours so every text colour passes WCAG AA (axe in e2e); PWA theme colour updated (#49).
+- `/modules`: the catalogue of Classes 1–5 × Maths, Hindi, English, EVS (46 modules, EN + HI names); the one live
+  module has its Start button, every other one is marked "coming soon" — the product's shape, nothing pretended (#56).
 - Lesson file v5 (operator's decision): only Ravi carries a mistake; Arjun and Meena answer correctly (like Sana, who
   stays shy). Their mistake rules stay in `bugs.ts` for tests, evals and future lesson files (#54).
 - Fix: a told answer now survives the teacher asking the *same* sum again ("No, it's 19." → "So what is 23 − 4?" →

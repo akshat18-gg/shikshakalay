@@ -41,6 +41,9 @@ export default async function Home() {
         <p className="mt-2 text-muted-foreground">{t("home.skillHint", lang)}</p>
         <BundlesSticks tens={4} ones={3} className="mt-6 h-24 w-auto max-w-full" />
         <StartButton />
+        <Link href="/modules" className="mt-3 inline-flex min-h-11 items-center text-mint hover:underline">
+          {t("home.allModules", lang)} →
+        </Link>
       </section>
 
       <section aria-labelledby="last-card">

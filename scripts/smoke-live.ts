@@ -161,6 +161,7 @@ async function main() {
 
   if (roles) {
     await step("teacher: /try opens", () => expectPage("/try"));
+    await step("teacher: /modules opens", () => expectPage("/modules"));
     await step("teacher: /trainer is blocked", async () => {
       const res = await request("/trainer", { redirect: "manual" });
       if (res.status === 200) throw new Error("a teacher could open /trainer");

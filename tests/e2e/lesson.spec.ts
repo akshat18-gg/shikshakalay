@@ -35,10 +35,14 @@ test("a teacher practises a lesson and gets a card", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Your coaching card");
 });
 
-test("the login and home pages have no serious accessibility problems", async ({ page }) => {
+test("the login, home and modules pages have no serious accessibility problems", async ({ page }) => {
   await page.goto("/login");
   await noSeriousA11yIssues(page);
   await login(page, "teacher_demo");
+  await noSeriousA11yIssues(page);
+  await page.goto("/modules");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Modules by class");
+  await expect(page.getByText("Coming soon").first()).toBeVisible();
   await noSeriousA11yIssues(page);
 });
 
