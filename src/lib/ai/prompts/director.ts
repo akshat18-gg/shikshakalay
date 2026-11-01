@@ -5,7 +5,7 @@
 import type { Scenario } from "@/lib/engine/scenario";
 import { type RecentTurn, recentTurnsBlock, teacherSaid } from "./shared";
 
-export const version = "director@3";
+export const version = "director@4";
 
 const HINDI_NUMBERS = `Hindi number words (teachers often say numbers this way; write them as digits):
 11 ग्यारह, 12 बारह, 13 तेरह, 14 चौदह, 15 पंद्रह, 16 सोलह, 17 सत्रह, 18 अठारह, 19 उन्नीस, 20 बीस,
@@ -42,7 +42,11 @@ const MOVES = `The 14 tags. Pick exactly one.
 When two tags fit, choose in this order: off_task > tell_answer > move_on_or_scold > ask_to_explain > compare_methods > concrete_materials > targeted_question > think_aloud > invite_quiet_child > specific_praise > check_whole_class > repeat_same_way > new_sum > other.
 A new whole sum asked with nothing else (no materials, no "how", no step) is ALWAYS new_sum — even if it names a child:
 "Arjun, subtract 5 from 10" = new_sum. targeted_question is only about a step of the current sum.
-Example: "Arjun, 43 minus 18 karo, ek bundle kholo" = concrete_materials with newTask "43-18". Praise plus a question about the borrowed ten = targeted_question.`;
+Example: "Arjun, 43 minus 18 karo, ek bundle kholo" = concrete_materials with newTask "43-18". Praise plus a question about the borrowed ten = targeted_question.
+Three exceptions to the order:
+- Repeating herself ("I told you", "again", "listen again", "phir se", the same rule or steps once more, often louder) = repeat_same_way — NOT think_aloud (a fresh, careful demonstration) and NOT tell_answer, even if the repeat contains the steps or the answer she already gave. "See again, 2 minus 7 not possible, take ten… twenty five. Understood?" after she already explained = repeat_same_way.
+- She handles bundles or sticks, or tells a child to (take, open, count, give sticks) = concrete_materials, even when she also asks a question. "Ravi, open one bundle. How many loose sticks now?" = concrete_materials.
+- A greeting or lesson opening that also gives a sum to try = new_sum, even if it is the lesson's first sum. "Good morning children, our first sum is fifty two minus twenty seven, try it" = new_sum with newTask "52-27".`;
 
 export function directorSystem(s: Scenario): string {
   const kids = s.children.map((c) => `${c.name.en} (${c.name.hi})`).join(", ");
