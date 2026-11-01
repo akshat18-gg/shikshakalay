@@ -59,8 +59,7 @@ trainers see totals from 5+ teachers only.
 opens offline; retries never double a turn (idempotency keys); the WhatsApp voice-note door (built, ≈ 3 KB/s audio)
 is ready for teachers without a good browser once a paid Twilio number is connected.
 
-**User testing:** PILOT-SUMMARY-HERE (e.g. "N teachers, Classes 1–3, Hindi and English medium, M lessons; ease 6.1/7;
-what we changed: …" — only with ≥ 5 teachers; else say how many and what we learned).
+**User testing:** 10 pilot logins (P01–P10) went out on Sat 31 Oct with a 1-page guide and Hindi/English consent. As of Sun 1 Nov, 5:20 pm IST, no pilot teacher had completed a lesson on the live site (0 lessons, 0 feedback forms) — we report that honestly. Testing so far: the team on real Android phones (spoken Hindi and English lessons, every role), 100 synthetic eval lessons and 20 red-team cases. (Update this line if teachers try it before submitting: `npm run pilot:stats`.)
 
 **Eval results:** 100 synthetic lessons (50 weak, 50 strong; half Hindi/Hinglish), run through the real engine with
 real Claude (Sun 1 Nov): children kept their mistake under weak teaching in **100 %** of weak lessons and were taught
