@@ -7,12 +7,13 @@ import { LogoutButton } from "./LogoutButton";
 
 export function TopBar({ lang, loggedIn }: { lang: Lang; loggedIn: boolean }) {
   return (
-    <header className="sticky top-0 z-10 bg-navy text-white">
+    // A translucent navy material: the page scrolls under it; the soft edge replaces a hard divider.
+    <header className="material-navy edge-bottom sticky top-0 z-10 text-white">
       {/* Phones: name + language on the first row, History and Log out on a second row. Wider: one row. */}
       <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-3 px-4 py-1 sm:py-2">
         <Link
           href="/"
-          className="flex min-h-11 items-center text-lg font-bold tracking-tight outline-none focus-visible:ring-3 focus-visible:ring-mint"
+          className="press flex min-h-11 items-center text-lg font-bold tracking-tight outline-none focus-visible:ring-3 focus-visible:ring-mint"
         >
           {t("app.name", lang)}
         </Link>
@@ -23,13 +24,13 @@ export function TopBar({ lang, loggedIn }: { lang: Lang; loggedIn: boolean }) {
           <nav className="flex w-full justify-end gap-4 border-t border-white/20 sm:w-auto sm:border-0 sm:ml-auto">
             <Link
               href="/try"
-              className="min-h-11 content-center px-1 text-sm underline outline-none focus-visible:ring-3 focus-visible:ring-mint"
+              className="press min-h-11 content-center px-1 text-sm underline decoration-white/50 underline-offset-4 outline-none hover:decoration-white focus-visible:ring-3 focus-visible:ring-mint"
             >
               {t("nav.try", lang)}
             </Link>
             <Link
               href="/history"
-              className="min-h-11 content-center px-1 text-sm underline outline-none focus-visible:ring-3 focus-visible:ring-mint"
+              className="press min-h-11 content-center px-1 text-sm underline decoration-white/50 underline-offset-4 outline-none hover:decoration-white focus-visible:ring-3 focus-visible:ring-mint"
             >
               {t("nav.history", lang)}
             </Link>

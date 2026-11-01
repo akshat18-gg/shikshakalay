@@ -20,7 +20,7 @@ export default async function TrainerPage() {
   const maxUses = Math.max(1, ...v.moves.map((m) => m.uses ?? 0));
   const bar = (pct: number, cls: string) => (
     <div className="h-3 w-full bg-pale" aria-hidden="true">
-      <div className={`h-3 ${cls}`} style={{ width: `${Math.max(2, Math.min(100, pct))}%` }} />
+      <div className={`bar-in h-3 ${cls}`} style={{ width: `${Math.max(2, Math.min(100, pct))}%` }} />
     </div>
   );
 

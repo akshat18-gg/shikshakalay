@@ -13,6 +13,9 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
 - director@4 (repeats, hands-on materials, the opening sum): eval run 2 Director accuracy 89.1 % vs 84.1 % for
   director@3 on the same key; red team 20/20 (#37).
 - Video script for the web-only (Plan B) demo; read-only `npm run pilot:stats`.
+- UI polish (visual and motion only): instant press feedback, translucent top bar and composer, chat lines that
+  fade up as they arrive, a smooth recording ring, size-specific type with looser Devanagari leading, and
+  reduced-motion / reduced-transparency / high-contrast fallbacks (#48).
 
 ### Sat 31 Oct — evals, WhatsApp voice notes, hardening, docs
 - Label check: a blind second labelling pass (Claude Sonnet 5.5) over all 800 eval teacher lines, a review sheet for

@@ -58,8 +58,10 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
   }, []);
 
   // Scroll the page (not an element) so the newest line sits above the sticky composer, never under it.
+  // Smooth, so the eye can follow the new line arriving — unless the person asked for reduced motion.
   useEffect(() => {
-    window.scrollTo({ top: document.documentElement.scrollHeight });
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: reduce ? "auto" : "smooth" });
   }, [turns, pending]);
 
   /** Phones only let a page play sound after a tap: play silence on the first one, reuse the same element after. */
@@ -141,17 +143,29 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
   return (
     <div className="flex min-h-[calc(100dvh-8rem)] flex-col gap-3">
       <div className="flex items-center justify-between gap-2 border-b border-border pb-2">
+        {/* Each child's name with a coloured dot; a withdrawn child (engagement 0) goes grey with a hollow dot. */}
         <ul className="flex flex-wrap gap-x-3 gap-y-1" aria-label={t("practice.title")}>
           {CHILDREN.map((id) => {
             const quiet = states.find((c) => c.id === id)?.engagement === 0;
             return (
-              <li key={id} className={`font-semibold ${quiet ? "text-muted-foreground" : CHILD_STYLE[id].text}`}>
+              <li
+                key={id}
+                className={`flex items-center gap-1.5 font-semibold transition-colors duration-300 ${quiet ? "text-muted-foreground" : CHILD_STYLE[id].text}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className={`size-2 rounded-full transition-colors duration-300 ${quiet ? "border border-current" : CHILD_STYLE[id].dot}`}
+                />
                 {t(CHILD_STYLE[id].name)}
               </li>
             );
           })}
         </ul>
-        <p className="shrink-0 text-sm tabular-nums text-muted-foreground" aria-live="off">
+        {/* The last minute turns the clock red: a warning before the lesson ends, not after. */}
+        <p
+          className={`shrink-0 text-sm tabular-nums transition-colors duration-300 ${left > 0 && left <= 60_000 ? "font-semibold text-destructive" : "text-muted-foreground"}`}
+          aria-live="off"
+        >
           {t("practice.timeLeft", { time: formatClock(left) })}
         </p>
       </div>
@@ -168,7 +182,12 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
           {pending && (
             <>
               <TeacherBubble text={pending} />
-              <li className="text-sm text-muted-foreground" aria-busy="true">
+              <li className="bubble-in flex items-center gap-2 text-sm text-muted-foreground" aria-busy="true">
+                <span className="dots flex items-center gap-1" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </span>
                 {t("practice.thinking")}
               </li>
             </>
@@ -188,7 +207,8 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
         </p>
       )}
 
-      <div className="sticky bottom-0 flex flex-col gap-3 border-t border-border bg-background pt-3 pb-2">
+      {/* The composer is a light material pinned to the bottom; the chat scrolls under it. */}
+      <div className="material-light edge-top sticky bottom-0 -mx-4 flex flex-col gap-3 px-4 pt-3 pb-2">
         {over || timeUp ? (
           <>
             <p className="font-semibold">{t("practice.lessonOver")}</p>
@@ -227,7 +247,7 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
                 maxLength={1000}
                 autoComplete="off"
                 disabled={busy}
-                className="h-11 min-w-0 flex-1 border border-input px-3 outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="h-11 min-w-0 flex-1 border border-input bg-background px-3 outline-none transition-[box-shadow,border-color] duration-150 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
               />
               <Button type="submit" disabled={busy || !text.trim()}>
                 {t("practice.send")}
