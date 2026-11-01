@@ -204,8 +204,39 @@ These are our own pass marks; we report the real numbers even where they fall sh
 
 ## Roadmap
 
-Tamil and more Indian languages · Glific on a verified WhatsApp Business number · more skills (letter-sound blending,
-place value) · adaptive difficulty · trainer replay of expert moves · IVR for feature phones.
+### Why one skill today, and how the rest follow
+
+Every wrong answer a child gives comes from a hand-written rule about a **known misconception** (not from the model),
+with its explain-steps, Hindi and English lines, teaching-move effects and labelled eval lessons. That content is what
+each module costs — about a day of work per skill — so this build does one skill deeply and measurably. The code is
+already multi-skill: a lesson is a YAML scenario file (`content/scenarios/`), lessons start with a `scenarioId`, and
+`GET /api/scenarios` lists what is installed. Adding a module means: (1) misconception rules + explain-steps in
+`src/lib/engine/bugs.ts`, (2) a scenario file with four children, sample and backup lines in both languages,
+(3) a few Director examples for that skill's tasks, (4) 50–100 synthetic eval lessons. The 12 teaching moves, the
+mind-state rules, the line check, the coach and the quote check are skill-independent and stay as they are.
+
+One engine change unlocks the maths modules: the task parser and "correct answer" are subtraction-only today
+(`a − b`); making them per-skill (`operation` in the scenario file, `answerOf(task)`, one bug registry per skill) is
+about a day.
+
+### Modules by grade (Classes 1–3, aligned with NIPUN Bharat foundational goals; Hindi + English)
+
+| Grade | Subject | Module | The children's mistakes we would model | Status |
+|---|---|---|---|---|
+| 1–2 | Maths | Place value and number names | reads 31 as "thirteen"; thinks the longer-looking number is bigger; counts the start number when counting on | planned |
+| 2 | Maths | Addition with carrying | writes both digits of a column (27 + 35 → 512); forgets the carry (→ 52); adds the carry twice | planned (next) |
+| 2 | Maths | **Subtraction with borrowing** | smaller-from-larger; borrow without reducing the tens; counting back off by one | **live** |
+| 3 | Maths | Multiplication as groups / tables | adds instead of multiplies (3 × 4 → 7); one group too many when skip-counting; 5 × 0 → 5 | planned |
+| 3 | Maths | Division as sharing | drops the remainder; "how many groups" vs "how many each"; divides in the wrong order | planned |
+| 3 | Maths | Fractions as equal parts | counts parts that are not equal; bigger denominator = bigger fraction | planned |
+| 1–2 | Literacy (EN + HI) | Letter-sound blending | says each sound but cannot join them; guesses from the first letter; mixes look-alike letters (b/d, ब/व) | specified (AGENTS §7.11) |
+| 1–2 | Literacy (HI) | Matras | drops the matra (कि / की); reads a half letter as a full one; puts ि after the consonant | planned |
+| 2–3 | Literacy (EN + HI) | Reading fluency and sight words | word-by-word reading; swaps a similar-looking word; ignores full stops | planned |
+| 3 | Literacy (EN + HI) | Reading comprehension ("who, what, where") | answers from the picture, not the text; repeats the last sentence read | planned |
+
+Teachers would pick a grade and module on the home screen (and as a WhatsApp menu number); trainers would see skill
+gaps per module. Beyond modules: Tamil and more Indian languages · Glific on a verified WhatsApp Business number ·
+adaptive difficulty · trainer replay of expert moves · IVR for feature phones.
 
 ## Repository map
 
