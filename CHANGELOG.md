@@ -19,7 +19,7 @@ All dates are 2026, IST. Each line links to the pull request number on GitHub.
 - Dark glass theme (operator's request): near-black base with teal/mint glows, translucent glass panels, mint
   buttons, lighter child colours so every text colour passes WCAG AA (axe in e2e); PWA theme colour updated (#49).
 - Lesson file v5 (operator's decision): only Ravi carries a mistake; Arjun and Meena answer correctly (like Sana, who
-  stays shy). Their mistake rules stay in `bugs.ts` for tests, evals and future lesson files (#53).
+  stays shy). Their mistake rules stay in `bugs.ts` for tests, evals and future lesson files (#54).
 - Fix: a told answer now survives the teacher asking the *same* sum again ("No, it's 19." → "So what is 23 − 4?" →
   still 19); only a different sum brings the mistake back, as AGENTS §7.3/7.4 say (#51).
 - apple.com look (operator's request): white pages, #f5f5f7 tiles with 18 px corners, #1d1d1f text, blue links and pill
