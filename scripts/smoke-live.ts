@@ -5,6 +5,7 @@
  *   npm run smoke:live -- --url https://<app>.onrender.com
  *   npm run smoke:live -- --full                         → also ends the lesson and checks the card
  *   npm run smoke:live -- --lesson                       → also "Say 25" (they parrot) → "43 − 18?" (35 again) + a retry
+ *   npm run smoke:live -- --roles                        → also /try, teacher blocked from /trainer, trainer + admin pages
  *
  * Steps: healthz → version → log in as teacher_demo → start a lesson → "What is 52 minus 27?" →
  * Ravi 35, Arjun 35, Meena 26. Prints no secrets (the PIN and cookie never reach the output).
@@ -22,6 +23,7 @@ function arg(name: string): string | undefined {
 const base = (arg("url") ?? process.env.PUBLIC_BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const full = process.argv.includes("--full");
 const lesson = process.argv.includes("--lesson");
+const roles = process.argv.includes("--roles");
 const pin = process.env.DEMO_PIN ?? "1234";
 let cookie = "";
 
@@ -58,6 +60,25 @@ function expectSays(turn: TurnResult, child: string, number: string) {
     throw new Error(`${child} should say ${number}, said ${JSON.stringify(line?.text)}`);
 }
 
+async function logIn(code: string) {
+  cookie = "";
+  const res = await request("/api/auth/login", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ code, pin }),
+  });
+  await expectOk(res);
+  const set = res.headers.get("set-cookie");
+  if (!set) throw new Error("no session cookie");
+  cookie = set.split(";")[0];
+}
+
+/** A page must answer 200 itself (no redirect to /login or /). */
+async function expectPage(path: string) {
+  const res = await request(path, { redirect: "manual" });
+  if (res.status !== 200) throw new Error(`${path} → HTTP ${res.status} ${res.headers.get("location") ?? ""}`);
+}
+
 async function main() {
   console.log(`Smoke test → ${base}${full ? " (full)" : ""}`);
 
@@ -73,17 +94,7 @@ async function main() {
     console.log(`  live commit: ${body.commit}`);
   });
 
-  await step("log in as teacher_demo", async () => {
-    const res = await request("/api/auth/login", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ code: "teacher_demo", pin }),
-    });
-    await expectOk(res);
-    const set = res.headers.get("set-cookie");
-    if (!set) throw new Error("no session cookie");
-    cookie = set.split(";")[0];
-  });
+  await step("log in as teacher_demo", () => logIn("teacher_demo"));
 
   const started = await step("start a lesson", async () =>
     StartLessonResult.parse(
@@ -141,6 +152,23 @@ async function main() {
     });
     await step("card can be read again", async () => {
       CoachCard.parse(await expectOk(await request(`/api/sessions/${started.sessionId}/card`)));
+    });
+  }
+
+  if (roles) {
+    await step("teacher: /try opens", () => expectPage("/try"));
+    await step("teacher: /trainer is blocked", async () => {
+      const res = await request("/trainer", { redirect: "manual" });
+      if (res.status === 200) throw new Error("a teacher could open /trainer");
+    });
+    await step("log in as trainer_demo → /trainer", async () => {
+      await logIn("trainer_demo");
+      await expectPage("/trainer");
+    });
+    await step("log in as admin_demo → /admin/trace and /admin/evals", async () => {
+      await logIn("admin_demo");
+      await expectPage("/admin/trace");
+      await expectPage("/admin/evals");
     });
   }
 
