@@ -1,0 +1,103 @@
+# Module add_to_9 — Class 1, adding up to 9 by counting on (fingers, pebbles, sticks). Ravi counts the first number too (5 + 3 → "5, 6, 7, 8, 9" → 9); the others count on from it.
+# Written Sun 1 Nov 2026, generated for the operator's "all modules working" request (private/ops-spec.md). Same engine as sub_2digit: every number a child says comes from src/lib/engine/bugs.ts, never from this file or Claude.
+# Hindi reviewed Sun 1 Nov 2026 (native-level pass: classroom register, gender agreement, everyday words).
+#
+# Rules for this file:
+# - Backup lines use {answer}, which the engine fills in. Lines without {answer} must contain no numbers.
+# - All sums: two one-digit numbers whose total is at most 9 (counting on with ten fingers).
+# - Both languages must be complete, or the engine refuses to start.
+
+id: add_to_9
+version: 1
+operation: add
+title:
+  en: "Adding up to 9"
+  hi: "9 तक जोड़ना"
+grade: 1
+languages: [en, hi]
+
+# The first sum starts the lesson. The rest are for evals and suggestions.
+sums: ["5+3", "4+2", "6+3", "2+5", "3+4", "7+2"]
+
+# Up to 50 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, plus, add, adding, "count on", fingers, pebbles, sticks, together, "how many",
+   रवि, अर्जुन, मीना, सना, जोड़ो, जोड़, प्लस, मिलाकर, गिनो, उंगलियाँ, कंकड़, कौड़ी, तीली]
+
+children:
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: countOnOffByOne
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "I count on my fingers: I put up one finger for the first number itself, then keep counting up from there."
+    sampleLines:
+      en: ["9, Teacher! I did it first!", "Easy! I counted on my fingers and got 9.", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
+      hi: ["9, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! उंगलियों पर गिना तो 9 आया।", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
+
+  # Operator's rule (1 Nov): one child carries the mistake; the rest of the class gets it right.
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with pebbles and sticks. Likes to show how he keeps the first number in his head and counts on."
+    explainsAs: "I keep the first number in my head and count on from there, one finger for each number I add."
+    sampleLines:
+      en: ["8, Teacher! I counted on from the first number.", "I kept the first number in my head and counted on, Teacher.", "Easy, Teacher!", "I can show it with pebbles!", "Done, Teacher!"]
+      hi: ["8, टीचर जी! मैंने पहले वाले नंबर से आगे गिना।", "पहला नंबर दिमाग में रखा और आगे गिना, टीचर जी।", "आसान है, टीचर जी!", "मैं कंकड़ों से दिखा सकता हूँ!", "हो गया, टीचर जी!"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Counts on with her fingers one at a time and gets it right. Speaks softly."
+    explainsAs: "I say the first number with my fist closed, then put up one finger at a time as I count on."
+    sampleLines:
+      en: ["Wait… I'm counting on my fingers… 8.", "I counted on slowly and got 8, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
+      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 8।", "मैंने धीरे-धीरे आगे गिना, 8 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I count on from the first number with my fingers."
+    sampleLines:
+      en: ["Umm… 8, Teacher?", "I counted on with my fingers…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["वो… 8, टीचर जी?", "मैंने उंगलियों पर आगे गिना…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
+
+# What each move does in this skill (the engine's rules use these groups).
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! I counted on with my fingers."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+    cannot: "Teacher, we can't do that sum!"
+    notToday: "Teacher, today we are doing adding sums!"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! मैंने उंगलियों पर आगे गिना।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, ये सवाल तो हो ही नहीं सकता!"
+    notToday: "टीचर जी, आज तो हम जोड़ना सीख रहे हैं ना?"

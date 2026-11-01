@@ -23,6 +23,7 @@
     "evals": "LOG_SILENT=1 tsx --env-file-if-exists=.env.local evals/run.ts",
     "gen:lessons": "tsx --env-file-if-exists=.env.local evals/generate.ts",
     "smoke:live": "tsx --env-file-if-exists=.env.local scripts/smoke-live.ts",
+    "smoke:modules": "tsx --env-file-if-exists=.env.local scripts/smoke-modules.ts",
     "db:ping": "tsx --env-file-if-exists=.env.local scripts/db-ping.ts",
     "claude:smoke": "tsx --env-file-if-exists=.env.local scripts/claude-smoke.ts",
     "ai:check": "LOG_SILENT=1 tsx --env-file-if-exists=.env.local scripts/ai-check.ts",

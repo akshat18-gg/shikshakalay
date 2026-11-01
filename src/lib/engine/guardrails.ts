@@ -4,6 +4,7 @@
  * doesn't understand yet, or rambles past 30 words. Failing lines get one retry, then a backup line.
  */
 import type { ChildState, Lang } from "@/lib/contracts";
+import { type Operation, answerOf } from "./bugs";
 import { type BackupKey, type Scenario, backupLine } from "./scenario";
 import type { Speaker, Sum } from "./types";
 
@@ -28,6 +29,9 @@ export type LineVerdict =
  * `allowedNumbers` (optional): the only numbers the line may contain besides `mustSay`. A line with no number to say
  * may only repeat numbers from the teacher's words or the current sum; a parrot only the told answer and the sum —
  * so a child never says a number that doesn't belong to the question just asked.
+ * `op` is the lesson's operation: the right answer the line must not drift to is a + b, a − b, a × b or a ÷ b.
+ * `extraCorrect` (optional, default 0): how many more times the right answer may appear without counting as a
+ * drift — the engine's own explain steps can pass through it (counting on 5 + 3 as "5, 6, 7, 8, 9" says 8).
  */
 export function checkLine(
   text: string,
@@ -35,8 +39,10 @@ export function checkLine(
   [a, b]: Sum,
   child: ChildState,
   allowedNumbers?: number[],
+  op: Operation = "sub",
+  extraCorrect = 0,
 ): LineVerdict {
-  const correct = a - b;
+  const correct = answerOf(op, a, b);
   const words = text.trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return { ok: false, reason: "empty" };
   if (words.length > MAX_WORDS) return { ok: false, reason: "too_long" };
@@ -46,8 +52,10 @@ export function checkLine(
     return { ok: false, reason: "foreign_number" };
   }
   // A child who doesn't understand yet must not "accidentally" say the right answer — unless told to repeat it.
-  // When the answer equals the sum's second number (70 − 35 = 35), one 35 is fine if the line restates the sum.
-  const allowed = correct === b && nums.includes(a) ? 1 : 0;
+  // When the answer equals one of the sum's own numbers (70 − 35 = 35, 1 × 4 = 4, 12 ÷ 1 = 12), one such number is
+  // fine if the line restates the sum (it names the other number too).
+  const restates = (correct === b && nums.includes(a)) || (correct === a && nums.includes(b)) ? 1 : 0;
+  const allowed = restates + extraCorrect;
   const saysCorrect = nums.filter((n) => n === correct).length > allowed;
   if (child.state !== "GOT_IT" && mustSay !== correct && saysCorrect) return { ok: false, reason: "says_correct" };
   return { ok: true };
@@ -65,10 +73,25 @@ export function fillBackup(s: Scenario, lang: Lang, speaker: Speaker, child: Chi
   return backupLine(s, lang, key, speaker.mustSay ?? undefined);
 }
 
-/** The retry's firm reminder: "Ravi's line MUST contain 35 as digits. Do NOT say 25." */
-export function strictReminder(name: string, mustSay: number | null, correct: number, child: ChildState): string {
+/**
+ * The retry's firm reminder: "Ravi's line MUST contain 35 as digits. Do NOT say 25."
+ * `extraCorrect` > 0 means the child's own steps pass through the right answer (see checkLine), so it may be said
+ * there — only not as the answer.
+ */
+export function strictReminder(
+  name: string,
+  mustSay: number | null,
+  correct: number,
+  child: ChildState,
+  extraCorrect = 0,
+): string {
   const must =
     mustSay === null ? `${name}'s line must contain no numbers.` : `${name}'s line MUST contain ${mustSay} as digits.`;
-  const avoid = child.state !== "GOT_IT" && mustSay !== correct ? ` Do NOT say ${correct}.` : "";
+  const avoid =
+    child.state !== "GOT_IT" && mustSay !== correct
+      ? extraCorrect > 0
+        ? ` Say ${correct} only inside the steps, never as the answer.`
+        : ` Do NOT say ${correct}.`
+      : "";
   return `${must}${avoid} At most 20 words.`;
 }

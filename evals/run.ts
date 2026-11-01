@@ -32,6 +32,8 @@ const arg = (name: string) => {
 const flag = (name: string) => process.argv.includes(`--${name}`);
 
 const scenario = loadScenario("sub_2digit")!;
+// The labelled lessons, the probe and taskKey all assume take-away; fail loudly if the lesson file ever changes.
+if (scenario.operation !== "sub") throw new Error("the eval runner is subtraction-only");
 let spend = 0;
 const ai = { record: async (row: { costUsd?: number | null }) => void (spend += row.costUsd ?? 0) };
 

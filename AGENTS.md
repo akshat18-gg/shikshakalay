@@ -392,6 +392,12 @@ e.g. Ravi on 43−18 → `["8 - 3 = 5", "4 - 1 = 3", "so 35"]`; Arjun on 52−27
 Claude turns these steps into a child's words, so explanations are always consistent with the mistake.
 A correct child (`GOT_IT` or Sana) explains correct steps (`["13 - 8 = 5", "3 - 1 = 2", "so 25"]`).
 
+**Operations (solo mode, 1 Nov):** a lesson file may declare `operation: add | sub | mul | div` (default `sub`). The engine
+computes the right answer per operation (`answerOf`), parses tasks with that operation's sign (`27+35`, `23x4`, `12/3`),
+and keeps one mistake registry per operation in `bugs.ts`: `countOnOffByOne` (add, a + b + 1), `forgetCarry` (add),
+`addInstead` (mul, a + b), `forgetCarryMul` (mul), `subtractInstead` (div, a − b). The puppet rule is unchanged.
+Modules: `add_to_9`, `add_2digit_carry`, `mul_groups`, `mul_2x1_carry`, `div_sharing` (one mistaken child, Ravi).
+
 The lesson file's own sums are two 2-digit numbers that need borrowing (`a % 10 < b % 10`).
 **Sums the teacher asks (changed 28 Oct after a live test, operator's decision):** `bugs.parseTask(newTask, currentSum)`:
 - any `a − b` with `0 ≤ b ≤ a ≤ 99` → it becomes the current sum and every mistake runs on it (10 − 5 → Ravi 15,

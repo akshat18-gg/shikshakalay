@@ -34,9 +34,10 @@ export function pickSpeakers(
 ): Speaker[] {
   const move = effectiveMove(director);
   const sum = state.currentSum;
+  const op = state.operation ?? "sub"; // must read the task exactly as applyMove did (mindState.ts)
 
   // A task the engine can't compute: exactly one child answers, in character, with no number.
-  const task = parseTask(director.newTask, state.currentSum);
+  const task = parseTask(director.newTask, state.currentSum, op);
   if (task.kind === "impossible" || task.kind === "unsupported") {
     const to = director.addressedTo as string[];
     const wholeClass = to.length === 0 || to.includes("whole_class");
@@ -59,8 +60,8 @@ export function pickSpeakers(
 
   return speakers.map((c): Speaker => {
     if (effects.reveal.includes(move)) {
-      const steps = explainSteps(believesMistake(c, sum) ? c.bug : null, sum[0], sum[1]);
-      return { child: c.id, mode: "explain", mustSay: beliefAnswer(c, sum), steps };
+      const steps = explainSteps(believesMistake(c, sum, op) ? c.bug : null, sum[0], sum[1], op);
+      return { child: c.id, mode: "explain", mustSay: beliefAnswer(c, sum, op), steps };
     }
     // A plain reaction ("Good morning", "sit down") never repeats a told answer.
     if (move === "other") return { child: c.id, mode: "react", mustSay: null };
@@ -68,6 +69,6 @@ export function pickSpeakers(
     if (parrot && parrot.sum[0] === sum[0] && parrot.sum[1] === sum[1]) {
       return { child: c.id, mode: "parrot", mustSay: parrot.answer };
     }
-    return { child: c.id, mode: "answer", mustSay: spokenAnswer(c, sum, state.parrots) };
+    return { child: c.id, mode: "answer", mustSay: spokenAnswer(c, sum, state.parrots, op) };
   });
 }

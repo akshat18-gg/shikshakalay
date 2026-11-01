@@ -1,0 +1,98 @@
+# Module — Multiplication as groups (Class 3): equal groups of sticks (3 groups of 4); Ravi adds 3 + 4 = 7 instead of multiplying.
+# Written Sun 1 Nov 2026 by the coding agent, generated for the operator's "all modules working" request (same engine, same four children).
+# Hindi reviewed Sun 1 Nov 2026 (native-level pass: classroom register, gender agreement, everyday words).
+
+id: mul_groups
+version: 1
+operation: mul
+title:
+  en: "Multiplication as groups"
+  hi: "समूह बनाकर गुणा"
+grade: 3
+languages: [en, hi]
+
+# The first task starts the lesson. The rest are for evals and suggestions. ASCII "x" is the canonical sign.
+sums: ["3x4", "2x5", "4x3", "5x2", "3x3", "2x4"]
+
+# Up to 50 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, group, groups, sticks, times, multiply, into, plus, equal, "equal groups",
+   रवि, अर्जुन, मीना, सना, समूह, तीली, तीलियाँ, गुणा, गुना, बार, जोड़ो, प्लस, बराबर]
+
+children:
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: addInstead
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Always answers first. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "When I see a times sum, I just put the two numbers together, like a plus sum."
+    sampleLines:
+      en: ["7, Teacher! I did it first!", "Easy! Put them together and it's 7.", "Me first, Teacher! Me first!", "I know! I know! Times is easy.", "That's so easy, Teacher."]
+      hi: ["7, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! दोनों को जोड़ दिया, 7 हो गया।", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है! गुणा तो आसान है।", "ये तो बहुत आसान है, टीचर जी।"]
+
+  # Operator's rule (1 Nov): one child carries the mistake; the rest of the class gets it right.
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with groups of sticks. Likes to show how he lays out the equal groups and counts them."
+    explainsAs: "I make the groups with sticks, the same number in each, then count all the sticks."
+    sampleLines:
+      en: ["12, Teacher! I made the groups with sticks.", "I counted all the sticks, Teacher.", "Easy, Teacher!", "I can show it with groups!", "Done, Teacher!"]
+      hi: ["12, टीचर जी! मैंने तीलियों के समूह बनाए।", "मैंने सारी तीलियाँ गिन लीं, टीचर जी।", "आसान है, टीचर जी!", "मैं समूह बनाकर दिखा सकता हूँ!", "हो गया, टीचर जी!"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Adds the groups one at a time on her fingers and gets it right. Speaks softly."
+    explainsAs: "I add one group at a time, counting on my fingers, carefully."
+    sampleLines:
+      en: ["Wait… I'm adding the groups one by one… 12.", "One group, then another, then another… I got 12, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count the groups again slowly.", "I think I counted right."]
+      hi: ["रुकिए… एक-एक समूह जोड़ रही हूँ… 12।", "एक समूह, फिर एक और, फिर एक और… मेरा 12 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं समूह धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I count the sticks in all the groups together."
+    sampleLines:
+      en: ["Umm… 12, Teacher?", "I counted all the groups…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["वो… 12, टीचर जी?", "मैंने सारे समूह गिने…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
+
+# What each move does in this skill (the engine's rules use these groups). Identical to sub_2digit.
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! I counted all the groups."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+    cannot: "Teacher, we can't make groups like that!"
+    notToday: "Teacher, today we are doing times sums!"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! मैंने सारे समूह गिन लिए।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, ऐसे तो समूह नहीं बन सकते!"
+    notToday: "टीचर जी, आज तो हम गुणा सीख रहे हैं ना?"

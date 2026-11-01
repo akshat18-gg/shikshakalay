@@ -1,0 +1,105 @@
+# Module — Class 4 maths: tables and 2-digit × 1-digit multiplication with carrying (one child forgets the carry).
+# Written Sun 1 Nov 2026 by the coding agent for the operator's "all modules working" request (spec: private/ops-spec.md).
+# Hindi reviewed Sun 1 Nov 2026 (native-level pass: classroom register, gender agreement, everyday words) — no line needed a change.
+#
+# Rules for this file:
+# - Every number a child says comes from the engine (src/lib/engine/bugs.ts), never from this file or Claude.
+#   Backup lines use {answer}, which the engine fills in.
+# - All tasks: a 2-digit number times a 1-digit number, and the ones product is 10 or more (needs a carry),
+#   so Ravi's mistake (forgetCarryMul: he drops the carry) shows on every task.
+# - Both languages must be complete, or the engine refuses to start.
+
+id: mul_2x1_carry
+version: 1
+operation: mul
+title:
+  en: "Tables and 2-digit × 1-digit"
+  hi: "पहाड़े और 2 अंक × 1 अंक"
+grade: 4
+languages: [en, hi]
+
+# The first task starts the lesson. The rest are for evals and suggestions. Every one needs a carry.
+sums: ["23x4", "14x6", "37x2", "18x5", "26x3", "45x2"]
+
+# Up to 50 words that speech-to-text must hear right (sent to Saaras as keyterms).
+keyterms:
+  [Ravi, Arjun, Meena, Sana, times, multiply, multiplied, into, tables, table, carry, carried, ones, tens,
+   रवि, अर्जुन, मीना, सना, गुणा, गुना, टाइम्स, पहाड़ा, पहाड़े, हासिल, कैरी, दहाई, इकाई]
+
+children:
+  # Operator's rule (1 Nov): one child carries the mistake (Ravi); the rest of the class gets it right.
+  - id: ravi
+    name: { en: Ravi, hi: रवि }
+    gender: boy
+    bug: forgetCarryMul
+    start: { state: STUCK, engagement: 3 }
+    persona: "Quick and loud. Knows his tables by heart and shouts them out. Proud of his answers, a bit of a show-off, but friendly."
+    explainsAs: "I times the ones and write the last digit, then I times the tens and write that. I never add the little carry."
+    sampleLines:
+      en: ["82, Teacher! I did it first!", "Easy! I know my tables!", "Me first, Teacher! Me first!", "I know! I know!", "Tables are so easy, Teacher."]
+      hi: ["82, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! मुझे पहाड़े आते हैं!", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "पहाड़े तो बहुत आसान हैं, टीचर जी।"]
+
+  - id: arjun
+    name: { en: Arjun, hi: अर्जुन }
+    gender: boy
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with tables. Likes to show the small carry he writes above the tens."
+    explainsAs: "I times the ones first. If it is ten or more, I write the last digit and carry the rest on top. Then I times the tens and add the carry."
+    sampleLines:
+      en: ["92, Teacher! I wrote the carry on top.", "I added the carry, Teacher.", "Easy, Teacher!", "I can show it on the board!", "Done, Teacher!"]
+      hi: ["92, टीचर जी! मैंने हासिल ऊपर लिखा।", "मैंने हासिल जोड़ा, टीचर जी।", "आसान है, टीचर जी!", "मैं बोर्ड पर दिखा सकता हूँ!", "हो गया, टीचर जी!"]
+
+  - id: meena
+    name: { en: Meena, hi: मीना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Says the table line softly, writes the carry small on top, and gets it right. Speaks softly."
+    explainsAs: "I say the table line for the ones, write the last digit, put the carry on top, then do the tens and add the carry."
+    sampleLines:
+      en: ["Wait… I'm saying the table… 92.", "I got 92, Teacher. I added the carry.", "Wait, Teacher… I'm still writing.", "Let me check my carry again.", "I think I did it right."]
+      hi: ["रुकिए… पहाड़ा बोल रही हूँ… 92।", "मेरा 92 आया, टीचर जी। मैंने हासिल जोड़ा।", "रुकिए, टीचर जी… मैं अभी लिख रही हूँ।", "मैं अपना हासिल फिर से देख लूँ।", "मुझे लगता है मैंने सही किया।"]
+
+  - id: sana
+    name: { en: Sana, hi: सना }
+    gender: girl
+    bug: null
+    start: { state: GOT_IT, engagement: 0 }   # silent until the teacher invites her by name
+    persona: "Very shy. Knows the answer but speaks only when invited by name. Short, quiet answers."
+    explainsAs: "I times the ones, keep the carry on top, then times the tens and add it."
+    sampleLines:
+      en: ["Umm… 92, Teacher?", "I added the carry…", "Me, Teacher?", "Umm… I think so…", "Thank you, Teacher."]
+      hi: ["वो… 92, टीचर जी?", "मैंने हासिल जोड़ा…", "मैं, टीचर जी?", "जी… शायद हाँ…", "थैंक यू, टीचर जी।"]
+
+# What each move does in this skill (the engine's rules use these groups).
+moves:
+  reveal: [ask_to_explain, compare_methods]
+  fix: [concrete_materials, targeted_question]
+  halfFix: [think_aloud]
+  weak: [tell_answer, repeat_same_way, move_on_or_scold]
+  engagementUp: [invite_quiet_child, specific_praise]
+  engagementDown: [move_on_or_scold]
+
+# Used when a generated line fails the line check, and for hello / "say again".
+backupLines:
+  en:
+    STUCK: "{answer}, Teacher!"
+    WOBBLY: "Is it {answer}? I think so…"
+    GOT_IT: "{answer}! I added the carry."
+    react: "Yes, Teacher!"
+    repeat: "Teacher, can you say it again?"
+    hello: "Good morning, Teacher!"
+    puzzled: "Teacher, what is that?"
+    cannot: "Teacher, that sum can't be done!"
+    notToday: "Teacher, today we are doing times sums!"
+  hi:
+    STUCK: "{answer}, टीचर जी!"
+    WOBBLY: "{answer} है क्या? मुझे लगता है…"
+    GOT_IT: "{answer}! मैंने हासिल जोड़ा।"
+    react: "जी, टीचर जी!"
+    repeat: "टीचर जी, फिर से बोलिए ना?"
+    hello: "नमस्ते टीचर जी!"
+    puzzled: "टीचर जी, ये क्या है?"
+    cannot: "टीचर जी, ये वाला सवाल तो नहीं बनेगा!"
+    notToday: "टीचर जी, आज तो हम गुणा सीख रहे हैं ना?"
