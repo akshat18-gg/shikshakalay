@@ -45,7 +45,7 @@ Run 1 rescored on the final key: `evals/results/2026-11-01T11-17-50.json` (raw r
 - 10 pilot logins (P01–P10) issued Sat 31 Oct. Report counts only with ≥ 5 teachers: teachers, lessons, teachers
   who came back for a 2nd lesson (target ≥ 60 %), average "does what I need" and "easy to use" (1–7), one quote
   (with OK, no name) and one change we made (`docs/pilot/changes.md`).
-- Query (prod, read-only) to fill this: lessons per `P%` user from `sessions`, answers from `feedback`.
+- **Sun 1 Nov 17:20 IST (prod, read-only): 0 of 10 pilot logins used — 0 lessons, 0 feedback forms, 0 check-ins.** Say so honestly; update with `npm run pilot:stats` if teachers try it before submitting.
 
 ## Not measured yet (say so)
 - Coach vs. expert agreement (≥ 80 % promised): needs 2 expert raters on 20 lessons — not done in this build.

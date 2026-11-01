@@ -33,7 +33,7 @@
 | H5 | Twilio | 🟡 | Sat 31 Oct 02:00 | Plan B (default after the 2 pm deadline): WhatsApp = roadmap; README/video script say so |
 | E-run2 | Eval run 2 with director@4 | 🛑 | Sat 31 Oct 03:40 | done Sun 1 Nov ($0.54, < $1 pre-approved): Director 89.1 % vs 84.1 %; #37 merged |
 | H7 | Phase 7: Neon branch `backup-submission`, Render auto-deploy off after the tag, GitHub push protection on? | 🛑 | Sat 31 Oct 03:40 | later |
-| H-prodsave | Save run 2 to the live `/admin/evals` (`DB_TARGET=prod … evals/run.ts --rescore evals/results/2026-11-01T11-17-52.json --save`) and `npm run pilot:stats` — the DB port is blocked from the Windows PC | 🛑 | Sun 1 Nov 17:30 | open |
+| H-prodsave | Run 2 on the live `/admin/evals` + pilot counts | 🛑 | Sun 1 Nov 17:30 | done 17:18 — over Neon's HTTPS SQL endpoint (port 5432 is blocked here); live page shows director@4 89.1 %; pilot: 0 of 10 logins used |
 | H3.3 | 5 test recordings → `private/recordings/r1..r5.m4a` | 🟡 | Tue 27 Oct 17:00 | later (operator); STT tested with Bulbul-spoken lines meanwhile |
 | G1-phone | Open the live link on a phone once, play "What is 52 minus 27?" | 🛑 | Tue 27 Oct 17:00 | done |
 
