@@ -9,10 +9,10 @@
  *   "take away" / "13"                    → Ravi gets it (GOT_IT)                  — sample 4, part 2
  *   "how" / "कैसे"                        → Ravi explains his mistake (revealed)  — sample 3
  *   "sana" / "सना"                        → Sana speaks for the first time         — sample 5
- *   "61"                                  → new sum 61 − 24: mistakes show
- *   "43"                                  → new sum 43 − 18: the mistakes come back — sample 2, part 2
+ *   "61"                                  → new sum 61 − 24: Ravi's mistake shows
+ *   "43"                                  → new sum 43 − 18: Ravi's mistake comes back — sample 2, part 2
  *   "25"                                  → children parrot 25 (weak move)          — sample 2, part 1
- *   anything else                         → 52 − 27: Ravi 35, Arjun 35, Meena 26    — sample 1
+ *   anything else                         → 52 − 27: Ravi 35, Arjun 25, Meena 25    — sample 1
  * After 12 turns the lesson is over, like the real engine.
  */
 import type {
@@ -38,8 +38,9 @@ const sessions = (store.shkMockSessions ??= new Map<string, MockSession>());
 
 const START: ChildState[] = [
   { id: "ravi", bug: "smallerFromLarger", state: "STUCK", revealed: false, engagement: 3, workedSum: null },
-  { id: "arjun", bug: "borrowNoDecrement", state: "STUCK", revealed: false, engagement: 2, workedSum: null },
-  { id: "meena", bug: "countBackOffByOne", state: "STUCK", revealed: false, engagement: 2, workedSum: null },
+  // Operator's decision (1 Nov): only Ravi carries a mistake; Arjun and Meena get it right.
+  { id: "arjun", bug: null, state: "GOT_IT", revealed: false, engagement: 2, workedSum: null },
+  { id: "meena", bug: null, state: "GOT_IT", revealed: false, engagement: 2, workedSum: null },
   { id: "sana", bug: null, state: "GOT_IT", revealed: false, engagement: 0, workedSum: null },
 ];
 
@@ -175,7 +176,7 @@ async function scriptedTurn(sessionId: string, typed: string | undefined): Promi
       turn,
       text,
       director("invite_quiet_child", text, ["sana"]),
-      say(lang, [["sana", "Umm… 25, Teacher?", "उम्म… 25, टीचर जी?"]]),
+      say(lang, [["sana", "Umm… 25, Teacher?", "वो… 25, टीचर जी?"]]),
       withChild("sana", { engagement: 1 }),
       over,
     );
@@ -188,8 +189,8 @@ async function scriptedTurn(sessionId: string, typed: string | undefined): Promi
       director("new_sum", text, ["whole_class"], "61-24"),
       say(lang, [
         ["ravi", "43!", "43!"],
-        ["arjun", "47, Teacher!", "47, टीचर जी!"],
-        ["meena", "38.", "38।"],
+        ["arjun", "37, Teacher! I opened a bundle.", "37, टीचर जी! मैंने एक बंडल खोला।"],
+        ["meena", "I counted… 37.", "गिन लिया… 37।"],
       ]),
       START,
       over,
@@ -203,8 +204,8 @@ async function scriptedTurn(sessionId: string, typed: string | undefined): Promi
       director("new_sum", text, ["whole_class"], "43-18"),
       say(lang, [
         ["ravi", "35!", "35!"],
-        ["arjun", "Me also 35!", "मेरा भी 35!"],
-        ["meena", "26, Teacher.", "26, टीचर जी।"],
+        ["arjun", "25, Teacher! I opened a bundle.", "25, टीचर जी! मैंने एक बंडल खोला।"],
+        ["meena", "I counted… 25.", "गिन लिया… 25।"],
       ]),
       START,
       over,
@@ -232,8 +233,8 @@ async function scriptedTurn(sessionId: string, typed: string | undefined): Promi
     director("new_sum", text, ["whole_class"], "52-27"),
     say(lang, [
       ["ravi", "35, Teacher!", "35, टीचर जी!"],
-      ["arjun", "Me also 35!", "मेरा भी 35!"],
-      ["meena", "26.", "26।"],
+      ["arjun", "25, Teacher! I opened a bundle.", "25, टीचर जी! मैंने एक बंडल खोला।"],
+      ["meena", "I counted… 25.", "गिन लिया… 25।"],
     ]),
     START,
     over,

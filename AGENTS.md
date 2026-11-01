@@ -367,8 +367,8 @@ with a Zod schema at start-up and fails loudly if anything is missing (both lang
 | Child | Mistake ("bug") | 52−27 | 43−18 | 61−24 | 70−35 | Personality |
 |---|---|---|---|---|---|---|
 | **Ravi** | `smallerFromLarger`: in each column takes the smaller digit from the bigger one | 35 | 35 | 43 | 45 | Quick, loud, answers first |
-| **Arjun** | `borrowNoDecrement`: borrows a ten for the ones, forgets to take it from the tens | 35 | 35 | 47 | 45 | Copies Ravi: "Me also!" |
-| **Meena** | `countBackOffByOne`: counts back and counts the start number too (answer + 1) | 26 | 26 | 38 | 36 | Careful, slow, fingers |
+| **Arjun** | none since lesson file v5 (1 Nov, operator) — gets it right; `borrowNoDecrement` (borrows a ten, forgets to take it from the tens: 35, 35, 47, 45) stays in bugs.ts for tests, evals and future lesson files | 25 | 25 | 37 | 35 | Confident with bundles |
+| **Meena** | none since v5 — gets it right by counting back carefully; `countBackOffByOne` (answer + 1: 26, 26, 38, 36) stays in bugs.ts | 25 | 25 | 37 | 35 | Careful, slow, fingers |
 | **Sana** | none — gets it right, but very shy (engagement 0) | 25 | 25 | 37 | 35 | Speaks only when invited by name |
 
 Correct answers: 25, 25, 37, 35. **Every number comes from these functions, never from Claude:**
@@ -757,8 +757,8 @@ pages load only when opened. Budget ≈ 1 MB per 5-minute lesson.
 
 | # | Input | What the judge sees |
 |---|---|---|
-| 1 | "What is 52 minus 27?" | Ravi and Arjun say 35, Meena 26, Sana stays quiet |
-| 2 | "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" | They parrot 25, then Ravi and Arjun say 35 again — a weak move is resisted |
+| 1 | "What is 52 minus 27?" | Ravi says 35; Arjun and Meena say 25; Sana stays quiet |
+| 2 | "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" | Ravi parrots 25, then says 35 again — a weak move is resisted |
 | 3 | "Ravi, tell me how you got 35." | "8 minus 3 is 5, 4 minus 1 is 3." — the mistake is revealed |
 | 4 | "Show 43 with bundles and sticks. Can you take 8 sticks from 3?" then "13 take away 8?" | Ravi changes step by step and gets 25 — a strong move works |
 | 5 | A pre-recorded Hindi voice note: "सना, तुम क्या सोचती हो? आराम से बताओ।" (`public/samples/`) | Sana speaks for the first time, in Hindi — voice, vernacular, engagement |

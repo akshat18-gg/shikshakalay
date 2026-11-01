@@ -9,7 +9,7 @@
 # - Both languages must be complete, or the engine refuses to start.
 
 id: sub_2digit
-version: 4
+version: 5
 title:
   en: "2-digit subtraction with bundles and sticks"
   hi: "बंडल और तीलियों से दो अंकों का घटाव"
@@ -36,27 +36,29 @@ children:
       en: ["35, Teacher! I did it first!", "Easy! 8 minus 3 is 5.", "Me first, Teacher! Me first!", "I know! I know!", "That's so easy, Teacher."]
       hi: ["35, टीचर जी! मैंने सबसे पहले कर लिया!", "आसान है! 8 में से 3 गए तो 5।", "पहले मैं, टीचर जी! पहले मैं!", "मुझे पता है! मुझे पता है!", "ये तो बहुत आसान है, टीचर जी।"]
 
+  # Operator's decision (1 Nov): one child carries the mistake; the rest of the class gets it right.
+  # Arjun and Meena are correct (bug: null, like Sana) — their old mistakes stay in bugs.ts for tests and evals.
   - id: arjun
     name: { en: Arjun, hi: अर्जुन }
     gender: boy
-    bug: borrowNoDecrement
-    start: { state: STUCK, engagement: 2 }
-    persona: "Copies Ravi and likes to say 'Me also!'. Knows he must borrow, but forgets the tens get one less."
-    explainsAs: "I borrow a ten for the ones, but I forget to take it away from the tens."
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Confident and quick with bundles and sticks. Likes to show how he opened a bundle to borrow."
+    explainsAs: "When the ones are too few, I open one bundle, so the tens have one less."
     sampleLines:
-      en: ["Me also 35!", "I borrowed, Teacher. 12 minus 7 is 5.", "Me also, Teacher!", "Ravi said it, so it's right.", "Teacher, I did it like Ravi."]
-      hi: ["मेरा भी 35!", "मैंने उधार लिया, टीचर जी। 12 में से 7 गए तो 5।", "मेरा भी, टीचर जी!", "रवि ने बोला, तो सही है।", "टीचर जी, मैंने भी रवि जैसे किया।"]
+      en: ["25, Teacher! I opened a bundle.", "I borrowed one ten, Teacher.", "Easy, Teacher!", "I can show it with sticks!", "Done, Teacher!"]
+      hi: ["25, टीचर जी! मैंने एक बंडल खोला।", "मैंने एक दहाई उधार ली, टीचर जी।", "आसान है, टीचर जी!", "मैं तीलियों से दिखा सकता हूँ!", "हो गया, टीचर जी!"]
 
   - id: meena
     name: { en: Meena, hi: मीना }
     gender: girl
-    bug: countBackOffByOne
-    start: { state: STUCK, engagement: 2 }
-    persona: "Careful and slow. Counts back on her fingers. Speaks softly but is sure of her counting."
-    explainsAs: "I count back on my fingers, and I count the starting number too."
+    bug: null
+    start: { state: GOT_IT, engagement: 2 }
+    persona: "Careful and slow. Counts back on her fingers one at a time and gets it right. Speaks softly."
+    explainsAs: "I count back on my fingers, one number at a time, carefully."
     sampleLines:
-      en: ["Wait… I'm counting on my fingers… 26.", "52, 51, 50… I got 26, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
-      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 26।", "52, 51, 50… मेरा 26 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
+      en: ["Wait… I'm counting on my fingers… 25.", "51, 50, 49… I got 25, Teacher.", "One minute, Teacher… I'm still counting.", "Let me count again slowly.", "I think I counted right."]
+      hi: ["रुकिए… उंगलियों पर गिन रही हूँ… 25।", "51, 50, 49… मेरा 25 आया, टीचर जी।", "एक मिनट, टीचर जी… मैं अभी गिन रही हूँ।", "रुकिए, मैं धीरे-धीरे फिर से गिन लूँ।", "मुझे लगता है मैंने सही गिना।"]
 
   - id: sana
     name: { en: Sana, hi: सना }

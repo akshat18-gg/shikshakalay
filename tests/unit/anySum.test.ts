@@ -11,8 +11,10 @@ import { applyMove, spokenAnswer } from "@/lib/engine/mindState";
 import { loadScenario, startState } from "@/lib/engine/scenario";
 import { pickSpeakers } from "@/lib/engine/speakers";
 import type { EngineState } from "@/lib/engine/types";
+import { withThreeMistakes } from "./threeMistakes";
 
-const scenario = loadScenario("sub_2digit")!;
+// These rules are tested across all three mistakes (the real lesson has only Ravi's since v5).
+const scenario = withThreeMistakes(loadScenario("sub_2digit")!);
 const fresh = () => startState(scenario, "en", "2026-10-28T10:00:00.000Z");
 const d = (move: Move, newTask = "", addressedTo: DirectorOutput["addressedTo"] = ["whole_class"]): DirectorOutput => ({
   move,

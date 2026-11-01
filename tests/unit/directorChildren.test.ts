@@ -8,8 +8,10 @@ import { writeLines } from "@/lib/engine/children";
 import { UNSURE, cleanDirector, tagMove } from "@/lib/engine/director";
 import { loadScenario, startState } from "@/lib/engine/scenario";
 import type { AiTurnContext, Speaker } from "@/lib/engine/types";
+import { withThreeMistakes } from "./threeMistakes";
 
-const scenario = loadScenario("sub_2digit")!;
+// Retry and line-check mechanics are tested across all three mistakes (the real lesson has only Ravi's since v5).
+const scenario = withThreeMistakes(loadScenario("sub_2digit")!);
 const usage = { input_tokens: 10, output_tokens: 10, cache_read_input_tokens: 0, cache_creation_input_tokens: 0 };
 
 /** Answers each call with the next reply in the list; an Error reply makes the call fail. */

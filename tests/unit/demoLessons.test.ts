@@ -7,10 +7,13 @@ const scenario = loadScenario("sub_2digit")!;
 const startedAt = new Date("2026-10-28T08:00:00Z");
 
 describe("demo lessons (seed, no Claude)", () => {
-  it("a weak lesson keeps the mistakes: they parrot 25, then say 35 again on 43 − 18", async () => {
+  it("a weak lesson keeps the mistake: everyone says 25 after it is told, then Ravi says 35 again on 43 − 18", async () => {
     const l = await playDemoLesson({ scenario, lang: "en", script: TEMPLATES.weak, startedAt, sessionId: "s" });
-    expect(l.turns[1]!.result.lines.map((x) => x.text)).toEqual(["25, Teacher!", "25, Teacher!", "25, Teacher!"]);
+    const parrot = l.turns[1]!.result.lines;
+    expect(parrot.map((x) => x.child)).toEqual(["ravi", "arjun", "meena"]);
+    for (const x of parrot) expect(x.text).toContain("25"); // Ravi parrots; Arjun and Meena are right anyway
     expect(l.turns[2]!.result.lines.find((x) => x.child === "ravi")?.text).toBe("35, Teacher!");
+    expect(l.turns[2]!.result.lines.find((x) => x.child === "arjun")?.text).toContain("25");
     for (const t of l.turns) TurnResult.parse(t.result);
   });
 

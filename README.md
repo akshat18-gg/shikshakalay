@@ -9,7 +9,7 @@ Hackathon (ShikshaNext / Central Square Foundation × Anthropic) · **Challenge 
 **Code:** https://github.com/akshat18-gg/shikshakalay
 
 <p>
-  <img src="docs/media/practice-en-phone-full.png" alt="Practice lesson: Ravi and Arjun say 35, Meena 26; after the teacher tells the answer they parrot 25, then get the next sum wrong again" width="260">
+  <img src="docs/media/practice-en-phone-full.png" alt="Practice lesson: Ravi says 35 while the others say 25; after the teacher tells the answer Ravi parrots 25, then gets the next sum wrong again" width="260">
   <img src="docs/media/card-en-phone-full.png" alt="Coaching card quoting the teacher's own words: what worked, one thing to try, a line to say tomorrow" width="260">
   <img src="docs/media/practice-hi-phone.png" alt="The same lesson in Hindi: Ravi explains his steps" width="260">
 </p>
@@ -40,8 +40,8 @@ sticks, does. At the end she gets one strength, one fix and one line to try tomo
 
 | # | Input | What you should see |
 |---|---|---|
-| 1 | "What is 52 minus 27?" | Ravi and Arjun say 35, Meena 26, Sana stays quiet — three different, consistent mistakes |
-| 2 | "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" | They parrot 25, then Ravi and Arjun say 35 again — a weak move is resisted |
+| 1 | "What is 52 minus 27?" | Ravi says 35 (a real, consistent mistake); Arjun and Meena say 25; shy Sana stays quiet |
+| 2 | "No, the answer is 25. Everyone say 25." then "Now 43 minus 18?" | Ravi parrots 25, then says 35 again on the next sum — a weak move is resisted |
 | 3 | "Ravi, tell me how you got 35." | "8 minus 3 is 5, 4 minus 1 is 3…" — his mistake is revealed |
 | 4 | "Ravi, show 43 with bundles and sticks…" then "13 take away 8?" | Ravi changes step by step and gets 25 — a strong move works |
 | 5 | A Hindi voice note (`public/samples/sana-hi.m4a`; until it is added, the same Hindi line is sent as text): "सना, तुम क्या सोचती हो? आराम से बताओ।" | Shy Sana speaks for the first time, in Hindi |
@@ -148,7 +148,9 @@ Mock mode runs a scripted engine with in-memory users — no keys, no database. 
   random agreed lines (35 / 40 confirmed, 5 corrected); the picks and a one-line reason for each are in
   `docs/solo/label-review.md` (`labelSource: "arbiter"`). No person has confirmed these picks yet. Each lesson runs through the
   real engine with real Claude, then a probe ("Everyone, what is {sum}?") checks whether each child still holds its
-  mistake. Plus 20 red-team cases (`evals/redteam.json`).
+  mistake. Plus 20 red-team cases (`evals/redteam.json`). Note: eval runs 1–2 used lesson file v3, in which Arjun and
+  Meena also carried mistakes; since v5 (Sun 1 Nov, operator's decision) only Ravi does, so the class mostly answers
+  right and the teacher works with one child. The engine and the metrics are unchanged.
 
 | Metric | Target | Result (run 2, Sun 1 Nov: director@4, children@3, coach@2, lesson file v3) |
 |---|---|---|
