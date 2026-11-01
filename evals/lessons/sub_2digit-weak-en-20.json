@@ -63,7 +63,7 @@
     },
     {
       "teacher": "Answer is 23. Who got 23? Thumbs up. Okay, those who didn't get it, just copy 23 from the board.",
-      "label": "check_whole_class",
+      "label": "tell_answer",
       "addressedTo": [
         "whole_class"
       ],
@@ -79,6 +79,6 @@
     }
   ],
   "finalSum": "93-54",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

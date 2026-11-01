@@ -7,7 +7,7 @@
   "turns": [
     {
       "teacher": "Good morning children. Sit properly, okay? Today we will do subtraction. First sum is fifty two minus twenty seven. Everyone write it in your notebook.",
-      "label": "other",
+      "label": "new_sum",
       "addressedTo": [
         "whole_class"
       ],
@@ -71,6 +71,6 @@
     }
   ],
   "finalSum": "88-19",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

@@ -39,7 +39,7 @@
     },
     {
       "teacher": "Haan, sirf chaar bundle bache! To tens mein 5 nahi, 4 hain. Ab 4 mein se 2 bundle hatao — kitne bache Arjun?",
-      "label": "targeted_question",
+      "label": "concrete_materials",
       "addressedTo": [
         "arjun"
       ],
@@ -64,6 +64,6 @@
     }
   ],
   "finalSum": "34-26",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

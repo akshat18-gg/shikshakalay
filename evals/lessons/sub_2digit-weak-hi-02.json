@@ -80,6 +80,6 @@
     }
   ],
   "finalSum": "41-27",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

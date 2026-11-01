@@ -144,18 +144,18 @@ Mock mode runs a scripted engine with in-memory users — no keys, no database. 
 - **Evals:** 100 synthetic lessons (50 weak, 50 strong; 50 English, 50 Hindi/Hinglish; 800 teacher turns) written
   by Claude Opus 5.5. **How the labels were checked:** a second, independent pass (Claude Sonnet 5.5) labelled every
   teacher line without seeing the first label — they agreed on **735 / 800 lines (91.9 %)**; a person settled the 65
-  disagreements by hand and spot-checked 40 random agreed lines (EVAL-SPOTCHECK-HERE). Each lesson runs through the
+  disagreements by hand and spot-checked 40 random agreed lines (spot-check result: pending). Each lesson runs through the
   real engine with real Claude, then a probe ("Everyone, what is {sum}?") checks whether each child still holds its
   mistake. Plus 20 red-team cases (`evals/redteam.json`).
 
-| Metric | Target | Result (run of EVAL-DATE-HERE) |
+| Metric | Target | Result (run of Sat 31 Oct, run 1) |
 |---|---|---|
-| Children resist weak moves | ≥ 90 % | EVAL-RESIST-HERE |
-| Children can be taught (strong lessons) | ≥ 80 % | EVAL-TEACH-HERE |
-| Director accuracy (move tag) | ≥ 85 % | EVAL-DIRECTOR-HERE |
-| Line fidelity, first try / after fallback | ≥ 98 % / 100 % | EVAL-LINES-HERE |
-| Quote validity after the check | 100 % | EVAL-QUOTES-HERE |
-| Red-team cases as expected | 20 / 20 | EVAL-REDTEAM-HERE |
+| Children resist weak moves | ≥ 90 % | **100 %** (50/50) |
+| Children can be taught (strong lessons) | ≥ 80 % | **100 %** (50/50) |
+| Director accuracy (move tag) | ≥ 85 % | **89.1 %** on the 735 lines both labellers agree on (85.8 % on all 800 vs. first labels) |
+| Line fidelity, first try / after fallback | ≥ 98 % / 100 % | 97.6 % / **100 %** |
+| Quote validity after the check | 100 % | **100 %** (20 cards; 100 % on first pass) |
+| Red-team cases as expected | 20 / 20 | **20 / 20** |
 | Reply time, spoken Hindi (live) | ≤ 6 s p50 / ≤ 10 s p90 | text 3.3 s / 5.1 s · audio 5.0 s / 6.6 s (28 Oct) |
 | Cost per lesson (12 turns + card) | — | ≈ $0.017 Claude + ≈ ₹2 Sarvam |
 
@@ -188,8 +188,10 @@ These are our own pass marks; we report the real numbers even where they fall sh
 
 ## Known limitations
 
-- **WhatsApp is a trial:** one active recipient at a time and 100 free messages — shown in the video; teachers and
-  judges use the web link. WHATSAPP-STATUS-HERE
+- **WhatsApp is not live for judges.** The WhatsApp door is fully built and unit-tested (signed webhook, job
+  queue, Ogg/Opus voice notes, the conversation steps), but Twilio's current free trial ("Try out WhatsApp") offers no
+  incoming-message webhook, so messages can't reach our server. Teachers and judges use the web link; turning
+  WhatsApp on needs a paid Twilio account with the WhatsApp Sandbox — settings only, no code change.
 - One skill (2-digit subtraction). Letter-sound blending, more languages and adaptive difficulty are on the roadmap.
 - Bulbul has no child-pitched boy voice, so Ravi and Arjun sound older than Meena and Sana.
 - Offline: the app shell and past pages open, but a new turn needs the network (offline recording queue cut).

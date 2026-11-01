@@ -40,7 +40,7 @@
     },
     {
       "teacher": "Chup Mina, ungli pe mat gino, time waste hota hai. Ab agla sawaal, chauhattar minus unchaas. Jaldi likho.",
-      "label": "new_sum",
+      "label": "move_on_or_scold",
       "addressedTo": [
         "meena"
       ],
@@ -56,6 +56,6 @@
     }
   ],
   "finalSum": "91-53",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

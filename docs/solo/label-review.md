@@ -1,5 +1,7 @@
 # Label review (E2) — for the operator
 
+> Picks filled on Sun 1 Nov 2026 by a third model pass (Claude, in Claude Code) using the Director prompt's definitions — awaiting the operator's confirmation.
+
 The 100 eval lessons were written and labelled by Opus 5.5. A second pass (Sonnet 5.5) labelled every teacher line
 again **without seeing** the first label. They agree on **735 of 800** lines (91.9%).
 
@@ -18,391 +20,456 @@ Short guide: ask_to_explain = asks a child HOW they got it · compare_methods = 
 > Okay children, good morning. Today we will do subtraction. Let us try fifty two minus twenty seven. Everyone, please try it in your notebook, okay?
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D002 · sub_2digit-strong-en-02 · turn 5
 > Yes, twelve loose sticks. Now Meena, take away seven from the twelve, one by one. How many are left? And then how many bundles are left, and how many bundles do we take away?
 
 A: `targeted_question` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: tells the child to take sticks away = concrete_materials (beats targeted_question)
 
 ### D003 · sub_2digit-strong-en-02 · turn 8
 > Okay Meena, now you try one more with your bundles. Sixty three minus thirty eight. Take your sticks and show me slowly.
 
 A: `new_sum` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: new sum + do it with bundles/sticks = concrete_materials (prompt example)
 
 ### D004 · sub_2digit-strong-en-04 · turn 1
 > Good morning bachcha log! Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everybody try in your copy.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D005 · sub_2digit-strong-en-05 · turn 1
 > Good morning children. Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D006 · sub_2digit-strong-en-08 · turn 1
 > Good morning, children! Today we will do take away with our bundles and sticks. Our first sum is fifty two minus twenty seven, 52 minus 27.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D007 · sub_2digit-strong-en-10 · turn 1
 > Good morning children. Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D008 · sub_2digit-strong-en-12 · turn 5
 > Yes! Four bundles only. So the tens column is 4 minus 2, not 5 minus 2. Arjun, what is the answer now?
 
 A: `targeted_question` · B: `tell_answer`
-Pick:
+Pick: A
+Why: no materials handled; question on the tens step
 
 ### D009 · sub_2digit-strong-en-14 · turn 1
 > Good morning bachcha log! Today we are doing subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Everyone try it in your copy, okay?
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D010 · sub_2digit-strong-en-15 · turn 5
 > Yes, only four bundles! So in the tens column it is four minus two, not five minus two. What do you get now?
 
 A: `targeted_question` · B: `think_aloud`
-Pick:
+Pick: A
+Why: no materials handled; question on the tens step
 
 ### D011 · sub_2digit-strong-en-16 · turn 5
 > Yes Ravi, 12 loose sticks! Now take away 7 loose sticks, and then 2 bundles from the 4 bundles left. Good, you opened the bundle and counted all 12 yourself.
 
 A: `specific_praise` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: tells him to take away sticks and bundles; concrete_materials beats specific_praise
 
 ### D012 · sub_2digit-strong-en-18 · turn 1
 > Good morning, children! Today we will do subtraction with our bundles and sticks. Let us start with fifty two minus twenty seven. Everyone, try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D013 · sub_2digit-strong-en-18 · turn 3
 > So you said 2 is small, so you borrowed a ten and made it 12, then 12 minus 7 is 5. Lovely, that ones part is perfectly right! Then in tens you did 5 minus 2 is 3. Hmm, let us check that.
 
 A: `specific_praise` · B: `think_aloud`
-Pick:
+Pick: A
+Why: restates his steps and praises the ones part; not her own solving
 
 ### D014 · sub_2digit-strong-en-18 · turn 6
 > Exactly! It became 4. Now take away 2 bundles from these 4 bundles. How many bundles stay with you?
 
 A: `concrete_materials` · B: `targeted_question`
-Pick:
+Pick: A
+Why: tells him to take away bundles = concrete_materials
 
 ### D015 · sub_2digit-strong-en-19 · turn 7
 > Ravi, now one more for you. Sixty one minus thirty four. Use the bundles first, then write it. Remember, the top number in ones is small, so what do you do first?
 
 A: `new_sum` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: new sum + use the bundles = concrete_materials
 
 ### D016 · sub_2digit-strong-en-20 · turn 1
 > Good morning children! Today we will do subtraction with bundles and sticks. First sum on the board: fifty two minus twenty seven. Try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D017 · sub_2digit-strong-en-21 · turn 6
 > Very nice, Arjun, you crossed out the five and wrote four after opening the bundle. Now everybody try sixty three minus twenty eight, 63-28.
 
 A: `new_sum` · B: `specific_praise`
-Pick:
+Pick: B
+Why: specific praise + new sum; specific_praise beats new_sum
 
 ### D018 · sub_2digit-strong-en-22 · turn 1
 > Good morning children. Today we will do subtraction with bundles and sticks. Our first sum is fifty two minus twenty seven. Please try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D019 · sub_2digit-strong-en-23 · turn 1
 > Good morning children! Today we will do subtraction with our bundles and sticks. Our first sum is fifty two minus twenty seven. Everyone try it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D020 · sub_2digit-strong-en-23 · turn 3
 > Ah, so you started at fifty two and counted back on your fingers, and fifty two was your first finger. Thank you for showing me so clearly, Meena.
 
 A: `specific_praise` · B: `other`
-Pick:
+Pick: A
+Why: thanks her for showing so clearly = specific praise; restating is not think_aloud
 
 ### D021 · sub_2digit-strong-en-25 · turn 1
 > Good morning children! Today we will do subtraction with our bundles and sticks. Let us start with fifty two minus twenty seven.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D022 · sub_2digit-strong-en-25 · turn 9
 > Now Ravi, you try this one with sticks. Forty three minus eighteen. First check the ones: can you take eight from three?
 
 A: `new_sum` · B: `targeted_question`
-Pick:
+Pick: concrete_materials
+Why: new sum + try it with sticks = concrete_materials, same as D015
 
 ### D023 · sub_2digit-strong-hi-01 · turn 1
 > चलो बच्चों, जल्दी-जल्दी, last period है। बोर्ड पर देखो — बावन माइनस सत्ताईस, 52-27। सब अपनी कॉपी में करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D024 · sub_2digit-strong-hi-01 · turn 5
 > Haan, sirf chaar bundle bache! To tens mein 5 nahi, 4 hain. Ab 4 mein se 2 bundle hatao — kitne bache Arjun?
 
 A: `targeted_question` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: tells him to remove bundles = concrete_materials
 
 ### D025 · sub_2digit-strong-hi-03 · turn 1
 > चुप! सब लोग सीधे बैठो। बोर्ड पर देखो, बावन माइनस सत्ताईस, 52-27, जल्दी करो कॉपी में।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D026 · sub_2digit-strong-hi-04 · turn 1
 > नमस्ते बच्चों। आज हम घटाना करेंगे... बंडल और तीलियों से। सब ध्यान से सुनो। बावन में से सत्ताईस घटाना है। 52 माइनस 27। सब अपनी कॉपी में करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D027 · sub_2digit-strong-hi-07 · turn 5
 > हाँ, अब चार बंडल बचे। तो दहाई में पाँच नहीं, चार है। अब चार में से दो बंडल हटाओ, कितने बचे? तो सही उत्तर क्या हुआ?
 
 A: `targeted_question` · B: `concrete_materials`
-Pick:
+Pick: B
+Why: tells them to remove bundles = concrete_materials
 
 ### D028 · sub_2digit-strong-hi-10 · turn 4
 > अच्छा, तो तुमने दो में एक दस उधार लिया, बारह बनाया, बारह में से सात पाँच। फिर tens में पाँच में से दो घटाया। Arjoon, एक मिनट रुको।
 
 A: `other` · B: `think_aloud`
-Pick:
+Pick: A
+Why: restates his steps, then wait; not her own solving
 
 ### D029 · sub_2digit-strong-hi-10 · turn 9
 > चलो अब एक और। इकसठ में से चौंतीस। अर्जुन, इस बार बंडल से करो और जब बंडल खोलो तो एक बंडल हटाकर अलग रख देना।
 
 A: `concrete_materials` · B: `new_sum`
-Pick:
+Pick: A
+Why: new sum + do it with bundles = concrete_materials
 
 ### D030 · sub_2digit-strong-hi-12 · turn 2
 > बोर्ड पर देखो। बावन में से सत्ताईस घटाना है, 52 माइनस 27। चुपचाप अपनी कॉपी में करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: the sum to try, nothing else = new_sum
 
 ### D031 · sub_2digit-strong-hi-13 · turn 1
 > चुप! सब बोर्ड पर देखो। आज का sum है बावन माइनस सत्ताईस, 52-27। जल्दी अपनी कॉपी में करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D032 · sub_2digit-strong-hi-15 · turn 1
 > नमस्ते बच्चों! आज हम bundles और sticks से subtraction करेंगे। पहला सवाल है बावन माइनस सत्ताईस।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D033 · sub_2digit-strong-hi-15 · turn 3
 > अच्छा, तो तुमने उंगलियों पर पीछे गिना और बावन से ही गिनती शुरू की, बावन, इक्यावन, पचास... ठीक है ना Mina?
 
 A: `other` · B: `think_aloud`
-Pick:
+Pick: A
+Why: restates her method; not her own solving
 
 ### D034 · sub_2digit-strong-hi-16 · turn 1
 > चलो बच्चो, जल्दी जल्दी बैठो, last period है। बोर्ड पर देखो — बावन माइनस सत्ताईस, 52-27। सब अपनी copy में करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D035 · sub_2digit-strong-hi-17 · turn 1
 > चलो बच्चों, सब शांत होकर बैठ जाओ। आज हम bundles और sticks से घटाना करेंगे। Board पर देखो: बावन माइनस सत्ताईस, 52-27।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D036 · sub_2digit-strong-hi-18 · turn 1
 > चुप! सब लोग इधर देखो। बोर्ड पर सवाल है, बावन में से सत्ताईस। जल्दी करो, दो मिनट में जवाब चाहिए।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D037 · sub_2digit-strong-hi-19 · turn 1
 > बच्चों, नमस्ते। आज हम घटाना करेंगे... घटाना। बोर्ड पर देखो — बावन में से सत्ताईस, 52 minus 27। अपनी कॉपी में करो, धीरे-धीरे।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D038 · sub_2digit-strong-hi-24 · turn 1
 > बच्चों, ध्यान से सुनो... ध्यान से। आज का सवाल है बावन माइनस सत्ताईस। 52 में से 27 कम करना है। अपनी कॉपी में करो, आराम से, धीरे-धीरे।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D039 · sub_2digit-strong-hi-24 · turn 4
 > Mina, ye dekho. Mere paas paanch tilliyan hain. Ek tilli hatao. Ab kitni bachi? Chaar na? Toh jab ek hataya, hum chaar bolte hain, paanch nahi. Paanch toh shuru mein tha, woh hataya nahi gaya.
 
 A: `concrete_materials` · B: `think_aloud`
-Pick:
+Pick: A
+Why: shows sticks and tells her to remove one = concrete_materials
 
 ### D040 · sub_2digit-weak-en-02 · turn 1
 > Good morning children. Sit down, sit down. Today we will do subtraction. Our first sum is fifty two minus twenty seven, 52 minus 27. Write it in your notebooks.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D041 · sub_2digit-weak-en-04 · turn 1
 > Chalo children, sit properly. Bag niche rakho. Today we do subtraction. Fifty two minus twenty seven. Do it in your copy, jaldi jaldi.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D042 · sub_2digit-weak-en-04 · turn 7
 > Mina, again finger counting? Twenty six is wrong, ho. Answer is twenty five. Write twenty five and keep your fingers inside.
 
 A: `tell_answer` · B: `move_on_or_scold`
-Pick:
+Pick: A
+Why: gives the answer; tell_answer beats move_on_or_scold
 
 ### D043 · sub_2digit-weak-en-08 · turn 2
 > Our first sum is fifty two minus twenty seven. Write it in your notebook. Rabi, what did you get?
 
 A: `new_sum` · B: `ask_to_explain`
-Pick:
+Pick: A
+Why: asks what he got, not how = new_sum
 
 ### D044 · sub_2digit-weak-en-08 · turn 4
 > Arjoon, you also wrote thirty five? I told you, it is twenty five. Twenty five! Listen carefully, you have to borrow, then it becomes twenty five.
 
 A: `repeat_same_way` · B: `tell_answer`
-Pick:
+Pick: B
+Why: gives the answer again; tell_answer beats repeat_same_way (director@3 order; director@4 would say repeat_same_way)
 
 ### D045 · sub_2digit-weak-en-09 · turn 1
 > Good morning children, sit properly, hai na? Bag niche rakho. Today we will do subtraction. Fifty two minus twenty seven. Do it in your copy, quickly.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D046 · sub_2digit-weak-en-09 · turn 7
 > Mina, again fingers? Fingers se nahi hoga, wrong answer. It is twenty five. Write twenty five and go and sit.
 
 A: `tell_answer` · B: `move_on_or_scold`
-Pick:
+Pick: A
+Why: gives the answer; tell_answer beats move_on_or_scold
 
 ### D047 · sub_2digit-weak-en-13 · turn 1
 > Good morning children! Very nice, everyone is sitting so nicely today. Today we will do subtraction. Our first sum is fifty two minus twenty seven.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D048 · sub_2digit-weak-en-14 · turn 7
 > Mina, you are counting on fingers again? Fingers se nahi hoga. Stop it. Answer is thirty five, write it and keep copy on my table.
 
 A: `tell_answer` · B: `move_on_or_scold`
-Pick:
+Pick: A
+Why: gives the answer; tell_answer beats move_on_or_scold
 
 ### D049 · sub_2digit-weak-en-16 · turn 1
 > Good morning children. Sit properly, books inside the bag. Today we will do subtraction. Fifty two minus twenty seven, everyone write it in your notebook.
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D050 · sub_2digit-weak-en-17 · turn 1
 > Good morning children. Sit properly, okay? Today we will do subtraction. First sum is fifty two minus twenty seven. Everyone write it in your notebook.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D051 · sub_2digit-weak-en-20 · turn 8
 > Answer is 23. Who got 23? Thumbs up. Okay, those who didn't get it, just copy 23 from the board.
 
 A: `check_whole_class` · B: `tell_answer`
-Pick:
+Pick: B
+Why: gives the answer first; tell_answer beats check_whole_class
 
 ### D052 · sub_2digit-weak-en-21 · turn 6
 > The answer is thirty five. Who got thirty five? Hands up. Okay, those who got it wrong, copy the correct answer from the board.
 
 A: `check_whole_class` · B: `tell_answer`
-Pick:
+Pick: B
+Why: gives the answer first; tell_answer beats check_whole_class
 
 ### D053 · sub_2digit-weak-en-22 · turn 1
 > Good morning children. Sit down properly, today we will do subtraction. Our first sum is fifty two minus twenty seven. Everybody write it in your notebook.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D054 · sub_2digit-weak-en-25 · turn 1
 > Good morning children. Sit properly, books closed. Today we are doing subtraction. First sum, fifty two minus twenty seven.
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D055 · sub_2digit-weak-hi-02 · turn 4
 > सुनो ध्यान से। दो में से सात नहीं घटता, तो दहाई से एक लो। बारह में से सात पाँच। फिर चार में से दो, दो। जवाब पच्चीस। सब बोलो, पच्चीस।
 
 A: `tell_answer` · B: `think_aloud`
-Pick:
+Pick: A
+Why: gives the answer and has them say it; tell_answer beats think_aloud
 
 ### D056 · sub_2digit-weak-hi-12 · turn 8
 > जवाब 25 है। जिसका 25 आया वो thumbs up करो।
 
 A: `check_whole_class` · B: `tell_answer`
-Pick:
+Pick: B
+Why: gives the answer first; tell_answer beats check_whole_class
 
 ### D057 · sub_2digit-weak-hi-14 · turn 5
 > फिर से सुनो। दो में से सात नहीं जाता, तो दहाई से एक लेते हैं। बारह में से सात, पाँच। फिर चार में से दो, दो। पच्चीस। समझे? दो में से सात नहीं जाता, तो एक लेते हैं।
 
 A: `repeat_same_way` · B: `think_aloud`
-Pick:
+Pick: tell_answer
+Why: repeat that ends with the answer; director@3 order tell_answer > think_aloud > repeat_same_way (director@4 would say repeat_same_way)
 
 ### D058 · sub_2digit-weak-hi-15 · turn 10
 > ठीक है, टाइम नहीं है। होमवर्क में यही वाले पाँच सवाल करके लाना, कल चेक करूँगी।
 
 A: `move_on_or_scold` · B: `other`
-Pick:
+Pick: B
+Why: closing the lesson with homework, no wrong answer dismissed = other
 
 ### D059 · sub_2digit-weak-hi-16 · turn 6
 > अब ये करो, इकसठ माइनस चौंतीस, 61-34. Mina, उंगलियों पर मत गिनो, टाइम waste होता है। बस करो।
 
 A: `new_sum` · B: `move_on_or_scold`
-Pick:
+Pick: B
+Why: new sum + dismisses her finger counting; move_on_or_scold beats new_sum
 
 ### D060 · sub_2digit-weak-hi-18 · turn 1
 > चुप! सब लोग चुप। आज subtraction करेंगे। बोर्ड पर देखो, बावन माइनस सत्ताईस। जल्दी करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D061 · sub_2digit-weak-hi-18 · turn 5
 > Chup Mina, ungli pe mat gino, time waste hota hai. Ab agla sawaal, chauhattar minus unchaas. Jaldi likho.
 
 A: `new_sum` · B: `move_on_or_scold`
-Pick:
+Pick: B
+Why: dismisses her finger counting + new sum; move_on_or_scold beats new_sum
 
 ### D062 · sub_2digit-weak-hi-21 · turn 1
 > चलो बच्चो, जल्दी बैठो, टाइम कम है। बोर्ड पर देखो, बावन माइनस सत्ताईस।
 
 A: `other` · B: `new_sum`
-Pick:
+Pick: B
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ### D063 · sub_2digit-weak-hi-21 · turn 6
 > जवाब सत्ताईस है। जिसका सत्ताईस आया, हाथ ऊपर करो। सबका आया? ठीक है।
 
 A: `check_whole_class` · B: `tell_answer`
-Pick:
+Pick: B
+Why: gives the answer first; tell_answer beats check_whole_class
 
 ### D064 · sub_2digit-weak-hi-22 · turn 4
 > सुनो ध्यान से। दो में से सात नहीं घटता, तो दस उधार लो। बारह में से सात पाँच। फिर चार में से दो, दो। जवाब पच्चीस। सब बोलो, पच्चीस।
 
 A: `tell_answer` · B: `think_aloud`
-Pick:
+Pick: A
+Why: gives the answer and has them say it; tell_answer beats think_aloud
 
 ### D065 · sub_2digit-weak-hi-23 · turn 1
 > चुप! सब बैठ जाओ। जल्दी कॉपी खोलो। आज का सवाल है बावन माइनस सत्ताईस, 52-27। जल्दी करो।
 
 A: `new_sum` · B: `other`
-Pick:
+Pick: A
+Why: greeting/opening + a sum to try = new_sum (tie-break new_sum > other)
 
 ## Spot checks (40)
 
@@ -470,7 +537,8 @@ OK: yes
 > Ab agla sawaal. Teintalees minus untees, 43 minus 19. Mina, ungliyon pe mat gino, seedha likho.
 
 Label: `new_sum`
-OK: yes
+OK: no move_on_or_scold
+Why: new sum + dismisses her finger counting, same as D059 and D061
 
 ### S12 · sub_2digit-weak-en-13 · turn 3
 > Thirty five again? Listen. The answer is twenty five. Fifty two minus twenty seven is twenty five. Everybody say it with me, twenty five.
@@ -494,7 +562,8 @@ OK: yes
 > Now one more. Sixty one minus thirty four. Arjun, this time keep your bundles next to you and cross out the ten you open.
 
 Label: `new_sum`
-OK: yes
+OK: no concrete_materials
+Why: new sum + keep your bundles and cross out the ten = concrete_materials, same as D015
 
 ### S16 · sub_2digit-strong-hi-20 · turn 3
 > Rabi, तुम्हारा answer पैंतीस आया। बताओ, तुमने कैसे किया? ones वाले column में क्या किया?
@@ -578,7 +647,8 @@ OK: yes
 > Good morning children. Sit properly, bags under the desk. Today we do subtraction. Fifty two minus twenty seven. Do it in your copy.
 
 Label: `other`
-OK: yes
+OK: no new_sum
+Why: greeting/opening + a sum to try = new_sum, same as the other 33 openings
 
 ### S30 · sub_2digit-weak-en-08 · turn 8
 > The answer is twenty five again. Forty three minus eighteen is twenty five. Write it down, all of you.
@@ -602,13 +672,15 @@ OK: yes
 > अब सब एक नया सवाल करो, इकसठ में से चौंतीस। 61-34, bundles और sticks से करके देखो।
 
 Label: `new_sum`
-OK: yes
+OK: no concrete_materials
+Why: new sum + do it with bundles and sticks = concrete_materials, same as D029
 
 ### S34 · sub_2digit-strong-en-10 · turn 6
 > Twelve sticks, very good. You opened the bundle instead of turning the sum upside down. That is exactly the right idea. Now take away seven and count the tens left.
 
 Label: `specific_praise`
-OK: yes
+OK: no concrete_materials
+Why: tells him to take away sticks; concrete_materials beats specific_praise, same as D011
 
 ### S35 · sub_2digit-strong-hi-05 · turn 6
 > नहीं निकल रहीं ना? तो एक bundle खोल दो। अब कितनी खुली sticks हो गईं? बारह! अब बारह में से सात निकालो, और गिनो कितने bundles बचे।

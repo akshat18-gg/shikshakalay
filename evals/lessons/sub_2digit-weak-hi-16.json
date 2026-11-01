@@ -49,7 +49,7 @@
     },
     {
       "teacher": "अब ये करो, इकसठ माइनस चौंतीस, 61-34. Mina, उंगलियों पर मत गिनो, टाइम waste होता है। बस करो।",
-      "label": "new_sum",
+      "label": "move_on_or_scold",
       "addressedTo": [
         "whole_class",
         "meena"
@@ -67,6 +67,6 @@
     }
   ],
   "finalSum": "85-78",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

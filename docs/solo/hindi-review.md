@@ -1,5 +1,7 @@
 # Hindi review (H4.2)
 
+> Reviewed Sun 1 Nov 2026 by a model pass (Claude, in Claude Code); a native-speaker check by the team is still recommended.
+
 For a native Hindi speaker (ideally a primary teacher). Read each Hindi line. If it sounds unnatural for a Class 2
 classroom in North India, write a better version in the last column (or just ✗). Leave it empty if it is fine.
 The agent applies your changes and bumps the lesson file version. Numbers in children's lines are always digits on
@@ -37,7 +39,7 @@ purpose (the engine checks them).
 | `home.checkinNo` | Not yet | अभी नहीं | |
 | `home.checkinThanks` | Thank you! | धन्यवाद! | |
 | `practice.thinking` | Children are thinking… | बच्चे सोच रहे हैं… | |
-| `practice.holdToTalk` | Hold to talk | दबाकर बोलें | |
+| `practice.holdToTalk` | Hold to talk | दबाकर बोलें | → fixed: दबाए रखें और बोलें ("hold", not "press") |
 | `practice.recording` | Recording… release to send | रिकॉर्ड हो रहा है… भेजने के लिए छोड़ें | |
 | `practice.typeHere` | Or type what you say… | या जो बोलना है वह लिखें… | |
 | `practice.send` | Send | भेजें | |
@@ -64,7 +66,7 @@ purpose (the engine checks them).
 | `history.empty` | No lessons yet. | अभी कोई पाठ नहीं। | |
 | `try.title` | Try a sample | नमूना देखें | |
 | `try.intro` | Each button plays one moment from a lesson. Watch what the children say. | हर बटन पाठ का एक पल चलाता है। देखिए बच्चे क्या कहते हैं। | |
-| `try.s1` | Ask a sum: "What is 52 minus 27?" | सवाल पूछें: "52 में से 27 कितने?" | |
+| `try.s1` | Ask a sum: "What is 52 minus 27?" | सवाल पूछें: "52 में से 27 कितने?" | → fixed: सवाल पूछें: "52 में से 27 गए तो कितने बचे?" |
 | `try.s2` | Tell the answer, then a new sum | जवाब बताएँ, फिर नया सवाल | |
 | `try.s3` | Ask Ravi how he got 35 | रवि से पूछें कि 35 कैसे आया | |
 | `try.s4` | Use bundles and sticks with Ravi | रवि के साथ बंडल और तीलियाँ | |
@@ -89,7 +91,7 @@ purpose (the engine checks them).
 | `errors.internal` | Something went wrong on our side. Please try again. | हमारी तरफ़ से कुछ गड़बड़ हुई। कृपया फिर से कोशिश करें। | |
 | `moves.ask_to_explain` | Asked to explain | समझाने को कहा | |
 | `moves.compare_methods` | Compared methods | तरीकों की तुलना | |
-| `moves.concrete_materials` | Used bundles and sticks | बंडल और तीलियाँ | |
+| `moves.concrete_materials` | Used bundles and sticks | बंडल और तीलियाँ | → fixed: बंडल और तीलियों से समझाया |
 | `moves.targeted_question` | Targeted question | सटीक सवाल | |
 | `moves.think_aloud` | Thought aloud | ज़ोर से सोचकर दिखाया | |
 | `moves.new_sum` | New sum | नया सवाल | |
@@ -98,7 +100,7 @@ purpose (the engine checks them).
 | `moves.specific_praise` | Specific praise | खास तारीफ़ | |
 | `moves.tell_answer` | Told the answer | जवाब बता दिया | |
 | `moves.repeat_same_way` | Repeated the same way | वैसे ही दोहराया | |
-| `moves.move_on_or_scold` | Moved on or scolded | आगे बढ़ गए या डाँटा | |
+| `moves.move_on_or_scold` | Moved on or scolded | आगे बढ़ गए या डाँटा | → fixed: बात आगे बढ़ा दी या डाँटा ("बढ़ गए" assumed a male teacher) |
 | `moves.other` | Other | अन्य | |
 | `moves.off_task` | Off task | विषय से हटकर | |
 | `teach.lesson_facilitation` | Lesson facilitation | पाठ चलाना | |
@@ -133,23 +135,33 @@ purpose (the engine checks them).
 | `card.simple.strengthWhy.reveal` | You asked a child to explain their thinking — that is how you find the real mistake. | आपने बच्चे से उसका तरीका पूछा — असली गलती ऐसे ही पता चलती है। | |
 | `card.simple.strengthWhy.fix` | You used bundles, sticks or a sharp question to work on the mistake. | आपने बंडल, तीलियों या सही सवाल से गलती पर काम किया। | |
 | `card.simple.strengthWhy.engage` | You brought a quiet child into the lesson or praised something specific. | आपने चुप बच्चे को पाठ में शामिल किया या किसी खास बात की तारीफ़ की। | |
-| `card.simple.strengthWhy.other` | You kept the lesson going and gave the children sums to try. | आपने पाठ आगे बढ़ाया और बच्चों को सवाल करने दिए। | |
+| `card.simple.strengthWhy.other` | You kept the lesson going and gave the children sums to try. | आपने पाठ आगे बढ़ाया और बच्चों को सवाल करने दिए। | → fixed: आपने पाठ आगे बढ़ाया और बच्चों को हल करने के लिए सवाल दिए। ("सवाल करने दिए" meant "let them ask questions") |
 | `card.simple.fixWhat.tell` | The children repeated the answer, but their mistake stayed for the next sum. | बच्चों ने जवाब दोहराया, पर अगले सवाल में उनकी गलती फिर आई। | |
 | `card.simple.fixWhat.repeat` | Saying it the same way again did not change how they think. | वही बात फिर से उसी तरह कहने से उनकी सोच नहीं बदली। | |
 | `card.simple.fixWhat.scold` | A child who is scolded often stops answering. | डाँटने पर बच्चा अक्सर जवाब देना बंद कर देता है। | |
-| `card.simple.fixWhat.none` | Some children still have their mistake — they need a way to see it themselves. | कुछ बच्चों की गलती अभी बाकी है — उन्हें खुद देखने का तरीका चाहिए। | |
+| `card.simple.fixWhat.none` | Some children still have their mistake — they need a way to see it themselves. | कुछ बच्चों की गलती अभी बाकी है — उन्हें खुद देखने का तरीका चाहिए। | → fixed: कुछ बच्चों की गलती अभी बाकी है — उन्हें ऐसा तरीका चाहिए जिससे वे खुद अपनी गलती देख सकें। |
 | `card.simple.tryInstead` | Ask one child how they got their answer, then let them show it with bundles and sticks. | एक बच्चे से पूछिए कि उसने जवाब कैसे निकाला, फिर उसे बंडल और तीलियों से दिखाने दीजिए। | |
 | `card.simple.sayTomorrow` | Two of you got different answers. Tell me how you each got yours. | तुम दोनों के जवाब अलग हैं। दोनों बताओ, तुमने कैसे निकाला? | |
-| `history.turns` | {n} turns | {n} बारी | |
+| `history.turns` | {n} turns | {n} बारी | → fixed: बारी: {n} ("12 बारी" reads like "12 times") |
 | `history.tryLine` | One thing to try: | आज़माने की एक बात: | |
 | `history.openCard` | Open card | कार्ड खोलें | |
 | `history.notFinished` | Not finished | अधूरा | |
 | `home.seeCard` | See the full card | पूरा कार्ड देखें | |
 | `practice.tapToSend` | Recording… tap to send | रिकॉर्ड हो रहा है… भेजने के लिए दबाएँ | |
-| `practice.voiceNote` | 🎤 Voice note… | 🎤 आवाज़ संदेश… | |
+| `practice.voiceNote` | 🎤 Voice note… | 🎤 आवाज़ संदेश… | → fixed: 🎤 वॉइस नोट… (same word as the rest of the app) |
 | `practice.recordLabel` | Record what you say to the class | कक्षा से जो कहना है, रिकॉर्ड करें | |
 | `practice.playReply` | Play the children's reply | बच्चों का जवाब सुनें | |
 | `practice.stopRecording` | Stop and send | रोकें और भेजें | |
+
+Also fixed in `hi.json` (keys not listed above):
+- `try.voice`: 🎤 हिंदी आवाज़ संदेश → fixed: 🎤 हिन्दी वॉइस नोट (same words as `try.s5`)
+- `privacy.p1`: "शिक्षकालय तीन छात्रों का बनाया एक अभ्यास टूल है, एक हैकाथॉन के लिए।" → fixed: शिक्षकालय एक अभ्यास टूल है, जिसे तीन छात्रों ने एक हैकाथॉन के लिए बनाया है।
+- `terms.p2`: "बच्चे काल्पनिक हैं और एक कंप्यूटर प्रोग्राम चलाता है" → fixed: बच्चे काल्पनिक हैं, उन्हें एक कंप्यूटर प्रोग्राम चलाता है
+
+Not changed on purpose: `consent.body` / `wa.consent` ("…ने एक हैकथॉन के लिए बनाया अभ्यास का टूल है", "नकली बच्चों") read a little stiff but are clear;
+they are versioned consent text (`CONSENT_VERSION` v1, same text in `docs/pilot/consent.md`) that pilot teachers already agreed to, so a
+wording change belongs in a separate consent v2 if the team wants one. `practice.silent` stays gender-free ("{name} चुप है।") because any
+child can go quiet.
 
 ## 2. Lesson file (`content/scenarios/sub_2digit.yaml`)
 
@@ -157,9 +169,9 @@ purpose (the engine checks them).
 |---|---|---|---|
 | title | 2-digit subtraction with bundles and sticks | बंडल और तीलियों से दो अंकों का घटाव | |
 | ravi: name | Ravi | रवि | |
-| ravi: sample 1 | 35, Teacher! I did it first! | 35, टीचर जी! मैंने सबसे पहले किया! | |
+| ravi: sample 1 | 35, Teacher! I did it first! | 35, टीचर जी! मैंने सबसे पहले किया! | → fixed: 35, टीचर जी! मैंने सबसे पहले कर लिया! |
 | ravi: sample 2 | Easy! 8 minus 3 is 5. | आसान है! 8 में से 3 गए तो 5। | |
-| ravi: sample 3 | Me first, Teacher! Me first! | मैं पहले, टीचर जी! मैं पहले! | |
+| ravi: sample 3 | Me first, Teacher! Me first! | मैं पहले, टीचर जी! मैं पहले! | → fixed: पहले मैं, टीचर जी! पहले मैं! |
 | ravi: sample 4 | I know! I know! | मुझे पता है! मुझे पता है! | |
 | ravi: sample 5 | That's so easy, Teacher. | ये तो बहुत आसान है, टीचर जी। | |
 | arjun: name | Arjun | अर्जुन | |
@@ -172,13 +184,13 @@ purpose (the engine checks them).
 | meena: sample 1 | Wait… I'm counting on my fingers… 26. | रुकिए… उंगलियों पर गिन रही हूँ… 26। | |
 | meena: sample 2 | 52, 51, 50… I got 26, Teacher. | 52, 51, 50… मेरा 26 आया, टीचर जी। | |
 | meena: sample 3 | One minute, Teacher… I'm still counting. | एक मिनट, टीचर जी… मैं अभी गिन रही हूँ। | |
-| meena: sample 4 | Let me count again slowly. | मैं धीरे-धीरे फिर से गिनती हूँ। | |
+| meena: sample 4 | Let me count again slowly. | मैं धीरे-धीरे फिर से गिनती हूँ। | → fixed: रुकिए, मैं धीरे-धीरे फिर से गिन लूँ। ("गिनती हूँ" = "I count", habitual) |
 | meena: sample 5 | I think I counted right. | मुझे लगता है मैंने सही गिना। | |
 | sana: name | Sana | सना | |
-| sana: sample 1 | Umm… 25, Teacher? | उम्म… 25, टीचर जी? | |
+| sana: sample 1 | Umm… 25, Teacher? | उम्म… 25, टीचर जी? | → fixed: वो… 25, टीचर जी? ("उम्म" is an English filler) |
 | sana: sample 2 | I opened one bundle… | मैंने एक बंडल खोला… | |
 | sana: sample 3 | Me, Teacher? | मैं, टीचर जी? | |
-| sana: sample 4 | Umm… I think so… | उम्म… मुझे लगता है… | |
+| sana: sample 4 | Umm… I think so… | उम्म… मुझे लगता है… | → fixed: जी… शायद हाँ… |
 | sana: sample 5 | Thank you, Teacher. | थैंक यू, टीचर जी। | |
 | backup: STUCK | {answer}, Teacher! | {answer}, टीचर जी! | |
 | backup: WOBBLY | Is it {answer}? I think so… | {answer} है क्या? मुझे लगता है… | |
@@ -199,15 +211,15 @@ changes the children's prompt.
 | Arjun | answer | मेरा भी 35, टीचर जी! | Me also 35, Teacher! | |
 | Meena | answer | रुकिए… 52 में से 27… मेरा 26 आया, टीचर जी। | Wait… 52 minus 27… I got 26, Teacher. | |
 | Meena | answer | 52, 51, 50… मेरा 26 आया, टीचर जी। | 52, 51, 50… I got 26, Teacher. | |
-| Ravi | parrot | पच्चीस, टीचर जी! 25, 25, 25! | Twenty-five, Teacher! 25, 25, 25! | |
+| Ravi | parrot | पच्चीस, टीचर जी! 25, 25, 25! | Twenty-five, Teacher! 25, 25, 25! | note: number written as a word once; the prompt already asks for digits and the line check passed (25 is there) — one-off, no change |
 | Meena | parrot | 25… 25, टीचर जी। | 25… 25, Teacher. | |
-| Ravi | explain | मैंने पहले 8 में से 3 गए तो 5। फिर 4 में से 1 गए तो 3। तो 35, टीचर जी! | First 8 take away 3 is 5. Then 4 take away 1 is 3. So 35, Teacher! | |
+| Ravi | explain | मैंने पहले 8 में से 3 गए तो 5। फिर 4 में से 1 गए तो 3। तो 35, टीचर जी! | First 8 take away 3 is 5. Then 4 take away 1 is 3. So 35, Teacher! | note: "मैंने … गए तो 5" doesn't agree (should be "पहले 8 में से 3 गए तो 5"); one line only, the second explain line is fine — no prompt change |
 | Ravi | explain | आसान है, टीचर जी! पहले 8 में से 3 गए तो 5। फिर 4 में से 1 गए तो 3। तो 35! | Easy, Teacher! First 8 take away 3 is 5. Then 4 take away 1 is 3. So 35! | |
 | Arjun | explain | 12 में से 7 गए तो 5, फिर 5 में से 2 गए तो 3, तो 35, टीचर जी! | 12 take away 7 is 5, then 5 take away 2 is 3, so 35, Teacher! | |
 | Ravi | answer (wobbly) | 25? उम्म… टीचर जी, 25 है ना? | 25? Umm… Teacher, it's 25, isn't it? | |
 | Ravi | answer (wobbly) | 25, टीचर जी? शायद… | 25, Teacher? Maybe… | |
 | Ravi | answer (wobbly) | टीचर जी, मुझे... शायद 25? 3 में से 8 तो नहीं होता ना? | Teacher, I… maybe 25? You can't take 8 from 3, right? | |
-| Sana | answer | उम्म… 25, टीचर जी। मैंने एक बंडल खोला। | Umm… 25, Teacher. I opened a bundle. | |
+| Sana | answer | उम्म… 25, टीचर जी। मैंने एक बंडल खोला। | Umm… 25, Teacher. I opened a bundle. | note: "उम्म" came from Sana's sample line, now fixed in the lesson file |
 | Sana | answer | मैंने एक बंडल खोला, टीचर जी… 25। | I opened a bundle, Teacher… 25. | |
 | Ravi | puzzled | टीचर जी, गाना तो हम गणित में नहीं गाते ना? मुझे तो 52-27 वाला सवाल करना है! | Teacher, we don't sing songs in maths, do we? I want to do the 52-27 sum! | |
 | Ravi | react | OK, टीचर जी! | OK, Teacher! | |
@@ -220,12 +232,16 @@ changes the children's prompt.
 
 | Part | Hindi | English meaning | OK? / better Hindi |
 |---|---|---|---|
-| what happened | आपने जवाब बता दिया और बच्चों ने उसे दोहरा दिया, पर उनकी सोच नहीं बदली। अगली ही सम में रवि और अर्जुन फिर 35 पर आ गए और मीना फिर 26 पर। | You told the answer and the children repeated it, but their thinking didn't change. On the very next sum Ravi and Arjun went back to 35 and Meena to 26. | |
+| what happened | आपने जवाब बता दिया और बच्चों ने उसे दोहरा दिया, पर उनकी सोच नहीं बदली। अगली ही सम में रवि और अर्जुन फिर 35 पर आ गए और मीना फिर 26 पर। | You told the answer and the children repeated it, but their thinking didn't change. On the very next sum Ravi and Arjun went back to 35 and Meena to 26. | → fixed (prompt, coach@3): call a sum "सवाल", never "सम" ("सम" also means "even/equal" in Hindi). Rest is fine |
 | why it worked | आपने पहले रवि से पूछा कि उसने कैसे सोचा, फिर उसी कदम (3 में से 8) पर बंडल और तीलियाँ दिखाने को कहा। | You first asked Ravi how he thought, then asked him to show that exact step (8 from 3) with bundles and sticks. | |
-| say tomorrow | तुमने जवाब कैसे निकाला, मुझे अपने तरीके से बताओ — मैं अभी बताऊँगी नहीं। | Tell me in your own way how you got the answer — I won't tell yet. (coach@2 now avoids the feminine "बताऊँगी") | |
+| say tomorrow | तुमने जवाब कैसे निकाला, मुझे अपने तरीके से बताओ — मैं अभी बताऊँगी नहीं। | Tell me in your own way how you got the answer — I won't tell yet. (coach@2 now avoids the feminine "बताऊँगी") | note: already fixed by coach@2 (no gendered first-person verbs) |
 
 ## Questions for the reviewer
 
 1. Would a Class 2 child say "टीचर जी" or "मैडम" / "सर"? (We use "टीचर जी" everywhere.)
 2. "सम" (sum) vs "सवाल" — which do teachers actually say?
 3. Anything that sounds like a textbook rather than a child?
+
+Model-pass answers (Sun 1 Nov): 1. Keep "टीचर जी": children in UP/Bihar government schools also say "मैडम जी" / "सर जी", but those
+fix the teacher's gender, and "टीचर जी" is widely used and understood. 2. "सवाल" — Hindi-medium teachers rarely say "सम"; screen
+text already used "सवाल", and the coach prompt now does too (coach@3). 3. The few textbook-sounding lines are fixed above.

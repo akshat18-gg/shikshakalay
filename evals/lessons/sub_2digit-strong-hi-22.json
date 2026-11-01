@@ -63,7 +63,7 @@
     },
     {
       "teacher": "अब सब एक नया सवाल करो, इकसठ में से चौंतीस। 61-34, bundles और sticks से करके देखो।",
-      "label": "new_sum",
+      "label": "concrete_materials",
       "addressedTo": [
         "whole_class"
       ],
@@ -80,5 +80,5 @@
   ],
   "finalSum": "35-16",
   "reviewed": true,
-  "labelSource": "agreed"
+  "labelSource": "arbiter"
 }

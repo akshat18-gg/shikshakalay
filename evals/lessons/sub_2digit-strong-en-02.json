@@ -39,7 +39,7 @@
     },
     {
       "teacher": "Yes, twelve loose sticks. Now Meena, take away seven from the twelve, one by one. How many are left? And then how many bundles are left, and how many bundles do we take away?",
-      "label": "targeted_question",
+      "label": "concrete_materials",
       "addressedTo": [
         "meena"
       ],
@@ -64,7 +64,7 @@
     },
     {
       "teacher": "Okay Meena, now you try one more with your bundles. Sixty three minus thirty eight. Take your sticks and show me slowly.",
-      "label": "new_sum",
+      "label": "concrete_materials",
       "addressedTo": [
         "meena"
       ],
@@ -72,6 +72,6 @@
     }
   ],
   "finalSum": "40-26",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

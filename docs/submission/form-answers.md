@@ -40,8 +40,8 @@ actually change a child's thinking.
 **Solution (≈ 80 words):** A 5-minute practice classroom. The teacher teaches 2-digit subtraction by voice in Hindi
 or English to four AI children with real, consistent mistakes. Weak moves (telling the answer) don't fix them;
 asking a child to explain and then using bundles and sticks does — step by step. At the end she gets a private
-coaching card: one strength, one fix and one line for tomorrow, each quoting her own words. Works on the web (PWA)
-and on WhatsApp voice notes.
+coaching card: one strength, one fix and one line for tomorrow, each quoting her own words. Works on any phone
+browser (installable PWA); a WhatsApp voice-note door is built and switches on with a paid Twilio number.
 
 **How AI is used (≈ 100 words):** Three Claude roles, each with structured (Zod-checked) output. The Director (Claude
 Haiku 5.5) tags each teacher turn with one of 14 moves from the World Bank Teach tool. A plain TypeScript engine — not
@@ -56,8 +56,8 @@ polite in-character reaction; rate limit (40 turns/user/hour) and a daily AI bud
 trainers see totals from 5+ teachers only.
 
 **Low connectivity:** text first, audio after (≈ 16 KB/s MP3 on web, ≈ 3 KB/s Opus on WhatsApp); installable PWA that
-opens offline; retries never double a turn (idempotency keys); WhatsApp voice notes for teachers without a good
-browser.
+opens offline; retries never double a turn (idempotency keys); the WhatsApp voice-note door (built, ≈ 3 KB/s audio)
+is ready for teachers without a good browser once a paid Twilio number is connected.
 
 **User testing:** PILOT-SUMMARY-HERE (e.g. "N teachers, Classes 1–3, Hindi and English medium, M lessons; ease 6.1/7;
 what we changed: …" — only with ≥ 5 teachers; else say how many and what we learned).

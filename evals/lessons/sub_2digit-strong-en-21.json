@@ -47,7 +47,7 @@
     },
     {
       "teacher": "Very nice, Arjun, you crossed out the five and wrote four after opening the bundle. Now everybody try sixty three minus twenty eight, 63-28.",
-      "label": "new_sum",
+      "label": "specific_praise",
       "addressedTo": [
         "whole_class"
       ],
@@ -55,6 +55,6 @@
     }
   ],
   "finalSum": "95-67",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

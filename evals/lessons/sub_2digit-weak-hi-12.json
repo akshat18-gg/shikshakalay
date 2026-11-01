@@ -63,7 +63,7 @@
     },
     {
       "teacher": "जवाब 25 है। जिसका 25 आया वो thumbs up करो।",
-      "label": "check_whole_class",
+      "label": "tell_answer",
       "addressedTo": [
         "whole_class"
       ],
@@ -79,6 +79,6 @@
     }
   ],
   "finalSum": "76-48",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }
