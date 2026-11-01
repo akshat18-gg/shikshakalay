@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { BundlesSticks } from "@/components/art/BundlesSticks";
 import { CheckinPrompt } from "@/components/CheckinPrompt";
 import { StartButton } from "@/components/StartButton";
 import { requirePageUser } from "@/lib/auth";
@@ -20,21 +21,25 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-2xl font-bold text-heading">{t("home.greeting", lang, { code: user.code })}</h1>
-        <p className="mt-1 text-muted-foreground">{t("app.tagline", lang)}</p>
+        <h1 className="text-3xl font-semibold text-heading sm:text-4xl">
+          {t("home.greeting", lang, { code: user.code })}
+        </h1>
+        <p className="mt-1 text-xl text-muted-foreground">{t("app.tagline", lang)}</p>
       </div>
 
       {due && (
-        <section className="border-l-4 border-mint glass p-4">
+        <section className="tile p-4">
           <CheckinPrompt sessionId={due.sessionId} />
         </section>
       )}
 
-      <section aria-labelledby="skill" className="border-l-4 border-teal glass-teal p-4">
-        <h2 id="skill" className="text-lg font-semibold">
+      {/* The skill tile, apple.com style: headline, one line, the material itself, one button. */}
+      <section aria-labelledby="skill" className="tile-alt p-6 sm:p-8">
+        <h2 id="skill" className="text-2xl font-semibold">
           {t("home.skillTitle", lang)}
         </h2>
         <p className="mt-2 text-muted-foreground">{t("home.skillHint", lang)}</p>
+        <BundlesSticks tens={4} ones={3} className="mt-6 h-24 w-auto max-w-full" />
         <StartButton />
       </section>
 

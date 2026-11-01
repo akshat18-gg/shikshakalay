@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans, Noto_Sans_Devanagari } from "next/font/google";
+import { Noto_Sans_Devanagari } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { LangProvider } from "@/components/LangProvider";
 import { ServiceWorker } from "@/components/ServiceWorker";
@@ -9,7 +9,7 @@ import { t } from "@/lib/i18n";
 import { currentLang } from "@/lib/lang";
 import "./globals.css";
 
-const notoSans = Noto_Sans({ variable: "--font-noto-sans", subsets: ["latin"], display: "swap" });
+// Latin text uses the system font (as apple.com does); Noto Sans Devanagari covers Hindi on every device.
 const notoDeva = Noto_Sans_Devanagari({ variable: "--font-noto-deva", subsets: ["devanagari"], display: "swap" });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,13 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const viewport: Viewport = { themeColor: "#0b0d10", viewportFit: "cover" };
+export const viewport: Viewport = { themeColor: "#161617", viewportFit: "cover" };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const user = await getUser();
   const lang = await currentLang(user);
   return (
-    <html lang={lang} className={`${notoSans.variable} ${notoDeva.variable} h-full antialiased`}>
+    <html lang={lang} className={`${notoDeva.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <LangProvider lang={lang}>
           <TopBar lang={lang} loggedIn={user !== null} />

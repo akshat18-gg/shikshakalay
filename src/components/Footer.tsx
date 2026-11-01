@@ -3,13 +3,14 @@ import type { Lang } from "@/lib/contracts";
 import { t } from "@/lib/i18n";
 import { CONTACT_EMAIL, REPO_URL } from "@/lib/site";
 
+/** apple.com's footer: light grey, small quiet text, links that underline on hover. */
 export function Footer({ lang }: { lang: Lang }) {
-  const link = "inline-flex min-h-11 items-center underline";
+  const link = "inline-flex min-h-11 items-center text-[#424245] hover:underline";
   return (
-    <footer className="border-t border-border glass-teal">
-      <div className="mx-auto flex max-w-3xl flex-col gap-1 px-4 py-4 text-sm text-muted-foreground">
+    <footer className="bg-pale">
+      <div className="mx-auto flex max-w-3xl flex-col gap-1 px-4 py-5 text-xs text-muted-foreground">
         <p>{t("footer.team", lang)}</p>
-        <nav className="flex flex-wrap gap-x-4">
+        <nav className="flex flex-wrap gap-x-5">
           <a className={link} href={`mailto:${CONTACT_EMAIL}`}>
             {t("footer.contact", lang)}: {CONTACT_EMAIL}
           </a>

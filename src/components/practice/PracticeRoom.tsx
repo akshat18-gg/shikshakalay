@@ -7,6 +7,7 @@
  */
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { ChildAvatar } from "@/components/art/ChildAvatar";
 import { Button } from "@/components/ui/button";
 import { ApiClientError, endLesson, sendTurn } from "@/lib/api";
 import type { SessionView, TurnResult } from "@/lib/contracts";
@@ -143,20 +144,18 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
   return (
     <div className="flex min-h-[calc(100dvh-8rem)] flex-col gap-3">
       <div className="flex items-center justify-between gap-2 border-b border-border pb-2">
-        {/* Each child's name with a coloured dot; a withdrawn child (engagement 0) goes grey with a hollow dot. */}
+        {/* Each child as an avatar + name; a withdrawn child (engagement 0) fades to grey. */}
         <ul className="flex flex-wrap gap-x-3 gap-y-1" aria-label={t("practice.title")}>
           {CHILDREN.map((id) => {
             const quiet = states.find((c) => c.id === id)?.engagement === 0;
+            const name = t(CHILD_STYLE[id].name);
             return (
               <li
                 key={id}
-                className={`flex items-center gap-1.5 font-semibold transition-colors duration-300 ${quiet ? "text-muted-foreground" : CHILD_STYLE[id].text}`}
+                className={`flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300 ${quiet ? "text-muted-foreground" : CHILD_STYLE[id].text}`}
               >
-                <span
-                  aria-hidden="true"
-                  className={`size-2 rounded-full transition-colors duration-300 ${quiet ? "border border-current" : CHILD_STYLE[id].dot}`}
-                />
-                {t(CHILD_STYLE[id].name)}
+                <ChildAvatar id={id} name={name} quiet={quiet} size={26} />
+                {name}
               </li>
             );
           })}
@@ -247,7 +246,7 @@ export function PracticeRoom({ initial }: { initial: SessionView }) {
                 maxLength={1000}
                 autoComplete="off"
                 disabled={busy}
-                className="h-11 min-w-0 flex-1 border border-input bg-background px-3 outline-none transition-[box-shadow,border-color] duration-150 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="h-11 min-w-0 flex-1 rounded-full border border-input bg-background px-4 outline-none transition-[box-shadow,border-color] duration-150 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
               />
               <Button type="submit" disabled={busy || !text.trim()}>
                 {t("practice.send")}

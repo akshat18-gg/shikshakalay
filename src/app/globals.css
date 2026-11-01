@@ -5,8 +5,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans), var(--font-noto-deva), system-ui, sans-serif;
-  --font-heading: var(--font-noto-sans), var(--font-noto-deva), system-ui, sans-serif;
+  /* The system font, as apple.com does (SF on Apple devices, Segoe / Roboto elsewhere); Noto for Devanagari. */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial,
+    var(--font-noto-deva), sans-serif;
+  --font-heading: var(--font-sans);
   --color-navy: var(--navy);
   --color-teal: var(--teal);
   --color-teal-strong: var(--teal-strong);
@@ -18,6 +21,7 @@
   --color-child-meena: var(--child-meena);
   --color-child-sana: var(--child-sana);
   --color-heading: var(--heading);
+  --color-bubble: var(--bubble);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -57,58 +61,60 @@
 }
 
 /*
- * Shikshakalay design tokens — defined once, used everywhere. Dark glass theme (operator's request, 1 Nov):
- * a near-black base with soft teal/mint glows, translucent "glass" panels, and the deck's teal and mint as the
- * accents. Every text colour passes WCAG AA on the base (muted text 8.6:1, mint 12:1, each child ≥ 7:1).
- * teal-strong stays the teacher-bubble colour (white on it is 5.4:1). Square corners: --radius 0.
+ * Shikshakalay design tokens — defined once, used everywhere.
+ * Style: apple.com (operator's request, Sun 1 Nov 2026). White pages, light-grey tiles (#f5f5f7), near-black text
+ * (#1d1d1f), grey captions (#6e6e73), blue links (#0066cc) and pill buttons (#0071e3), a dark translucent nav,
+ * 18 px tiles. The chat uses Apple's Messages look: blue bubbles for the teacher, grey for the children.
+ * Legacy token names (navy, teal, mint, pale) are kept so existing classes still work, mapped to this palette.
+ * Every text colour passes WCAG AA on its surface (captions 4.6:1 on the grey tile, white on blue 4.6:1).
  */
 :root {
-  --navy: #0b2850;
-  --teal: #3a8e93;
-  --teal-strong: #2e7479;
-  --mint: #8fd3cd;
-  --ink: #0b1220;
-  --pale: #e5f2f1;
-  /* lighter than the light theme's child colours so names read on dark glass */
-  --child-ravi: #fb923c;
-  --child-arjun: #7cb3ff;
-  --child-meena: #c084fc;
-  --child-sana: #f472b6;
+  --navy: #1d1d1f; /* near-black (text, dark surfaces) */
+  --teal: #0071e3; /* accent blue */
+  --teal-strong: #0066cc; /* the teacher's bubble: white text on it is 5.7:1 (safe even mid-fade) */
+  --mint: #0066cc; /* link blue (also bars, the pressed language button) */
+  --ink: #1d1d1f;
+  --pale: #f5f5f7; /* the light-grey tile */
+  --child-ravi: #b03a0a; /* ≥ 5.5:1 on the grey bubble */
+  --child-arjun: #1d4ed8;
+  --child-meena: #7e22ce;
+  --child-sana: #ad1457;
 
-  --background: #0b0d10;
-  --foreground: #eef2f5;
-  --heading: #f6f9fc;
-  --card: rgb(255 255 255 / 0.06);
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --heading: #1d1d1f;
+  --bubble: #e9e9eb; /* a child's grey bubble */
+  --card: #f5f5f7;
   --card-foreground: var(--foreground);
-  --popover: #15181d;
+  --popover: #ffffff;
   --popover-foreground: var(--foreground);
-  --primary: var(--mint);
-  --primary-foreground: var(--ink);
-  --secondary: rgb(255 255 255 / 0.1);
+  --primary: #0071e3;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f7;
   --secondary-foreground: var(--foreground);
-  --muted: rgb(255 255 255 / 0.08);
-  --muted-foreground: #a9b4bf;
-  --accent: var(--mint);
-  --accent-foreground: var(--ink);
-  --destructive: #f87171;
-  --border: rgb(255 255 255 / 0.14);
-  --input: rgb(255 255 255 / 0.32);
-  --ring: var(--mint);
-  --chart-1: var(--mint);
-  --chart-2: var(--teal);
-  --chart-3: #ffffff;
+  --muted: #f5f5f7;
+  --muted-foreground: #6e6e73;
+  --accent: #0071e3;
+  --accent-foreground: #ffffff;
+  --destructive: #d70015; /* Apple's accessible red (5.9:1 on white) */
+  --border: #d2d2d7;
+  --input: #86868b;
+  --ring: #0071e3;
+  --chart-1: #0071e3;
+  --chart-2: #1d1d1f;
+  --chart-3: #86868b;
   --chart-4: var(--child-ravi);
   --chart-5: var(--child-meena);
-  --radius: 0rem;
-  --sidebar: var(--card);
+  --radius: 1.125rem; /* 18 px tiles; buttons are pills (rounded-full) */
+  --sidebar: var(--pale);
   --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--mint);
-  --sidebar-primary-foreground: var(--ink);
-  --sidebar-accent: var(--mint);
-  --sidebar-accent-foreground: var(--ink);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--pale);
+  --sidebar-accent-foreground: var(--foreground);
   --sidebar-border: var(--border);
-  --sidebar-ring: var(--mint);
-  color-scheme: dark;
+  --sidebar-ring: var(--ring);
+  color-scheme: light;
 }
 
 @layer base {
@@ -116,37 +122,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
-    /* near-black with two soft glows, so the glass panels have something to blur */
-    background-color: var(--background);
-    background-image:
-      radial-gradient(70% 45% at 15% 0%, rgb(58 142 147 / 0.28), transparent 65%),
-      radial-gradient(55% 40% at 100% 100%, rgb(143 211 205 / 0.14), transparent 65%);
-    background-repeat: no-repeat;
-    min-height: 100dvh;
+    @apply bg-background text-foreground;
     /* keep content clear of the phone's home bar and notch */
     padding-bottom: env(safe-area-inset-bottom);
-    /* body copy: comfortable leading; headings tighten below */
-    line-height: 1.55;
+    /* apple.com body copy: 17 px with 1.47 leading; headings tighten below */
+    font-size: 1.0625rem;
+    line-height: 1.47;
   }
   html {
     @apply font-sans;
     font-optical-sizing: auto;
-    background-color: var(--background); /* behind the body's gradient on over-scroll */
+    -webkit-font-smoothing: antialiased;
     /* we draw our own press feedback (.press), so no grey tap flash on phones */
     -webkit-tap-highlight-color: transparent;
   }
-  ::placeholder {
-    color: var(--muted-foreground);
-    opacity: 1;
-  }
-  ::selection {
-    background: color-mix(in oklab, var(--mint) 45%, transparent);
-  }
   /* Type changes shape with size: large text wants tighter tracking and leading, body stays near 0. */
   :is(h1, h2, h3) {
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     text-wrap: balance;
   }
   :is(p, li, blockquote, dd) {
@@ -154,7 +148,7 @@
   }
   /* Devanagari has tall ascenders and descenders: looser leading, never negative tracking. */
   html[lang="hi"] body {
-    line-height: 1.7;
+    line-height: 1.65;
   }
   html[lang="hi"] :is(h1, h2, h3) {
     letter-spacing: 0;
@@ -163,13 +157,19 @@
   :is(button, [role="button"], a, input, label) {
     touch-action: manipulation; /* no double-tap zoom delay on the things people tap */
   }
+  ::placeholder {
+    color: var(--muted-foreground);
+    opacity: 1;
+  }
+  ::selection {
+    background: #b3d7ff;
+  }
 }
 
 /*
  * Motion and materials (after Apple's "Designing Fluid Interfaces", translated to CSS):
  * - feedback lands on pointer-down and is instant (.press);
- * - floating chrome is a translucent material that content scrolls under (.material-*), with a soft scroll edge
- *   instead of a hard 1 px divider (.edge-*);
+ * - floating chrome is a translucent material that content scrolls under (.material-*);
  * - new chat lines arrive from their current value with a near-critically-damped curve (.bubble-in);
  * - everything degrades for reduced motion, reduced transparency and high contrast (media queries at the end).
  */
@@ -188,53 +188,43 @@
     transition-duration: 100ms;
   }
 
-  /* Glass: a faint white tint, a blur of what is behind, a hairline edge, and a brighter top edge (light). */
-  .glass {
-    background-color: rgb(255 255 255 / 0.06);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid rgb(255 255 255 / 0.12);
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.1),
-      0 12px 32px -20px rgb(0 0 0 / 0.8);
+  /* apple.com tiles: opaque, rounded, no border; .tile is white on grey pages, .tile-alt is the grey one */
+  .tile {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
   }
-  .glass-teal {
-    background-color: color-mix(in oklab, var(--teal) 22%, rgb(255 255 255 / 0.04));
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid rgb(143 211 205 / 0.22);
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.12),
-      0 12px 32px -20px rgb(0 0 0 / 0.8);
-  }
-  /* floating chrome: darker, heavier glass than the panels (weight = hierarchy) */
-  .material-navy,
-  .material-light {
-    background-color: rgb(11 13 16 / 0.72);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
-    backdrop-filter: blur(18px) saturate(160%);
-  }
-  /* a bright edge reads as light catching the material; the shadow is the scroll edge */
-  .edge-bottom {
-    box-shadow:
-      inset 0 -1px 0 rgb(255 255 255 / 0.1),
-      0 12px 28px -14px rgb(0 0 0 / 0.9);
-  }
-  .edge-top {
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.12),
-      0 -12px 28px -16px rgb(0 0 0 / 0.8);
+  .tile-alt {
+    background-color: var(--pale);
+    border-radius: var(--radius);
   }
 
+  /* apple.com's global nav: dark, translucent, 20 px blur — the page scrolls under it */
+  .material-navy {
+    background-color: rgb(22 22 23 / 0.8);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+  /* the composer at the bottom: light translucent material with a hairline */
+  .material-light {
+    background-color: rgb(255 255 255 / 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+  .edge-bottom {
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.16);
+  }
+  .edge-top {
+    box-shadow: 0 -1px 0 var(--border);
+  }
+
+  /* a slide only (no opacity), so colours are never sampled half-faded */
   .bubble-in {
-    transition:
-      opacity 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
-      transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   @starting-style {
     .bubble-in {
-      opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(10px);
     }
   }
 
@@ -248,14 +238,14 @@
   }
   @keyframes halo {
     from {
-      box-shadow: 0 0 0 0 rgb(180 35 24 / 0.45);
+      box-shadow: 0 0 0 0 rgb(215 0 21 / 0.4);
     }
     to {
-      box-shadow: 0 0 0 14px rgb(180 35 24 / 0);
+      box-shadow: 0 0 0 14px rgb(215 0 21 / 0);
     }
   }
 
-  /* "Children are thinking…": three dots that take turns */
+  /* "Children are thinking…": three dots that take turns, like Messages */
   .dots > span {
     display: inline-block;
     width: 0.35rem;
@@ -298,7 +288,7 @@
 /* Reduced motion is still feedback, just non-vestibular: cross-fades instead of movement, no loops. */
 @media (prefers-reduced-motion: reduce) {
   .bubble-in {
-    transition: opacity 200ms ease;
+    transition: none;
     transform: none;
   }
   @starting-style {
@@ -315,40 +305,36 @@
     transition: none;
   }
 }
-/* Frostier when asked: solid surfaces, no blur; high contrast adds a defined edge. */
 @media (prefers-reduced-transparency: reduce) {
-  .material-navy,
-  .material-light {
-    background-color: var(--background);
+  .material-navy {
+    background-color: #161617;
     backdrop-filter: none;
   }
-  .glass,
-  .glass-teal {
-    background-color: #15181d;
+  .material-light {
+    background-color: var(--background);
     backdrop-filter: none;
   }
 }
 @media (prefers-contrast: more) {
-  .material-navy,
+  .material-navy {
+    background-color: #000000;
+    backdrop-filter: none;
+  }
   .material-light {
     background-color: var(--background);
     backdrop-filter: none;
-    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.6);
+    box-shadow: 0 -1px 0 var(--foreground);
   }
-  .glass,
-  .glass-teal {
-    background-color: #15181d;
-    backdrop-filter: none;
-    border-color: rgb(255 255 255 / 0.6);
+  .tile,
+  .tile-alt {
+    border: 1px solid var(--foreground);
   }
 }
 @supports not (backdrop-filter: blur(1px)) {
-  .material-navy,
+  .material-navy {
+    background-color: #161617;
+  }
   .material-light {
     background-color: var(--background);
-  }
-  .glass,
-  .glass-teal {
-    background-color: #15181d;
   }
 }

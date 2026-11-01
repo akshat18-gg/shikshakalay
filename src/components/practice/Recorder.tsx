@@ -134,7 +134,7 @@ export function Recorder({
         aria-label={recording ? t("practice.stopRecording") : t("practice.recordLabel")}
         aria-pressed={recording}
         // .press: the button shrinks the instant it is pressed; the halo breathes while recording.
-        className={`press relative grid size-16 shrink-0 touch-none place-items-center rounded-full bg-primary text-primary-foreground outline-none select-none focus-visible:ring-3 focus-visible:ring-white/70 disabled:opacity-50 aria-pressed:bg-destructive aria-pressed:text-ink ${recording ? "recording-halo" : ""}`}
+        className={`press relative grid size-16 shrink-0 touch-none place-items-center rounded-full bg-primary text-primary-foreground outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-50 aria-pressed:bg-destructive aria-pressed:text-white ${recording ? "recording-halo" : ""}`}
       >
         <svg viewBox="0 0 60 60" className="absolute inset-0 size-16 -rotate-90" aria-hidden="true">
           <circle

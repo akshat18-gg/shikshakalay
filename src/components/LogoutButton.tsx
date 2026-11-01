@@ -17,7 +17,7 @@ export function LogoutButton() {
     <button
       type="button"
       onClick={leave}
-      className="min-h-11 px-2 text-sm underline outline-none focus-visible:ring-3 focus-visible:ring-mint"
+      className="press min-h-11 px-1 text-xs text-white/85 outline-none hover:text-white focus-visible:ring-3 focus-visible:ring-white/60"
     >
       {t("nav.logout")}
     </button>
