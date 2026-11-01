@@ -179,12 +179,14 @@ export function parseReview(md: string) {
 
 /**
  * Applies the picks to the lessons. A lesson becomes reviewed when the checker agreed on every turn, or when every
- * disagreement in it has a pick. A lesson with any hand-set label gets labelSource "human".
+ * disagreement in it has a pick. A lesson with any picked label gets `source`: "human" when a person made the
+ * picks, "arbiter" when a third model pass made them (the README says which, honestly).
  */
 export function applyReview(
   lessons: EvalLesson[],
   checked: CheckerResult,
   review: ReturnType<typeof parseReview>,
+  source: "human" | "arbiter" = "human",
 ): EvalLesson[] {
   const { disagreements, missing } = compare(lessons, checked);
   return lessons.map((l) => {
@@ -208,7 +210,7 @@ export function applyReview(
       ...l,
       turns,
       reviewed: !undecided,
-      labelSource: human ? "human" : undecided ? "generator" : "agreed",
+      labelSource: human ? source : undecided ? "generator" : "agreed",
     });
   });
 }
@@ -296,13 +298,15 @@ async function main() {
   if (args.includes("--apply")) {
     const checked = JSON.parse(readFileSync(CHECK_FILE, "utf8")) as CheckerResult;
     const review = parseReview(readFileSync(REVIEW_FILE, "utf8"));
-    const updated = applyReview(lessons, checked, review);
+    // --source arbiter: the picks came from a third model pass, not a person.
+    const source = args.includes("--source") && args[args.indexOf("--source") + 1] === "arbiter" ? "arbiter" : "human";
+    const updated = applyReview(lessons, checked, review, source);
     saveLessons(updated);
     const undecided = review.picks.filter((p) => !p.move).length;
     const yes = review.spots.filter((s) => s.ok).length;
     console.log(
       `✓ ${updated.filter((l) => l.reviewed).length}/${updated.length} lessons reviewed · ${undecided} disagreements still open · ` +
-        `spot checks: ${yes}/${review.spots.length} agreed labels confirmed by hand`,
+        `spot checks: ${yes}/${review.spots.length} agreed labels confirmed (${source === "human" ? "by hand" : "by the arbiter pass"})`,
     );
     return;
   }

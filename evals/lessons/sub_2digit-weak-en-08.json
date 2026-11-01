@@ -32,7 +32,7 @@
     },
     {
       "teacher": "Arjoon, you also wrote thirty five? I told you, it is twenty five. Twenty five! Listen carefully, you have to borrow, then it becomes twenty five.",
-      "label": "repeat_same_way",
+      "label": "tell_answer",
       "addressedTo": [
         "arjun"
       ],
@@ -88,6 +88,6 @@
     }
   ],
   "finalSum": "63-37",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }

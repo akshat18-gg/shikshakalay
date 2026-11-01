@@ -7,7 +7,7 @@
   "turns": [
     {
       "teacher": "Good morning children. Sit properly, bags under the desk. Today we do subtraction. Fifty two minus twenty seven. Do it in your copy.",
-      "label": "other",
+      "label": "new_sum",
       "addressedTo": [
         "whole_class"
       ],
@@ -58,5 +58,5 @@
   ],
   "finalSum": "72-56",
   "reviewed": true,
-  "labelSource": "agreed"
+  "labelSource": "arbiter"
 }

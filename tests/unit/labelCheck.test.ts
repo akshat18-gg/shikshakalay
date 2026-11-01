@@ -66,6 +66,9 @@ describe("label check", () => {
     // The first spot check (lesson a, turn 1 in render order) was changed by hand.
     expect(out[0]!.turns[0]!.label).toBe("think_aloud");
     expect(out[0]!.labelSource).toBe("human");
+    // Picks made by a third model pass are recorded as such, never as "human".
+    const byArbiter = applyReview(lessons, c, parseReview(md), "arbiter");
+    expect(byArbiter.map((l) => l.labelSource)).toEqual(["arbiter", "arbiter"]);
     // "A" keeps the first label.
     const keep = parseReview(renderReview(disagreements, [], 5).replace("Pick:\n", "Pick: A\n"));
     expect(keep.picks[0]!.move).toBe("other");

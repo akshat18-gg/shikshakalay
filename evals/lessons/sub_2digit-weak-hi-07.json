@@ -56,7 +56,7 @@
     },
     {
       "teacher": "Ab agla sawaal. Teintalees minus untees, 43 minus 19. Mina, ungliyon pe mat gino, seedha likho.",
-      "label": "new_sum",
+      "label": "move_on_or_scold",
       "addressedTo": [
         "meena"
       ],
@@ -81,5 +81,5 @@
   ],
   "finalSum": "62-29",
   "reviewed": true,
-  "labelSource": "agreed"
+  "labelSource": "arbiter"
 }

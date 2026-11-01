@@ -47,7 +47,7 @@
     },
     {
       "teacher": "Twelve sticks, very good. You opened the bundle instead of turning the sum upside down. That is exactly the right idea. Now take away seven and count the tens left.",
-      "label": "specific_praise",
+      "label": "concrete_materials",
       "addressedTo": [
         "ravi"
       ],
@@ -79,6 +79,6 @@
     }
   ],
   "finalSum": "71-32",
-  "reviewed": false,
-  "labelSource": "generator"
+  "reviewed": true,
+  "labelSource": "arbiter"
 }
