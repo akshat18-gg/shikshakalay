@@ -130,6 +130,10 @@ async function main() {
       const turn = await sendTurn("No, it is 25. Everyone say 25.");
       for (const child of ["ravi", "arjun", "meena"]) expectSays(turn, child, "25");
     });
+    await step('"So what is 52 minus 27?" (same sum) → they still say 25', async () => {
+      const turn = await sendTurn("So what is 52 minus 27?");
+      for (const child of ["ravi", "arjun", "meena"]) expectSays(turn, child, "25");
+    });
     await step('"Now 43 minus 18?" → Ravi and Arjun say 35 again', async () => {
       const key = crypto.randomUUID();
       const turn = await sendTurn("Now 43 minus 18?", key);

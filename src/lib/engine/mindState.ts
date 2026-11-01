@@ -67,8 +67,10 @@ export function applyMove(
   const task = parseTask(director.newTask, state.currentSum);
   if (task.kind === "impossible" || task.kind === "unsupported") return state;
   if (task.kind === "sum") {
+    // A told answer is "for this sum only": asking the same sum again keeps it, a different sum clears it
+    // (so "No, it's 19." → "So what is 23 − 4?" still gets 19; the mistake comes back on the next sum).
+    if (!sameSum(task.sum, state.currentSum)) parrots = {};
     currentSum = task.sum;
-    parrots = {};
   }
 
   const targets = new Set(targetsOf(state, director));
